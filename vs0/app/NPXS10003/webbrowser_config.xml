@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application_settings version="1.0" bg_color="18,45,71,0.97">
+  <setting_list id="config_main_page" title="msg_settings">
+    <toggle_switch id="backtouch_btn" title="msg_use_rear_touch_pad" icon="config_texture_spna" key="/webbrowser/backtouch" default_value="0" />
+    <toggle_switch id="mouse_cursor_btn" title="msg_use_pointer" hint=" " icon="config_texture_spna" key="/webbrowser/mouse_cursor" default_value="1" />    
+    <toggle_switch id="cookie_list" title="msg_allow_cookie" icon="config_texture_spna" key="/webbrowser/cookie" default_value="1" />
+    <toggle_switch id="javascript_list" title="msg_enable_javascript" icon="config_texture_spna" key="/webbrowser/javascript" default_value="1" />
+    <toggle_switch id="flash_list" title="msg_enable_flash_player" icon="config_texture_spna" key="/webbrowser/flash" default_value="1" />
+    <button id="cookie_del_btn" title="msg_delete_cookies" icon="config_texture_spna" />
+    <button id="searchhistory_del_btn" title="msg_clear_search_history" icon="config_texture_spna" />
+    <setting_list id="security_sub_page" title="msg_pc_security" icon="config_texture_spna">
+      <button id="trendmicro_btn" title="msg_trendmicro" icon="config_texture_spna"/>
+    </setting_list>
+  </setting_list>
+</application_settings>
