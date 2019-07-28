@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a5" format-ver="01.00" content-rev="2">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#f06317ff"/>
+	
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:party</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+	
+	<frame id="frame1">
+		
+		<!--English-->
+		<liveitem>
+			<lang>en</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Welcome to Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--English UK-->
+		<liveitem>
+			<lang>en-gb</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Welcome to Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--Japanese-->
+		<liveitem>
+			<lang>ja</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">パーティーへようこそ！</str>
+			</text>
+		</liveitem>
+		
+		<!--Danish-->
+		<liveitem>
+			<lang>da</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Velkommen til Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--Dutch-->
+		<liveitem>
+			<lang>nl</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Welkom bij Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--Finnish-->
+		<liveitem>
+			<lang>fi</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Tervetuloa Ryhmä-sovellukseen!</str>
+			</text>
+		</liveitem>
+		
+		<!--French-->
+		<liveitem>
+			<lang>fr</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Bienvenue à Party !</str>
+			</text>
+		</liveitem>
+		
+		<!--German-->
+		<liveitem>
+			<lang>de</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Willkommen bei Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--Italian-->
+		<liveitem>
+			<lang>it</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Benvenuto a Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--Korean-->
+		<liveitem>
+			<lang>ko</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">파티에 오신 것을 환영합니다.</str>
+			</text>
+		</liveitem>
+		
+		<!--Norwegian-->
+		<liveitem>
+			<lang>no</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Velkommen til Gruppe!</str>
+			</text>
+		</liveitem>
+		
+		<!--Polish-->
+		<liveitem>
+			<lang>pl</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Witamy na Imprezie!</str>
+			</text>
+		</liveitem>
+		
+		<!--Portuguese-->
+		<liveitem>
+			<lang>pt</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Bem-vindo à Grupo!</str>
+			</text>
+		</liveitem>
+		
+		<!--Portuguese Brazil-->
+		<liveitem>
+			<lang>pt-br</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Bem-vindo à Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--Russian-->
+		<liveitem>
+			<lang>ru</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Добро пожаловать на Тусовку!</str>
+			</text>
+		</liveitem>
+		
+		<!--Spanish-->
+		<liveitem>
+			<lang>es</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">¡Bienvenido a Grupos!</str>
+			</text>
+		</liveitem>
+		
+		<!--Swedish-->
+		<liveitem>
+			<lang>sv</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Välkommen på Party!</str>
+			</text>
+		</liveitem>
+		
+		<!--Turkish-->
+		<liveitem>
+			<lang>tr</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">Grup Uygulamasına Hoş Geldiniz!</str>
+			</text>
+		</liveitem>		
+		
+		<!--Chinese (traditional)-->
+		<liveitem>
+			<lang>ch</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">歡迎來到派對！</str>
+			</text>
+		</liveitem>
+		
+		<!--Chinese (simplified)-->
+		<liveitem>
+			<lang>zh</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="30">欢迎来到派对！</str>
+			</text>
+		</liveitem>
+		
+	</frame>
+
+	<frame id="frame2">
+		<!--English-->
+		<liveitem>
+			<lang>en</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Enjoy voice chat and play games with your Friends.</str>
+			</text>
+		</liveitem>
+		
+		<!--English-UK-->
+		<liveitem>
+			<lang>en-gb</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Enjoy voice chat and play games with your Friends.</str>
+			</text>
+		</liveitem>
+		
+		<!--Japanese-->
+		<liveitem>
+			<lang>ja</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">フレンドとボイスチャットしたり、一緒にゲームをプレイしたりして楽</str>
+			</text>
+		</liveitem>
+		
+		<!--Danish-->
+		<liveitem>
+			<lang>da</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Mor dig med at stemmechatte og spille spil med dine venner.</str>
+			</text>
+		</liveitem>
+		
+		<!--Dutch-->
+		<liveitem>
+			<lang>nl</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Geniet van voicechat en speel games met je vrienden.</str>
+			</text>
+		</liveitem>
+		
+		<!--Finnish-->
+		<liveitem>
+			<lang>fi</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Äänichattaile ja pelaa pelejä ystäviesi kanssa.</str>
+			</text>
+		</liveitem>
+		
+		<!--French-->
+		<liveitem>
+			<lang>fr</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Profitez du chat vocal et jouez avec vos amis.</str>
+			</text>
+		</liveitem>
+		
+		<!--German-->
+		<liveitem>
+			<lang>de</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Nutze den Sprach-Chat und spiele Spiele mit deinen</str>
+			</text>
+		</liveitem>
+		
+		<!--Italian-->
+		<liveitem>
+			<lang>it</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Usa la chat vocale e gioca con i tuoi amici.</str>
+			</text>
+		</liveitem>
+		
+		<!--Korean-->
+		<liveitem>
+			<lang>ko</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">친구와 음성 대화를 나누거나 함께 게임을 플레이하면서 즐길 수 있습니다.</str>
+			</text>
+		</liveitem>
+		
+		<!--Norwegian-->
+		<liveitem>
+			<lang>no</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Bruk stemmechat og spill spill med vennene dine.</str>
+			</text>
+		</liveitem>
+		
+		<!--Polish-->
+		<liveitem>
+			<lang>pl</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Rozmawiaj na czacie głosowym i graj ze znajomymi.</str>
+			</text>
+		</liveitem>
+		
+		<!--Portugese-->
+		<liveitem>
+			<lang>pt</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Desfrute da conversação de voz e jogue com os seus amigos.</str>
+			</text>
+		</liveitem>
+		
+		<!--Portugese-Brazil-->
+		<liveitem>
+			<lang>pt-br</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Bata papo por voz e jogue com seus amigos.</str>
+			</text>
+		</liveitem>
+		
+		<!--Russian-->
+		<liveitem>
+			<lang>ru</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Общайтесь в голосовом чате и играйте в игры со своими</str>
+			</text>
+		</liveitem>
+		
+		<!--Spanish-->
+		<liveitem>
+			<lang>es</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Disfruta con el chat de voz y juega con tus amigos.</str>
+			</text>
+		</liveitem>
+		
+		<!--Swedish-->
+		<liveitem>
+			<lang>sv</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Använd röstchatt och spela spel med dina vänner.</str>
+			</text>
+		</liveitem>
+		
+		<!--Turkish-->
+		<liveitem>
+			<lang>tr</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">Arkadaşlarınızla sesli sohbetin keyfini çıkarın ve oyunlar oynayın.</str>
+			</text>
+		</liveitem>
+		
+		<!--Chinese (traditional)-->
+		<liveitem>
+			<lang>ch</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">可與好友進行語音聊天或遊玩各種遊戲。</str>
+			</text>
+		</liveitem>
+		
+		<!--Chinese (simplified)-->
+		<liveitem>
+			<lang>zh</lang>
+			<text margin-left="50" align="left" text-align="left">
+				<str size="26">可与朋友进行语音聊天或游玩各种游戏。</str>
+			</text>
+		</liveitem>
+		
+	</frame>
+
+	<frame id="frame3">
+		<!--English-->
+		<liveitem>
+			<lang>en</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Get started now!</str>
+			</text>
+		</liveitem>
+		
+		<!--English-UK-->
+		<liveitem>
+			<lang>en-gb</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Get started now!</str>
+			</text>
+		</liveitem>
+		
+		<!--Japanese-->
+		<liveitem>
+			<lang>ja</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">しめます。&#xa;いますぐ始めよう！</str>
+			</text>
+		</liveitem>
+		
+		<!--Danish-->
+		<liveitem>
+			<lang>da</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Kom i gang nu!</str>
+			</text>
+		</liveitem>
+		
+		<!--Dutch-->
+		<liveitem>
+			<lang>nl</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Nu beginnen!</str>
+			</text>
+		</liveitem>
+		
+		<!--Finnish-->
+		<liveitem>
+			<lang>fi</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Aloita nyt!</str>
+			</text>
+		</liveitem>
+		
+		<!--French-->
+		<liveitem>
+			<lang>fr</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Commencez dès maintenant !</str>
+			</text>
+		</liveitem>
+		
+		<!--German-->
+		<liveitem>
+			<lang>de</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Freunden.&#xa;Fang gleich an!</str>
+			</text>
+		</liveitem>
+				
+		<!--Italian-->
+		<liveitem>
+			<lang>it</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Inizia subito!</str>
+			</text>
+		</liveitem>
+				
+		<!--Korean-->
+		<liveitem>
+			<lang>ko</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">지금 시작해 보세요.</str>
+			</text>
+		</liveitem>
+				
+		<!--Norwegian-->
+		<liveitem>
+			<lang>no</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Kom i gang nå!</str>
+			</text>
+		</liveitem>
+				
+		<!--Polish-->
+		<liveitem>
+			<lang>pl</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Zacznij już teraz!</str>
+			</text>
+		</liveitem>
+				
+		<!--Portugese-->
+		<liveitem>
+			<lang>pt</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Aproveite já!</str>
+			</text>
+		</liveitem>
+				
+		<!--Portugese-Brazil-->
+		<liveitem>
+			<lang>pt-br</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Comece agora!</str>
+			</text>
+		</liveitem>
+				
+		<!--Russian-->
+		<liveitem>
+			<lang>ru</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Друзьями.&#xa;Начитайте прямо сейчас!</str>
+			</text>
+		</liveitem>
+				
+		<!--Spanish-->
+		<liveitem>
+			<lang>es</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">¡Empieza ahora mismo!</str>
+			</text>
+		</liveitem>
+				
+		<!--Swedish-->
+		<liveitem>
+			<lang>sv</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Börja nu!</str>
+			</text>
+		</liveitem>
+				
+		<!--Turkish-->
+		<liveitem>
+			<lang>tr</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">Hemen başlayın!</str>
+			</text>
+		</liveitem>
+
+		<!--Chinese (traditional)-->
+		<liveitem>
+			<lang>ch</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">現在就立刻開始吧！</str>
+			</text>
+		</liveitem>
+
+		<!--Chinese (simplified)-->
+		<liveitem>
+			<lang>zh</lang>
+			<text margin-left="50" align="left" text-align="left" valign="top">
+				<str size="26">现在就立刻开始吧！</str>
+			</text>
+		</liveitem>
+		
+	</frame>
+
+	<frame id="frame4">
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame5">
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame6">
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame7">
+		<liveitem>
+		</liveitem>
+	</frame>
+	
+</livearea>
