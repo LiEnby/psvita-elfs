@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="kids" format-ver="01.00" content-rev="1">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#74ca2cff"/>
+	
+	<!-- システムファンクションエリア 最大7個 -->
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:parental</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+</livearea>
+
