@@ -1,2 +1,2 @@
 # psvita-elfs
-PSVita Decrypted ELFS for various firmwares For 3.50 JIG/Factory
+PSVita Decrypted ELFS for FW 3.50 JIG/Factory
