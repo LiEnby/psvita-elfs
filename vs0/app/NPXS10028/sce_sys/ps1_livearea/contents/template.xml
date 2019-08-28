@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="ps1emu" format-ver="01.04" content-rev="1">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	<gate>
+		<startup-image>startup.png</startup-image>
+	</gate>
+	
+	<frame id="frame1">
+		<liveitem>
+			<pokesute>on</pokesute>
+			<target>psla:pocketstation=1</target>
+			<image>pokesute_on.png</image>
+		</liveitem>
+		<liveitem>
+			<pokesute>off</pokesute>
+			<target>psla:pocketstation=-1</target>
+			<image>pokesute_off.png</image>
+		</liveitem>
+	</frame>
+	
+	<frame id="frame2">
+		<liveitem>
+			<pokesute>on</pokesute>
+			<target>psla:pocketstation=0</target>
+			<image>ps1.png</image>
+		</liveitem>
+		<liveitem>
+			<pokesute>off</pokesute>
+			<target>psla:pocketstation=0</target>
+			<image>ps1.png</image>
+		</liveitem>
+	</frame>
+	
+</livearea>
+

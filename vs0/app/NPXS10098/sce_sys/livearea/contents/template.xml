@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a1" format-ver="01.00" content-rev="2">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#cde4f5ff"/>
+	
+	<!-- システムファンクションエリア 最大7個 -->
+	<system-function-zone>
+		<!-- マニュアル内の設定へのディープリンク -->
+		<func>online-manual
+			<target>sceman:ps4link</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+<!--
+	<frame id="frame2" multi="o" autoflip="0" >
+		<liveitem>
+			<lang>ja</lang>
+			<target>scecomboplay:</target>
+			<image x="0" y="12" width="146" height="148">comboplay.png</image>
+			<text  x="0" y="-72" align="center" word-wrap="on"><str size="22" color='#d0d0d0'>クロスコントローラー</str></text>
+		</liveitem>
+		<liveitem>
+			<lang>ko</lang>
+			<target>scecomboplay:</target>
+			<image x="0" y="12" width="146" height="148">comboplay.png</image>
+			<text  x="0" y="-72" align="center" word-wrap="on"><str size="22" color='#d0d0d0'>增ｬ・懍侃 ・ｨ孖ｸ・､・ｬ</str></text>
+		</liveitem>
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+			<exclude-lang>ko</exclude-lang>
+			<target>scecomboplay:</target>
+			<image x="0" y="12" width="146" height="148">comboplay.png</image>
+			<text  x="0" y="-72" align="center" word-wrap="on"><str size="22" color='#d0d0d0'>Cross-Controller</str></text>
+		</liveitem>
+	</frame>
+-->
+
+	<frame id="frame3" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+</livearea>

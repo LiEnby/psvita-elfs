@@ -1,0 +1,129 @@
+	<frame id="frame4">
+		<liveitem>
+			<lang>ja</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">知的財産の表記</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>en</lang>
+			<lang>en-gb</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Intellectual Property Notices</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>fr</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Avis de propriété intellectuelle</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>es</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Avisos sobre propiedad intelectual</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>de</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Geistiges Eigentum</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>it</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Avvisi sulla proprietà intellettuale</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>nl</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Intellectuele eigendomsmeldingen</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>pt</lang>
+			<lang>pt-br</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Avisos de propriedade intelectual</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ru</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Уведомления об интеллектуальной собственности</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>pl</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Informacje dotyczące własności intelektualnej</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>fi</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Immateriaalioikeudelliset huomautukset</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>da</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Meddelelser om immateriel ejendomsret</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>no</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Opphavsrettvarsel</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>sv</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Meddelande om upphovsrätt</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ko</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">지적 재산권 표기</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>zh</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">知识产权信息</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ch</lang>
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">知識產權資訊</str>
+			</text>
+		</liveitem>
+		<liveitem default="on">
+			<target>psm_manual:test</target>
+			<text align="right" text-align="right"  word-wrap="off" ellipsis="on">
+				<str size="18" ellipsis="on" shadow="on">Intellectual Property Notices</str>
+			</text>
+		</liveitem>
+	</frame>

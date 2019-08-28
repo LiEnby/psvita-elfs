@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a1" format-ver="01.00" content-rev="1">
+	
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#ea2e10EA"/>
+	
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:videos</target>
+		</func>
+		<func>reload</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>VideoPlayer_Gate.png</startup-image>
+	</gate>
+
+	<frame id="frame3" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<text>
+				<font color="#ffffff" size="18" >VIDEO PLAYER</font>
+			</text>
+		</liveitem>
+
+	</frame>
+
+</livearea>
+

@@ -1,0 +1,1609 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Setting Description File [serial:1003600001]
+     [SCE CONFIDENTIAL]                                  
+     Copyright (C) 2016 Sony Computer Entertainment Inc. 
+                                    All Rights Reserved. -->
+
+<registry target="psp2" version = "3">
+
+	<!-- Boot Parameters : ブートパラメータ -->
+	<group eng="Boot Parameters" jpn="ブートパラメータ">
+		<desc eng="Adjusts boot parameters applied to this DevKit at boot time." jpn="本DevKit起動時に適用されるブートパラメータに関する設定です。" />
+
+		<!-- Release Check Mode : リリースチェックモード -->
+		<entry key="bootparam:/development_mode"
+			   eng="Release Check Mode"
+			   jpn="リリースチェックモード"
+				 dependskey="rcm" registrytype="integer" registrybytesize="4" forcerefresh="true">
+			<desc eng="If you set this option to [Release Mode], programs will run on almost the same environment as the actual system (console). In this mode, debugging and accessing of files on the host PC will be impossible.&#xa;This setting will be exclusively executed."
+				  jpn="[リリースモード]にすると、実機と同等な環境でプログラムを実行します。リリースモードでは、デバッグやホスト上のファイルへのアクセスができません。&#xa;この設定は単独で実行されます。" />
+			<applyimmediate eng="This setting will be exclusively executed. Any settings already set will be ignored.&#xa;Are you sure you want to continue?"
+							jpn="この設定は単独で実行されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？"/>
+			<selection>
+				<option value="0" eng="Release Mode" jpn="リリースモード" />
+				<option value="1" eng="Development Mode" jpn="開発モード" />
+			</selection>
+		</entry>
+
+		<!-- Release mode console : リリースモードコンソール -->
+		<entry key="bootparam:/release_check_mode_console" eng="Release Mode Console" jpn="リリースモードコンソール"
+		   registrytype="integer" registrybytesize="4" dependson="rcm" conditionmin="0" conditionmax="0">
+			<desc eng="If you set this option to [Enable], the TTY console will be available in the release mode for debug purposes."
+				  jpn="[有効]にすると、リリースモードにおいてデバッグ用途でTTYコンソールが利用できます。" />
+			<selection>
+				<option value="0" eng="Disable" jpn="無効" />
+				<option value="1" eng="Enable" jpn="有効" />
+			</selection>
+		</entry>
+
+		<!-- Memory Size : メモリサイズ -->
+		<entry key="bootparam:/memory_size_switch" eng="Memory Size" jpn="メモリサイズ"
+		   registrytype="integer" registrybytesize="4" dependson="rcm" conditionmin="1" conditionmax="1">
+			<desc eng="If you set this option to [Console Size], programs will run under the actual system's (console's) memory size."
+				  jpn="[実機サイズ]にすると、実機と同じメモリサイズでプログラムを実行します。" />
+			<selection>
+				<option value="0" eng="Console Size" jpn="実機サイズ" />
+				<option value="1" eng="DevKit Size" jpn="DevKitサイズ" />
+			</selection>
+		</entry>
+
+		<!-- PS TV Emulation -->
+		<entry key="bootparam:/platform_emulation_dolce" eng="PS TV Emulation"
+		   registrytype="integer" registrybytesize="4" dependson="rcm" conditionmin="1" conditionmax="1" forcerefresh="true">
+			<desc eng="If you set this option to [On], your DevKit will run as almost the same environment as the actual PS TV system."
+				  jpn="本設定を[入]にすると、実際のPS TVと同等な環境で開発機が動作します。" />
+			<applyimmediate eng="This setting will be exclusively executed. Any settings already set will be ignored.&#xa;Are you sure you want to continue?"
+							jpn="この設定は単独で実行されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？"/>
+			<selection>
+				<option value="0" eng="Off" jpn="切"/>
+				<option value="1" eng="On" jpn="入"/>
+			</selection>
+		</entry>
+	</group>
+
+	<!-- DevKit System Information : DevKit本体情報 -->
+	<group eng="DevKit System Information" jpn="DevKit本体情報">
+		<desc eng="Displays information about the DevKit system."
+			  jpn="DevKit本体の情報を表示します。" />
+
+		<!-- IP Address : IPアドレス-->
+		<entry key="registry:/DEVENV/HOST/current_ip_address" eng="IP Address" jpn="IPアドレス"
+			registrytype="string" registrybytesize="16" readonly="true">
+			<desc eng="IP address currently set to this DevKit will be displayed.&#xa;When there is no Internet connection active, it will be left blank."
+				  jpn="本DevKitに現在設定されているIPアドレスを表示します。&#xa;インターネット接続していない場合は、空白です。"/>
+			<textual minlen="0" maxlen="15" encoding="ascii"/>
+		</entry>
+
+	</group>
+
+	<set dependson="rcm" conditionmin="1" conditionmax="1">
+
+		<!-- Development Environment Settings : 開発環境設定 -->
+		<group eng="Development Environment Settings" jpn="開発環境設定">
+			<desc eng="Adjusts settings for the development environment." jpn="開発環境全般に関する設定です。"/>
+
+			<!-- System Name : 本体名称 -->
+			<entry key="registry:/DEVENV/HOST/devkitname" eng="System Name" jpn="本体名称"
+					registrytype="string" registrybytesize="128" norebootneeded="true">
+				<desc eng="Sets the name for this DevKit. You can use the name to distinguish multiple DevKits on a network."
+					  jpn="本DevKitの名前を設定します。ネットワーク上で複数のDevKitを区別するときなどに使われます。"/>
+				<textual minlen="0" maxlen="31" encoding="utf8"/>
+			</entry>
+
+			<!-- HDMI Video Output Settings : HDMI 映像出力設定 -->
+			<entry key="registry:/DEVENV/TOOL/hdmi_video_mode" eng="HDMI Video Output Settings" jpn="HDMI 映像出力設定"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng="Sets the resolution and scaling type of the HDMI video output."
+					  jpn="HDMI 映像出力の解像度と拡大/縮小方法を設定します。"/>
+				<selection>
+					<option value="8" eng="Resolution : 480p, Scaling : Full" jpn="解像度 : 480p, 拡大/縮小 : フル"/>
+					<option value="32" eng="Resolution : 720p, Scaling : Full" jpn="解像度 : 720p, 拡大/縮小 : フル"/>
+					<option value="65568" eng="Resolution : 720p, Scaling : Real" jpn="解像度 : 720p, 拡大/縮小 : リアル"/>
+					<option value="262176" eng="Resolution : 720p, Scaling : 960x544" jpn="解像度 : 720p, 拡大/縮小 : 960x544"/>
+				</selection>
+			</entry>
+
+			<!-- HDMI RGB Full Range : HDMI 映像の色階調 -->
+			<entry key="registry:/DEVENV/TOOL/hdmi_color_range" eng="HDMI RGB Full Range" jpn="HDMI 映像の色階調"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng="Sets the RGB range for HDMI output.&#xa;To reflect the settings, unplug the hdmi cable and then plug it in again."
+					  jpn="HDMI 映像の色階調についての出力方式(Limited/Full)を設定します。&#xa;この設定は、HDMI ケーブル抜き差し後に有効になります。"/>
+				<selection>
+					<option value="0" eng="Limited"/>
+					<option value="1" eng="Full"/>
+				</selection>
+			</entry>
+
+			<!-- HDMI Audio Output Settings : HDMI 音声出力設定 -->
+			<entry key="registry:/DEVENV/TOOL/hdmi_audio_mode" eng="HDMI Audio Output Settings" jpn="HDMI 音声出力設定"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets whether to enable the HDMI audio output."
+					  jpn="HDMI 音声出力を有効にするかどうかを設定します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Network : ネットワーク -->
+		<group eng="Network" jpn="ネットワーク">
+			<desc eng=" " jpn=" "/>
+
+			<!-- Flight Mode : 機内モード -->
+			<entry key="registry:/CONFIG/SYSTEM/flight_mode" eng="Flight Mode" jpn="機内モード"
+					dependskey="flight" registrytype="integer" registrybytesize="4" forcerefresh="true">
+				<desc eng="Sets whether to enable the flight mode."
+					  jpn="機内モードを有効にするかどうかを設定します。"/>
+				<applyimmediate eng="This setting will be exclusively executed. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"
+						 jpn="この設定は単独で実行されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- Wi-Fi Settings : Wi-Fi設定 -->
+			<group eng="Wi-Fi Settings" jpn="Wi-Fi設定">
+				<desc eng="Adjusts settings for the Wi-Fi connection." jpn="Wi-Fi接続に関する設定です。"/>
+
+				<set dependson="flight" conditionmin="0" conditionmax="0">
+
+				<!-- Wi-Fi -->
+				<entry key="registry:/CONFIG/NET/wifi_flag" eng="Wi-Fi"
+						registrytype="integer" registrybytesize="4">
+					<desc eng="Sets whether to enable the Wi-Fi feature. To change this option, set Flight Mode to [Off]."
+						  jpn="Wi-Fi機能を有効にするかどうかを設定します。この設定を変更するためには、機内モードは[切]でなければなりません。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+				</set>
+
+				<set dependson="flight" conditionmin="1" conditionmax="1">
+
+				<!-- Wi-Fi -->
+				<entry key="registry:/CONFIG/NET/wifi_flag" eng="Wi-Fi"
+						registrytype="integer" registrybytesize="4" readonly="true">
+					<desc eng="Sets whether to enable the Wi-Fi feature. To change this option, set Flight Mode to [Off]."
+						  jpn="Wi-Fi機能を有効にするかどうかを設定します。この設定を変更するためには、機内モードは[切]でなければなりません。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+				</set>
+
+				<!-- Show Imposed Scan List : スキャンリストインポーズ表示 -->
+				<entry key="registry:/CONFIG/NET/enable_impose_scanlist" eng="Show Imposed Scan List" jpn="スキャンリストインポーズ表示"
+						registrytype="integer" registrybytesize="4">
+					<desc eng="If you set this option to [On], an imposed scan list will be displayed."
+						  jpn="[入]にすると、インポーズでスキャンリストが表示されます。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+				<!-- Wi-Fi Ad Hoc Mode Channel Number : Wi-Fiアドホックモードチャンネル番号 -->
+				<entry key="registry:/CONFIG/NET/adhoc_channel" eng="Wi-Fi Ad Hoc Mode Channel Number" jpn="Wi-Fiアドホックモードチャンネル番号"
+						registrytype="integer" registrybytesize="4">
+					<desc eng="Sets the channel for Wi-Fi ad hoc mode. "
+						  jpn="Wi-Fiアドホックモードで使用するチャンネル番号を設定します。"/>
+					<selection>
+						<option value="0" eng="Automatic" jpn="自動"/>
+						<option value="1" eng="1 ch" jpn="1ch"/>
+						<option value="6" eng="6 ch" jpn="6ch"/>
+						<option value="11" eng="11 ch" jpn="11ch"/>
+					</selection>
+				</entry>
+
+				<!-- Connection #01-30 : Wi-Fiインターネット接続 #01-30 -->
+				<config keymin="1" keymax="30" keysigfig="2" validkey="registry:/CONFIG/NET/#/COMMON/conf_flag"
+						validkeyvalue="1" validkeyregistrytype="integer" eng="Wi-Fi Internet Connection" jpn="Wi-Fiインターネット接続">
+					<desc eng="Adjusts settings for the Wi-Fi Internet connection."
+						  jpn="Wi-Fiインターネット接続に関する設定です。"/>
+
+					<!-- Connection Name : 接続名 -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/conf_name" eng="Connection Name" jpn="接続名"
+							registrytype="string" registrybytesize="65">
+						<desc eng="Sets the name of the Internet connection setting."
+							  jpn="インターネット接続の接続名を設定します。"/>
+						<textual minlen="1" maxlen="16" encoding="utf8"/>
+					</entry>
+
+					<!-- Automatic Connect : 自動接続 -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/enable_auto_connect" eng="Auto Connect" jpn="自動接続"
+							registrytype="integer" registrybytesize="4">
+						<desc eng="If you set this option to [On], automatic connection is made when a connection is found."
+							  jpn="[入]にすると、この接続が見つかったときに自動で接続します。"/>
+						<selection>
+							<option value="0" eng="Off" jpn="切"/>
+							<option value="1" eng="On" jpn="入"/>
+						</selection>
+					</entry>
+
+					<!-- MTU -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/mtu" eng="MTU"
+							registrytype="integer" registrybytesize="4">
+						<desc eng="Sets the MTU value to use when transmitting data. Set a number from the ranges 576-1500. Use 0 for automatic setup. "
+							  jpn="データ通信時に使用するMTUの値を設定します。576から1500の値を設定します。自動設定にするには0を入力してください。"/>
+						<intvalue minvalue="576" maxvalue="1500" rangeexception="0"/>
+					</entry>
+
+					<!-- Networking Device : 接続デバイス -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/device" eng="Networking Device" jpn="接続デバイス"
+							registrytype="integer" registrybytesize="4">
+						<desc eng="Sets the device for the Internet connection."
+							  jpn="インターネット接続に使用するデバイスを設定します。"/>
+						<selection>
+							<option value="0" eng="Wireless" jpn="無線"/>
+							<option value="1" eng="Wired Connection" jpn="有線"/>
+						</selection>
+					</entry>
+
+					<!-- SSID -->
+					<entry key="registry:/CONFIG/NET/#/WIFI/ssid" eng="SSID"
+							registrytype="string" registrybytesize="33">
+						<desc eng="Sets the SSID of the access point."
+							  jpn="アクセスポイントのSSIDを設定します。"/>
+						<textual minlen="1" maxlen="32" encoding="ascii"/>
+					</entry>
+
+					<!-- Wi-Fi Security : Wi-Fiセキュリティー -->
+					<entry key="registry:/CONFIG/NET/#/WIFI/wifi_security" eng="Wi-Fi Security" jpn="Wi-Fiセキュリティー"
+							registrytype="integer" registrybytesize="4" dependskey="wifisecurity">
+						<desc eng="Sets the security type of the access point."
+							  jpn="アクセスポイントのセキュリティー種別を設定します。"/>
+						<selection>
+							<option value="0" eng="None" jpn="なし"/>
+							<option value="1" eng="WEP"/>
+							<option value="2" eng="WPA-PSK/WPA2-PSK"/>
+						</selection>
+					</entry>
+
+					<!-- WEP Key : WEPキー -->
+					<entry key="registry:/CONFIG/NET/#/WIFI/wep_key" eng="WEP Key" jpn="WEPキー"
+							dependson="wifisecurity" conditionmin="1" conditionmax="1" registrytype="string" registrybytesize="27">
+						<desc eng="Sets the WEP encryption key. Use 10 or 26 characters for hexadecimal (0x prefix not required), or 5 or 13 characters for ASCII."
+							  jpn="WEP暗号化キーを設定します。16進数(10文字か26文字、先頭に0xは不要)か、ASCII文字(5文字か13文字)で入力してください。"/>
+						<wepkey/>
+					</entry>
+
+					<!-- WPA Key : WPAキー -->
+					<entry key="registry:/CONFIG/NET/#/WIFI/wpa_key" eng="WPA Key"  jpn="WPAキー"
+							dependson="wifisecurity" conditionmin="2" conditionmax="2" registrytype="string" registrybytesize="65">
+						<desc eng="Sets the WPA encryption key. Use 64 characters for hexadecimal (0x prefix not required), or from 8 to 63 characters for ASCII."
+							  jpn="WPA暗号化キーを設定します。16進数(64文字、先頭に0xは不要)か、ASCII文字(8～63文字)で入力してください。"/>
+						<wpakey/>
+					</entry>
+
+					<!-- IP Address Setting : IPアドレス設定 -->
+					<entry key="registry:/CONFIG/NET/#/IP/ip_config" eng="IP Address Setting" jpn="IPアドレス設定"
+							registrytype="integer" registrybytesize="4" dependskey="ipconfig">
+						<desc eng="Select how to set the IP address."
+							  jpn="IPアドレスの設定方法を選択します。"/>
+						<selection>
+							<option value="0" eng="Automatic" jpn="自動取得"/>
+							<option value="1" eng="Manual" jpn="手動"/>
+							<option value="2" eng="PPPoE" jpn="PPPoE"/>
+						</selection>
+					</entry>
+
+					<!-- In case of "IP Address Setting = Automatic" : 「IPアドレス設定 = 自動取得」の場合 -->
+					<set dependson="ipconfig" conditionmin="0" conditionmax="0">
+
+						<!-- DHCP Host Name : DHCPホスト名 -->
+						<entry key="registry:/CONFIG/NET/#/IP/dhcp_hostname" eng="DHCP Host Name" jpn="DHCPホスト名"
+								registrytype="string" registrybytesize="256">
+							<desc eng="Sets the DHCP host name. In most cases this setting does not need to be changed."
+								  jpn="DHCPホスト名を設定します。通常は設定する必要はありません。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- DNS Setting : DNS設定 -->
+						<entry key="registry:/CONFIG/NET/#/IP/dns_flag" eng="DNS Setting" jpn="DNS設定"
+								registrytype="integer" registrybytesize="4" dependskey="dnsflag1">
+							<desc eng="Select how to set the DNS server addresses."
+								  jpn="DNSサーバーのアドレスの設定方法を選択します。"/>
+							<selection>
+								<option value="0" eng="Automatic" jpn="自動取得"/>
+								<option value="1" eng="Manual" jpn="手動"/>
+							</selection>
+						</entry>
+
+						<!-- In case of "DNS Setting = Manual" : 「DNS設定 = 手動」の場合 -->
+						<set dependson="dnsflag1" conditionmin="1" conditionmax="1">
+
+							<!-- Primary DNS : プライマリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+									registrytype="string" registrybytesize="16">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+							<!-- Secondary DNS : セカンダリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+									registrytype="string" registrybytesize="16">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+						</set>
+					</set>
+
+					<!-- In case of "IP Address Setting = Manual" : 「IPアドレス設定 = 手動」の場合 -->
+					<set dependson="ipconfig" conditionmin="1" conditionmax="1">
+
+						<!-- IP Address : IPアドレス -->
+						<entry key="registry:/CONFIG/NET/#/IP/ip_address" eng="IP Address" jpn="IPアドレス"
+								registrytype="string" registrybytesize="16">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Subnet Mask : サブネットマスク -->
+						<entry key="registry:/CONFIG/NET/#/IP/netmask" eng="Subnet Mask" jpn="サブネットマスク"
+								registrytype="string" registrybytesize="16">
+							<desc eng=" "
+								  jpn=" "/>
+							<subnetmask/>
+						</entry>
+
+						<!-- Default Router : デフォルトルーター -->
+						<entry key="registry:/CONFIG/NET/#/IP/default_route" eng="Default Router" jpn="デフォルトルーター"
+								registrytype="string" registrybytesize="16">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Primary DNS : プライマリーDNS -->
+						<entry key="registry:/CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+								registrytype="string" registrybytesize="16">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Secondary DNS : セカンダリーDNS -->
+						<entry key="registry:/CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+								registrytype="string" registrybytesize="16">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+					</set>
+
+					<!-- In case of "IP Address Setting = PPPoE" : 「IPアドレス設定 = PPPoE」の場合 -->
+					<set dependson="ipconfig" conditionmin="2" conditionmax="2">
+
+						<!-- PPPoE User Name : PPPoEユーザーID -->
+						<entry key="registry:/CONFIG/NET/#/IP/auth_name" eng="PPPoE User Name" jpn="PPPoEユーザーID"
+								registrytype="string" registrybytesize="128">
+							<desc eng=" "
+								  jpn=" "/>
+							<textual minlen="1" maxlen="127" encoding="ascii"/>
+						</entry>
+
+						<!-- PPPoE Password : PPPoEパスワード -->
+						<entry key="registry:/CONFIG/NET/#/IP/auth_key" eng="PPPoE Password" jpn="PPPoEパスワード"
+								registrytype="string" registrybytesize="128">
+							<desc eng=" "
+								  jpn=" "/>
+							<password minlen="0" maxlen="127"/>
+						</entry>
+
+						<!-- DNS Setting : DNS設定 -->
+						<entry key="registry:/CONFIG/NET/#/IP/dns_flag" eng="DNS Setting" jpn="DNS設定"
+								registrytype="integer" registrybytesize="4" dependskey="dnsflag2">
+							<desc eng="Select how to set the DNS server addresses."
+								  jpn="DNSサーバーのアドレスの設定方法を選択します。"/>
+							<selection>
+								<option value="0" eng="Automatic" jpn="自動取得"/>
+								<option value="1" eng="Manual" jpn="手動"/>
+							</selection>
+						</entry>
+
+						<!-- In case of "DNS Setting = Manual" : 「DNS設定 = 手動」の場合 -->
+						<set dependson="dnsflag2" conditionmin="1" conditionmax="1">
+
+							<!-- Primary DNS : プライマリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+									registrytype="string" registrybytesize="16">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+							<!-- Secondary DNS : セカンダリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+									registrytype="string" registrybytesize="16">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+						</set>
+					</set>
+
+					<!-- Proxy Server : プロキシーサーバー -->
+					<entry key="registry:/CONFIG/NET/#/APP/http_proxy_flag" eng="Proxy Server" jpn="プロキシーサーバー"
+							registrytype="integer" dependskey="proxyflag" registrybytesize="4">
+						<desc eng="Sets whether to use a proxy server."
+							  jpn="プロキシーサーバーを使用するかどうかを設定します。"/>
+						<selection>
+							<option value="0" eng="Do Not Use" jpn="使用しない"/>
+							<option value="1" eng="Use" jpn="使用する"/>
+						</selection>
+					</entry>
+
+					<!-- In case of "Proxy Server = Use" : 「プロキシーサーバー = 使用する」の場合 -->
+					<set dependson="proxyflag" conditionmin="1" conditionmax="1">
+
+						<!-- Proxy Server : プロキシーサーバーアドレス -->
+						<entry key="registry:/CONFIG/NET/#/APP/http_proxy_server" eng="Proxy Server Address" jpn="プロキシーサーバーアドレス"
+								registrytype="string" registrybytesize="256">
+							<desc eng=" "
+								  jpn=" "/>
+							<textual minlen="1" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Proxy Server Port Number : プロキシーサーバーポート番号 -->
+						<entry key="registry:/CONFIG/NET/#/APP/http_proxy_port" eng="Proxy Server Port Number" jpn="プロキシーサーバーポート番号"
+								registrytype="integer" registrybytesize="4">
+							<desc eng=" "
+								  jpn=" "/>
+							<intvalue minvalue="1" maxvalue="65535"/>
+
+						</entry>
+					</set>
+
+				</config>
+			</group>
+
+		</group>
+
+		<!-- PlayStation(TM)Network : PlayStation(TM)Network -->
+		<group eng="PlayStation(TM)Network" jpn="PlayStation(TM)Network">
+			<desc eng="Adjusts settings for PlayStation(TM)Network." jpn="PlayStation(TM)Networkに関する設定です。"/>
+
+			<!-- Sign-In ID (E-mail Address) : サインインID (Eメールアドレス) -->
+			<entry key="registry:/CONFIG/NP/login_id" eng="Sign-In ID (E-mail Address)" jpn="サインインID (Eメールアドレス)"
+					registrytype="string" registrybytesize="65" norebootneeded="true">
+				<desc eng=" "
+					  jpn=" "/>
+				<textual minlen="0" maxlen="64" encoding="ascii"/>
+			</entry>
+
+		</group>
+
+		<!-- Security : セキュリティー -->
+		<group eng="Security" jpn="セキュリティー">
+			<desc eng="Adjusts settings for parental controls and screen lock." jpn="ペアレンタルコントロールおよび画面ロックに関する設定です。"/>
+
+			<group eng="Parental Controls" jpn="ペアレンタルコントロール">
+				<desc eng="Adjusts settings for parental controls." jpn="ペアレンタルコントロールに関する設定です。"/>
+
+				<!-- Content : コンテンツ -->
+				<entry key="registry:/CONFIG/SECURITY/PARENTAL/content_start_control" eng="Content" jpn="コンテンツ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets the control level for starting an application or content (such as video, etc.) that has parental control restrictions.&#xa;The lower the level, the tighter the control."
+						  jpn="年齢制限があるアプリケーションやコンテンツ(ビデオなど)の開始制限レベルを設定します。&#xa;レベルの数値が小さいほど、制限が厳しくなります。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="11" eng="Level 11" jpn="レベル 11"/>
+						<option value="10" eng="Level 10" jpn="レベル 10"/>
+						<option value="9" eng="Level 9" jpn="レベル 9"/>
+						<option value="8" eng="Level 8" jpn="レベル 8"/>
+						<option value="7" eng="Level 7" jpn="レベル 7"/>
+						<option value="6" eng="Level 6" jpn="レベル 6"/>
+						<option value="5" eng="Level 5" jpn="レベル 5"/>
+						<option value="4" eng="Level 4" jpn="レベル 4"/>
+						<option value="3" eng="Level 3" jpn="レベル 3"/>
+						<option value="2" eng="Level 2" jpn="レベル 2"/>
+						<option value="1" eng="Level 1" jpn="レベル 1"/>
+					</selection>
+				</entry>
+
+				<!-- Browser : ブラウザー -->
+				<entry key="registry:/CONFIG/SECURITY/PARENTAL/browser_start_control" eng="Browser" jpn="ブラウザー"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets whether to allow to use the browser feature."
+						  jpn="ブラウザー機能の利用を許可するかどうかを設定します。"/>
+					<selection>
+						<option value="0" eng="Allow" jpn="許可する"/>
+						<option value="1" eng="Do Not Allow" jpn="許可しない"/>
+					</selection>
+				</entry>
+
+				<!-- Location Data : 位置データ -->
+				<entry key="registry:/CONFIG/LOCATION/enable_parental" eng="Location Data" jpn="位置データ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets whether to allow to use location data."
+						  jpn="位置データの利用を許可するかどうかを設定します。"/>
+					<selection>
+						<option value="1" eng="Allow" jpn="許可する"/>
+						<option value="0" eng="Do Not Allow" jpn="許可しない"/>
+					</selection>
+				</entry>
+
+				<!-- Change Passcode : パスコードを変更する -->
+				<entry key="registry:/CONFIG/SECURITY/PARENTAL/passcode" eng="Change Passcode" jpn="パスコードを変更する"
+						registrytype="string" registrybytesize="5" norebootneeded="true">
+					<desc eng="Change the 4-digit passcode required to change the settings for parental controls. To reset the passcode, leave it blank.&#xa;The passcode will not have valid protection. Do not set the passcode using the information you do not wish to disclose."
+						  jpn="ペアレンタルコントールの設定を変更するための4桁のパスコードを変更します。パスコードを未設定状態にするには、空白にしてください。&#xa;パスコードには十分な保護がされません。知られたくない情報をパスコードに設定しないでください。"/>
+					<password minlen="4" maxlen="4" rangeexception="0"/>
+				</entry>
+
+			</group>
+
+			<group eng="Screen Lock" jpn="画面ロック">
+				<desc eng="Adjusts settings for screen lock." jpn="画面ロックに関する設定です。"/>
+
+				<!-- Change Passcode : パスコードを変更する -->
+				<entry key="registry:/CONFIG/SECURITY/SCREEN_LOCK/passcode" eng="Change Passcode" jpn="パスコードを変更する"
+						registrytype="string" registrybytesize="5" norebootneeded="true">
+					<desc eng="Change the 4-digit passcode required to unlock the screen. To disable the screen lock feature, leave it blank.&#xa;The passcode will not have valid protection. Do not set the passcode using the information you do not wish to disclose."
+						  jpn="画面ロックを解除するための4桁のパスコードを変更します。画面ロック機能を無効にするには、空白にしてください。&#xa;パスコードには十分な保護がされません。知られたくない情報をパスコードに設定しないでください。"/>
+					<password minlen="4" maxlen="4" rangeexception="0"/>
+				</entry>
+
+			</group>
+
+		</group>
+
+		<!-- Date & Time : 日付＆時刻 -->
+		<group eng="Date &amp; Time" jpn="日付＆時刻">
+			<desc eng="Adjusts date and time settings." jpn="日付と時刻に関する設定です。"/>
+
+			<!-- Date & Time Settings : 日付＆時刻設定 -->
+			<group eng="Date &amp; Time Settings" jpn="日付＆時刻設定">
+				<desc eng="Sets the date and time for this DevKit." jpn="日付と時刻を設定します。"/>
+
+				<!-- Set Automatically : 自動で設定する -->
+				<entry key="registry:/CONFIG/DATE/set_automatically" eng="Set Automatically" jpn="自動で設定する"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="If you set this option to [On], the date and time will be set automatically when you connect to PlayStation(TM)Network."
+						  jpn="[入]にすると、PlayStation(TM)Networkに接続時に、日付と時刻を自動で設定します。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- Time Zone : タイムゾーン -->
+			<entry key="registry:/CONFIG/DATE/time_zone" eng="Time Zone" jpn="タイムゾーン"
+					registrytype="integer" registrybytesize="4" >
+				<desc eng="Sets the time zone to be used as the basis for time settings."
+					  jpn="時刻の基準となるタイムゾーンを設定します。"/>
+				<selection>
+					<option value="0" eng="UTC-11:00 American Samoa" jpn="UTC-11:00 アメリカ領サモア"/>
+					<option value="1" eng="UTC-11:00 Midway Islands" jpn="UTC-11:00 ミッドウェー諸島"/>
+					<option value="2" eng="UTC-10:00 Hawaii" jpn="UTC-10:00 ハワイ"/>
+					<option value="3" eng="UTC-09:00 Alaska" jpn="UTC-09:00 アラスカ"/>
+					<option value="4" eng="UTC-08:00 Pacific Time (US, Canada)" jpn="UTC-08:00 太平洋標準時 (米国およびカナダ)"/>
+					<option value="5" eng="UTC-08:00 Tijuana" jpn="UTC-08:00 ティファナ"/>
+					<option value="6" eng="UTC-07:00 Mountain Time (US, Canada)" jpn="UTC-07:00 山地標準時 (米国およびカナダ)"/>
+					<option value="110" eng="UTC-07:00 Arizona" jpn="UTC-07:00 アリゾナ"/>
+					<option value="7" eng="UTC-07:00 Chihuahua" jpn="UTC-07:00 チワワ"/>
+					<option value="8" eng="UTC-06:00 San Jose" jpn="UTC-06:00 サンホセ"/>
+					<option value="111" eng="UTC-06:00 Central America" jpn="UTC-06:00 中央アメリカ"/>
+					<option value="9" eng="UTC-06:00 Central Time (US, Canada)" jpn="UTC-06:00 中央標準時 (米国およびカナダ)"/>
+					<option value="112" eng="UTC-06:00 Guadalajara" jpn="UTC-06:00 グアダラハラ"/>
+					<option value="10" eng="UTC-06:00 Mexico City" jpn="UTC-06:00 メキシコシティ"/>
+					<option value="113" eng="UTC-06:00 Monterrey" jpn="UTC-06:00 モンテレイ"/>
+					<option value="11" eng="UTC-05:00 Quito" jpn="UTC-05:00 キト"/>
+					<option value="12" eng="UTC-05:00 Eastern Time (US, Canada)" jpn="UTC-05:00 東部標準時 (米国およびカナダ)"/>
+					<option value="13" eng="UTC-05:00 Panama City" jpn="UTC-05:00 パナマシティ"/>
+					<option value="14" eng="UTC-05:00 Bogota" jpn="UTC-05:00 ボゴタ"/>
+					<option value="15" eng="UTC-05:00 Lima" jpn="UTC-05:00 リマ"/>
+					<option value="16" eng="UTC-04:30 Caracas" jpn="UTC-04:30 カラカス"/>
+					<option value="17" eng="UTC-04:00 Santiago" jpn="UTC-04:00 サンティアゴ"/>
+					<option value="114" eng="UTC-04:00 Manaus" jpn="UTC-04:00 マナウス"/>
+					<option value="18" eng="UTC-04:00 Atlantic (Canada)" jpn="UTC-04:00 大西洋標準時 (カナダ)"/>
+					<option value="115" eng="UTC-04:00 Blanc-Sablon" jpn="UTC-04:00 ブラン・サブロン"/>
+					<option value="19" eng="UTC-04:00 Puerto Rico" jpn="UTC-04:00 プエルトリコ"/>
+					<option value="20" eng="UTC-04:00 La Paz" jpn="UTC-04:00 ラパス"/>
+					<option value="21" eng="UTC-03:30 Newfoundland" jpn="UTC-03:30 ニューファンドランド"/>
+					<option value="22" eng="UTC-03:00 Sao Paulo" jpn="UTC-03:00 サンパウロ"/>
+					<option value="116" eng="UTC-03:00 Rio de Janeiro" jpn="UTC-03:00 リオデジャネイロ"/>
+					<option value="23" eng="UTC-03:00 Buenos Aires" jpn="UTC-03:00 ブエノスアイレス"/>
+					<option value="117" eng="UTC-02:00 Mid-Atlantic" jpn="UTC-02:00 中央大西洋"/>
+					<option value="118" eng="UTC-02:00 Coordinated Universal Time-02" jpn="UTC-02:00 協定世界時-02"/>
+					<option value="24" eng="UTC-01:00 Azores" jpn="UTC-01:00 アゾレス諸島"/>
+					<option value="25" eng="UTC+00:00 Casablanca" jpn="UTC+00:00 カサブランカ"/>
+					<option value="26" eng="UTC+00:00 Dublin" jpn="UTC+00:00 ダブリン"/>
+					<option value="27" eng="UTC+00:00 Lisbon" jpn="UTC+00:00 リスボン"/>
+					<option value="28" eng="UTC+00:00 Reykjavik" jpn="UTC+00:00 レイキャビク"/>
+					<option value="29" eng="UTC+00:00 London" jpn="UTC+00:00 ロンドン"/>
+					<option value="30" eng="UTC+01:00 Amsterdam" jpn="UTC+01:00 アムステルダム"/>
+					<option value="31" eng="UTC+01:00 Algiers" jpn="UTC+01:00 アルジェ"/>
+					<option value="32" eng="UTC+01:00 Andorra la Vella" jpn="UTC+01:00 アンドラ・ラ・ベリャ"/>
+					<option value="33" eng="UTC+01:00 Vienna" jpn="UTC+01:00 ウィーン"/>
+					<option value="34" eng="UTC+01:00 Windhoek" jpn="UTC+01:00 ウィントフック"/>
+					<option value="35" eng="UTC+01:00 Oslo" jpn="UTC+01:00 オスロ"/>
+					<option value="36" eng="UTC+01:00 Copenhagen" jpn="UTC+01:00 コペンハーゲン"/>
+					<option value="37" eng="UTC+01:00 Zagreb" jpn="UTC+01:00 ザグレブ"/>
+					<option value="38" eng="UTC+01:00 Sarajevo" jpn="UTC+01:00 サラエボ"/>
+					<option value="39" eng="UTC+01:00 San Marino" jpn="UTC+01:00 サンマリノ"/>
+					<option value="40" eng="UTC+01:00 Skopje" jpn="UTC+01:00 スコピエ"/>
+					<option value="41" eng="UTC+01:00 Stockholm" jpn="UTC+01:00 ストックホルム"/>
+					<option value="42" eng="UTC+01:00 Tunis" jpn="UTC+01:00 チュニス"/>
+					<option value="43" eng="UTC+01:00 Tirana" jpn="UTC+01:00 ティラナ"/>
+					<option value="44" eng="UTC+01:00 Paris" jpn="UTC+01:00 パリ"/>
+					<option value="45" eng="UTC+01:00 Valletta" jpn="UTC+01:00 バレッタ"/>
+					<option value="46" eng="UTC+01:00 Vaduz" jpn="UTC+01:00 ファドゥーツ"/>
+					<option value="47" eng="UTC+01:00 Budapest" jpn="UTC+01:00 ブダペスト"/>
+					<option value="48" eng="UTC+01:00 Bratislava" jpn="UTC+01:00 ブラチスラバ"/>
+					<option value="49" eng="UTC+01:00 Prague" jpn="UTC+01:00 プラハ"/>
+					<option value="50" eng="UTC+01:00 Brussels" jpn="UTC+01:00 ブリュッセル"/>
+					<option value="51" eng="UTC+01:00 Belgrade" jpn="UTC+01:00 ベオグラード"/>
+					<option value="52" eng="UTC+01:00 Berlin" jpn="UTC+01:00 ベルリン"/>
+					<option value="53" eng="UTC+01:00 Bern" jpn="UTC+01:00 ベルン"/>
+					<option value="54" eng="UTC+01:00 Madrid" jpn="UTC+01:00 マドリード"/>
+					<option value="55" eng="UTC+01:00 Monaco" jpn="UTC+01:00 モナコ"/>
+					<option value="56" eng="UTC+01:00 Ljubljana" jpn="UTC+01:00 リュブリャナ"/>
+					<option value="57" eng="UTC+01:00 Luxembourg" jpn="UTC+01:00 ルクセンブルク"/>
+					<option value="58" eng="UTC+01:00 Rome" jpn="UTC+01:00 ローマ"/>
+					<option value="59" eng="UTC+01:00 Warsaw" jpn="UTC+01:00 ワルシャワ"/>
+					<option value="60" eng="UTC+02:00 Athens" jpn="UTC+02:00 アテネ"/>
+					<option value="61" eng="UTC+02:00 Amman" jpn="UTC+02:00 アンマン"/>
+					<option value="62" eng="UTC+02:00 Istanbul" jpn="UTC+02:00 イスタンブール"/>
+					<option value="63" eng="UTC+02:00 Jerusalem" jpn="UTC+02:00 エルサレム"/>
+					<option value="64" eng="UTC+02:00 Cairo" jpn="UTC+02:00 カイロ"/>
+					<option value="65" eng="UTC+02:00 Kiev" jpn="UTC+02:00 キエフ"/>
+					<option value="66" eng="UTC+02:00 Sofia" jpn="UTC+02:00 ソフィア"/>
+					<option value="67" eng="UTC+02:00 Damascus" jpn="UTC+02:00 ダマスカス"/>
+					<option value="68" eng="UTC+02:00 Tallinn" jpn="UTC+02:00 タリン"/>
+					<option value="69" eng="UTC+02:00 Nicosia" jpn="UTC+02:00 ニコシア"/>
+					<option value="70" eng="UTC+02:00 Vilnius" jpn="UTC+02:00 ビリニュス"/>
+					<option value="71" eng="UTC+02:00 Bucharest" jpn="UTC+02:00 ブカレスト"/>
+					<option value="72" eng="UTC+02:00 Beirut" jpn="UTC+02:00 ベイルート"/>
+					<option value="73" eng="UTC+02:00 Helsinki" jpn="UTC+02:00 ヘルシンキ"/>
+					<option value="75" eng="UTC+02:00 Johannesburg" jpn="UTC+02:00 ヨハネスブルグ"/>
+					<option value="76" eng="UTC+02:00 Riga" jpn="UTC+02:00 リガ"/>
+					<option value="77" eng="UTC+03:00 Kuwait City" jpn="UTC+03:00 クウェート"/>
+					<option value="78" eng="UTC+03:00 Baghdad" jpn="UTC+03:00 バグダッド"/>
+					<option value="79" eng="UTC+03:00 Manama" jpn="UTC+03:00 マナーマ"/>
+					<option value="74" eng="UTC+03:00 Minsk" jpn="UTC+03:00 ミンスク"/>
+					<option value="81" eng="UTC+03:00 Riyadh" jpn="UTC+03:00 リヤド"/>
+					<option value="80" eng="UTC+03:00 Moscow" jpn="UTC+03:00 モスクワ"/>
+					<option value="82" eng="UTC+03:30 Tehran" jpn="UTC+03:30 テヘラン"/>
+					<option value="83" eng="UTC+04:00 Abu Dhabi" jpn="UTC+04:00 アブダビ"/>
+					<option value="84" eng="UTC+04:00 Yerevan" jpn="UTC+04:00 エレバン"/>
+					<option value="85" eng="UTC+04:00 Tbilisi" jpn="UTC+04:00 トビリシ"/>
+					<option value="86" eng="UTC+04:00 Baku" jpn="UTC+04:00 バクー"/>
+					<option value="87" eng="UTC+04:00 Muscat" jpn="UTC+04:00 マスカット"/>
+					<option value="88" eng="UTC+04:30 Kabul" jpn="UTC+04:30 カブール"/>
+					<option value="89" eng="UTC+05:00 Karachi" jpn="UTC+05:00 カラチ"/>
+					<option value="90" eng="UTC+05:00 Tashkent" jpn="UTC+05:00 タシケント"/>
+					<option value="92" eng="UTC+05:30 Calcutta" jpn="UTC+05:30 カルカッタ"/>
+					<option value="93" eng="UTC+05:45 Kathmandu" jpn="UTC+05:45 カトマンズ"/>
+					<option value="91" eng="UTC+06:00 Bishkek" jpn="UTC+06:00 ビシュケク"/>
+					<option value="94" eng="UTC+06:00 Astana" jpn="UTC+06:00 アスタナ"/>
+					<option value="95" eng="UTC+06:00 Dhaka" jpn="UTC+06:00 ダッカ"/>
+					<option value="96" eng="UTC+07:00 Bangkok" jpn="UTC+07:00 バンコク"/>
+					<option value="97" eng="UTC+08:00 Kuala Lumpur" jpn="UTC+08:00 クアラルンプール"/>
+					<option value="98" eng="UTC+08:00 Singapore" jpn="UTC+08:00 シンガポール"/>
+					<option value="99" eng="UTC+08:00 Taipei" jpn="UTC+08:00 台北"/>
+					<option value="100" eng="UTC+08:00 Perth" jpn="UTC+08:00 パース"/>
+					<option value="101" eng="UTC+08:00 Beijing" jpn="UTC+08:00 北京"/>
+					<option value="102" eng="UTC+08:00 Hong Kong" jpn="UTC+08:00 香港"/>
+					<option value="103" eng="UTC+09:00 Seoul" jpn="UTC+09:00 ソウル"/>
+					<option value="104" eng="UTC+09:00 Tokyo" jpn="UTC+09:00 東京"/>
+					<option value="105" eng="UTC+09:30 Adelaide" jpn="UTC+09:30 アデレード"/>
+					<option value="119" eng="UTC+09:30 Darwin" jpn="UTC+09:30 ダーウィン"/>
+					<option value="106" eng="UTC+10:00 Sydney" jpn="UTC+10:00 シドニー"/>
+					<option value="120" eng="UTC+10:00 Brisbane" jpn="UTC+10:00 ブリスベン"/>
+					<option value="121" eng="UTC+11:00 Noumea" jpn="UTC+11:00 ヌメア"/>
+					<option value="107" eng="UTC+12:00 Wellington" jpn="UTC+12:00 ウェリントン"/>
+					<option value="108" eng="UTC+12:00 Suva" jpn="UTC+12:00 スバ"/>
+					<option value="109" eng="UTC+13:00 Independent State of Samoa" jpn="UTC+13:00 サモア独立国"/>
+				</selection>
+			</entry>
+
+			<!-- Adjust Daylight Saving Automatically : 自動でサマータイムに設定する -->
+			<entry key="registry:/CONFIG/DATE/auto_summer_time" eng="Adjust Daylight Saving Automatically" jpn="自動でサマータイムに設定する"
+					registrytype="integer" registrybytesize="4">
+				<desc eng=" "/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- Date Format : 日付表示 -->
+			<entry key="registry:/CONFIG/DATE/date_format" eng="Date Format" jpn="日付表示"
+					registrytype="integer" registrybytesize="4" >
+				<desc eng="Sets the order of display for year, month and day."
+					  jpn="年月日の並び順を設定します。"/>
+				<selection>
+					<option value="0" eng="YYYY/MM/DD" jpn="年/月/日"/>
+					<option value="1" eng="DD/MM/YYYY" jpn="日/月/年"/>
+					<option value="2" eng="MM/DD/YYYY" jpn="月/日/年"/>
+				</selection>
+			</entry>
+
+			<!-- Time Format : 時間表示 -->
+			<entry key="registry:/CONFIG/DATE/time_format" eng="Time Format" jpn="時間表示"
+					registrytype="integer" registrybytesize="4" >
+				<desc eng="Sets the time display to either a 12-hour or 24-hour clock."
+					  jpn="12時間表示または24時間表示を設定します。"/>
+				<selection>
+					<option value="0" eng="12-Hour Clock" jpn="12時間"/>
+					<option value="1" eng="24-Hour Clock" jpn="24時間"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Language : 言語 -->
+		<group eng="Language" jpn="言語">
+			<desc eng=" " jpn=" "/>
+
+			<!-- System Language : システム言語 -->
+			<entry key="registry:/CONFIG/SYSTEM/language" eng="System Language" jpn="システム言語"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets the language displayed by the system software on this DevKit."
+					  jpn="本DevKitのシステムソフトウェアで表示される言語を設定します。"/>
+				<selection>
+					<option value="14" eng="Danish" jpn="デンマーク語"/>
+					<option value="4" eng="German" jpn="ドイツ語"/>
+					<option value="18" eng="English (United Kingdom)" jpn="英語(イギリス)"/>
+					<option value="1" eng="English (United States)" jpn="英語(アメリカ)"/>
+					<option value="3" eng="Spanish" jpn="スペイン語"/>
+					<option value="2" eng="French" jpn="フランス語"/>
+					<option value="5" eng="Italian" jpn="イタリア語"/>
+					<option value="6" eng="Dutch" jpn="オランダ語"/>
+					<option value="15" eng="Norwegian" jpn="ノルウェー語"/>
+					<option value="16" eng="Polish" jpn="ポーランド語"/>
+					<option value="17" eng="Portuguese (Brazil)" jpn="ポルトガル語(ブラジル)"/>
+					<option value="7" eng="Portuguese (Portugal)" jpn="ポルトガル語(ポルトガル)"/>
+					<option value="8" eng="Russian" jpn="ロシア語"/>
+					<option value="12" eng="Finnish" jpn="フィンランド語"/>
+					<option value="13" eng="Swedish" jpn="スウェーデン語"/>
+					<option value="19" eng="Turkish" jpn="トルコ語"/>
+					<option value="0" eng="Japanese" jpn="日本語"/>
+					<option value="9" eng="Korean" jpn="韓国語"/>
+					<option value="11" eng="Chinese (simplified)" jpn="中国語(簡体字)"/>
+					<option value="10" eng="Chinese (traditional)" jpn="中国語(繁体字)"/>
+				</selection>
+			</entry>
+
+			<!-- Input Languages : 入力言語 -->
+			<group eng="Input Languages" jpn="入力言語">
+				<desc eng=" " jpn=" "/>
+
+				<!-- Auto Capitalization : 自動大文字化 -->
+				<entry key="registry:/CONFIG/IME/auto_capitalization" eng="Auto Capitalization" jpn="自動大文字化"
+						registrytype="integer" registrybytesize="4" >
+					<desc eng=" "
+						  jpn=" "/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+			</group>
+
+		</group>
+
+		<!-- Accessibility : アクセシビリティ -->
+		<group eng="Accessibility" jpn="アクセシビリティ">
+			<desc eng="Adjusts accessibility settings." jpn="アクセシビリティに関する設定です。"/>
+
+			<!-- Zoom : ズーム -->
+			<entry key="registry:/CONFIG/ACCESSIBILITY/zoom" eng="Zoom" jpn="ズーム"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng="Sets whether to enable the Zoom."
+					  jpn="ズーム機能を有効にするかどうかを設定します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- Invert Colors : 色を反転する -->
+			<entry key="registry:/CONFIG/ACCESSIBILITY/invert_color" eng="Invert Colors" jpn="色を反転する"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng="Sets whether to enable the Invert Colors."
+					  jpn="色の反転を有効にするかどうかを設定します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- Larger Text : 大きな文字 -->
+			<entry key="registry:/CONFIG/ACCESSIBILITY/large_text" eng="Larger Text" jpn="大きな文字"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets whether to enable the Larger Text."
+					  jpn="大きな文字での表示を有効にするかどうかを設定します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- Bold Text : 太い文字 -->
+			<entry key="registry:/CONFIG/ACCESSIBILITY/bold_text" eng="Bold Text" jpn="太い文字"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets whether to enable the Bold Text."
+					  jpn="太い文字での表示を有効にするかどうかを設定します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- High Contrast : ハイコントラスト -->
+			<entry key="registry:/CONFIG/ACCESSIBILITY/contrast" eng="High Contrast" jpn="ハイコントラスト"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets whether to enable the High Contrast."
+					  jpn="ハイコントラストを有効にするかどうかを設定します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- Closed Captions : クローズドキャプション -->
+			<group eng="Closed Captions" jpn="クローズドキャプション">
+				<desc eng=" " jpn=" "/>
+
+				<!-- Display Closed Captions : クローズドキャプションを表示する -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/enable_cc" eng="Display Closed Captions" jpn="クローズドキャプションを表示する"
+						registrytype="integer" dependskey="enable_cc" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets whether to enable the Closed Captions."
+						  jpn="クローズドキャプションを表示するかどうかを設定します。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+				<set dependson="enable_cc" conditionmin="1" conditionmax="1">
+
+				<!-- Display Closed Captions as Specified by Content : コンテンツが指定したとおりにクローズドキャプションを表示する -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/content_specific" eng="Display Closed Captions as Specified by Content" jpn="コンテンツが指定したとおりにクローズドキャプションを表示する"
+						registrytype="integer" dependskey="content_specific" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions as Specified by Content."
+						  jpn="コンテンツが指定したとおりにクローズドキャプションを表示するどうかを設定します。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+				<set dependson="content_specific" conditionmin="0" conditionmax="0">
+
+				<!-- Font : フォント -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/font_type" eng="Font" jpn="フォント"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Character Font."
+						  jpn="クローズドキャプションの文字のフォントを設定します。"/>
+					<selection>
+						<option value="0" eng="Font1" jpn="フォント1"/>
+						<option value="1" eng="Font2" jpn="フォント2"/>
+						<option value="2" eng="Font3" jpn="フォント3"/>
+						<option value="3" eng="Font4" jpn="フォント4"/>
+						<option value="4" eng="Font5" jpn="フォント5"/>
+						<option value="5" eng="Font6" jpn="フォント6"/>
+						<option value="6" eng="Font7" jpn="フォント7"/>
+					</selection>
+				</entry>
+
+				<!-- Size : サイズ -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/char_size" eng="Size" jpn="サイズ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Character Size."
+						  jpn="クローズドキャプションの文字の大きさを設定します。"/>
+					<selection>
+						<option value="200" eng="200%"/>
+						<option value="100" eng="100%"/>
+						<option value="50" eng="50%"/>
+					</selection>
+				</entry>
+
+				<!-- Color : 色 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/char_color" eng="Color" jpn="色"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Character Color."
+						  jpn="クローズドキャプションの文字色を設定します。"/>
+					<selection>
+						<option value="0" eng="White" jpn="白"/>
+						<option value="1" eng="Black" jpn="黒"/>
+						<option value="2" eng="Red" jpn="赤"/>
+						<option value="3" eng="Green" jpn="緑"/>
+						<option value="4" eng="Blue" jpn="青"/>
+						<option value="5" eng="Yellow" jpn="黄"/>
+						<option value="6" eng="Magenta" jpn="マゼンタ"/>
+						<option value="7" eng="Cyan" jpn="シアン"/>
+					</selection>
+				</entry>
+
+				<!-- Edges : 輪郭 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/char_edge" eng="Edges" jpn="輪郭"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Character Edges."
+						  jpn="クローズドキャプションの文字輪郭を設定します。"/>
+					<selection>
+						<option value="0" eng="None" jpn="なし"/>
+						<option value="1" eng="Raised" jpn="盛り上がった"/>
+						<option value="2" eng="Depressed" jpn="沈み込んだ"/>
+						<option value="3" eng="Uniform" jpn="平面"/>
+						<option value="4" eng="Drop Shadowed" jpn="影付き"/>
+					</selection>
+				</entry>
+
+				<!-- Edge Color : 輪郭の色 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/char_edge_color" eng="Edge Color" jpn="輪郭の色"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Character Edges Color."
+						  jpn="クローズドキャプションの文字輪郭の色を設定します。"/>
+					<selection>
+						<option value="0" eng="White" jpn="白"/>
+						<option value="1" eng="Black" jpn="黒"/>
+						<option value="2" eng="Red" jpn="赤"/>
+						<option value="3" eng="Green" jpn="緑"/>
+						<option value="4" eng="Blue" jpn="青"/>
+						<option value="5" eng="Yellow" jpn="黄"/>
+						<option value="6" eng="Magenta" jpn="マゼンタ"/>
+						<option value="7" eng="Cyan" jpn="シアン"/>
+					</selection>
+				</entry>
+
+				<!-- Opacity : 不透明度 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/char_opacity" eng="Opacity" jpn="不透明度"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Character Opacity."
+						  jpn="クローズドキャプション文字の不透明度を設定します。"/>
+					<selection>
+						<option value="0" eng="100%"/>
+						<option value="1" eng="75%"/>
+						<option value="2" eng="50%"/>
+						<option value="3" eng="25%"/>
+						<option value="4" eng="0%"/>
+					</selection>
+				</entry>
+
+				<!-- Background Color : 背景の色 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/char_bg_color" eng="Background Color" jpn="背景の色"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions BG Color."
+						  jpn="クローズドキャプションの背景色を設定します。"/>
+					<selection>
+						<option value="0" eng="White" jpn="白"/>
+						<option value="1" eng="Black" jpn="黒"/>
+						<option value="2" eng="Red" jpn="赤"/>
+						<option value="3" eng="Green" jpn="緑"/>
+						<option value="4" eng="Blue" jpn="青"/>
+						<option value="5" eng="Yellow" jpn="黄"/>
+						<option value="6" eng="Magenta" jpn="マゼンタ"/>
+						<option value="7" eng="Cyan" jpn="シアン"/>
+					</selection>
+				</entry>
+
+				<!-- Background Opacity : 背景の不透明度 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/char_bg_opacity" eng="Background Opacity" jpn="背景の不透明度"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions BG Opacity."
+						  jpn="クローズドキャプション背景の不透明度を設定します。"/>
+					<selection>
+						<option value="0" eng="100%"/>
+						<option value="1" eng="75%"/>
+						<option value="2" eng="50%"/>
+						<option value="3" eng="25%"/>
+						<option value="4" eng="0%"/>
+					</selection>
+				</entry>
+
+				<!-- Window Color : ウィンドウの色 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/window_color" eng="Window Color" jpn="ウィンドウの色"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Windows Color."
+						  jpn="クローズドキャプション枠の色を設定します。"/>
+					<selection>
+						<option value="0" eng="White" jpn="白"/>
+						<option value="1" eng="Black" jpn="黒"/>
+						<option value="2" eng="Red" jpn="赤"/>
+						<option value="3" eng="Green" jpn="緑"/>
+						<option value="4" eng="Blue" jpn="青"/>
+						<option value="5" eng="Yellow" jpn="黄"/>
+						<option value="6" eng="Magenta" jpn="マゼンタ"/>
+						<option value="7" eng="Cyan" jpn="シアン"/>
+					</selection>
+				</entry>
+
+				<!-- Window Opacity : ウィンドウの不透明度 -->
+				<entry key="registry:/CONFIG/ACCESSIBILITY/CC/window_opacity" eng="Window Opacity" jpn="ウィンドウの不透明度"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets Display Closed Captions Windows Opacity."
+						  jpn="クローズドキャプション枠の不透明度を設定します。"/>
+					<selection>
+						<option value="0" eng="100%"/>
+						<option value="1" eng="75%"/>
+						<option value="2" eng="50%"/>
+						<option value="3" eng="25%"/>
+						<option value="4" eng="0%"/>
+					</selection>
+				</entry>
+
+				</set>
+				</set>
+
+			</group>
+
+			<!-- Add to Quick Menu : クイックメニューに追加する -->
+			<entry key="registry:/CONFIG/ACCESSIBILITY/shortcut" eng="Add to Quick Menu" jpn="クイックメニューに追加する"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng="Add accessibility settings to the quick menu."
+					  jpn="クイックメニューに、アクセシビリティの設定項目を追加します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Format : 初期化 -->
+		<group eng="Format" jpn="初期化">
+			<desc eng=" "/>
+
+			<!-- Restore Settings : 設定を初期化する -->
+			<entry key="registry:/CONFIG/SYSTEM/init_settings" eng="Restore Settings" jpn="設定を初期化する"
+					registrytype="integer" registrybytesize="4" forcerefresh="true">
+				<desc eng="Restores the system software to its default settings.&#xa;The restoration will be exclusively executed."
+					  jpn="システムソフトウェアの設定を初期値に戻します。&#xa;この初期化は単独で実行されます。"/>
+				<applyimmediate eng="The settings will be returned to default values. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"
+						 jpn="設定が初期値に戻されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？" resetsonapply="true"/>
+				<selection>
+					<option value="0" eng="No" jpn="いいえ"/>
+					<option value="32" eng="Yes" jpn="はい"/>
+					<option value="64" eng=" " jpn=" " visible="false"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Power Save Settings : 省電力設定 -->
+		<group eng="Power Save Settings" jpn="省電力設定">
+			<desc eng="Adjusts settings for the power save feature."
+				  jpn="省電力に関する設定です。"/>
+
+			<entry key="registry:/CONFIG/POWER_SAVING/suspend_interval" eng="Auto Stand-by" jpn="自動スタンバイ"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets whether to enable the automatic stand-by feature for this DevKit.&#xa;If you do not operate the DevKit for a set amount of time, the DevKit will enter the stand-by mode automatically."
+					  jpn="本DevKitの自動スタンバイ機能を有効にするかどうかを設定します。&#xa;設定した時間、DevKitを操作しないでいると自動的にスタンバイモードに入ります。"/>
+				<selection>
+					<option value="0" eng="★ Off" jpn="★ Off"/>
+					<option value="60" eng="After 1 Minute" jpn="1分後"/>
+					<option value="180" eng="After 3 Minutes" jpn="3分後"/>
+					<option value="300" eng="After 5 Minutes" jpn="5分後"/>
+					<option value="600" eng="After 10 Minutes" jpn="10分後"/>
+					<option value="1800" eng="After 30 Minutes" jpn="30分後"/>
+					<option value="3600" eng="★ After 60 Minutes" jpn="★ After 60 Minutes"/>
+				</selection>
+			</entry>
+
+			<!-- Use Wi-Fi in Power Save Mode : Wi-Fiを省電力モードで使う -->
+			<entry key="registry:/CONFIG/NET/wifi_power_save" eng="Use Wi-Fi in Power Save Mode" jpn="Wi-Fiを省電力モードで使う"
+					registrytype="integer" registrybytesize="4">
+				<desc eng=" "/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- ★ Debug Settings -->
+		<group eng="★ Debug Settings">
+			<desc eng=" "/>
+
+			<!-- System Update -->
+			<group eng="System Update">
+				<desc eng=" "/>
+
+				<!-- Update Server URL -->
+				<entry key="registry:/CONFIG/SYSTEM/UPDATE/server_url" eng="Update Server URL"
+						registrytype="string" registrybytesize="512" norebootneeded="true">
+					<desc eng=" "/>
+					<textual minlen="0" maxlen="511" encoding="ascii"/>
+				</entry>
+
+				<!-- Show PUP List -->
+				<entry key="registry:/CONFIG/SYSTEM/UPDATE/pup_list_flag" eng="Show PUP List"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Enable Host0 -->
+				<entry key="registry:/CONFIG/SYSTEM/UPDATE/enable_host0" eng="Enable Host0"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Disable"/>
+						<option value="1" eng="Enable"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- Network -->
+			<group eng="Network">
+				<desc eng=" "/>
+
+				<!-- Network Emulation -->
+				<group eng="Network Emulation">
+					<desc eng=" "/>
+
+					<!-- Type -->
+					<entry key="registry:/CONFIG/NET/emulation_type" eng="Type"
+							registrytype="integer" registrybytesize="4">
+						<desc eng=" "/>
+						<selection>
+							<option value="0" eng="Disabled"/>
+							<option value="1" eng="1"/>
+							<option value="2" eng="2"/>
+							<option value="3" eng="3"/>
+							<option value="4" eng="4"/>
+						</selection>
+					</entry>
+
+					<!-- Interface -->
+					<entry key="registry:/CONFIG/NET/emulation_if" eng="Interface"
+							registrytype="integer" registrybytesize="4">
+						<desc eng=" "/>
+						<selection>
+							<option value="1" eng="USB Ethernet"/>
+							<option value="2" eng="Wi-Fi"/>
+						</selection>
+					</entry>
+
+				</group>
+
+				<!-- Intermittent Connection -->
+				<entry key="registry:/CONFIG/NET/icm_type" eng="Intermittent Connection"
+						registrytype="integer" registrybytesize="4">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Fake 3G Interface -->
+				<entry key="registry:/CONFIG/NET/fake_3g_if" eng="Fake 3G Interface"
+						registrytype="integer" registrybytesize="4">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- PSP Adhoc SSID prefix -->
+				<entry key="registry:/CONFIG/NET/pspnet_adhoc_ssid_prefix" eng="PSP Adhoc SSID prefix"
+						registrytype="string" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<textual minlen="3" maxlen="3" encoding="ascii"/>
+				</entry>
+
+			</group>
+
+			<!-- PlayStation(TM)Network -->
+			<group eng="PlayStation(TM)Network">
+				<desc eng=" "/>
+
+				<!-- NP Environment -->
+				<entry key="registry:/CONFIG/NP/env" eng="NP Environment"
+						registrytype="string" registrybytesize="17">
+					<desc eng=" "/>
+					<textual minlen="0" maxlen="16" encoding="ascii"/>
+				</entry>
+
+				<!-- NP Debug -->
+				<entry key="registry:/CONFIG/NP/debug" eng="NP Debug"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Fake Plus -->
+				<entry key="registry:/CONFIG/NP2/fake_plus" eng="Fake Plus"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- In-Game Commerce Debug -->
+				<entry key="registry:/CONFIG/NP/debug_ingame_commerce2" eng="In-Game Commerce Debug"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="Fake SKU and Metadata"/>
+						<option value="2" eng="Empty Store"/>
+					</selection>
+				</entry>
+
+				<!-- Service ID -->
+				<entry key="registry:/CONFIG/NP/title_id" eng="Service ID"
+						registrytype="string" registrybytesize="37" norebootneeded="true">
+					<desc eng=" "/>
+					<textual minlen="0" maxlen="36" encoding="ascii"/>
+				</entry>
+
+				<!-- Patch Test -->
+				<entry key="registry:/CONFIG/NP2/test_patch" eng="Patch Test"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- TPPS Proxy -->
+				<group eng="TPPS Proxy">
+					<desc eng=" "/>
+
+					<!-- TPPS Proxy -->
+					<entry key="registry:/CONFIG/NP2/tpps_proxy_flag" eng="TPPS Proxy"
+							dependskey="tpps_proxy" registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<selection>
+							<option value="0" eng="Do Not Use"/>
+							<option value="1" eng="Use"/>
+						</selection>
+					</entry>
+
+					<!-- In case of TPPS Proxy="Use" -->
+					<set dependson="tpps_proxy" conditionmin="1" conditionmax="1">
+
+						<!-- Address -->
+						<entry key="registry:/CONFIG/NP2/tpps_proxy_server" eng="Address"
+									registrytype="string" registrybytesize="256" norebootneeded="true">
+								<desc eng=" "/>
+								<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Port -->
+						<entry key="registry:/CONFIG/NP2/tpps_proxy_port" eng="Port"
+								registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng=" "/>
+							<intvalue minvalue="1" maxvalue="65535"/>
+						</entry>
+
+						<!-- User Name -->
+						<entry key="registry:/CONFIG/NP2/tpps_proxy_user_name" eng="User Name"
+									registrytype="string" registrybytesize="65" norebootneeded="true">
+								<desc eng=" "/>
+								<textual minlen="0" maxlen="64" encoding="ascii"/>
+						</entry>
+
+						<!-- Password -->
+						<entry key="registry:/CONFIG/NP2/tpps_proxy_password" eng="Password"
+									registrytype="string" registrybytesize="65" norebootneeded="true">
+								<desc eng=" "/>
+								<password minlen="0" maxlen="64"/>
+						</entry>
+
+					</set>
+
+				</group>
+
+				<!-- Web API Rate Limit Threshold -->
+				<entry key="registry:/CONFIG/NP2/fake_ratelimit" eng="Web API Rate Limit Threshold"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Always Error"/>
+						<option value="10" eng="10%"/>
+						<option value="20" eng="20%"/>
+						<option value="30" eng="30%"/>
+						<option value="40" eng="40%"/>
+						<option value="50" eng="50%"/>
+						<option value="60" eng="60%"/>
+						<option value="70" eng="70%"/>
+						<option value="80" eng="80%"/>
+						<option value="90" eng="90%"/>
+						<option value="100" eng="100%"/>
+					</selection>
+				</entry>
+
+				<!-- Ignore NpTitleId set by API in Development Mode -->
+				<entry key="registry:/CONFIG/NP2/ignore_titleid" eng="Ignore NpTitleId set by API in Development Mode"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- Location Data -->
+			<group eng="Location Data">
+				<desc eng=" "/>
+
+				<!-- Emulate Permission -->
+				<entry key="registry:/CONFIG/LOCATION/debug_permission" eng="Emulate Permission"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Permission Status -->
+				<entry key="registry:/CONFIG/LOCATION/debug_permission_status" eng="Permission Status"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Disable"/>
+						<option value="1" eng="Not Yet Accessed"/>
+						<option value="2" eng="Deny"/>
+						<option value="3" eng="Allow"/>
+					</selection>
+				</entry>
+
+				<!-- Make AP Invisible -->
+				<entry key="registry:/CONFIG/LOCATION/make_ap_invisible" eng="Make AP Invisible"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- System -->
+			<group eng="System">
+				<desc eng=" "/>
+
+				<!-- ○ Button Behavior -->
+				<entry key="registry:/CONFIG/SYSTEM/button_assign" eng="○ Button Behavior"
+						registrytype="integer" registrybytesize="4">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Enter"/>
+						<option value="1" eng="Back"/>
+					</selection>
+				</entry>
+
+				<!-- Slow Card Mode -->
+				<entry key="registry:/DEVENV/TOOL/slow_card_mode" eng="Slow Card Mode"
+						registrytype="integer" registrybytesize="4">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Disable"/>
+						<option value="1" eng="Enable"/>
+					</selection>
+				</entry>
+
+				<!-- TRC Check Notifications -->
+				<entry key="registry:/CONFIG/SHELL/trc_check_notify" eng="TRC Check Notifications"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Disable"/>
+						<option value="1" eng="Enable"/>
+					</selection>
+				</entry>
+
+				<!-- GPI Switch -->
+				<entry key="registry:/DEVENV/TOOL/gpi_switch" eng="GPI Switch"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<hexvalue minvalue="0" maxvalue="4294967295"/>
+				</entry>
+
+				<!-- PRX Debug -->
+				<entry key="registry:/DEVENV/TOOL/prx_debug" eng="PRX Debug"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Disable"/>
+						<option value="1" eng="Enable"/>
+					</selection>
+				</entry>
+
+				<!-- Use Default PRX Runtime Library -->
+				<entry key="registry:/DEVENV/TOOL/use_default_lib" eng="Use Default PRX Runtime Library"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Region Settings -->
+				<entry key="registry:/DEVENV/TOOL/region_masquerade" eng="Region Settings"
+						registrytype="integer" registrybytesize="4" forcerefresh="true">
+					<desc eng="If you change the region, the settings whose default values are different in each region will be returned to their default values.&#xa;This setting will be exclusively executed."/>
+					<applyimmediate eng="This setting will be exclusively executed. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"/>
+					<selection>
+						<option value="1" eng="Japan"/>
+						<option value="2" eng="North America"/>
+						<option value="3" eng="Oceania"/>
+						<option value="4" eng="UK"/>
+						<option value="5" eng="Europe"/>
+						<option value="6" eng="Korea"/>
+						<option value="7" eng="Southeast Asia"/>
+						<option value="8" eng="Taiwan"/>
+						<option value="13" eng="China"/>
+						<option value="9" eng="Russia"/>
+						<option value="10" eng="Mexico"/>
+						<option value="11" eng="Off"/>
+					</selection>
+					<valuedepends condition="1">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="2">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="3">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="4">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="5">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="6">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="7">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="8">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="13">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="9">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="10">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+					<valuedepends condition="11">
+						<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+					</valuedepends>
+				</entry>
+
+				<!-- Restore Debug Settings -->
+				<entry key="registry:/CONFIG/SYSTEM/init_settings" eng="Restore Debug Settings"
+						registrytype="integer" registrybytesize="4" forcerefresh="true">
+					<desc eng=" "/>
+					<applyimmediate eng="All the debug settings will be returned to default values. Any already set settings will be ignored.&#xa;Are you sure you want to continue?" 
+						resetsonapply="true"/>
+					<selection>
+						<option value="0" eng="No"/>
+						<option value="48" eng="Yes"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- Core Dump -->
+			<group eng="Core Dump">
+				<desc eng=" "/>
+
+				<!-- Dump Level -->
+				<entry key="registry:/CONFIG/COREDUMP/dump_level" eng="Dump Level"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Mini Dump"/>
+						<option value="1" eng="Full Dump"/>
+					</selection>
+				</entry>
+
+				<!-- Host Path -->
+				<entry key="registry:/CONFIG/COREDUMP/dest_hostpath" eng="Host Path"
+						registrytype="string" registrybytesize="1024" norebootneeded="true">
+					<desc eng=" "/>
+					<textual minlen="0" maxlen="255" encoding="utf8"/>
+				</entry>
+
+				<!-- Forced Dump on Devmode -->
+				<entry key="registry:/CONFIG/COREDUMP/force_dump_on_devmode" eng="Forced Dump on Devmode"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Uploader -->
+				<group eng="Uploader">
+					<desc eng=" "/>
+
+					<!-- Enable Uploader -->
+					<entry key="registry:/CONFIG/COREDUMP/UPLOADER/enable_flag" eng="Enable Uploader"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<selection>
+							<option value="0" eng="Off"/>
+							<option value="1" eng="On"/>
+						</selection>
+					</entry>
+
+					<!-- Uploader URL -->
+					<entry key="registry:/CONFIG/COREDUMP/UPLOADER/url" eng="Uploader URL"
+							registrytype="string" registrybytesize="1024" norebootneeded="true" forcerefresh="true">
+						<desc eng=" "/>
+						<applyimmediate eng="Corefiles will be uploaded to this URL when the process crashes.&#xa;&#xa;Caution: Corefiles include game internal info such as the memory state.&#xa;Confirm the server security before setting the URL.&#xa;&#xa;This setting will be exclusively executed. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"/>
+						<textual minlen="0" maxlen="255" encoding="utf8"/>
+					</entry>
+
+					<!-- Auto Upload -->
+					<entry key="registry:/CONFIG/COREDUMP/UPLOADER/auto_flag" eng="Auto Upload"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<selection>
+							<option value="0" eng="Off"/>
+							<option value="1" eng="On"/>
+						</selection>
+					</entry>
+
+				</group>
+
+			</group>
+
+			<!-- Graphics Library (libgxm) -->
+			<group eng="Graphics Library (libgxm)">
+				<desc eng=" "/>
+
+				<!-- Use Debug Version of libgxm for Game -->
+				<entry key="registry:/DEVENV/TOOL/game_uses_gxmdbg" eng="Use Debug Version of libgxm for Game"
+						registrytype="integer" registrybytesize="4">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Disable"/>
+						<option value="1" eng="Enable"/>
+					</selection>
+				</entry>
+
+			</group>
+
+		</group>
+
+	</set>
+
+</registry>
