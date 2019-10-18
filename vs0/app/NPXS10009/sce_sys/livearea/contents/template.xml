@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="music" format-ver="01.00" content-rev="1">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#ff91f6ff"/>
+	
+	<!-- システムファンクションエリア 最大7個 -->
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:music</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>startup.png</startup-image>
+	</gate>
+
+</livearea>
+

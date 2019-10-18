@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="content_manager" format-ver="01.00" content-rev="3">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#ffffff80"/>
+	
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+	
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:cm</target>
+		</func>
+	</system-function-zone>
+</livearea>
+
