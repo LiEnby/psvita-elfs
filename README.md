@@ -10,6 +10,7 @@ PSVita Decrypted ELFS for various firmwares (For reversing)
 3.67 CEX- https://github.com/KuromeSan/psvita-elfs/tree/367-CEX         
 3.65 CEX- https://github.com/KuromeSan/psvita-elfs/tree/365-CEX         
 3.63 CEX- https://github.com/KuromeSan/psvita-elfs/tree/363-CEX   
+3.61 DEX- https://github.com/KuromeSan/psvita-elfs/tree/361-DEX       
 3.61 CEX- https://github.com/KuromeSan/psvita-elfs/tree/361-CEX       
 3.60 DEX- https://github.com/KuromeSan/psvita-elfs/tree/360-DEX        
 3.60 CEX- https://github.com/KuromeSan/psvita-elfs/tree/360-CEX    
