@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="browser" format-ver="01.00" content-rev="1">
+
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+
+	<title color="#84b4baff"/>
+	
+	<system-function-zone>
+    <func>online-manual
+      <target>sceman:browser</target>
+    </func>
+  </system-function-zone>
+
+	<gate>
+		<startup-image>def_gate.gim</startup-image>
+	</gate>
+
+  <frame id="frame1" multi="o" autoflip="0">
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame2" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame3" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame4" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame5" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame6" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame7" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame8" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+
+  <frame id="frame9" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+  <frame id="frame10" multi="o" autoflip="0" >
+    <liveitem>
+    </liveitem>
+  </frame>
+</livearea>
+
