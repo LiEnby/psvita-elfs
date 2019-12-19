@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a3" format-ver="01.00" content-rev="3">
+
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+
+	<title color="#652400ff"/>
+	
+	<!-- システムファンクションエリア 最大7個 -->
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:photos</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+
+	<frame id="frame3" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<lang>ja</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >カメラ</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>en</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Camera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>fr</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Appareil photo</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>es</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Cámara</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>de</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Kamera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>it</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Fotocamera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>nl</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Camera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>pt</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Câmara</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>ru</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Камера</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>ko</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >카메라</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>ch</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >相機</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>zh</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >相机</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>fi</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Kamera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>sv</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Kamera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>da</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Kamera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>no</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Kamera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>pl</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Kamera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>en-gb</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Camera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>pt-br</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Câmera</str></text>
+		</liveitem>
+
+		<liveitem>
+			<lang>tr</lang>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center">camera.png</background>
+			<text  align="center" valign="bottom" x="17" ><str size="20" color='#FFFFFF' bold="on" >Kamera</str></text>
+		</liveitem>
+
+	</frame>
+
+	<frame id="frame4" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<lang>ja</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >パノラマカメラ</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>en</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramic Camera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>fr</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Appareil photo panoramique</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>es</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Cámara panorámica</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>de</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramakamera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>it</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Fotocamera panoramica</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>nl</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramacamera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>pt</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Câmara panorâmica</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>ru</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Панорамная камера</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>ko</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >파노라마 카메라</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>ch</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >全景相機</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>zh</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >全景相机</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>fi</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoraamakamera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>sv</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramakamera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>da</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramakamera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>no</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramakamera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>pl</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Kamera panoramiczna</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>en-gb</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramic Camera</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>pt-br</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Câmera panorâmica</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>tr</lang>
+			<model>vita</model>
+			<target>scepanorama:</target>
+			<background align="center" valign="center" >panorama.png</background>
+			<text  align="center" valign="bottom" ><str size="20" color='#FFFFFF' bold="on" >Panoramik Kamera</str></text>			
+		</liveitem>
+
+	</frame>
+	
+	<frame id="frame5" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<lang>ja</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >ギャラリー</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>en</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Gallery</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>fr</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galerie</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>es</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galería</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>de</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galerie</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>it</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galleria</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>nl</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galerie</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>pt</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galeria</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>ru</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Галерея</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>ko</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >갤러리</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>ch</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >相簿</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>zh</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >相册</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>fi</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galleria</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>sv</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galleri</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>da</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galleri</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>no</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galleri</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>pl</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galeria</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>en-gb</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Gallery</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>pt-br</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galeria</str></text>			
+		</liveitem>
+
+		<liveitem>
+			<lang>tr</lang>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+			<text  align="center" valign="bottom" x="-17" ><str size="20" color='#FFFFFF' bold="on" >Galeri</str></text>			
+		</liveitem>
+
+	</frame>
+
+</livearea>
+
