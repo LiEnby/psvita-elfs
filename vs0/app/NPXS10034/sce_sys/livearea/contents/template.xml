@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: template.xml 60227 2011-07-04 13:14:32Z tnakagawa $ -->
+<livearea style="a1" format-ver="01.00" content-rev="1">
+	
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+
+	<title color="#ffffff80"/>
+	
+	<system-function-zone>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+	<frame id="frame3">
+		<liveitem>
+			<text align="center" valign="center" origin="frame">
+				<str color="#ffffff"
+						 size="36"
+						 bold="on">★ PlayStation®Store Preview (Regional Store)</str>
+			</text>
+		</liveitem>
+	</frame>
+
+</livearea>
+<!--
+	Local Variables:
+	coding:utf-8
+	tab-width:2
+	End:
+  -->
