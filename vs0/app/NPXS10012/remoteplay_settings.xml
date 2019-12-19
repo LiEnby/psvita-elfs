@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 設定メニュー定義ファイル -->
+<application_settings version="1.0">
+
+	<setting_list id="remoteplay_setting" title="msg_settings">
+
+		<list id="list_response" title="msg_response_speed" key="Response" default_value="2" hint="msg_response_speed_info">
+			<list_item id="list_response_01" title="msg_plus1" value="1" />
+			<list_item id="list_response_02" title="msg_nrml" value="2" />
+			<list_item id="list_response_03" title="msg_minus1" value="3" />
+			<list_item id="list_response_04" title="msg_minus2" value="4" />
+		</list>
+
+		<list id="list_quality" title="msg_image_quality" key="Quality" default_value="3" hint="msg_image_quality_info">
+			<list_item id="list_quality_01" title="msg_plus2" value="1" />
+			<list_item id="list_quality_02" title="msg_plus1" value="2" />
+			<list_item id="list_quality_03" title="msg_nrml" value="3" />
+			<list_item id="list_quality_04" title="msg_minus1" value="4" />
+			<list_item id="list_quality_05" title="msg_minus2" value="5" />
+		</list>
+
+		<button id="button_pad_assign" title="msg_assign_buttons" hint="msg_assign_buttons_info" />
+		<button id="button_devreg" title="msg_change_connected_ps3" />
+		<button id="button_restore" title="msg_restore_settings" />
+
+	</setting_list>
+
+</application_settings>
