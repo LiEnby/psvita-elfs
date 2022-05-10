@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<livearea style="a5" format-ver="01.01" content-rev="1">
+  <livearea-background>
+    <image>bg0.png</image>
+  </livearea-background>
+  <system-function-zone>
+    <func>online-manual
+      <target>sceman:near</target></func>
+  </system-function-zone>
+  <gate>
+    <startup-image>default_gate.png</startup-image>
+  </gate>
+  <!-- 480*68 -->
+  <frame id="frame1" multi="o" autoflip="0">
+    <liveitem></liveitem>
+  </frame>
+  <frame id="frame2" multi="o" autoflip="0">
+    <liveitem>
+      <background align="right" valign="center" width="464">item_line.png</background>
+    </liveitem>
+  </frame>
+  <frame id="frame3" multi="o" autoflip="0">
+    <liveitem>
+      <background align="right" valign="center" width="464">item_line.png</background>
+    </liveitem>
+  </frame>
+  <frame id="frame4" multi="o" autoflip="0">
+    <liveitem>
+      <background align="right" valign="center" width="464">item_line.png</background>
+    </liveitem>
+  </frame>
+  <frame id="frame5" multi="o" autoflip="0">
+    <liveitem>
+      <background align="right" valign="center" width="464">item_line.png</background>
+    </liveitem>
+  </frame>
+  <frame id="frame6" multi="o" autoflip="0">
+    <liveitem>
+      <background align="right" valign="center" width="464">item_line.png</background>
+    </liveitem>
+  </frame>
+  <!-- ゲート下の文言 -->
+  <frame id="frame7" multi="o" autoflip="0">
+    <!-- 日本語 -->
+    <liveitem>
+      <lang>ja</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">"near"を利用して、あなたの周りのプレーヤーが
+どんなゲームを楽しんでいるか見てみましょう。</str>
+      </text>
+    </liveitem>
+    <!-- 英語 -->
+    <liveitem default="on">
+      <lang>en</lang>
+      <text width="275" align="left" valign="top" word-scroll="off" margin-left="39" margin-top="18" line-space="0">
+        <str size="22" bold="on" color="#351c02">Use "near" to find out what people around you are playing.</str>
+      </text>
+    </liveitem>
+    <!-- 英語(イギリス) -->
+    <liveitem>
+      <lang>en-gb</lang>
+      <text width="275" align="left" valign="top" word-scroll="off" margin-left="39" margin-top="18" line-space="0">
+        <str size="22" bold="on" color="#351c02">Use "near" to find out what people around you are playing.</str>
+      </text>
+    </liveitem>
+    <!-- フランス -->
+    <liveitem>
+      <lang>fr</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Utilisez "near" pour savoir à quoi jouent les joueurs autour de vous.</str>
+      </text>
+    </liveitem>
+    <!-- スペイン -->
+    <liveitem>
+      <lang>es</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Usa "near" para descubrir a qué juega la gente que te rodea.</str>
+      </text>
+    </liveitem>
+    <!-- ドイツ -->
+    <liveitem>
+      <lang>de</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Finde mit "near" heraus, was die Spieler in deiner Nähe spielen.</str>
+      </text>
+    </liveitem>
+    <!-- イタリア -->
+    <liveitem>
+      <lang>it</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Usa "near" per scoprire a cosa giocano le persone vicino a te.</str>
+      </text>
+    </liveitem>
+    <!-- オランダ -->
+    <liveitem>
+      <lang>nl</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Gebruik "near" om te zien wat spelers in je omgeving spelen.</str>
+      </text>
+    </liveitem>
+    <!-- ポルトガル語（ポルトガル）-->
+    <liveitem>
+      <lang>pt</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Usa o "near" para descobrires o que os jogadores à tua volta estão a jogar. </str>
+      </text>
+    </liveitem>
+    <!-- ポルトガル語（ブラジル） -->
+    <liveitem>
+      <lang>pt-br</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Use o "near" para descobrir o que os jogadores à sua volta estão jogando.</str>
+      </text>
+    </liveitem>
+    <!-- ロシア -->
+    <liveitem>
+      <lang>ru</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Используйте "near", чтобы узнать, во что играют другие.</str>
+      </text>
+    </liveitem>
+    <!-- ポーランド -->
+    <liveitem>
+      <lang>pl</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Użyj "near", aby dowiedzieć się, w co grają ludzie wokół Ciebie.</str>
+      </text>
+    </liveitem>
+    <!-- フィンランド-->
+    <liveitem>
+      <lang>fi</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Selvitä "near"-sovelluksella, mitä ympärilläsi tykätään pelata.</str>
+      </text>
+    </liveitem>
+    <!-- デンマーク -->
+    <liveitem>
+      <lang>da</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Med "near" kan du opdage, hvad andre personer i nærheden spiller.</str>
+      </text>
+    </liveitem>
+    <!-- ノルウェー -->
+    <liveitem>
+      <lang>no</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Bruk "near" til å oppdage hva folk rundt deg spiller.</str>
+      </text>
+    </liveitem>
+    <!-- スウェーデン -->
+    <liveitem>
+      <lang>sv</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Använd "near" för att upptäcka vad personer i din närhet spelar.</str>
+      </text>
+    </liveitem>
+    <!-- 韓国 -->
+    <liveitem>
+      <lang>ko</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">"near"를 이용하여 주변의 플레이어가
+어떤 게임을 플레이하고 있는지 알아봅시다.</str>
+      </text>
+    </liveitem>
+    <!-- トルコ語 -->
+    <liveitem>
+      <lang>tr</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">Etrafındaki insanların ne oynadığını öğrenmek için &#x22;near&#x22;ı kullan.</str>
+      </text>
+    </liveitem>
+    <!-- 中国語(簡体字) -->
+    <liveitem>
+      <lang>zh</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">使用"near"看看您周围的玩家
+正在游玩什么游戏。</str>
+      </text>
+    </liveitem>
+    <!-- 中国語(繁体字）-->
+    <liveitem>
+      <lang>ch</lang>
+      <text width="310" align="left" valign="top" word-scroll="off" margin-left="26" margin-top="18" line-space="8">
+        <str size="22" bold="on" color="#351c02">使用"near"看看您周圍的玩者
+正在遊玩什麼遊戲。</str>
+      </text>
+    </liveitem>
+  </frame>
+</livearea>
