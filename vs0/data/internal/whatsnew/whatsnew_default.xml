@@ -1,0 +1,166 @@
+﻿<nsx ver="1.0" rev="0" min-sys-ver="" lt-id="1010" anno="">
+  <spc rep="f" multi="o" id="400" anno="">
+  
+    <!-- RHQ(playstation)アイコン、仕向けごとに変わる -->
+    <mtrl anno="region=UC2&amp;region=MX2" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="1100">
+      <url type="106">UC2_B1-Banner.png</url>
+      <target type="u">http://us.playstation.com/</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>all</lang>
+    </mtrl>
+    <mtrl anno="region=J1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="1100">
+      <url type="106">J1_B1_banner_SCEJ.png</url>
+      <target type="u">http://www.jp.playstation.com/</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>all</lang>
+    </mtrl>
+    <mtrl anno="region=AU3&amp;region=CEK&amp;region=CEL&amp;region=RU3" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="1100">
+      <url type="106">EU_B1_Banner.png</url>
+      <target type="u">http://eu.playstation.com/</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>all</lang>
+    </mtrl>
+    <mtrl anno="region=KR2" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="1100">
+      <url type="106">asia_playstation.png</url>
+      <target type="u">http://www.playstation.co.kr/psvita/r/</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>all</lang>
+    </mtrl>
+    <mtrl anno="region=E12" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="1100">
+      <url type="106">asia_playstation.png</url>
+      <target type="u">http://asia.playstation.com/psvita/r/asia</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>all</lang>
+    </mtrl>
+    <mtrl anno="region=TW1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="1100">
+      <url type="106">asia_playstation.png</url>
+      <target type="u">http://asia.playstation.com/psvita/r/tw</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>all</lang>
+    </mtrl>
+
+    <!-- Store icon, 全国、全言語で共通 -->
+    <mtrl anno="" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="2000">
+      <url type="106">store.png</url>
+      <target type="u">psns:browse?top=game</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>all</lang>
+    </mtrl>
+    
+    <!-- Welcome Park icon、言語ごとに変わる -->
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3000">
+      <url type="106">wp_banner_jpn.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>0</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3001">
+      <url type="106">wp_banner_eng.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>1</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3002">
+      <url type="106">wp_banner_french.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>2</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3003">
+      <url type="106">wp_banner_esp.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>3</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3004">
+      <url type="106">wp_banner_german.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>4</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3005">
+      <url type="106">wp_banner_italian.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>5</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3006">
+      <url type="106">wp_banner_dutch.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>6</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3007">
+      <url type="106">wp_banner_portuguese.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>7</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3008">
+      <url type="106">wp_banner_russian.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>8</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3009">
+      <url type="106">wp_banner_han.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>9</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3010">
+      <url type="106">wp_banner_eng.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>10</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3011">
+      <url type="106">wp_banner_eng.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>11</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3012">
+      <url type="106">wp_banner_finnish.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>12</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3013">
+      <url type="106">wp_banner_swedish.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>13</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3014">
+      <url type="106">wp_banner_danish.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>14</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3015">
+      <url type="106">wp_banner_norwegian.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>15</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3016">
+      <url type="106">wp_banner_polish.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>16</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3017">
+      <url type="106">wp_banner_portuguese_br.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>17</lang>
+    </mtrl>
+    <mtrl anno="slang=1" lastm="2010-12-31T00:00:00Z" until="2300-12-31T00:00:00Z" from="2010-12-31T00:00:00Z" id="3018">
+      <url type="106">wp_banner_eng.png</url>
+      <target type="u">wcpark:</target>
+      <cntry agelmt="0">all</cntry>
+      <lang>18</lang>
+    </mtrl>
+  </spc>
+</nsx>
