@@ -1,0 +1,102 @@
+{
+    "clientType":"default",
+    "clientName":"PCClient",
+	"model":"pc",
+	"platform":"win",
+	
+    "clientWidth":"960",
+    "clientHeight":"544",
+    "decodeType":"HW",
+    "pullData":"1",
+    "languages":"us",
+    "acceptButton":"X",
+    "audioChannels":"2.1",
+    "entitlementId":"",
+    "onlineId":"",
+	"password":"",
+    "input":{"controllers":["d3"]},
+	"videoEncoderProfile":"hw4.1",
+	"audioEncoderProfile":"default",
+	"maxAudioQueueSize":"123",
+	"cloudEndpoint":"",
+	
+    "queued": false,
+    "sessionId": "sessionIdabc",
+    "launchSpecification": 
+	{
+		"sessionId": "sessionId4321",
+		"streamResolutions": [
+			{
+				"resolution": {
+					"width": 960,
+					"height": 544
+				},
+				"maxFps": 30,
+				"score": 10
+			},
+			{
+				"resolution": {
+					"height": 600,
+					"width": 800
+				},
+				"maxFps": 30,
+				"score": 10
+			}
+		],
+		"network": {
+			"bwKbpsSent": 7000,
+			"bwLoss": 0.001,
+			"mtu": 1400,
+			"rtt": 50,
+			"ports": [
+				53,
+				2053
+			]
+		},
+	    "slotId": 1,
+		"appSpecification": {
+			"minFps": 30,
+			"minBandwidth": 0,
+			"extTitleId": "ps3",
+			"version": 1,
+			"timeLimit": 1,
+			"startTimeout": 100,
+			"afkTimeout": 100,
+		    "afkTimeoutDisconnect": 100
+		},
+		"konan": {
+			"ps3AccessToken": "accessToken",
+			"ps3RefreshToken": "refreshToken"
+		},
+		"requestGameSpecification": {
+			"model": "bravia_tv",
+			"platform": "android",
+			"audioChannels": "5.1",
+			"language": "sp",
+			"acceptButton": "X",
+			"connectedControllers": [
+				"xinput",
+				"ds3",
+				"ds4"
+			],
+			"yuvCoefficient": "bt601",
+			"videoEncoderProfile":"hw4.1",
+			"audioEncoderProfile":"audio1"
+		},
+		"userProfile": {
+			"onlineId": "psnId",
+			"npId": "npId",
+			"region": "US",
+			"languagesUsed": [
+				"en",
+				"jp"
+			]
+		}
+	},
+	"launchSlot": {
+        "privateIp": "0.0.0.0",
+        "publicIp": "000.000.000.000",
+        "port": 2053
+    }
+
+}
