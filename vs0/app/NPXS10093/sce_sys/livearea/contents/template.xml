@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<livearea style="ad0" format-ver="01.00" content-rev="4">
+
+	<title color="#1f83ffff"/>
+	
+	<system-function-zone>
+		<func>reload</func>
+	</system-function-zone>
+	
+	<livearea-background>
+		<image>bg.png</image>
+	</livearea-background>
+	
+	<frame id="frame1">
+		<liveitem>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >ネットワークに接続して、関連する製品や使い方などの最新情報をチェックしよう。</str>
+			</text>
+		</liveitem>
+	</frame>
+</livearea>
