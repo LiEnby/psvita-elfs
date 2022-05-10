@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a5" format-ver="01.00" content-rev="2">
+	<livearea-background>
+		<image>Map_LA_BG.gim</image>
+	</livearea-background>
+
+	<title color="#d2d2d2ff"/>
+	
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:maps</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>Map_Default_Gate.gim</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+	<frame id="frame1" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame2" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame3" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame4" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame5" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame6" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+</livearea>
+

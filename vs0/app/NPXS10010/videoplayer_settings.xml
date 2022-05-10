@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+設定メニュー定義ファイル
+設定メニューの構成を記述します。
+記述方法については、
+設定フレームワークの仕様書 や システム設定(app/settings)の各設定項目のXML
+などをご参照ください。
+-->
+<application_settings version="1.0">
+  <setting_list id="video_settings" title="msg_settings">
+
+	  <list id="audio_lang" title="msg_audio_language" icon="videoplayer_texture_setting_spanner"
+			default_value="0" min_width="380">
+	  </list>
+
+	  <list id="subtitle_lang" title="msg_subtitle_language" icon="videoplayer_texture_setting_spanner"
+			default_value="0" min_width="380">
+	  </list>
+
+		<!-- __ENABLE_CLOSED_CAPTION -->
+		<setting_list id="accessibility" title="msg_accessibility">
+			<toggle_switch id="toggle_closed_caption" title="msg_show_closed_captioning" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+		</setting_list>
+    
+	  <toggle_switch id="toggle_seq_playback" title="msg_continuous_playback" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+
+		<toggle_switch id="toggle_repeat" title="msg_repeat" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+
+    <!-- __ENABLE_DEINTERLACE_MODE -->
+    <list id="deinterlace_mode" title="msg_deinterlace_method" icon="videoplayer_texture_setting_spanner"
+			default_value="0" min_width="380">
+    </list>
+    <!-- -->
+    <!-- __ENABLE_LR_BUTTON -->
+    <toggle_switch id="toggle_LR_button" title="msg_skip_lr_buttons" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+    <!-- -->
+
+    <!-- 
+    setting_listのネスト
+    内部に記述した設定メニューが別画面に表示されます。
+    -->
+    <setting_list id="default_lang_settings" title="msg_my_language_preference">
+
+		<list id="default_audio_lang" title="msg_audio_language" icon="videoplayer_texture_setting_spanner"
+			default_value="0" min_width="380">
+		</list>
+
+		<list id="default_subtitle_lang" title="msg_subtitle_language" icon="videoplayer_texture_setting_spanner"
+			default_value="0" min_width="380">
+		</list>
+
+			<label id="label_default_lang_desc" title="msg_video_language_setting_info"/>
+			<!--コード側でテキストの行数に合わせて表示の高さを自動調整する処理を書いている。デフォルトは2行固定。-->
+
+		</setting_list>
+
+  </setting_list>
+</application_settings>
