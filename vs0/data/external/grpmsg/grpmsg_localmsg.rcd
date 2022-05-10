@@ -1,0 +1,16 @@
+# SCE CONFIDENTIAL
+#
+#
+#      Copyright (C) 2011 Sony Computer Entertainment Inc.
+#                        All Rights Reserved.
+#
+#
+#               grpmsg_localmsg - resource debug symbol file
+#
+#
+
+# <stringtable>
+key:6ee6b766(0) id:msg_invitaion_received
+key:383c9b4d(0) id:msg_notification_new_message
+key:c23afdb4(0) id:msg_party_invitaion_received
+
