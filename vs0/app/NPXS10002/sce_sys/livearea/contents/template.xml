@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: template.xml 85273 2012-01-18 10:11:36Z udagawa $ -->
+<livearea style="a1" format-ver="01.00" content-rev="4">
+
+	<livearea-background>
+		<image>bg1.png</image>
+	</livearea-background>
+
+	<system-function-zone>
+		<func>voucher-code</func>
+		<func>online-manual
+			<target>sceman:store</target>
+		</func>
+		<func>reload</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<frame id="frame3">
+		<liveitem default="on">
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">FREE* to access, PlayStation®Store is the only place to download new and exclusive games, game add-ons, trailers and FREE playable demos. Get more for your P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a system and visit PlayStation®Store today.&#xa;
+</str>
+				<str size="18" bold="on" color="#c0c0c0">* Internet connection required.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ja</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">PlayStation®Storeでは最新作の無料体験版やプロモーションビデオをはじめ、ダウンロード専用ゲームやパッケージでも販売されているゲームのダウンロード版、ゲーム内で使用できる追加アイテム、ビデオコンテンツなどを提供・販売しております。</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>fr</lang>
+			<text valign="top" width="800">
+				<str size="20" bold="on" color="#c0c0c0">Service d'accès GRATUIT*, PlayStation®Store est le seul endroit où vous pourrez télécharger des jeux inédits et exclusifs, des données d'extension, des bandes-annonces et des démos jouables GRATUITES. Exploitez pleinement votre système P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a en visitant PlayStation®Store dès aujourd'hui.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Connexion Internet requise.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>es</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">De acceso GRATUITO*, PlayStation®Store es el único lugar para descargar juegos nuevos y exclusivos, contenido adicional para juegos, tráileres y demos jugables GRATUITAS. Saca más partido a tu sistema P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a y visita hoy mismo PlayStation®Store.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Se requiere una conexión a Internet.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>de</lang>
+			<text valign="top" width="800">
+				<str size="21" bold="on" color="#c0c0c0">PlayStation®Store ist GRATIS* zugänglich und der einzige Ort, an dem neue und exklusive Spiele, Spiel-Addons, Trailer und GRATIS-Spieldemos heruntergeladen werden können. Noch heute den PlayStation®Store besuchen und noch mehr Inhalte für das P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a-System erhalten.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Internetverbindung erforderlich.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>it</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">PlayStation®Store, con accesso GRATUITO*, è l'unico posto da cui puoi scaricare giochi nuovi ed esclusivi, componenti aggiuntivi dei giochi, trailer e demo giocabili GRATUITE. Per espandere la tua esperienza con il sistema P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a, visita subito PlayStation®Store.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* È richiesta una connessione Internet.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>nl</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">GRATIS* toegang, PlayStation®Store is de enige plaats waar u nieuwe en exclusieve games, game add-ons, trailers en GRATIS speelbare demo's kunt downloaden. Haal meer uit uw P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a-systeem en bezoek PlayStation®Store vandaag.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Verbinding met internet vereist.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>pt</lang>
+			<exclude-cntry>br</exclude-cntry>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">Acesso GRÁTIS*, a PlayStation®Store é o único local para transferir jogos novos e exclusivos, suplementos de jogos, apresentações e demonstrações executáveis grátis. Obtenha mais para o seu sistema P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a e visite hoje mesmo a PlayStation®Store.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* É necessária ligação à Internet.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<cntry lang="pt">br</cntry>
+			<cntry lang="pt-br">all</cntry>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">Com acesso GRATUITO*, a PlayStation®Store é o único lugar para fazer download de jogos novos e exclusivos, expansões de jogos, trailers e demos GRATUITAS para você jogar. Aproveite o seu sistema P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a ao máximo e visite já a PlayStation®Store.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Requer conexão à Internet.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ru</lang>
+			<text valign="top" width="800">
+				<str size="21" bold="on" color="#c0c0c0">Доступный БЕСПЛАТНО* сайт PlayStation®Store — единственное место, где можно загрузить новые и эксклюзивные игры, дополнения для игр, трейлеры и БЕСПЛАТНЫЕ демо-версии игр. Расширьте возможности своей системы P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a и посетите сегодня магазин PlayStation®Store.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">*Необходимо соединение с Интернетом.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ko</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">PlayStation®Store는 무료*로 액세스하여 전용 신규 게임, 게임 추가 아이템, 트레일러와 무료 체험판을 다운로드 받을 수 있는 유일한 공간입니다.&#xa;
+</str>
+				<str size="18" bold="on" color="#c0c0c0">*온라인 접속이 필요합니다.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ch</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">PlayStation®Store滿載大量獨家下載遊戲、遊戲追加內容、宣傳影片及免費遊戲體驗版。為您的P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a追加更多豐富內容，今天就來免費*進入PlayStation®Store看看吧！&#xa;
+</str>
+				<str size="18" bold="on" color="#c0c0c0">*需與網路連線。</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>zh</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">PlayStation®Store满载大量独家下载游戏、游戏追加内容、宣传影片及免费游戏体验版。为您的P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a添加更多丰富内容，今天就来免费*进入PlayStation®Store看看吧！&#xa;
+</str>
+				<str size="18" bold="on" color="#c0c0c0">*需与互联网连接。</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>fi</lang>
+			<text valign="top" width="800">
+				<str size="21" bold="on" color="#c0c0c0">PlayStation®Store, jota voi käyttää ILMAISEKSI*, on ainoa paikka, josta voit ladata uudet ja yksinoikeudelliset pelit, pelien lisäosat, ennakkomainokset ja ILMAISEKSI pelattavat esittelyversiot. Hyödynnä paremmin P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a -järjestelmääsi ja käy PlayStation®Store-kaupassa jo tänään.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Internet-yhteys vaaditaan.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>sv</lang>
+			<text valign="top" width="800">
+				<str size="21" bold="on" color="#c0c0c0">PlayStation®Store är den enda plats där du kan ladda ned nya och exklusiva spel, speltillägg, trailrar och GRATIS spelbara demospel – och det kostar inget* att titta. Besök PlayStation®Store i dag och få ut mer av ditt P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a-system.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Internet-anslutning krävs.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>da</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">Det er GRATIS* at få adgang til PlayStation®Store, som er det eneste sted at downloade nye og eksklusive spil, spil add-ons, trailere og GRATIS spilbare demoer. Hent mere til dit P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a-system, og besøg PlayStation®Store i dag.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Internetforbindelse påkrævet.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>no</lang>
+			<text valign="top" width="800">
+				<str size="22" bold="on" color="#c0c0c0">PlayStation®Store er GRATIS* å besøke og er det eneste stedet du kan laste ned nye og eksklusive spill, spilltillegg, trailere og GRATIS avspillbare demoer. Få mer for ditt P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a-system og besøk PlayStation®Store i dag.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Internettforbindelse nødvendig.</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>pl</lang>
+			<text valign="top" width="800">
+				<str size="20" bold="on" color="#c0c0c0">Sklep PlayStation®Store, do którego dostęp jest BEZPŁATNY*, to jedyne miejsce, w którym można pobrać nowe, wyjątkowe gry, dodatki do gier, zwiastuny oraz DARMOWE wersje demonstracyjne gier. Odwiedź już dziś sklep PlayStation®Store, w którym znajdziesz wiele dodatkowych elementów do systemu P&#x83;S&#x83; &#x83;V&#x83;i&#x83;t&#x83;a.&#xa;</str>
+				<str size="18" bold="on" color="#c0c0c0">* Wymagane jest połączenie z Internetem.</str>
+			</text>
+		</liveitem>
+	</frame>
+</livearea>
+
+<!--
+		Local Variables:
+		coding:utf-8
+		tab-width:2
+		End:
+  -->
