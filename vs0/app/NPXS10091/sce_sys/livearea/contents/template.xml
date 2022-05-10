@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a5" format-ver="01.00" content-rev="2">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+
+	<title color="#d2d2d2ff"/>
+	
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:calendar</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+	<frame id="frame1" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame2" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame3" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame4" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame5" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+	<frame id="frame6" multi="o" autoflip="0" >
+		<liveitem>
+		</liveitem>
+	</frame>
+
+  <!-- ゲート下の文言 -->
+  <frame id="frame7" multi="o" autoflip="0">
+    <liveitem>
+    </liveitem>
+  </frame>
+	
+</livearea>
+
