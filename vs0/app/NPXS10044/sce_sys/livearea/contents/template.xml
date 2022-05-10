@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- tel_reg for Rogers. target operator = ? -->
+<livearea style="a1" format-ver="01.01" content-rev="1">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	<title color="#e4e4e4ff"/>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<frame id="frame1" multi="o" autoflip="0" >
+		<liveitem>
+			<image>frame1.png</image>
+		</liveitem>
+	</frame>
+	<frame id="frame2" multi="o" autoflip="0" >
+		<liveitem>
+			<image>frame2.png</image>
+		</liveitem>
+	</frame>
+	<frame id="frame3" multi="o" autoflip="0" >
+		<liveitem>
+			<image>frame3.png</image>
+		</liveitem>
+	</frame>
+
+</livearea>
+
