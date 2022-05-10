@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a1" format-ver="01.00" content-rev="3">
+
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#94bd5cff"/>
+	
+	<!-- システムファンクションエリア 最大7個 -->
+	<system-function-zone>
+		<!-- マニュアル内の設定へのディープリンク -->
+		<func>online-manual
+			<target>sceman:settings</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+	<frame id="frame3">
+		<liveitem>
+      <lang>ja</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+			<text origin="image" align="outside-right">
+				<str color="#ffffff" size="28">ユーザーズガイド</str>
+			</text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>en</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">User's Guide</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>en-gb</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">User's Guide</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>fr</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Guide de l'utilisateur</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>es</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Guía del usuario</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>de</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Benutzerhandbuch</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>it</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Guida per l'utente</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>nl</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Gebruikershandleiding</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>pt</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Manual do utilizado</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>pt-br</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Guia do usuário</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>ru</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Руководство пользователя</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>pl</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Podręcznik użytkownika</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>fi</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Käyttöopas</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>da</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Brugervejledning</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>no</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Brukerhåndbok</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>sv</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Användarhandbok</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>ko</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">사용자 가이드</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>tr</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">Kullanım Kılavuzu</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>zh</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">用户指南</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+    <liveitem>
+      <lang>ch</lang>
+      <image origin="frame" x="-289">item_usersguide.png</image>
+      <text origin="image" align="outside-right">
+        <str color="#ffffff" size="28">用戶指南</str>
+      </text>
+      <target>sceman:</target>
+    </liveitem>
+  </frame>
+
+</livearea>
+
