@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Group Massaging v01 -->
+<!-- XMLコメントは更新用に使用するので修正は要注意
+     unread_button_XXX 未読ボタンの開始、終了を示す
+     send_button_XXX メッセージ作成ボタンの開始、終了を示す
+     unread_frame_start 未着数表示用のフレームの開始を示す
+     unread_frame_end   未着数表示用のフレームの終了を示す
+     unread_text は未読数表示コメントアウト部分の開始、終了を示す
+     \$unreadcount\$ は未読数を示す
+-->
+<livearea style="a3" format-ver="01.00" content-rev="1">
+	<title color="#7349eaff"/>
+	<livearea-background>
+		<image>Messages_LA_bg.png</image>
+	</livearea-background>
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:messages</target>
+		</func>
+	</system-function-zone>
+	<gate>
+		<startup-image>Messages_gate.png</startup-image>
+	</gate>
+	<!--unread_frame_start-->
+	<frame id="frame3" multi="o" autoflip="0">
+		<liveitem>
+			<!--unread_button_start--
+			<image x="-64" y="-60" origin="frame">Messages_btn_LAReceivedMsg.png</image>
+			<target>psnmsg:recipientlist</target>
+			--unread_button_end-->
+		</liveitem>
+	</frame>
+	<!--unread_frame_end-->
+	<!--send_frame_start-->	
+	<frame id="frame5" multi="o" autoflip="0" >
+		<liveitem>
+			<!--send_button_start--
+			<image x="73" y="-58" origin="frame">Messages_btn_LACreateNewMsg.png</image>
+			<target>psnmsg:send</target>
+			--send_button_end-->
+		</liveitem>
+	</frame>
+	<!--send_frame_end-->
+</livearea>
