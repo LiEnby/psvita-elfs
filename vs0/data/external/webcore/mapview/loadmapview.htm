@@ -1,0 +1,339 @@
+<html>
+<head>
+    <title>MapView</title>
+    <meta content="initial-scale=1.0, user-scalable=no" name="viewport">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        body
+        {
+            height: 100%;
+        }
+        div.fullscreen
+        {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        BODY
+        {
+            background: url( "./image/bg/map_background.png" );
+        }
+    </style>
+    <style>
+        .coneCorner
+        {
+            height: 40px;
+            width: 40px;
+            background-position: center;
+            background-color: transparent;
+            background-image: url( 'image/direction/Map_corn_circle.png' );
+            background-repeat: no-repeat;
+            position: relative;
+            top: -20px;
+            left: -20px;
+            z-index: 6;
+        }
+    </style>
+    <body style="background-color: transparent; margin: 0px">
+        <div id="blurb" style="width: 100%; height: 100%;">
+            <div id="mapview" style="width: 100%; height: 100%; z-index: 1">
+            </div>
+            <div id="htmlview" style="display: none; background-color: white; margin: 8px 0px">
+            </div>
+        </div>
+
+        <script type="text/javascript">
+        	// tentative fix for zoom
+			var __originalNavigator = navigator;
+			navigator = new Object();
+
+			// PCBrowserMode
+			try
+			{
+				navigator.__proto__ = __originalNavigator;
+				navigator.__defineGetter__('userAgent', function () { return 'Android'; });
+			}
+			catch(err)
+			{
+			}
+
+			////////////////////////////////////////////////////////
+			// FunctionID(From Cpp to JS)
+
+			const MAP_JSCALL_INITIALIZE_ID						= 1;
+			const MAP_JSCALL_SET_MAP_TYPE_ID					= 2;
+			const MAP_JSCALL_SETCENTER_ID						= 3;
+			const MAP_JSCALL_SETZOOM_ID							= 4;
+			const MAP_JSCALL_SETZOOM_CENTER_ID					= 5;
+			const MAP_JSCALL_SETCENTER_PIXEL_ID					= 6;
+			const MAP_JSCALL_UPDATE_CURRENT_POSITION_ICON_ID 	= 10;
+
+			const MAP_JSCALL_ADD_MARKER_LIST_ID					= 20;
+			const MAP_JSCALL_REMOVE_MARKERS_ID					= 21;
+			const MAP_JSCALL_REMOVE_ALL_MARKER_ID				= 22;
+			const MAP_JSCALL_SHOW_ALL_MARKER_ID					= 23;
+			const MAP_JSCALL_MOVETO_MARKER_ID					= 24;
+			const MAP_JSCALL_UPDATE_MARKER_ID					= 25;
+			const MAP_JSCALL_SELECT_MARKER_ID					= 26;
+			const MAP_JSCALL_SELECT_CURRENT_POSITION_ICON_ID	= 27;
+			const MAP_JSCALL_UNSELECT_ID						= 28;
+
+			const MAP_JSCALL_SHOW_URL_VIEW_ID					= 30;
+			const MAP_JSCALL_MODIFY_LAYER_ID					= 40;
+
+			const MAP_JSCALL_SET_DIRECTION_DATA_ID				= 50;
+			const MAP_JSCALL_CLEAR_DIRECTION_DATA_ID			= 51;
+
+			const MAP_JSCALL_FIT_BOUNDS_ID						= 60;
+			const MAP_JSCALL_REFRESH_TILES_ID					= 70;
+			const MAP_JSCALL_TAP_TO_ZOOM_ID						= 71;
+			const MAP_JSCALL_CALLBACK_EVENT						= 100;
+
+			////////////////////////////////////////////////////////
+			// EventType(From JS to Cpp)
+
+			const MapJSEventFunctionFinished					= 0;
+			const MapJSEventSelectedMarker						= 1;
+			const MapJSEventSelectedCurrentPosIcon				= 2;
+			const MapJSEventCenterChanged						= 10;
+			const MapJSEventZoomLevelChanged					= 11;
+			const MapJSEventMapClicked							= 20;
+			const MapJSEventMapDblClicked						= 21;
+			const MapJSEventMapDragBegin						= 22;
+			const MapJSEventMapDragMove							= 23;
+			const MapJSEventMapDragEnd							= 24;
+			const MapJSEventTilesLoaded							= 100;
+			const MapJSEventContentLoadFinished					= 101;
+
+
+			////////////////////////////////////////////////////////
+			// Variable
+			const MAP_RESULT_SUCCESS								= 0;
+			const MAP_RESULT_GENERIC_ERROR							= 1;
+			const MAP_RESULT_NETWORK_ERROR_NETWORK_NOT_CONNECTED	= 101;
+
+			////////////////////////////////////////////////////////
+			// Variable
+			var	g_initialized   = false;
+			var	g_PCBrowserMode = false;
+			var g_initJsonObj   = null;
+			var g_initContext   = null;
+			var g_initAtomicId  = null;
+
+			addEventListener('load', (function(e) {
+				var Context        = new CppContextHelper;
+				Context.eventType  = MapJSEventContentLoadFinished;
+				Context.Serialize();
+			}), false);
+
+			/////////////////////////////////////////////
+			// printdebug
+			function printf(msg)
+			{
+				var param = "[MapView_JS]" + msg;
+			    window.confirm(param);
+			}
+
+			/////////////////////////////////////////////
+			// excepton debug
+			function NotifyExceptionMsg(error)
+			{
+				var param = "<ExceptionOccurred !!>";
+				var error_filename = null;
+				var error_line = null;
+
+				/*
+				for (var val in error){
+					param += ", " + val;
+				}
+				*/
+
+				if(error.fileName)
+				{
+					error_filename = error.fileName;
+				}
+				else if(error.sourceURL)
+				{
+					error_filename = error.sourceURL;
+				}
+
+				if(error_filename)
+				{
+					var index = error_filename.lastIndexOf('/');
+					error_filename = error_filename.substring(index + 1);
+				}
+
+				if(error.lineNumber)
+				{
+					error_line = error.lineNumber;
+				}
+				else if(error.line)
+				{
+					error_line = error.line;
+				}
+
+				param += "[" + error.toString() + "]";
+				if(error_filename) 	param += ", file:" + error_filename;
+				if(error_line) 		param += ", line:" + error_line;
+			    window.confirm(param);
+			}
+
+			////////////////////////////////////////////////////////
+			// PCBrowserMode
+
+			function PCBrowserMode()
+			{
+				g_PCBrowserMode = true;
+			}
+
+			////////////////////////////////////////////////////////
+
+			var CppContextHelper = function()
+			{
+				this.functionId     = -1;
+				this.eventType      = -1;
+				this.retValue       = -1;
+				this.screenX        = 0;
+				this.screenY        = 0;
+				this.markerId       = -1;
+				this.zoom           = -1;
+				this.Lat            = 0.0;
+				this.Lng            = 0.0;
+				this.stepIndex      =-1;
+				this.atomicId       =-1;
+				this.pocid          =-1;
+
+			    this.Serialize = function ()
+			    {
+			    	if(g_PCBrowserMode)
+			    	{
+			    		return;
+			    	}
+
+			    	var param =
+						this.functionId   + "##" +
+						this.eventType    + "##" +
+						this.retValue     + "##" +
+						this.screenX      + "##" +
+						this.screenY      + "##" +
+						this.markerId     + "##" +
+						this.zoom         + "##" +
+						this.Lat          + "##" +
+						this.Lng          + "##" +
+						this.stepIndex    + "##" +
+						this.atomicId     + "##" +
+						this.pocid        + "##";
+
+				    window.confirm(param);
+			    }
+			}
+
+			////////////////////////////////////////////////////////
+			// PCBrowserMode
+
+			function PCBrowserMode()
+			{
+				g_PCBrowserMode = true;
+			}
+
+			function InitializeCB()
+			{
+				var script = document.createElement("script");
+				script.type = "text/javascript";
+				script.src = "libjs/google_maps_adapter_lib_version_0_1.js";
+
+				script.addEventListener('load', (function(e) {
+					try
+					{
+						googleMapAdapterTable(MAP_JSCALL_INITIALIZE_ID, g_initAtomicId, g_initJsonObj);
+						g_initialized = true;
+					}
+					catch(err)
+					{
+						NotifyExceptionMsg(err);
+						g_initContext.retValue   = MAP_RESULT_GENERIC_ERROR;
+						g_initContext.Serialize();
+					}
+				}), false);
+
+				script.addEventListener('error', (function(e) {
+					g_initContext.retValue   = MAP_RESULT_GENERIC_ERROR;
+					g_initContext.Serialize();
+				}), false);
+
+				document.body.appendChild(script);
+			}
+
+			function loadScript(functionid, atomicId, nativaParam)
+			{
+				g_initJsonObj  = nativaParam;
+				g_initAtomicId = atomicId;
+				g_initContext  = new CppContextHelper;
+				g_initContext.eventType   = MapJSEventFunctionFinished;
+				g_initContext.retValue    = MAP_RESULT_GENERIC_ERROR;
+				g_initContext.functionId  = functionid;
+				g_initContext.atomicId    = atomicId;
+
+				var script = document.createElement("script");
+				script.type = "text/javascript";
+				var lang = "&language=" + nativaParam.Language;
+//				var magic = "&" + (new Date()).getTime();
+				// g_PCBrowserMode
+				if(g_PCBrowserMode)
+				{
+					script.src = "http://maps.google.com/maps/api/js?sensor=true&v=3.5&callback=InitializeCB" + lang;
+				}
+				else
+				{
+				// enable client-id
+					script.src = "http://maps.google.com/maps/api/js?sensor=true&v=3.5&client=gme-sonypsp&callback=InitializeCB" + lang ;
+				}
+
+				script.addEventListener('error', (function(e) {
+					g_initContext.retValue   = MAP_RESULT_NETWORK_ERROR_NETWORK_NOT_CONNECTED;
+					g_initContext.Serialize();
+				}), false);
+
+				document.body.appendChild(script);
+			}
+
+			function jscallnativebinder(functionId, atomicId, param)
+			{
+				var errorContext         = new CppContextHelper;
+				errorContext.eventType   = MapJSEventFunctionFinished;
+				errorContext.retValue    = MAP_RESULT_GENERIC_ERROR;
+				errorContext.functionId  = functionId;
+				errorContext.atomicId    = atomicId;
+
+				try
+				{
+					var JsonObj    = eval('(' + param + ')');
+
+					if(!g_initialized)
+					{
+						if(functionId == MAP_JSCALL_INITIALIZE_ID)
+						{
+							loadScript(functionId, atomicId, JsonObj);
+						}
+						else
+						{
+							errorContext.Serialize();
+						}
+					}
+					else
+					{
+						googleMapAdapterTable(functionId, atomicId, JsonObj);
+					}
+				}
+				catch(err)
+				{
+					NotifyExceptionMsg(err);
+					errorContext.Serialize();
+				}
+			}
+		</script>
+	</body>
+</html>
