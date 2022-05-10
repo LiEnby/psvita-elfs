@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+設定メニュー定義ファイル
+設定メニューの構成を記述します。
+記述方法については、
+設定フレームワークの仕様書 や システム設定(app/settings)の各設定項目のXML
+などをご参照ください。
+-->
+<application_settings version="1.0">
+  <setting_list id="video_settings" title="msg_settings">
+
+    <list id="disp_mode" title="msg_screen_mode" icon="videoplayer_texture_setting_spanner"
+     default_value="0" min_width="380">
+    </list>
+    
+    <list id="audio_lang" title="msg_audio_language" icon="videoplayer_texture_setting_spanner"
+      default_value="0" min_width="380">
+    </list>
+
+    <list id="subtitle_lang" title="msg_subtitle_language" icon="videoplayer_texture_setting_spanner"
+      default_value="0" min_width="380">
+    </list>
+
+    <!-- __ENABLE_CLOSED_CAPTION -->
+    <setting_list id="accessibility" title="msg_accessibility">
+      <toggle_switch id="toggle_closed_caption" title="msg_show_closed_captioning" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+      <!-- __ENABLE_CLOSED_CAPTION_SETTINGS -->
+      <toggle_switch id="toggle_content_specified" title="msg_display_cc_content_specified" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+
+    <setting_list id="accesibility_setting" title="msg_advanced_settings">
+      <label id="character_setting" title="msg_cc_characters"/>
+      <list id="character_font" title="msg_cc_characters_font">
+      </list>
+      <list id="character_size"        title="msg_cc_characters_size">
+      </list>
+      <list id="character_color"      title="msg_cc_characters_color" >
+        <list_item id="character_color_default" title="msg_magenta"   value="-1" /> <!-- 実際は表示されないが、英語で一番長い文字列にしておく -->
+        <list_item id="character_color_white"   title="msg_white"     value="0" />
+        <list_item id="character_color_black"   title="msg_black"     value="1" />
+        <list_item id="character_color_red"     title="msg_red"       value="2" />
+        <list_item id="character_color_green"   title="msg_green"     value="3" />
+        <list_item id="character_color_blue"    title="msg_blue"      value="4" />
+        <list_item id="character_color_yellow"  title="msg_yellow"    value="5" />
+        <list_item id="character_color_magenta" title="msg_magenta"   value="6" />
+        <list_item id="character_color_cyan"    title="msg_cyan"      value="7" />
+      </list>
+      <list id="character_edge"       title="msg_cc_characters_edge">
+        <list_item id="character_edge_default"    title="msg_cc_edge_none"          value="-1" /> <!-- 実際は表示されないが、英語で一番長い文字列にしておく -->
+        <list_item id="character_edge_none"       title="msg_cc_edge_none"          value="0" />
+        <list_item id="character_edge_raised"     title="msg_cc_edge_raised"        value="1" />
+        <list_item id="character_edge_depressed"  title="msg_cc_edge_depressed"     value="2" />
+        <list_item id="character_edge_uniform"    title="msg_cc_edge_uniform"       value="3" />
+        <list_item id="character_edge_dropshadow" title="msg_cc_edge_drop_shadowed" value="4" />
+      </list>
+      <list id="character_edge_color" title="msg_cc_characters_edge_color">
+        <list_item id="character_edge_color_default" title="msg_magenta"   value="-1" /> <!-- 実際は表示されないが、英語で一番長い文字列にしておく -->
+        <list_item id="character_edge_color_white"   title="msg_white"     value="0" />
+        <list_item id="character_edge_color_black"   title="msg_black"     value="1" />
+        <list_item id="character_edge_color_red"     title="msg_red"       value="2" />
+        <list_item id="character_edge_color_green"   title="msg_green"     value="3" />
+        <list_item id="character_edge_color_blue"    title="msg_blue"      value="4" />
+        <list_item id="character_edge_color_yellow"  title="msg_yellow"    value="5" />
+        <list_item id="character_edge_color_magenta" title="msg_magenta"   value="6" />
+        <list_item id="character_edge_color_cyan"    title="msg_cyan"      value="7" />
+      </list>
+      <list id="character_opacity"    title="msg_cc_characters_opacity">
+      </list>
+      <label id="background_setting" title="msg_cc_captions"/>
+      <list id="character_bg_color"   title="msg_cc_captions_background_color">
+        <list_item id="character_bg_color_default" title="msg_magenta"   value="-1" /> <!-- 実際は表示されないが、英語で一番長い文字列にしておく -->
+        <list_item id="character_bg_color_white"   title="msg_white"     value="0" />
+        <list_item id="character_bg_color_black"   title="msg_black"     value="1" />
+        <list_item id="character_bg_color_red"     title="msg_red"       value="2" />
+        <list_item id="character_bg_color_green"   title="msg_green"     value="3" />
+        <list_item id="character_bg_color_blue"    title="msg_blue"      value="4" />
+        <list_item id="character_bg_color_yellow"  title="msg_yellow"    value="5" />
+        <list_item id="character_bg_color_magenta" title="msg_magenta"   value="6" />
+        <list_item id="character_bg_color_cyan"    title="msg_cyan"      value="7" />
+      </list>
+      <list id="character_bg_opacity" title="msg_cc_captions_background_opacity">
+      </list>
+      <list id="window_color"         title="msg_cc_captions_window_color">
+        <list_item id="window_color_default" title="msg_magenta"   value="-1" /> <!-- 実際は表示されないが、英語で一番長い文字列にしておく -->
+        <list_item id="window_color_white"   title="msg_white"     value="0" />
+        <list_item id="window_color_black"   title="msg_black"     value="1" />
+        <list_item id="window_color_red"     title="msg_red"       value="2" />
+        <list_item id="window_color_green"   title="msg_green"     value="3" />
+        <list_item id="window_color_blue"    title="msg_blue"      value="4" />
+        <list_item id="window_color_yellow"  title="msg_yellow"    value="5" />
+        <list_item id="window_color_magenta" title="msg_magenta"   value="6" />
+        <list_item id="window_color_cyan"    title="msg_cyan"      value="7" />
+      </list>
+      <list id="window_opacity"       title="msg_cc_captions_window_opacity">
+      </list>
+      <button id="reset_settings"             title="msg_reset_vb">
+      </button>
+      <!-- __ENABLE_CLOSED_CAPTION_SETTINGS -->
+
+    </setting_list>
+    </setting_list>
+
+    <toggle_switch id="toggle_seq_playback" title="msg_continuous_playback" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+
+    <toggle_switch id="toggle_repeat" title="msg_repeat" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+
+    <!-- __ENABLE_DEINTERLACE_MODE -->
+    <list id="deinterlace_mode" title="msg_deinterlace_method" icon="videoplayer_texture_setting_spanner"
+      default_value="0" min_width="380">
+    </list>
+    <!-- -->
+    <!-- __ENABLE_LR_BUTTON -->
+    <toggle_switch id="toggle_LR_button" title="msg_skip_lr_buttons" icon="videoplayer_texture_setting_spanner" default_value="0"/>
+    <!-- -->
+
+    <!-- 
+    setting_listのネスト
+    内部に記述した設定メニューが別画面に表示されます。
+    -->
+    <setting_list id="default_lang_settings" title="msg_my_language_preference">
+
+      <list id="default_audio_lang"
+          title="msg_audio_language"
+          icon="videoplayer_texture_setting_spanner"
+          default_value="0"
+          min_width="380">     
+      </list>
+
+      <list id="default_subtitle_lang"
+          title="msg_subtitle_language"
+          icon="videoplayer_texture_setting_spanner"
+          default_value="0"
+          min_width="380">
+      </list>
+
+      <label id="label_default_lang_desc" title="msg_video_language_setting_info"/>
+      <!--コード側でテキストの行数に合わせて表示の高さを自動調整する処理を書いている。デフォルトは2行固定。-->
+
+    </setting_list>
+
+  </setting_list>
+</application_settings>
