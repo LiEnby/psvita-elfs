@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a1" format-ver="01.01" content-rev="1">
+
+  <!-- 背景 -->
+  <livearea-background>
+    <image>Email_LA_bg.png</image>
+  </livearea-background>
+
+  <!-- タイトル -->
+  <title color="#4d5bb4ff"/>
+
+  <system-function-zone>
+    <!-- オンラインユーザーズガイド -->
+    <func>online-manual
+      <target>sceman:email</target>
+    </func>
+  </system-function-zone>
+
+  <!-- ゲート -->
+  <gate>
+    <startup-image>default_gate.png</startup-image>
+  </gate>
+
+  <!-- フレーム：未読数文言 -->
+  <!-- libLiveAreaで更新 -->
+
+</livearea>
+
