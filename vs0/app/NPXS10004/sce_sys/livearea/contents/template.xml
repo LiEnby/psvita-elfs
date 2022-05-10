@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a3" format-ver="01.00" content-rev="2">
+
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+
+	<title color="#652400ff"/>
+	
+	<!-- システムファンクションエリア 最大7個 -->
+	<system-function-zone>
+		<func>online-manual
+			<target>sceman:photos</target>
+		</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+	<frame id="frame4" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<text>
+				<font color="#ffffff" size="18" >Photos</font>
+			</text>
+		</liveitem>
+
+	</frame>
+
+	<frame id="frame3" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<model>vita</model>
+			<target>camera:</target>
+			<background align="center" valign="center" >camera.png</background>
+		</liveitem>
+
+	</frame>
+
+	<frame id="frame5" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<model>vita</model>
+			<target>photo:</target>
+			<background align="center" valign="center" >photo.png</background>
+		</liveitem>
+
+	</frame>
+
+</livearea>
+
