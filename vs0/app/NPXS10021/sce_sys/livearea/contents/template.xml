@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a2" format-ver="01.00" content-rev="1">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+	
+	<title color="#ffffff80"/>
+	
+	<system-function-zone>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+
+	<frame id="frame3" multi="o" autoflip="0" >
+	
+		<liveitem>
+			<text>
+				<font color="#ffffff" size="24" ><b>NetworkOperator</b></font>
+			</text>
+		</liveitem>
+
+	</frame>
+	
+</livearea>
+
