@@ -1,2 +1,2 @@
 # psvita-elfs
-PSVita Decrypted ELFS for FW .691 CEX
+PSVita Decrypted ELFS for FW 1.691 CEX
