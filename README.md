@@ -36,7 +36,7 @@ CEX
 - 2.00 - https://github.com/KuromeSan/psvita-elfs/tree/200-CEX
 - 1.81 - https://github.com/KuromeSan/psvita-elfs/tree/181-CEX
 - 1.80 - https://github.com/KuromeSan/psvita-elfs/tree/180-CEX
-- 1.691 - https://github.com/KuromeSan/psvita-elfs/tree/691-CEX
+- 1.691 - https://github.com/KuromeSan/psvita-elfs/tree/1691-CEX
 - 1.69 - https://github.com/KuromeSan/psvita-elfs/tree/169-CEX
 - 1.67 - https://github.com/KuromeSan/psvita-elfs/tree/167-CEX
 - 1.66 - https://github.com/KuromeSan/psvita-elfs/tree/166-CEX
