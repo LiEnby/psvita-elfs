@@ -58,6 +58,9 @@ DEX
 - 3.61 - https://github.com/KuromeSan/psvita-elfs/tree/361-DEX
 - 3.60 - https://github.com/KuromeSan/psvita-elfs/tree/360-DEX
 
+QAF
+- 3.72  https://github.com/KuromeSan/psvita-elfs/tree/372-QAF
+
 Tool
 - 3.71 - https://github.com/KuromeSan/psvita-elfs/tree/371-TOOL
 - 3.68 - https://github.com/KuromeSan/psvita-elfs/tree/368-TOOL
