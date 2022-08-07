@@ -22,6 +22,10 @@
 	"afkTimer":false,
     "queued": false,
     "sessionId": "sessionIdabc",
+    "minAllowedBitrate": 1000000,
+    "badQualityBitrate": 1500000,
+    "audioResamplingEnabled":false,
+    "audioBypassModeEnabled":true,
     "launchSpecification": 
 	{
 		"sessionId": "sessionId4321",
@@ -83,7 +87,7 @@
 				"en",
 				"jp"
 			]
-		}
+		} 
 	},
 	"launchSlot": {
         "privateIp": "0.0.0.0",
