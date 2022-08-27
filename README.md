@@ -60,6 +60,7 @@ DEX
 
 QAF
 - 3.72  https://github.com/KuromeSan/psvita-elfs/tree/372-QAF
+- 3.63  https://github.com/KuromeSan/psvita-elfs/tree/363-QAF
 
 Tool
 - 3.73 - https://github.com/KuromeSan/psvita-elfs/tree/373-TOOL
