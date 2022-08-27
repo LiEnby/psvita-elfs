@@ -62,6 +62,7 @@ QAF
 - 3.72  https://github.com/KuromeSan/psvita-elfs/tree/372-QAF
 
 Tool
+- 3.73 - https://github.com/KuromeSan/psvita-elfs/tree/373-TOOL
 - 3.71 - https://github.com/KuromeSan/psvita-elfs/tree/371-TOOL
 - 3.68 - https://github.com/KuromeSan/psvita-elfs/tree/368-TOOL
 - 3.67 - https://github.com/KuromeSan/psvita-elfs/tree/367-TOOL
