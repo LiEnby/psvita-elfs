@@ -1,2 +1,2 @@
 # psvita-elfs
-PSVita Decrypted ELFS for FW 3.72 TOOL
+PSVita Decrypted ELFS for FW 3.73 TOOL
