@@ -1,0 +1,27 @@
+/*!
+ * Copyright (C) 2012-2013 Sony Corporation
+ * SONY CONFIDENTIAL MATERIAL. DO NOT DISTRIBUTE.
+ * All Rights Reserved
+*/
+
+/*
+ * Hide the docking and node selector buttons in the status bar, as these features
+ * aren't supported in the remote web inspector
+ */
+button.dock-status-bar-item.status-bar-item, button.node-search-status-bar-item.status-bar-item {
+    display: none;
+}
+
+/*
+ * Fix a bug with the help dialog not showing contents (contents height is 0)
+ */
+.help-content {
+    -webkit-flex: auto;
+}
+
+/*
+ * Show links in help screens as yellow, since blue is unreadable with the dark background
+ */
+.help-link {
+    color: rgb(221,221,0);
+}

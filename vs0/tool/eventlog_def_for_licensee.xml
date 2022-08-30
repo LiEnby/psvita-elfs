@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Event Log Description File [serial:1002500001]
+     [SCE CONFIDENTIAL]                                  
+     Copyright (C) 2013 Sony Computer Entertainment Inc. 
+                                    All Rights Reserved. -->
+
+<root>
+
+	<views>
+		<view name="system_software" eng="System Software" jpn="システムソフトウェア">
+			<columns>
+				<column name="time" data="{event.header.timestamp}" eng="Time" jpn="時間"/>
+				<column name="category" data="{event.header.categoryname}" eng="Category" jpn="カテゴリ"/>
+				<column name="event" data="{event.header.eventname}"  eng="Event" jpn="イベント"/>
+				<column name="result" data="{event.data.result.code}"  eng="Result" jpn="結果"/>
+				<column name="parameters" data="{event.data}"  eng="Parameters" jpn="パラメータ"/>
+			</columns>
+			<filter>
+				<include category="system" event="*"/>
+				<include category="network" event="*"/>
+				<include category="device" event="*"/>
+			</filter>
+		</view>
+		<view name="processes" eng="Processes" jpn="プロセス" parent="system_software">
+			<columns>
+				<column name="time" data="{event.header.timestamp}" eng="Time" jpn="時間"/>
+				<column name="event" data="{event.header.eventname}"  eng="Event" jpn="イベント"/>
+				<column name="result" data="{event.data.result.code}"  eng="Result" jpn="結果"/>
+				<column name="parameters" data="{event.data}"  eng="Parameters" jpn="パラメータ"/>
+			</columns>
+			<filter>
+				<include category="system" event="*"/>
+			</filter>
+		</view>
+		<view name="network" eng="Network" jpn="ネットワーク" parent="system_software">
+			<columns>
+				<column name="time" data="{event.header.timestamp}" eng="Time" jpn="時間"/>
+				<column name="event" data="{event.header.eventname}"  eng="Event" jpn="イベント"/>
+				<column name="result" data="{event.data.result.code}"  eng="Result" jpn="結果"/>
+				<column name="parameters" data="{event.data}"  eng="Parameters" jpn="パラメータ"/>
+			</columns>
+			<filter>
+				<include category="network" event="*"/>
+			</filter>
+		</view>
+		<view name="devices" eng="Devices" jpn="デバイス" parent="system_software">
+			<columns>
+				<column name="time" data="{event.header.timestamp}" eng="Time" jpn="時間"/>
+				<column name="event" data="{event.header.eventname}"  eng="Event" jpn="イベント"/>
+				<column name="result" data="{event.data.result.code}"  eng="Result" jpn="結果"/>
+				<column name="parameters" data="{event.data}"  eng="Parameters" jpn="パラメータ"/>
+			</columns>
+			<filter>
+				<include category="device" event="*"/>
+			</filter>
+		</view>
+	</views>
+
+	<types>
+
+		<type name="sceResult">
+			<field name="code" type="uint32" display_as="enum" eng="Result" jpn="結果">
+				<item value="0" eng="Success (0)" jpn="Success (0)"/>
+				<item value="" eng="Error ({hex})" jpn="Error ({hex})"/>
+			</field>
+		</type>
+
+		<type name="sceProcessType">
+			<field name="type" type="uint32" display_as="enum" eng="Process Type" jpn="プロセスタイプ">
+				<item value="0x01000000" eng="Game" jpn="Game"/>
+				<item value="0x02000000" eng="Mini Application" jpn="Mini Application"/>
+				<item value="0x04000000" eng="System Application" jpn="System Application"/>
+				<item value="0x05000000" eng="Kernel" jpn="Kernel"/>
+				<item value="" eng="Unknown" jpn="Unknown"/>
+			</field>
+		</type>
+
+	</types>
+
+	<categories>
+
+		<!-- System -->
+		<category id="10001" name="system" eng="System" jpn="System">
+
+			<!-- Process Spawn -->
+			<event id="1" name="process_spawn" eng="Process Spawn" jpn="Process Spawn">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+				<field name="pid" type="uint32" display_as="0hex" eng="Process ID" jpn="プロセスID"/>
+				<field name="type" type="sceProcessType" display_as="" eng="Process Type" jpn="プロセスタイプ"/>
+				<field name="titleid" type="decistring" display_as="cp_utf8" eng="Title ID" jpn="タイトルID"/> 
+			</event>
+
+			<!-- Process Exit -->
+			<event id="2" name="process_exit" eng="Process Exit" jpn="Process Exit">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+				<field name="pid" type="uint32" display_as="0hex" eng="Process ID" jpn="プロセスID"/>
+				<field name="type" type="sceProcessType" display_as="" eng="Process Type" jpn="プロセスタイプ"/>
+				<field name="titleid" type="decistring" display_as="cp_utf8" eng="Title ID" jpn="タイトルID"/> 
+			</event>
+
+			<!-- Process Kill -->
+			<event id="3" name="process_kill" eng="Process Kill" jpn="Process Kill">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+				<field name="pid" type="uint32" display_as="0hex" eng="Process ID" jpn="プロセスID"/>
+				<field name="type" type="sceProcessType" display_as="" eng="Process Type" jpn="プロセスタイプ"/>
+				<field name="titleid" type="decistring" display_as="cp_utf8" eng="Title ID" jpn="タイトルID"/> 
+			</event>
+
+			<!-- Process Suspend -->
+			<event id="4" name="process_suspend" eng="Process Suspend" jpn="Process Suspend">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+				<field name="pid" type="uint32" display_as="0hex" eng="Process ID" jpn="プロセスID"/>
+				<field name="type" type="sceProcessType" display_as="" eng="Process Type" jpn="プロセスタイプ"/>
+				<field name="titleid" type="decistring" display_as="cp_utf8" eng="Title ID" jpn="タイトルID"/> 
+			</event>
+
+			<!-- Process Resume -->
+			<event id="5" name="process_resume" eng="Process Resume" jpn="Process Resume">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+				<field name="pid" type="uint32" display_as="0hex" eng="Process ID" jpn="プロセスID"/>
+				<field name="type" type="sceProcessType" display_as="" eng="Process Type" jpn="プロセスタイプ"/>
+				<field name="titleid" type="decistring" display_as="cp_utf8" eng="Title ID" jpn="タイトルID"/> 
+			</event>
+
+			<!-- Loadexec -->
+			<event id="6" name="load_exec" eng="Load Exec" jpn="Load Exec">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+				<field name="orgpid" type="uint32" display_as="0hex" eng="Original PID" jpn="旧プロセスID"/>
+				<field name="orgtype" type="sceProcessType" display_as="" eng="Original Process Type" jpn="旧プロセスタイプ"/>
+				<field name="orgtitleid" type="decistring" display_as="cp_utf8" eng="Original Title ID" jpn="旧タイトルID"/> 
+				<field name="newpid" type="uint32" display_as="0hex" eng="New PID" jpn="新プロセスID"/>
+				<field name="newtype" type="sceProcessType" display_as="" eng="New Process Type" jpn="新プロセスタイプ"/>
+				<field name="newtitleid" type="decistring" display_as="cp_utf8" eng="New Title ID" jpn="新タイトルID"/> 
+			</event>
+
+		</category>
+
+		<!-- Network -->
+		<category id="20000" name="network" eng="Network" jpn="Network">
+
+			<!-- Network connection acquired -->
+			<event id="1" name="network_connection_acquired" eng="Network connection acquired" jpn="ネットワークが接続されました">
+				<field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+				<field name="ip_address" type="array" length="16" display_as="cp_utf8" eng="IP Address" jpn="IPアドレス"/>
+				<field name="netmask" type="array" length="16" display_as="cp_utf8" eng="Subnet Mask" jpn="サブネットマスク"/>
+				<field name="default_route" type="array" length="16" display_as="cp_utf8" eng="Default Router" jpn="デフォルトルーター"/>
+				<field name="primary_dns" type="array" length="16" display_as="cp_utf8" eng="Primary DNS" jpn="プライマリーDNS"/>
+				<field name="secondary_dns" type="array" length="16" display_as="cp_utf8" eng="Secondary DNS" jpn="セカンダリーDNS"/>
+			</event>
+
+			<!-- Network connection lost -->
+			<event id="2" name="network_connection_lost" eng="Network connection lost" jpn="ネットワークが切断されました">
+				<field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+			</event>
+
+		</category>
+
+		<!-- Device -->
+		<category id="20001" name="device" eng="Device" jpn="Device">
+
+			<!-- Wi-Fi enabled -->
+			<event id="1" name="wifi_enabled" eng="Wi-Fi enabled" jpn="Wi-Fi が有効になりました">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+			</event>
+
+			<!-- Wi-Fi disabled -->
+			<event id="2" name="wifi_disabled" eng="Wi-Fi disabled" jpn="Wi-Fi が無効になりました">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+			</event>
+
+			<!-- Bluetooth enabled -->
+			<event id="3" name="bluetooth_enabled" eng="Bluetooth enabled" jpn="Bluetooth が有効になりました">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+			</event>
+
+			<!-- Bluetooth disabled -->
+			<event id="4" name="bluetooth_disabled" eng="Bluetooth disabled" jpn="Bluetooth が無効になりました">
+		        <field name="result" type="sceResult" display_as="" eng="Result" jpn="結果"/>
+			</event>
+
+		</category>
+
+	</categories>
+
+</root>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<livearea style="ad0" format-ver="01.00" content-rev="5">
+
+	<title color="#1f83ffff"/>
+	
+	<system-function-zone>
+		<func>reload</func>
+	</system-function-zone>
+	
+	<livearea-background>
+		<image>bg.png</image>
+	</livearea-background>
+	
+	<frame id="frame1">
+		<liveitem>
+			<lang>ja</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >ネットワークに接続して、PlayStation®TVの最新情報をチェックしよう！</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>en</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Connect to a network and check the latest information for PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>en-gb</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Connect to a network and check the latest information for PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>fr</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Connectez-vous à un réseau et consultez les dernières informations concernant PlayStation®TV !</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>es</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >¡Conéctate a una red y busca la información más reciente de PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>de</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Stelle eine Verbindung mit einem Netzwerk her und rufe die neuesten Informationen für PlayStation®TV ab!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>it</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Collegati a una rete e verifica le ultime informazioni su PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>nl</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Maak verbinding met een netwerk en controleer de nieuwste informatie voor PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>pt</lang>
+			<cntry>br</cntry>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Conecte-se a uma rede e confira as informações mais recentes sobre a PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>pt</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Ligue a uma rede e consulte as informações mais recentes da PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ru</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Подключитесь к сети и просмотрите новейшую информацию о PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>pl</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Połącz się z siecią i sprawdź najnowsze informacje o PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>fi</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Yhdistä verkkoon ja katsele PlayStation®TV-järjestelmän tuoreimpia tietoja!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>da</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Opret forbindelse til et netværk og kontrollér de seneste oplysninger for PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>no</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Koble til et nettverk og sjekk den nyeste informasjonen om PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>sv</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Anslut till ett nätverk och kontrollera den senaste informationen för PlayStation®TV!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ko</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >네트워크에 접속한 후 PlayStation®TV의 최신 정보를 확인해 보세요!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>tr</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >Bir ağa bağlanın ve PlayStation®TV hakkındaki en güncel bilgileri edinin!</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>zh</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >连接网络，看看PlayStation®TV的最新资讯吧！</str>
+			</text>
+		</liveitem>
+		<liveitem>
+			<lang>ch</lang>
+			<text y="58" width="604" >
+				<str color="#686880" size="26" >與網路連線，看看PlayStation®TV的最新資訊吧！</str>
+			</text>
+		</liveitem>
+	</frame>
+</livearea>
