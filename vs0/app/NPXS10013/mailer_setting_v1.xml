@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+設定メニュー定義ファイル
+設定メニューの構成を記述します。
+記述方法については、
+設定フレームワークの仕様書 や システム設定(app/settings)の各設定項目のXML
+などをご参照ください。
+-->
+<application_settings version="1.0">
+  <!-- Email 設定 画面 -->
+  <setting_list id="vd_001" title="msg_settings">
+
+    <!-- 「ネットワークに接続する」チェックボックス -->
+    <toggle_switch id="v1_toggle_enable_network_connection"
+                   title="msg_connect_to_network"
+                   key="/mailclient/is_enable_network_connection"
+                   default_value="1"/>
+    
+    <spacer id="v1_space0"/>
+
+    <!-- 署名 -->
+    <text_field id="v1_text_signature"
+                  title="msg_signature"
+                  keyboard_type="default"
+                  max_length="255"
+                  default_value=""
+                  key="/mailclient/str_signature"
+                  multiline="on"
+                  />
+    
+    <spacer id="v1_space1"/>
+
+    <!-- 「BCCに入れる」チェックボックス -->
+    <toggle_switch id="v1_toggle_add_myaddress_to_bcc"
+                   title="msg_add_email_as_bcc"
+                   key="/mailclient/is_add_myaddress_to_bcc"
+                   default_value="1"/>
+
+    <spacer id="v1_space2"/>
+
+    <!-- 「いつも使うEmail」 -->
+    <label id="v1_label_default_email_accout" title="msg_always_use_email_account" key="" default_value=""/>
+
+    <!-- 「いつも使うEmail」リスト -->
+    <setting_list id="v1_list_default_email_account" title="" authentication="off" >
+      <button id="v1_item_account_cand_000" title="title_undecided_setting" />
+      <button id="v1_item_account_cand_001" title="title_undecided_setting" />
+      <button id="v1_item_account_cand_002" title="title_undecided_setting" />
+      <button id="v1_item_account_cand_003" title="title_undecided_setting" />
+      <button id="v1_item_account_cand_004" title="title_undecided_setting" />
+      <!-- 2010/11/17版 + groups r3590 で 最下ボタンを表示できない不具合への暫定対応 -->
+      <button id="vd_mc0" title="mc0"/>
+      <spacer id="v1_space_mc0"/>
+    </setting_list>
+
+    <spacer id="v1_space3"/>
+
+    <!-- アカウント追加 -->
+    <button id="v1_add_email_account" title="msg_add_email_account" />
+
+    <!-- アカウント設定 -->
+    <label id="v1_label_email_accout_setting" title="msg_email_account_settings" key="" default_value=""/>
+    <button id="v1_item_account_all_000" title="-" />
+    <button id="v1_item_account_all_001" title="-" />
+    <button id="v1_item_account_all_002" title="-" />
+    <button id="v1_item_account_all_003" title="-" />
+    <button id="v1_item_account_all_004" title="-" />
+
+    <!-- 2010/11/17版 + groups r3590 で 最下ボタンを表示できない不具合への暫定対応 -->
+    <button id="vd_mc1" title="mc1"/>
+    <spacer id="v1_space_mc1"/>
+
+  </setting_list>
+</application_settings>

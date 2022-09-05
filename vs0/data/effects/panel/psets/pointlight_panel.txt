@@ -1,0 +1,30 @@
+PointLight@default
+{
+ pos = 602.939453f 66.257095f 142.275192f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+ ambient_color = 0.2f 0.2f 0.2f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+
+PointLight@iboot
+{
+ pos = 0.f 98.876953f 359.592041f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+ ambient_color = 0.2f 0.2f 0.2f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+
+PointLight@night
+{
+ pos = -1963.990966f -98.876953f 2152.777832f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+ ambient_color = 0.2f 0.2f 0.2f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+

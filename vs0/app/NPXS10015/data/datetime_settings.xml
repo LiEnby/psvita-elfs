@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="datetime_settings_plugin">
+
+  <!-- 日付＆時刻 -->
+  <setting_list id="setting_list_datetime" title="msg_date_time">
+
+    <!-- 日付＆時刻設定 -->
+    <setting_list id="setting_list_datetime_settings"
+                  icon="tex_spanner"
+                  title="msg_date_time_settings">
+
+      <!-- 手動で設定する -->
+      <setting_list id="setting_list_set_manual"
+                    icon="tex_spanner"
+                    title="msg_set_manually"
+                    navi_left="set_manual_cancel_button"
+                    navi_right="set_manual_ok_button">
+        <user_custom id="user_custom_set_manual"/>
+      </setting_list>
+
+      <!-- 手動で設定する(インターネット経由) -->
+      <button id="button_set_via_internet"
+              icon="tex_spanner"
+              title="msg_set_manually_via_internet"/>
+
+    </setting_list>
+
+    <!-- 日付表示 -->
+    <list id="list_date_format"
+          icon="tex_spanner"
+          title="msg_date_format"
+          key="/CONFIG/DATE/date_format">
+      <list_item id="list_item_date_format_ymd" title="msg_ymd" value="0"/>
+      <list_item id="list_item_date_format_dmy" title="msg_dmy" value="1"/>
+      <list_item id="list_item_date_format_mdy" title="msg_mdy" value="2"/>
+    </list>
+
+    <!-- 時間表示 -->
+    <list id="list_time_format"
+          icon="tex_spanner"
+          title="msg_time_format"
+          key="/CONFIG/DATE/time_format">
+      <list_item id="list_item_time_format_12" title="msg_time_format_12" value="0"/>
+      <list_item id="list_item_time_format_24" title="msg_time_format_24" value="1"/>
+    </list>
+
+    <!-- タイムゾーン -->
+    <list id="list_timezone"
+          icon="tex_spanner"
+          title="msg_timezone"
+          key="/CONFIG/DATE/time_zone">
+      <list_item id="list_item_timezone_samoa_islands"            title="msg_tz_samoa_islands"            value="0"/>
+      <list_item id="list_item_timezone_midway_islands"           title="msg_tz_midway_islands"           value="1"/>
+      <list_item id="list_item_timezone_hawaii"                   title="msg_tz_hawaii"                   value="2"/>
+      <list_item id="list_item_timezone_alaska"                   title="msg_tz_alaska"                   value="3"/>
+      <list_item id="list_item_timezone_pacific_time_us_canada"   title="msg_tz_pacific_time_us_canada"   value="4"/>
+      <list_item id="list_item_timezone_tijuana"                  title="msg_tz_tijuana"                  value="5"/>
+      <list_item id="list_item_timezone_mountain_time_us_canada"  title="msg_tz_mountain_time_us_canada"  value="6"/>
+      <list_item id="list_item_timezone_chihuahua"                title="msg_tz_chihuahua"                value="7"/>
+      <list_item id="list_item_timezone_san_jose"                 title="msg_tz_san_jose"                 value="8"/>
+      <list_item id="list_item_timezone_central_time_us_canada"   title="msg_tz_central_time_us_canada"   value="9"/>
+      <list_item id="list_item_timezone_mexico_city"              title="msg_tz_mexico_city"              value="10"/>
+      <list_item id="list_item_timezone_quito"                    title="msg_tz_quito"                    value="11"/>
+      <list_item id="list_item_timezone_eastern_time_us_canada"   title="msg_tz_eastern_time_us_canada"   value="12"/>
+      <list_item id="list_item_timezone_panama_city"              title="msg_tz_panama_city"              value="13"/>
+      <list_item id="list_item_timezone_bogota"                   title="msg_tz_bogota"                   value="14"/>
+      <list_item id="list_item_timezone_lima"                     title="msg_tz_lima"                     value="15"/>
+      <list_item id="list_item_timezone_caracas"                  title="msg_tz_caracas"                  value="16"/>
+      <list_item id="list_item_timezone_santiago"                 title="msg_tz_santiago"                 value="17"/>
+      <list_item id="list_item_timezone_atlantic_canada"          title="msg_tz_atlantic_canada"          value="18"/>
+      <list_item id="list_item_timezone_puerto_rico"              title="msg_tz_puerto_rico"              value="19"/>
+      <list_item id="list_item_timezone_la_paz"                   title="msg_tz_la_paz"                   value="20"/>
+      <list_item id="list_item_timezone_newfoundland"             title="msg_tz_newfoundland"             value="21"/>
+      <list_item id="list_item_timezone_sao_paulo"                title="msg_tz_sao_paulo"                value="22"/>
+      <list_item id="list_item_timezone_buenos_aires"             title="msg_tz_buenos_aires"             value="23"/>
+      <list_item id="list_item_timezone_azores"                   title="msg_tz_azores"                   value="24"/>
+      <list_item id="list_item_timezone_casablanca"               title="msg_tz_casablanca"               value="25"/>
+      <list_item id="list_item_timezone_dublin"                   title="msg_tz_dublin"                   value="26"/>
+      <list_item id="list_item_timezone_lisbon"                   title="msg_tz_lisbon"                   value="27"/>
+      <list_item id="list_item_timezone_reykjavik"                title="msg_tz_reykjavik"                value="28"/>
+      <list_item id="list_item_timezone_london"                   title="msg_tz_london"                   value="29"/>
+      <list_item id="list_item_timezone_amsterdam"                title="msg_tz_amsterdam"                value="30"/>
+      <list_item id="list_item_timezone_algiers"                  title="msg_tz_algiers"                  value="31"/>
+      <list_item id="list_item_timezone_andorra_la_vella"         title="msg_tz_andorra_la_vella"         value="32"/>
+      <list_item id="list_item_timezone_vienna"                   title="msg_tz_vienna"                   value="33"/>
+      <list_item id="list_item_timezone_windhoek"                 title="msg_tz_windhoek"                 value="34"/>
+      <list_item id="list_item_timezone_oslo"                     title="msg_tz_oslo"                     value="35"/>
+      <list_item id="list_item_timezone_copenhagen"               title="msg_tz_copenhagen"               value="36"/>
+      <list_item id="list_item_timezone_zagreb"                   title="msg_tz_zagreb"                   value="37"/>
+      <list_item id="list_item_timezone_sarajevo"                 title="msg_tz_sarajevo"                 value="38"/>
+      <list_item id="list_item_timezone_san_marino"               title="msg_tz_san_marino"               value="39"/>
+      <list_item id="list_item_timezone_skopje"                   title="msg_tz_skopje"                   value="40"/>
+      <list_item id="list_item_timezone_stockholm"                title="msg_tz_stockholm"                value="41"/>
+      <list_item id="list_item_timezone_tunis"                    title="msg_tz_tunis"                    value="42"/>
+      <list_item id="list_item_timezone_tirana"                   title="msg_tz_tirana"                   value="43"/>
+      <list_item id="list_item_timezone_paris"                    title="msg_tz_paris"                    value="44"/>
+      <list_item id="list_item_timezone_valletta"                 title="msg_tz_valletta"                 value="45"/>
+      <list_item id="list_item_timezone_vaduz"                    title="msg_tz_vaduz"                    value="46"/>
+      <list_item id="list_item_timezone_budapest"                 title="msg_tz_budapest"                 value="47"/>
+      <list_item id="list_item_timezone_bratislava"               title="msg_tz_bratislava"               value="48"/>
+      <list_item id="list_item_timezone_prague"                   title="msg_tz_prague"                   value="49"/>
+      <list_item id="list_item_timezone_brussels"                 title="msg_tz_brussels"                 value="50"/>
+      <list_item id="list_item_timezone_belgrade"                 title="msg_tz_belgrade"                 value="51"/>
+      <list_item id="list_item_timezone_berlin"                   title="msg_tz_berlin"                   value="52"/>
+      <list_item id="list_item_timezone_bern"                     title="msg_tz_bern"                     value="53"/>
+      <list_item id="list_item_timezone_madrid"                   title="msg_tz_madrid"                   value="54"/>
+      <list_item id="list_item_timezone_monaco"                   title="msg_tz_monaco"                   value="55"/>
+      <list_item id="list_item_timezone_ljubljana"                title="msg_tz_ljubljana"                value="56"/>
+      <list_item id="list_item_timezone_luxembourg"               title="msg_tz_luxembourg"               value="57"/>
+      <list_item id="list_item_timezone_rome"                     title="msg_tz_rome"                     value="58"/>
+      <list_item id="list_item_timezone_warsaw"                   title="msg_tz_warsaw"                   value="59"/>
+      <list_item id="list_item_timezone_athens"                   title="msg_tz_athens"                   value="60"/>
+      <list_item id="list_item_timezone_amman"                    title="msg_tz_amman"                    value="61"/>
+      <list_item id="list_item_timezone_istanbul"                 title="msg_tz_istanbul"                 value="62"/>
+      <list_item id="list_item_timezone_jerusalem"                title="msg_tz_jerusalem"                value="63"/>
+      <list_item id="list_item_timezone_cairo"                    title="msg_tz_cairo"                    value="64"/>
+      <list_item id="list_item_timezone_kiev"                     title="msg_tz_kiev"                     value="65"/>
+      <list_item id="list_item_timezone_sofia"                    title="msg_tz_sofia"                    value="66"/>
+      <list_item id="list_item_timezone_damascus"                 title="msg_tz_damascus"                 value="67"/>
+      <list_item id="list_item_timezone_tallinn"                  title="msg_tz_tallinn"                  value="68"/>
+      <list_item id="list_item_timezone_nicosia"                  title="msg_tz_nicosia"                  value="69"/>
+      <list_item id="list_item_timezone_vilnius"                  title="msg_tz_vilnius"                  value="70"/>
+      <list_item id="list_item_timezone_bucharest"                title="msg_tz_bucharest"                value="71"/>
+      <list_item id="list_item_timezone_beirut"                   title="msg_tz_beirut"                   value="72"/>
+      <list_item id="list_item_timezone_helsinki"                 title="msg_tz_helsinki"                 value="73"/>
+      <list_item id="list_item_timezone_minsk"                    title="msg_tz_minsk"                    value="74"/>
+      <list_item id="list_item_timezone_johannesburg"             title="msg_tz_johannesburg"             value="75"/>
+      <list_item id="list_item_timezone_riga"                     title="msg_tz_riga"                     value="76"/>
+      <list_item id="list_item_timezone_kuwait_city"              title="msg_tz_kuwait_city"              value="77"/>
+      <list_item id="list_item_timezone_baghdad"                  title="msg_tz_baghdad"                  value="78"/>
+      <list_item id="list_item_timezone_manama"                   title="msg_tz_manama"                   value="79"/>
+      <list_item id="list_item_timezone_moscow"                   title="msg_tz_moscow"                   value="80"/>
+      <list_item id="list_item_timezone_riyadh"                   title="msg_tz_riyadh"                   value="81"/>
+      <list_item id="list_item_timezone_tehran"                   title="msg_tz_tehran"                   value="82"/>
+      <list_item id="list_item_timezone_abu_dhabi"                title="msg_tz_abu_dhabi"                value="83"/>
+      <list_item id="list_item_timezone_yerevan"                  title="msg_tz_yerevan"                  value="84"/>
+      <list_item id="list_item_timezone_tbilisi"                  title="msg_tz_tbilisi"                  value="85"/>
+      <list_item id="list_item_timezone_baku"                     title="msg_tz_baku"                     value="86"/>
+      <list_item id="list_item_timezone_muscat"                   title="msg_tz_muscat"                   value="87"/>
+      <list_item id="list_item_timezone_kabul"                    title="msg_tz_kabul"                    value="88"/>
+      <list_item id="list_item_timezone_karachi"                  title="msg_tz_karachi"                  value="89"/>
+      <list_item id="list_item_timezone_tashkent"                 title="msg_tz_tashkent"                 value="90"/>
+      <list_item id="list_item_timezone_bishkek"                  title="msg_tz_bishkek"                  value="91"/>
+      <list_item id="list_item_timezone_calcutta"                 title="msg_tz_calcutta"                 value="92"/>
+      <list_item id="list_item_timezone_kathmandu"                title="msg_tz_kathmandu"                value="93"/>
+      <list_item id="list_item_timezone_astana"                   title="msg_tz_astana"                   value="94"/>
+      <list_item id="list_item_timezone_dhaka"                    title="msg_tz_dhaka"                    value="95"/>
+      <list_item id="list_item_timezone_bangkok"                  title="msg_tz_bangkok"                  value="96"/>
+      <list_item id="list_item_timezone_kuala_lumpur"             title="msg_tz_kuala_lumpur"             value="97"/>
+      <list_item id="list_item_timezone_singapore"                title="msg_tz_singapore"                value="98"/>
+      <list_item id="list_item_timezone_taipei"                   title="msg_tz_taipei"                   value="99"/>
+      <list_item id="list_item_timezone_perth"                    title="msg_tz_perth"                    value="100"/>
+      <list_item id="list_item_timezone_beijing"                  title="msg_tz_beijing"                  value="101"/>
+      <list_item id="list_item_timezone_hong_kong"                title="msg_tz_hong_kong"                value="102"/>
+      <list_item id="list_item_timezone_seoul"                    title="msg_tz_seoul"                    value="103"/>
+      <list_item id="list_item_timezone_tokyo"                    title="msg_tz_tokyo"                    value="104"/>
+      <list_item id="list_item_timezone_adelaide"                 title="msg_tz_adelaide"                 value="105"/>
+      <list_item id="list_item_timezone_sydney"                   title="msg_tz_sydney"                   value="106"/>
+      <list_item id="list_item_timezone_wellington"               title="msg_tz_wellington"               value="107"/>
+      <list_item id="list_item_timezone_suva"                     title="msg_tz_suva"                     value="108"/>
+    </list>
+
+    <!-- サマータイム -->
+    <toggle_switch id="toggle_switch_summer_time"
+                   icon="tex_spanner"
+                   title="msg_daylight_saving"
+                   key="/CONFIG/DATE/summer_time"/>
+
+  </setting_list>
+</system_settings>

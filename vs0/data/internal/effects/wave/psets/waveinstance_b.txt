@@ -1,0 +1,56 @@
+WaveInstance@day
+{
+ hide = 1.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.11f;
+ translation = 0.f 0.f 0.f;
+ rotation = 0.f 0.f 0.f 1.f;
+ scale = 0.5f 0.5f 0.5f;
+ global_scale = 2.f;
+ uv_scale = 1.f;
+ uv_rotate = 0.f;
+ cross_section = 0.308067f 0.057864f -1.217043f 0.469729f;
+}
+
+WaveInstance@default
+{
+ hide = 1.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.11f;
+ translation = 0.f 0.f 0.f;
+ rotation = 0.f 0.f 0.f 1.f;
+ scale = 0.5f 0.5f 0.5f;
+ global_scale = 2.f;
+ uv_scale = 1.f;
+ uv_rotate = 0.f;
+ cross_section = 0.308067f 0.057864f -1.217043f 0.469729f;
+}
+
+WaveInstance@iboot
+{
+ hide = 1.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.11f;
+ translation = 0.f 0.f 0.f;
+ rotation = 0.f 0.f 0.f 1.f;
+ scale = 0.5f 0.5f 0.5f;
+ global_scale = 2.f;
+ uv_scale = 1.f;
+ uv_rotate = 0.f;
+ cross_section = 0.308067f 0.057864f -1.217043f 0.469729f;
+}
+
+WaveInstance@night
+{
+ hide = 1.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.11f;
+ translation = 0.f 0.f 0.f;
+ rotation = 0.f 0.f 0.f 1.f;
+ scale = 0.5f 0.5f 0.5f;
+ global_scale = 2.f;
+ uv_scale = 1.f;
+ uv_rotate = 0.f;
+ cross_section = 0.308067f 0.057864f -1.217043f 0.469729f;
+}
+

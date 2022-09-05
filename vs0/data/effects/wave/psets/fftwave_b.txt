@@ -1,0 +1,44 @@
+FFTWave@day
+{
+ gravity = 9.81f;
+ A = 0.f;
+ logA = -17.982425f;
+ patch_size = 100.f;
+ wind_speed = 15.f;
+ wind_dir = 1.570796f;
+ time_step = 0.025f;
+}
+
+FFTWave@default
+{
+ gravity = 9.81f;
+ A = 0.f;
+ logA = -17.982425f;
+ patch_size = 100.f;
+ wind_speed = 15.f;
+ wind_dir = 1.570796f;
+ time_step = 0.025f;
+}
+
+FFTWave@iboot
+{
+ gravity = 9.81f;
+ A = 0.f;
+ logA = -17.982425f;
+ patch_size = 100.f;
+ wind_speed = 15.f;
+ wind_dir = 1.570796f;
+ time_step = 0.025f;
+}
+
+FFTWave@night
+{
+ gravity = 9.81f;
+ A = 0.f;
+ logA = -17.982425f;
+ patch_size = 100.f;
+ wind_speed = 15.f;
+ wind_dir = 1.570796f;
+ time_step = 0.025f;
+}
+

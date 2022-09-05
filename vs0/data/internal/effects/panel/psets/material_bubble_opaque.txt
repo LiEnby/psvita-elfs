@@ -1,0 +1,39 @@
+Material@default
+{
+ color = 1.f 1.f 1.f 1.f;
+ diffuse_coeff = 1.f;
+ specular_coeff = 0.051476f;
+ specular_power = 91.964286f;
+ fresnel_front = 0.f;
+ fresnel_control = 0.771703f;
+ fresnel_coeff = 0.76228f;
+ refraction_coeff = 1.220703f;
+ refraction_amount = -0.133928f;
+}
+
+Material@iboot
+{
+ color = 1.f 1.f 1.f 1.f;
+ diffuse_coeff = 1.f;
+ specular_coeff = 0.051476f;
+ specular_power = 91.964286f;
+ fresnel_front = 0.f;
+ fresnel_control = 0.771703f;
+ fresnel_coeff = 0.76228f;
+ refraction_coeff = 1.220703f;
+ refraction_amount = -0.133928f;
+}
+
+Material@night
+{
+ color = 1.f 1.f 1.f 1.f;
+ diffuse_coeff = 1.f;
+ specular_coeff = 0.051476f;
+ specular_power = 91.964286f;
+ fresnel_front = 0.f;
+ fresnel_control = 0.771703f;
+ fresnel_coeff = 0.76228f;
+ refraction_coeff = 1.220703f;
+ refraction_amount = -0.133928f;
+}
+

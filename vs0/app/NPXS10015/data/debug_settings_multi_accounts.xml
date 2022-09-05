@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="debug_settings_plugin">
+
+  <!-- PSN Account Selection -->
+  <setting_list id="id_multi_accounts_page" title="" style="edit">
+    <label id="id_multi_accounts_name" title="msg_tool_multi_accounts_name"/>
+    <spacer id="id_multi_accounts_space_a"/>
+    <button id="id_multi_accounts_switch" title="msg_tool_multi_accounts_switch" confirm="msg_tool_multi_accounts_switch_confirmation"/>
+    <button id="id_multi_accounts_delete" title="msg_tool_multi_accounts_delete" confirm="msg_tool_multi_accounts_delete_confirmation"/>
+  </setting_list>
+
+</system_settings>

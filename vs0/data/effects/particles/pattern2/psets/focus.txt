@@ -1,0 +1,72 @@
+Focus@day
+{
+ size_middle = 0.0845f;
+ size_near = 0.17f;
+ size_far = 0.181999f;
+ near_focus = 3.88f;
+ near_focus_dist = 3.4f;
+ near_focus_pow = 3.049999f;
+ near_darkness = 1.f;
+ near_fuzziness = 3.79f;
+ far_focus = 10.35f;
+ far_focus_dist = 2.4f;
+ far_focus_pow = 1.72f;
+ far_darkness = 13.899993f;
+ near_align = 0.722f;
+ size_align = 13.189991f;
+}
+
+Focus@default
+{
+ size_middle = 0.010053f;
+ size_near = 0.010053f;
+ size_far = 0.026295f;
+ near_focus = 3.88f;
+ near_focus_dist = 3.4f;
+ near_focus_pow = 3.049999f;
+ near_darkness = 1.f;
+ near_fuzziness = 3.79f;
+ far_focus = 10.35f;
+ far_focus_dist = 2.4f;
+ far_focus_pow = 1.72f;
+ far_darkness = 13.899993f;
+ near_align = 0.722f;
+ size_align = 13.189991f;
+}
+
+Focus@iboot
+{
+ size_middle = 0.0845f;
+ size_near = 0.17f;
+ size_far = 0.181999f;
+ near_focus = 3.88f;
+ near_focus_dist = 3.4f;
+ near_focus_pow = 3.049999f;
+ near_darkness = 1.f;
+ near_fuzziness = 3.79f;
+ far_focus = 10.35f;
+ far_focus_dist = 2.4f;
+ far_focus_pow = 1.72f;
+ far_darkness = 13.899996f;
+ near_align = 0.722f;
+ size_align = 13.189996f;
+}
+
+Focus@night
+{
+ size_middle = 0.0845f;
+ size_near = 0.17f;
+ size_far = 0.181999f;
+ near_focus = 3.88f;
+ near_focus_dist = 3.4f;
+ near_focus_pow = 3.049999f;
+ near_darkness = 1.f;
+ near_fuzziness = 3.79f;
+ far_focus = 10.35f;
+ far_focus_dist = 2.4f;
+ far_focus_pow = 1.72f;
+ far_darkness = 13.899993f;
+ near_align = 0.722f;
+ size_align = 13.189991f;
+}
+

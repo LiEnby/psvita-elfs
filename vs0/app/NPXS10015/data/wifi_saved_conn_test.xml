@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="wifi_settings_plugin">
+  <!-- 接続テスト -->
+  <setting_list id="page_wifi_ap_conn_test"
+					title="msg_internet_connection_test"
+          navi="ok_cancel"
+					style="edit">
+
+    <!-- 名前 -->
+    <label id="id_name"
+           title="msg_name"/>
+
+    <!-- SSID -->
+    <label id="id_ssid"
+           title="msg_ssid"/>
+
+    <!-- IPアドレス取得 -->
+    <label id="id_obtain_ipaddress"
+           title="msg_obtain_ipaddress"/>
+
+    <!-- インターネット接続 -->
+    <label id="id_internet_conn"
+           title="msg_internet_connection"/>
+
+    <!-- PSNサインイン -->
+    <label id="id_psn_signin"
+           title="msg_psn_signin"/>
+
+    <!-- NATタイプ -->
+    <label id="id_nat_type"
+		   title="msg_nat_type"/>
+
+    <!-- 通信速度（ダウンロード） -->
+    <label id="id_conn_speed_download"
+          title="msg_connection_speed_download"/>
+
+    <!-- 通信速度（アップロード） -->
+    <label id="id_conn_speed_upload"
+		   title="msg_connection_speed_upload"/>
+
+    <!-- テスト結果解説 -->
+    <user_custom id="conn_test_desc"/>
+
+    <!-- エラー情報 -->
+    <user_custom id="conn_test_error_info"/>
+
+  </setting_list>
+</system_settings>

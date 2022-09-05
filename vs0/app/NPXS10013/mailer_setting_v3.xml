@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+設定メニュー定義ファイル
+設定メニューの構成を記述します。
+記述方法については、
+設定フレームワークの仕様書 や システム設定(app/settings)の各設定項目のXML
+などをご参照ください。
+-->
+<application_settings version="1.0">
+  <!-- 詳細設定画面 -->
+  <setting_list id="vd_003" title=""
+                authentication="off" navi="ok_cancel" style="edit">
+    <text_field id="v2_textbox_name_more"
+                title="msg_name"
+                keyboard_type="default"
+                max_length="256"
+                default_value=""
+                key=""
+                  />
+    <text_field id="v2_textbox_mailaddress_more"
+                title="msg_email_address"
+                keyboard_type="mail_address"
+                max_length="256"
+                default_value=""
+                key=""
+                  />
+
+    <spacer id="v2_space3_0" line="on"/>
+
+    <label id="v2_label_incoming_mail_setting" title="msg_incoming_mail_setting" key="" default_value=""/>
+    <text_field id="v2_textbox_host_income"
+                title="msg_host_name"
+                keyboard_type="mail_address"
+                max_length="256"
+                default_value=""
+                key=""
+                  />
+    <text_field id="v2_textbox_name_income"
+                title="msg_name"
+                keyboard_type="mail_address"
+                max_length="256"
+                default_value=""
+                key=""
+                  />
+    <text_field id="v2_textbox_password_income"
+              title="msg_pw"
+              keyboard_type="alphabet"
+              password="on"
+              max_length="256"
+              default_value=""
+              key=""
+                  />
+
+    <spacer id="v2_space3_1" line="on"/>
+
+    <label id="v2_label_outgoing_mail_setting" title="msg_outgoing_mail_setting" key="" default_value=""/>
+    <text_field id="v2_textbox_host_outgoing"
+                title="msg_host_name"
+                keyboard_type="mail_address"
+                max_length="256"
+                default_value=""
+                key=""
+                  />
+    <text_field id="v2_textbox_name_outgoing"
+                title="msg_name"
+                keyboard_type="mail_address"
+                max_length="256"
+                default_value=""
+                key=""
+                  />
+    <text_field id="v2_textbox_password_outgoing"
+              title="msg_pw"
+              keyboard_type="alphabet"
+              password="on"
+              max_length="256"
+              default_value=""
+              key=""
+                  />
+    <button id="v2_imap_account_basic" title="msg_imap" />
+    <button id="v2_pop_account_basic" title="msg_pop" />
+  </setting_list>
+</application_settings>

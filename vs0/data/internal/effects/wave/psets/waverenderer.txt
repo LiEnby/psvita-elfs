@@ -1,0 +1,20 @@
+WaveRenderer@day
+{
+ edge_fog = 0.861111f;
+}
+
+WaveRenderer@default
+{
+ edge_fog = 0.830357f;
+}
+
+WaveRenderer@iboot
+{
+ edge_fog = 0.861111f;
+}
+
+WaveRenderer@night
+{
+ edge_fog = 0.861111f;
+}
+

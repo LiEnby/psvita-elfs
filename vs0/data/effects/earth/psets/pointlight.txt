@@ -1,0 +1,7 @@
+PointLight@iboot
+{
+ pos = 1176.186645f 0.317759f 2276.403076f;
+ attn = 0.077008f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+

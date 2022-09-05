@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: template.xml 43432 2011-03-09 06:17:46Z masaito $ -->
+<livearea style="a4" format-ver="01.00" content-rev="1">
+
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+
+	<system-function-zone>
+		<func>manual</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>default_gate.png</startup-image>
+	</gate>
+	
+	<!-- 各Space配置 -->
+	<frame id="frame1">
+		<liveitem>
+			<lang>ja</lang>
+		  <background>JP_banner1.png</background>
+		</liveitem>
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+		  <background>US_banner1.png</background>
+		</liveitem>
+	</frame>
+
+	<frame id="frame2">
+		<liveitem>
+			<lang>ja</lang>
+		  <background>JP_banner2.png</background>
+		</liveitem>			
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+		  <background>US_banner2.png</background>
+		</liveitem>
+	</frame>
+
+	<frame id="frame3">
+		<liveitem>
+			<lang>ja</lang>
+		  <background>JP_list01.png</background>
+		</liveitem>
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+		  <background>US_list01.png</background>
+		</liveitem>
+	</frame>
+
+	<frame id="frame4">
+		<liveitem>
+			<lang>ja</lang>
+		  <background>JP_list02.png</background>
+		</liveitem>
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+		  <background>US_list02.png</background>
+		</liveitem>
+	</frame>
+
+	<frame id="frame5">
+		<liveitem>
+			<lang>ja</lang>
+		  <background>JP_list03.png</background>
+		</liveitem>
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+		  <background>US_list03.png</background>
+		</liveitem>
+	</frame>
+</livearea>
+<!--
+		Local Variables:
+		coding:utf-8
+		tab-width:2
+		End:
+  -->

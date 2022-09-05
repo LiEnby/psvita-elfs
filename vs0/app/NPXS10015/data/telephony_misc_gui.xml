@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="telephony_settings_plugin">
+
+	<setting_list id="telephony_misc_gui" title="msg_operator_settings">
+		
+		<!-- Operator Search Result -->
+		<setting_list id="telephony_operator_search_result" title="msg_operator_settings">
+			<user_custom id="telephony_operator_search_custom"/>
+		</setting_list>
+		
+		<!-- Operator Message Detail -->
+		<setting_list id="telephony_operator_message_detail" title="">
+			<user_custom id="telephony_message_detail"/>
+		</setting_list>
+
+    <setting_list id="telephony_apn_list" title="msg_apn_settings">
+      <user_custom id="telephony_apn_list_top"/>
+      <button id="telephony_set_apn_manually" title="msg_set_manually"/>
+    </setting_list>
+    
+		<setting_list id="telephony_apn_settings" title="msg_set_manually" icon="tex_spanner" style="edit" navi="ok_cancel">
+			<!-- 各テキストフィールドのmax_lengthはBBMCに定義されている長さ(終端文字を除く) -->
+			<text_field id="telephony_apn_name" title="msg_apn" keyboard_type="basic_latin" max_length="100"/>
+			<text_field id="telephony_apn_user" title="msg_user_name" keyboard_type="basic_latin" max_length="31"/>
+			<text_field id="telephony_apn_pass_word" title="msg_pw" keyboard_type="basic_latin" max_length="15" password="on"/>
+			<button id="telephony_apn_reset" title="msg_delete"/>
+		</setting_list>
+
+		<!-- SIM -->
+		<setting_list id="telephony_sim_settings" title="msg_sim_card_settings" icon="tex_spanner">
+			<toggle_switch id="switch_sim_pin_lock" title="msg_lock_sim_card" hint="msg_lock_sim_card_info" icon="tex_spanner"/>
+			<button id="button_pin_change" title="msg_change_pin" icon="tex_spanner"/>
+		</setting_list>
+
+		<!-- オペレータ設定 自動/手動選択 -->
+		<setting_list id="telephony_operator_settings_top" title="msg_operator_settings" icon="tex_spanner">
+			<button id="button_operator_settings_auto" title="msg_automatic" icon="tex_check"/>
+			<button id="button_operator_settings_manual" title="msg_manual" icon="tex_check"/>
+		</setting_list>
+		
+		<!-- オペレータ選択 -->
+		<setting_list id="telephony_operator_settings" title="msg_operator_settings" icon="tex_spanner" hint="msg_operator_settings_info">
+			<user_custom id="telephony_operator_result"/>
+		</setting_list>
+		
+	</setting_list>
+
+</system_settings>

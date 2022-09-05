@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="wifi_settings_plugin">
+  <!-- 登録APメニュー -->
+  <setting_list id="page_wifi_ap_edit"
+					title="msg_advanced_settings"
+					navi="ok_cancel"
+					style ="edit">
+
+    <!-- 名前 -->
+    <text_field id="id_ap_conn_name"
+				title="msg_name"
+                max_length="32"
+                min_length="1"
+                keyboard_type="default"/>
+
+    <!-- SSID -->
+    <label id="id_ap_ssid"
+           title="msg_ssid"/>
+
+    <!-- セキュリティー -->
+    <label id="id_ap_security"
+           title="msg_security_method"/>
+
+    <!-- IPアドレス設定 -->
+    <list id="id_ip_addr_setting"
+          title="msg_ipaddress_settings" >
+      <list_item id="id_ip_addr_auto" title="msg_automatic"	value="0" />
+      <list_item id="id_ip_addr_manual" title="msg_manual" value="1" />
+      <list_item id="id_ip_addr_pppoe" title="msg_pppoe"	value="2" />
+    </list>
+    <!-- IPアドレス -->
+    <text_field id="id_ip_addr"
+				title="msg_ip_address"
+                max_length="15"
+                min_length="1"
+                keyboard_type="alphabet"/>
+
+    <!-- サブネットマスク -->
+    <text_field id="id_netmask"
+				title="msg_subnetmask"
+                max_length="15"
+                min_length="1"
+                keyboard_type="alphabet"/>
+    <!-- デフォルトゲートウェイ -->
+    <text_field id="id_default_gateway"
+				title="msg_default_gateway"
+                max_length="15"
+                min_length="1"
+                keyboard_type="alphabet"/>
+
+    <!-- PPPoEユーザーID -->
+    <text_field id="id_auth_name"
+				title="msg_pppoe_user_name"
+                max_length="127"
+                min_length="1"
+                keyboard_type="alphabet"/>
+    <!-- PPPoEパスワード -->
+    <text_field id="id_auth_key"
+				title="msg_pppoe_pw"
+                max_length="127"
+                min_length="1"
+                keyboard_type="alphabet"/>
+    <!-- DHCP -->
+    <list id="id_dhcp_setting"
+          title="msg_dhcp_host_name" >
+      <list_item id="id_dhcp_unuse" title="msg_do_not_use" value="0" />
+      <list_item id="id_dhcp_use" title="msg_use"	value="1" />
+    </list>
+    <!-- DHCPホスト名 -->
+    <text_field id="id_dhcp_hostname"
+				title=""
+                max_length="255"
+                min_length="0"
+                keyboard_type="alphabet"/>
+    <!-- DNS -->
+    <list id="id_dns_setting"
+          title="msg_dns_settings" >
+      <list_item id="id_dns_auto" title="msg_automatic" value="0" />
+      <list_item id="id_dns_manual" title="msg_manual"	value="1" />
+    </list>
+    <!-- プライマリDNS -->
+    <text_field id="id_dns_primary"
+				title="msg_primedns"
+                max_length="15"
+                min_length="1"
+                keyboard_type="alphabet"/>
+    <!-- セカンダリDNS -->
+    <text_field id="id_dns_secondary"
+				title="msg_seconddns"
+                max_length="15"
+                min_length="1"
+                keyboard_type="alphabet"/>
+    <!-- HTTPプロキシサーバー -->
+    <list id="id_http_proxy_setting"
+          title="msg_proxyserver" >
+      <list_item id="id_http_proxy_unuse" title="msg_do_not_use" value="0" />
+      <list_item id="id_http_proxy_use" title="msg_use"	value="1" />
+    </list>
+    <!-- アドレス -->
+    <text_field id="id_http_proxy_server"
+				title="msg_address"
+                max_length="255"
+                min_length="1"
+                keyboard_type="alphabet"/>
+    <!-- ポート -->
+    <text_field id="id_http_proxy_port"
+				title="msg_port"
+                max_length="5"
+                min_length="1"
+				        keyboard_type="numeral"/>
+    <!-- MTU設定 -->
+    <list id="id_mtu_settings"
+          title="msg_mtu_settings" >
+      <list_item id="id_mtu_use" title="msg_automatic" value="0" />
+      <list_item id="id_mtu_unuse" title="msg_manual"	value="1" />
+    </list>
+
+    <!-- MTU -->
+    <text_field id="id_mtu"
+				title="msg_mtu"
+                max_length="4"
+                min_length="1"
+				        keyboard_type="numeral"/>
+    
+    <spacer id="page_edit_spacer1" />
+
+    <!-- AUTO CONNECT -->
+    <toggle_switch id="id_auto_connect"
+                   title="msg_do_not_connect_ap_automatically"
+                   icon="tex_spanner" />
+
+    <spacer id="page_edit_spacer2" />
+
+  </setting_list>
+</system_settings>

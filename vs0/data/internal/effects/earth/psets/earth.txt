@@ -1,0 +1,30 @@
+Earth@default
+{
+ edge_iris_control = 0.012012f;
+ edge_iris_start = 0.364085f;
+ spec_range = 0.f 1.f;
+ radius = 0.364085f;
+ reflection_coeff = 0.213244f;
+ translation = 0.724838f 0.449357f -1.026731f;
+ rotation = 0.092517f 0.098645f -0.02249f 0.990557f;
+ inertial_w_mul = 0.8f;
+ inertia_damp = 0.97f;
+ inertia_thresh = 1.f;
+ alpha = 0.f;
+}
+
+Earth@iboot
+{
+ edge_iris_control = 0.01447f;
+ edge_iris_start = 0.562619f;
+ spec_range = 0.276785f 1.25f;
+ radius = 0.364085f;
+ reflection_coeff = 0.797476f;
+ translation = 0.487608f 0.107226f -0.45f;
+ rotation = 0.092517f 0.098645f -0.02249f 0.990557f;
+ inertial_w_mul = 0.305175f;
+ inertia_damp = 0.875f;
+ inertia_thresh = 1.f;
+ alpha = 1.f;
+}
+

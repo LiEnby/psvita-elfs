@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="sound_settings_plugin">
+
+  <!-- サウンド＆ディスプレイ -->
+  <setting_list id="sound_settings" title="msg_sound_display">
+
+    <!-- 明るさ -->
+    <setting_list id="id_display_brightness" title="msg_brightness" icon="tex_spanner">
+      <user_custom id="display_brightness_setting"/>
+    </setting_list>
+
+    <!-- お知らせの通知(PSボタン) -->
+    <toggle_switch id="id_notifications_ps_button" key="/CONFIG/SHELL/notify_ps_button"
+                   title="msg_notifications_ps_button" hint="msg_notifications_ps_button_info" icon="tex_spanner"/>
+
+    <!-- お知らせの通知(音) -->
+    <toggle_switch id="id_notifications_sound" key="/CONFIG/SHELL/notify_sound"
+                   title="msg_notifications_sound" hint="msg_notifications_sound_info" icon="tex_spanner"/>
+
+    <!-- システムのミュージック -->
+    <toggle_switch id="id_bgm" key="/CONFIG/SHELL/bgm"
+                   title="msg_system_music" icon="tex_spanner"/>
+    
+    <!-- AVLS -->
+    <toggle_switch id="id_avls" key="/CONFIG/SOUND/avls"
+                   title="msg_avls" hint="msg_avls_info" icon="tex_spanner"/>
+   
+  </setting_list>
+</system_settings>

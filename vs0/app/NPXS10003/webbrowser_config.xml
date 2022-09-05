@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application_settings version="1.0">
+  <setting_list id="config_main_page" title="msg_settings">
+    <toggle_switch id="cookie_list" title="msg_allow_cookie" icon="config_texture_spna" key="/webbrowser/cookie" default_value="1" />
+    <toggle_switch id="javascript_list" title="msg_enable_javascript" icon="config_texture_spna" key="/webbrowser/javascript" default_value="1" />
+    <toggle_switch id="flash_list" title="msg_enable_flash_player" icon="config_texture_spna" key="/webbrowser/flash" default_value="1" />
+    <list id="search_list" title="msg_search_engine" icon="config_texture_spna" key="/webbrowser/seachengne" default_value="0">
+      <list_item id="search_list_01" title="msg_config_google" value="0" />
+      <list_item id="search_list_02" title="msg_config_yahoo" value="1" />
+    </list>
+    <!--　toggle_switch id="autoinput_list" title="msg_auto_input" icon="config_texture_spna" key="/webbrowser/autoinput" default_value="1" /-->
+    <button id="cookie_del_btn" title="msg_delete_cookies" icon="config_texture_spna" confirm="msg_delete_cookies_conf"/>
+    <!--button id="plugin_del_btn" title="msg_config_plugin_del" icon="config_texture_spna" confirm="msg_config_plugin_del_confirmation"/-->
+    <button id="cache_del_btn" title="msg_clear_cache" icon="config_texture_spna" confirm="msg_clear_cache_conf"/>
+    <button id="auth_del_btn" title="msg_delete_authentication_information" icon="config_texture_spna" confirm="msg_delete_authentication_information_conf"/>
+    <setting_list id="security_sub_page" title="msg_pc_security" icon="config_texture_spna">
+      <button id="trendmicro_btn" title="msg_trendmicro" icon="config_texture_spna"/>
+    </setting_list>
+  </setting_list>
+</application_settings>
+

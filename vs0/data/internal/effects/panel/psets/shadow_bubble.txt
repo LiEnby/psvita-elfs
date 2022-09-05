@@ -1,0 +1,30 @@
+Shadow@default
+{
+ scale_tweak = 1.071428f;
+ transparency = 0.197751f;
+ color = 0.107141f 0.526783f 0.473214f;
+ plane_z = 0.039999f;
+ back_color_begin = 0.049999f;
+ back_color_end = 0.37f;
+}
+
+Shadow@iboot
+{
+ scale_tweak = 1.071428f;
+ transparency = 0.197751f;
+ color = 0.107141f 0.526783f 0.473214f;
+ plane_z = 0.039999f;
+ back_color_begin = 0.049999f;
+ back_color_end = 0.37f;
+}
+
+Shadow@night
+{
+ scale_tweak = 1.071428f;
+ transparency = 0.197751f;
+ color = 0.107141f 0.526783f 0.473214f;
+ plane_z = 0.039999f;
+ back_color_begin = 0.049999f;
+ back_color_end = 0.37f;
+}
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="wifi_settings_plugin">
+  <!-- 手動で入力する -->
+  <setting_list id="page_wifi_save_manually"
+                title="msg_enter_manually"
+				navi="ok_cancel"
+                style ="edit">
+    <!-- SSID -->
+    <text_field id="id_save_man_ssid" title="msg_ssid"
+                max_length="32"
+                min_length="1"
+                keyboard_type="alphabet"/>
+
+    <!-- セキュリティー -->
+    <list id="id_save_man_security"
+          title="msg_security_method" >
+      <list_item id="id_save_man_security_non" title="msg_none"	value="0" />
+      <list_item id="id_save_man_security_wep" title="msg_wep" value="1" />
+      <list_item id="id_save_man_security_wpa" title="msg_wpapsk_wpa2psk"	value="2" />
+    </list>
+
+    <!-- セキュリティーキー（WEP） -->
+    <text_field id="id_save_man_security_wep_key" title="msg_pw"
+                max_length="26"
+                min_length="1"
+                keyboard_type="basic_latin"
+                password="on"/>
+
+    <!-- セキュリティーキー（WPA） -->
+    <text_field id="id_save_man_security_wpa_key" title="msg_pw"
+                max_length="64"
+                min_length="1"
+                keyboard_type="basic_latin"
+                password ="on"/>
+
+  </setting_list>
+</system_settings>

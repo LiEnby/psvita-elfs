@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="telephony_settings_plugin">
+
+	<setting_list id="telephony_top" title="msg_mobile_network_settings">
+
+		<!-- ネットワーク関連 -->
+		<toggle_switch id="switch_generation_connection" title="msg_mobile_network" icon="tex_spanner" hint="msg_mobile_network_info" description=""/>
+		
+		<!-- データローミング -->
+		<toggle_switch id="switch_data_roaming" title="msg_data_roaming" icon="tex_spanner"/>
+		
+		<!-- モバイルネットワークからのお問い合わせ -->
+		<setting_list id="telephony_operator_message" title="msg_operator_notices" icon="tex_spanner">
+			<user_custom id="telephony_msg_list"/>
+		</setting_list>
+
+		<!-- SIM -->
+		<button id="telephony_sim_settings_button" title="msg_sim_card_settings" icon="tex_spanner"/>
+		<!-- オペレータ選択 -->
+		<button id="telephony_operator_settings_button" title="msg_operator_settings" icon="tex_spanner" hint="msg_operator_settings_info"/>
+		<!-- APN設定 -->
+		<button id="telephony_apn_settings_button" title="msg_apn_settings" icon="tex_spanner" hint="msg_apn_settings_info"/>
+		<!-- SIM Lock 解除 -->
+		<button id="telephony_sim_unlock_button" title="msg_remove_sim_lock" icon="tex_spanner"/>
+	</setting_list>
+
+</system_settings>

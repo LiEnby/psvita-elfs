@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="wifi_settings_plugin">
+  <!-- 接続状態 -->
+  <setting_list id="page_wifi_ap_conn_state"
+					title="msg_internet_connection_status"
+					style="edit">
+
+    <!-- 接続名 -->
+    <label id="id_conn_name"
+           title="msg_name"/>
+
+    <!-- 電波強度 -->
+    <label id="id_rssi"
+           title="msg_signal_strength"/>
+
+    <!-- SSID -->
+    <label id="id_ssid"
+           title="msg_ssid"/>
+
+    <!-- BSSID -->
+    <label id="id_bssid"
+           title="msg_bssid"/>
+
+    <!-- チャンネル -->
+    <label id="id_channel"
+           title="msg_channel"/>
+
+    <!-- セキュリティー -->
+    <label id="id_security"
+           title="msg_security_method"/>
+
+    <!-- WEPキー -->
+    <label id="id_wep_key"
+           title="msg_wep"/>
+
+    <!-- WPAキー -->
+    <label id="id_wpa_key"
+           title="msg_wpapsk_wpa2psk"/>
+
+    <!-- IPアドレス設定 -->
+    <label id="id_ip_addr_setting"
+          title="msg_ipaddress_settings"/>
+
+    <!-- PPPoEユーザーID -->
+    <label id="id_auth_name"
+		   title="msg_pppoe_user_name"/>
+
+    <!-- PPPoEパスワード -->
+    <label id="id_auth_key"
+		   title="msg_pppoe_pw"/>
+
+    <!-- DHCPホスト名 -->
+    <label id="id_dhcp_hostname"
+		   title="msg_dhcp_host_name"/>
+
+    <!-- IPアドレス -->
+    <label id="id_ip_addr"
+		   title="msg_ip_address"/>
+
+    <!-- サブネットマスク -->
+    <label id="id_netmask"
+		   title="msg_subnetmask"/>
+
+    <!-- デフォルトルータ -->
+    <label id="id_default_gateway"
+				title="msg_default_gateway"/>
+
+    <!-- プライマリDNS -->
+    <label id="id_dns_primary"
+		   title="msg_primedns"/>
+
+    <!-- セカンダリDNS -->
+    <label id="id_dns_secondary"
+		   title="msg_seconddns"/>
+
+    <!-- MACアドレス -->
+    <label id="id_mac_address"
+		   title="msg_mac_address"/>
+
+    <!-- MTU -->
+    <label id="id_mtu"
+		   title="msg_mtu"/>
+
+    <!-- HTTPプロキシサーバー -->
+    <label id="id_http_proxy_setting"
+          title="msg_proxyserver"/>
+
+    <!-- アドレス -->
+    <label id="id_http_proxy_server"
+		   title=""/>
+
+    <!-- ポート -->
+    <label id="id_http_proxy_port"
+		   title=""/>
+
+    <!-- NATタイプ -->
+    <label id="id_nat_type"
+		   title="msg_nat_type"/>
+
+  </setting_list>
+</system_settings>

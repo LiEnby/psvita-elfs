@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Email -->
+<livearea style="a3" format-ver="01.00" content-rev="1">
+	<livearea-background>
+		<image>Email_LA_bg.png</image>
+	</livearea-background>
+	<system-function-zone></system-function-zone>
+	<gate>
+		<startup-image>gate-email.png</startup-image>
+	</gate>
+	<!-- 各Space配置 -->
+	<frame id="frame5" multi="o" autoflip="0" >
+		<!--日本語-->
+		<liveitem>
+			<lang>ja</lang>
+			<!--
+				TypeA3におけるframe5のサイズは260x210で、この中心点に原点(0,0)が置かれる。よって左下の座標は(130,-105)。
+				レイアウト指示は画面左下と画像右下とのオフセット指示になっている。
+				画像右下を「左端から94、下端から32」と指示されているので、画像右下座標は(36,-73)。...(A)
+				image領域にalign/valignを指示しなかった場合、image領域も中央寄せとなる。
+				画像サイズは67x50なので、image領域の右下頂点座標は(-33,-25)。 ...(B)
+				(B)から(A)への差分をそれぞれx,y属性で指定すればよいので、x=69,y=-48を指定すればよい。
+			-->
+			<image x="69" y="-48" origin="frame">Email_LA_btn_newmsg.png</image>
+			<text align="outside-left" valign="bottom" origin="image">
+				<str color="#5c63ab" size="18">New Message</str>
+				<str color="#5c63ab" size="9">　</str>
+			</text>
+			<target>email:send</target>
+			<linkicon />
+		</liveitem>
+
+		<!-- 日本語以外 -->
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+			<image x="69" y="-48" origin="frame">Email_LA_btn_newmsg.png</image>
+			<text align="outside-left" valign="bottom" origin="image">
+				<str color="#5c63ab" size="18">New Message</str>
+				<str color="#5c63ab" size="9">　</str>
+			</text>
+			<target>email:send</target>
+			<linkicon />
+		</liveitem>
+	</frame>
+
+	<frame id="frame4" multi="o" autoflip="0">
+		<!--日本語-->
+		<liveitem>
+			<lang>ja</lang>
+			<text align="center" valign="top" word-wrap="off">
+				<str color="#5c63ab" size="32">11</str>
+				<str color="#5c63ab" size="8">　</str>
+				<str color="#5c63ab" size="32">通の未読メッセージ</str>
+			</text>
+		</liveitem>
+
+		<!-- 日本語以外 -->
+		<liveitem>
+			<exclude-lang>ja</exclude-lang>
+			<text align="center" valign="top" word-wrap="off">
+				<str color="#5c63ab" size="32">11</str>
+				<str color="#5c63ab" size="8">　</str>
+				<str color="#5c63ab" size="32">Unread Message</str>
+			</text>
+		</liveitem>
+	</frame>
+</livearea>
+

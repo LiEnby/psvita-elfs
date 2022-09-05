@@ -1,0 +1,20 @@
+Tinkerbell@day
+{
+ len = 0.6f;
+}
+
+Tinkerbell@default
+{
+ len = 0.6f;
+}
+
+Tinkerbell@iboot
+{
+ len = 0.6f;
+}
+
+Tinkerbell@night
+{
+ len = 0.6f;
+}
+

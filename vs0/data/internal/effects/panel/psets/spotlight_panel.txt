@@ -1,0 +1,21 @@
+SpotLight@default
+{
+ pos = 602.939453f 66.257095f 142.275192f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+SpotLight@iboot
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+SpotLight@night
+{
+ pos = -1963.990966f -98.876953f 2152.777832f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+

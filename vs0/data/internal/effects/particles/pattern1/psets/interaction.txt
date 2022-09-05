@@ -1,0 +1,54 @@
+Interaction@day
+{
+ brownian = 6.f;
+ rshake_brw = 30.f;
+ dpad_rot_max = 0.000198f;
+ dpad_scale_x = 1.f;
+ dpad_scale_y = 1.f;
+ dshake_rot_max = 0.000159f;
+ dshake_rot_imp = 1.f;
+ dshake_brw_imp = 0.119999f;
+ dshake_thresh = 0.4f;
+ dshake_x_coeff = 0.8f;
+ dshake_g_coeff = 0.7f;
+ icon_wind = 20.f;
+ icon_wind_scl_x = 1.f;
+ icon_wind_scl_y = 1.f;
+}
+
+Interaction@default
+{
+ brownian = 6.f;
+ rshake_brw = 30.f;
+ dpad_rot_max = 0.000198f;
+ dpad_scale_x = 1.f;
+ dpad_scale_y = 1.f;
+ dshake_rot_max = 0.000159f;
+ dshake_rot_imp = 1.f;
+ dshake_brw_imp = 0.119999f;
+ dshake_thresh = 0.4f;
+ dshake_x_coeff = 0.8f;
+ dshake_g_coeff = 0.7f;
+ icon_wind = 20.f;
+ icon_wind_scl_x = 1.f;
+ icon_wind_scl_y = 1.f;
+}
+
+Interaction@night
+{
+ brownian = 6.f;
+ rshake_brw = 30.f;
+ dpad_rot_max = 0.000198f;
+ dpad_scale_x = 1.f;
+ dpad_scale_y = 1.f;
+ dshake_rot_max = 0.000159f;
+ dshake_rot_imp = 1.f;
+ dshake_brw_imp = 0.119999f;
+ dshake_thresh = 0.4f;
+ dshake_x_coeff = 0.8f;
+ dshake_g_coeff = 0.7f;
+ icon_wind = 20.f;
+ icon_wind_scl_x = 1.f;
+ icon_wind_scl_y = 1.f;
+}
+

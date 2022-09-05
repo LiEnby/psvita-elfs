@@ -1,0 +1,32 @@
+Camera@day
+{
+ eye = 0.f 0.f 1360.f;
+ center = 0.f 0.f 1359.f;
+ up = 0.f 1.f 0.f;
+ fovy = 35.805557f;
+}
+
+Camera@default
+{
+ eye = 0.f 0.f 1360.f;
+ center = 0.f 0.f 1359.f;
+ up = 0.f 1.f 0.f;
+ fovy = 35.805557f;
+}
+
+Camera@iboot
+{
+ eye = 0.f 0.f 1360.f;
+ center = 0.f 0.f 1359.f;
+ up = 0.f 1.f 0.f;
+ fovy = 35.805557f;
+}
+
+Camera@night
+{
+ eye = 0.f 0.f 1360.f;
+ center = 0.f 0.f 1359.f;
+ up = 0.f 1.f 0.f;
+ fovy = 35.805557f;
+}
+

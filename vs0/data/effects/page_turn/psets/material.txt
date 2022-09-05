@@ -1,0 +1,26 @@
+Material@default
+{
+ color = 1.f 1.f 1.f 1.f;
+ diffuse_coeff = 0.732142f;
+ specular_coeff = 3.016061f;
+ specular_power = 12.314285f;
+ fresnel_front = 0.f;
+ fresnel_control = 0.998999f;
+ fresnel_coeff = 0.482351f;
+ refraction_coeff = 5.290575f;
+ refraction_amount = 0.357142f;
+}
+
+Material@night
+{
+ color = 1.f 1.f 1.f 1.f;
+ diffuse_coeff = 0.4f;
+ specular_coeff = 0.7f;
+ specular_power = 40.f;
+ fresnel_front = 0.f;
+ fresnel_control = 0.2f;
+ fresnel_coeff = 1.f;
+ refraction_coeff = 1.f;
+ refraction_amount = 0.f;
+}
+

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="debug_settings_plugin">
+
+  <!-- Debug Settings -->
+  <setting_list id="id_debug_settings" title="msg_tool_debug_settings">
+    
+    <!-- System Update -->
+    <setting_list id="id_system_update" title="msg_tool_system_update" icon="tex_spanner" style="edit">
+      
+      <!-- Update Server URL -->
+      <text_field id="id_system_update_server_url" key="/CONFIG/SYSTEM/UPDATE/server_url"
+            title="msg_tool_update_server_url"
+            keyboard_type="url" max_length="511" icon="tex_spanner"/>
+
+      <!-- Show PUP List -->
+      <list id="id_system_update_pup_list_flag" key="/CONFIG/SYSTEM/UPDATE/pup_list_flag" 
+            title="msg_tool_system_update_pup_list_flag" icon="tex_spanner">
+        <list_item id="id_system_update_pup_list_flag_off" title="msg_off" value="0"/>
+        <list_item id="id_system_update_pup_list_flag_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Enable Host0 -->
+      <list id="id_system_update_enable_host0" key="/CONFIG/SYSTEM/UPDATE/enable_host0"
+            title="msg_tool_system_update_enable_host0" icon="tex_spanner">
+        <list_item id="id_system_update_enable_host0_sd" title="msg_tool_sd" value="0"/>
+        <list_item id="id_system_update_enable_host0_host0" title="msg_tool_host0" value="1"/>
+      </list>
+
+      <!-- NP System Update Check -->
+      <list id="id_system_update_enable_tool_pup_check" key="/CONFIG/SYSTEM/UPDATE/enable_tool_pup_check"
+            title="msg_tool_system_update_enable_tool_pup_check" icon="tex_spanner">
+        <list_item id="id_system_update_enable_tool_pup_check_off" title="msg_off" value="0"/>
+        <list_item id="id_system_update_enable_tool_pup_check_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- PUP Background Download -->
+      <list id="id_system_update_enable_pup_bgdl" key="/CONFIG/SYSTEM/UPDATE/enable_pup_bgdl"
+            title="msg_tool_system_update_enable_pup_bgdl" icon="tex_spanner">
+        <list_item id="id_system_update_enable_pup_bgdl_off" title="msg_off" value="0"/>
+        <list_item id="id_system_update_enable_pup_bgdl_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Background Download PUP Check Cycle -->
+      <text_field id="id_system_update_pup_bgdl_cycle" key="/CONFIG/SYSTEM/UPDATE/pup_bgdl_cycle"
+            title="msg_tool_update_pup_bgdl_cycle"
+            keyboard_type="numeral" max_length="9" icon="tex_spanner"/>
+
+    </setting_list>
+
+
+    <!-- Network -->
+    <setting_list id="id_network" title="msg_tool_network" icon="tex_spanner" style="edit">
+      
+      <!-- Packet Capture -->
+      <list id="id_network_packet_capture" key="/CONFIG/NET/enable_tcpdump_log"
+            title="msg_tool_packet_capture" icon="tex_spanner">
+        <list_item id="id_network_packet_capture_off" title="msg_off" value="0"/>
+        <list_item id="id_network_packet_capture_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Network Emulation -->
+      <list id="id_network_emulation_type" key="/CONFIG/NET/emulation_type"
+            title="msg_tool_network_emulation" icon="tex_spanner">
+        <list_item id="id_network_emulation_type_disabled" title="msg_tool_disabled" value="0"/>
+        <list_item id="id_network_emulation_type_1" title="msg_tool_1" value="1"/>
+        <list_item id="id_network_emulation_type_2" title="msg_tool_2" value="2"/>
+        <list_item id="id_network_emulation_type_3" title="msg_tool_3" value="3"/>
+      </list>
+
+      <list id="id_network_emulation_if" key="/CONFIG/NET/emulation_if" title="" icon="tex_spanner">
+        <list_item id="id_network_emulation_if_usb_ethernet" title="msg_tool_usb_ethernet" value="1"/>
+        <list_item id="id_network_emulation_if_wifi" title="msg_tool_wifi" value="2"/>
+      </list>
+      
+    </setting_list>
+    
+    
+    <!-- PlayStation®Network -->
+    <setting_list id="id_np" title="msg_tool_psn_settings" icon="tex_spanner" style="edit">
+
+      <!-- PSN Account Selection -->
+      <setting_list id="id_multi_accounts" title="msg_tool_multi_accounts">
+
+        <!-- Create New Account -->
+        <setting_list id="id_multi_accounts_create_new_account" title="msg_tool_multi_accounts_create_new_account" style="edit">
+          
+          <!-- アカウント名編集 -->
+          <text_field id="id_multi_accounts_new_name" title="msg_tool_multi_accounts_name" keyboard_type="basic_latin" min_length="1" max_length="31"/>
+
+          <!-- Create -->
+          <button id="id_multi_accounts_create" title="msg_tool_multi_accounts_create" confirm="msg_tool_multi_accounts_create_confirmation"/>
+        </setting_list>
+        
+        <spacer id="id_multi_accounts_space_a"/>
+        <link id="id_multi_accounts_A00" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A01" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A02" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A03" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A04" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A05" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A06" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A07" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A08" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A09" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A10" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A11" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A12" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A13" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A14" title="" file="debug_settings_multi_accounts.xml"/>
+        <link id="id_multi_accounts_A15" title="" file="debug_settings_multi_accounts.xml"/>
+      </setting_list>
+
+      <!-- Account Local Settings -->
+      <label id="id_np_label_account_local_setting" title="msg_tool_account_local_setting"/>
+      
+      <!-- 現在のアカウント名編集 -->
+      <text_field id="id_multi_accounts_current_name" title="msg_tool_multi_accounts_name" keyboard_type="basic_latin" min_length="1" max_length="31"/>
+
+      <!-- NP Environment -->
+      <text_field id="id_np_env"
+                  title="msg_tool_np_environment" key="/CONFIG/NP/env"
+                  keyboard_type="basic_latin" max_length="8"
+                  success_dialog_message="msg_tool_restart_reflect_setting" icon="tex_spanner"/>
+      
+      <!-- Nav-only NP -->
+      <list id="id_np_nav_only"
+            title="msg_tool_np_debug_nav"  key="/CONFIG/NP/nav_only" icon="tex_spanner">
+        <list_item id="id_np_nav_only_off" title="msg_off" value="0"/>
+        <list_item id="id_np_nav_only_on" title="msg_on" value="1"/>
+      </list>
+
+      <spacer id="id_multi_accounts_space_b"/>
+      
+      <!-- Global Settings -->
+      <label id="id_np_label_grobal_setting" title="msg_tool_global_setting"/>
+      
+      <!-- NP Debug -->
+      <list id="id_np_debug" key="/CONFIG/NP/debug" 
+            title="msg_tool_np_debug" icon="tex_spanner">
+        <list_item id="id_np_debug_off" title="msg_off" value="0"/>
+        <list_item id="id_np_debug_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- In-Game Commerce Debug -->
+      <list id="id_np_in_game_commerce_debug" key="/CONFIG/NP/debug_ingame_commerce2"
+           title="msg_tool_np_debug_ingame_commerce2" icon="tex_spanner">
+        <list_item id="id_np_debug_ingame_commerce2_off" title="msg_off" value="0"/>
+        <list_item id="id_np_debug_ingame_commerce2_on" title="msg_on" value="1"/>
+      </list>
+      
+      <!-- Service ID -->
+      <text_field id="id_np_service_id" key="/CONFIG/NP/title_id"
+                  title="msg_tool_np_title_id"
+                  keyboard_type="basic_latin" max_length="19" icon="tex_spanner"/>
+
+      <!-- PlayStation®Store Ad Clock -->
+      <list id="id_np_ad_clock_diff"
+            title="msg_tool_psstore_ad_clock"
+            error_dialog_message= "msg_tool_error_no_datetime_setting"
+            accept_not_changed ="on" icon="tex_spanner">
+        <list_item id="id_np_ad_clock_diff_off" title="msg_off" value="0"/>
+        <list_item id="id_np_ad_clock_diff_on" title="msg_on" value="1" />
+      </list>
+
+      <!-- Geo Filtering for PlayStation®Store -->
+      <list id="id_np_geo_filtering" key="/CONFIG/NP/np_geo_filtering"
+            title="msg_tool_geo_filtering_for_psstore" icon="tex_spanner">
+        <list_item id="id_np_geo_filtering_normal" title="msg_tool_normal" value="0" />
+        <list_item id="id_np_geo_filtering_always_succeed" title="msg_tool_always_succeed" value="1" />
+        <list_item id="id_np_geo_filtering_always_fail" title="msg_tool_always_fail" value="2" />
+      </list>
+
+    </setting_list>
+
+    
+    <!-- Mobile Network-->
+    <setting_list id="id_mobile_network" title="msg_tool_mobile_network" icon="tex_spanner">
+      
+      <!-- USB Setting -->
+      <list id="id_mobile_network_usb_setting"
+            title="msg_tool_usb_setting"
+            key="/CONFIG/TEL/usb_setting"
+            error_dialog_message= "msg_tool_only_for_3g_model"
+            icon="tex_spanner">
+        <list_item id="id_mobile_network_usb_setting_off" title="msg_off" value="0"/>
+        <list_item id="id_mobile_network_usb_setting_on" title="msg_on" value="1"/>
+      </list>
+    
+      <!-- Telephony Registory -->
+      <setting_list id="id_mobile_network_telephony_registry" title="msg_tool_telephony_registry" icon="tex_spanner" style="edit">
+        <!-- Use Debug Settings -->
+        <list id="id_telephony_registry_use_debug_settings" title="msg_tool_use_debug_settings"
+              key="/CONFIG/TEL/use_debug_settings" icon="tex_spanner">
+          <list_item id="id_telephony_registry_use_debug_settings_off" title="msg_off" value="0"/>
+          <list_item id="id_telephony_registry_use_debug_settings_on" title="msg_on" value="1"/>
+        </list>
+        <!-- Is Com Exist -->
+        <text_field id="id_telephony_registry_is_com_exist" key="/CONFIG/TEL/is_com_exist"
+              title="msg_tool_is_com_exist" keyboard_type="numeral" max_length="3" icon="tex_spanner"/>
+        <!-- Target Operator -->
+        <text_field id="id_telephony_registry_target_operator" key="/CONFIG/TEL/target_operator"
+              title="msg_tool_target_operator" keyboard_type="numeral" max_length="3" icon="tex_spanner"/>
+        <!-- Antenna Disp Type -->
+        <text_field id="id_telephony_registry_antenna_disp_type" key="/CONFIG/TEL/antenna_disp_type"
+              title="msg_tool_antenna_disp_type" keyboard_type="numeral" max_length="3" icon="tex_spanner"/>
+      </setting_list>
+
+      <!-- Logging -->
+      <setting_list id="id_mobile_network_logging" title="msg_tool_logging" icon="tex_spanner" style="edit">
+        <!-- Telephony -->
+        <list id="id_logging_telephony" title="msg_tool_telephony"
+              key="/CONFIG/TEL/dbg_log_tel" icon="tex_spanner">
+          <list_item id="id_logging_telephony_off" title="msg_off" value="0"/>
+          <list_item id="id_logging_telephony_usb" title="msg_tool_usb" value="1"/>
+          <list_item id="id_logging_telephony_sd" title="msg_tool_sd" value="2"/>
+        </list>
+        <!-- BBMC -->
+        <list id="id_logging_bbmc" title="msg_tool_bbmc"
+              key="/CONFIG/TEL/dbg_log_bbmc" icon="tex_spanner">
+          <list_item id="id_logging_bbmc_off" title="msg_off" value="0"/>
+          <list_item id="id_logging_bbmc_usb" title="msg_tool_usb" value="1"/>
+          <list_item id="id_logging_bbmc_sd" title="msg_tool_sd" value="2"/>
+        </list>
+        <!-- Network -->
+        <list id="id_logging_network" title="msg_tool_network"
+              key="/CONFIG/TEL/dbg_log_net" icon="tex_spanner">
+          <list_item id="id_logging_network_off" title="msg_off" value="0"/>
+          <list_item id="id_logging_network_usb" title="msg_tool_usb" value="1"/>
+          <list_item id="id_logging_network_sd" title="msg_tool_sd" value="2"/>
+        </list>
+      </setting_list>
+
+    </setting_list>
+
+    
+    <!-- Location Data -->
+    <setting_list id="id_location_data" title="msg_tool_location_data" icon="tex_spanner" style="edit">
+
+      <!-- Emulate Permission -->
+      <list id="id_location_data_debug_permission" key="/CONFIG/LOCATION/debug_permission"
+            title="msg_tool_emulate_permission" icon="tex_spanner">
+        <list_item id="id_debug_permission_off" title="msg_off" value="0"/>
+        <list_item id="id_debug_permission_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Permission Status -->
+      <list id="id_location_data_debug_permission_status" key="/CONFIG/LOCATION/debug_permission_status"
+            title="msg_tool_permission_status" icon="tex_spanner">
+        <list_item id="debug_permission_status_disable" title="msg_tool_disable" value="0"/>
+        <list_item id="debug_permission_status_not_yet_accessed" title="msg_tool_not_yet_accessed" value="1"/>
+        <list_item id="debug_permission_status_deny" title="msg_tool_deny" value="2"/>
+        <list_item id="debug_permission_status_allow" title="msg_tool_allow" value="3"/>
+      </list>
+
+    </setting_list>
+
+    
+    <!-- System -->
+    <setting_list id="id_system" title="msg_tool_system" icon="tex_spanner" style="edit">
+
+      <!-- ○ Button Behavior -->
+      <list id="id_system_button_behavior" key="/CONFIG/SYSTEM/button_assign"
+            title="msg_tool_button_behavior" icon="tex_spanner">
+        <list_item id="id_tool_button_behavior_enter" title="msg_tool_enter" value="0"/>
+        <list_item id="id_tool_button_behavior_back" title="msg_tool_back" value="1"/>
+      </list>
+
+      <!-- Region Settings  -->
+      <list id="id_system_region_settings" key="/DEVENV/TOOL/region_masquerade"
+            title="msg_tool_region_settings" success_dialog_message="msg_tool_restart_reflect_setting" icon="tex_spanner">
+        <list_item id="id_tool_region_settings_not_set" title="msg_tool_not_set" value="0"/>
+        <list_item id="id_tool_region_settings_japan" title="msg_tool_japan" value="1"/>
+        <list_item id="id_tool_region_settings_north_america" title="msg_tool_north_america" value="2"/>
+        <list_item id="id_tool_region_settings_oceania" title="msg_tool_oceania" value="3"/>
+        <list_item id="id_tool_region_settings_uk" title="msg_tool_uk" value="4"/>
+        <list_item id="id_tool_region_settings_europe" title="msg_tool_europe" value="5"/>
+        <list_item id="id_tool_region_settings_korea" title="msg_tool_korea" value="6"/>
+        <list_item id="id_tool_region_settings_southest_asia" title="msg_tool_southest_asia" value="7"/>
+        <list_item id="id_tool_region_settings_taiwan" title="msg_tool_taiwan" value="8"/>
+        <list_item id="id_tool_region_settings_russia" title="msg_tool_russia" value="9"/>
+        <list_item id="id_tool_region_settings_mexico" title="msg_tool_mexico" value="10"/>
+        <list_item id="id_tool_region_settings_tool_devkit" title="msg_tool_devkit" value="11"/>
+      </list>
+
+      <!-- Slow Card Mode -->
+      <list id="id_system_slow_card_mode" key="/DEVENV/TOOL/slow_card_mode"
+            title="msg_tool_slow_card_mode" success_dialog_message="msg_tool_restart_reflect_setting" icon="tex_spanner">
+        <list_item id="id_tool_slow_card_mode_disable" title="msg_tool_disable" value="0"/>
+        <list_item id="id_tool_slow_card_mode_enable" title="msg_tool_enable" value="1"/>
+      </list>
+
+    </setting_list>
+
+
+    <!-- Core Dump -->
+    <setting_list id="id_core_dump" title="msg_tool_core_dump" icon="tex_spanner" style="edit">
+
+      <!-- Dump Level -->
+      <list id="id_system_dump_level" key="/CONFIG/COREDUMP/dump_level"
+            title="msg_tool_dump_level" icon="tex_spanner">
+        <list_item id="id_tool_dump_level_mini" title="msg_tool_mini_dump" value="0"/>
+        <list_item id="id_tool_dump_level_full" title="msg_tool_full_dump" value="1"/>
+      </list>
+
+    </setting_list>
+    
+
+    <!-- Activation -->
+    <setting_list id="id_activation" title="msg_tool_activation" icon="tex_spanner">
+
+      <!-- Show Expire Date -->
+      <setting_list id="id_show_expire_date" title="msg_tool_show_expire_date" icon="tex_spanner" style="edit">
+        <label id="id_tool_show_expire_date_label" title="msg_tool_expire_date"/>
+      </setting_list>
+
+      <!-- Show Activation Key -->
+      <setting_list id="id_show_activation_key" title="msg_tool_show_activation_key" icon="tex_spanner" style="edit">
+        <label id="id_tool_show_activation_key_label" title="msg_tool_activation_key"/>
+      </setting_list>
+      
+    </setting_list>
+
+
+    <!-- Photo Settings -->
+    <setting_list id="id_photo_settings" title="msg_tool_photo_settings" icon="tex_spanner">
+
+      <!-- Export Photo DB -->
+      <button id="id_export_photo_db" title="msg_tool_export_photo_db" icon="tex_spanner"/>
+
+      <!-- Import Photo DB -->
+      <button id="id_import_photo_db" title="msg_tool_import_photo_db" icon="tex_spanner"/>
+
+    </setting_list>    
+    
+  </setting_list>
+</system_settings>

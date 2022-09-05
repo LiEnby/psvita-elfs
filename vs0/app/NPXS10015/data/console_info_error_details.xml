@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="console_info_plugin">
+
+  <!-- エラー詳細 -->
+  <setting_list id="id_error_details" title="msg_value_none" style="edit">
+
+    <label id="id_error_date" title="msg_date" />
+    <label id="id_error_code" title="msg_error_code" />
+    <label id="id_error_application" title="msg_application" />
+    <label id="id_error_nat_type" title="msg_nat_type" />
+    <label id="id_error_system_software" title="msg_system_software" />
+    <label id="id_error_message" title="msg_message" />
+
+    <!-- お試しください -->
+    <setting_list id="id_suggested_actions"
+                  title="msg_suggested_actions"
+                  style="edit"
+                  rotate="full">
+      <label id="id_suggested_actions_try_following" title="msg_try_followings" style="heading" height="70"/>
+    </setting_list>
+
+  </setting_list>
+</system_settings>

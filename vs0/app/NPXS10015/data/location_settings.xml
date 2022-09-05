@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="location_settings_plugin">
+
+  <!-- 位置データ -->
+  <setting_list id="setting_list_location_settings" title="msg_location_data">
+
+    <!-- 位置データを利用する -->
+    <toggle_switch id="toggle_switch_location_service"
+                   title="msg_use_location_data"
+                   icon="tex_spanner"/>
+
+    <spacer id="spacer_location_settings"/>
+
+  </setting_list>
+
+</system_settings>

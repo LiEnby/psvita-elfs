@@ -1,0 +1,14 @@
+SpotLight@default
+{
+ pos = 1.220703f 1.220703f 3.335705f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+SpotLight@night
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+

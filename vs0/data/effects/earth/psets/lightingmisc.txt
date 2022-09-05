@@ -1,0 +1,7 @@
+LightingMisc@iboot
+{
+ ambient_color = 0.2f 0.2f 0.2f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+

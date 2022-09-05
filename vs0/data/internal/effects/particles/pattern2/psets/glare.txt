@@ -1,0 +1,32 @@
+Glare@day
+{
+ glare = 1.f;
+ glare_scale = 4.159996f;
+ glare_p1 = 0.99f;
+ glare_p2 = 4.44f;
+}
+
+Glare@default
+{
+ glare = 1.f;
+ glare_scale = 4.159996f;
+ glare_p1 = 2.002258f;
+ glare_p2 = 4.44f;
+}
+
+Glare@iboot
+{
+ glare = 1.f;
+ glare_scale = 4.159996f;
+ glare_p1 = 0.99f;
+ glare_p2 = 4.44f;
+}
+
+Glare@night
+{
+ glare = 1.f;
+ glare_scale = 4.159996f;
+ glare_p1 = 0.99f;
+ glare_p2 = 4.44f;
+}
+

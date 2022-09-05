@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea style="a1" format-ver="01.00" content-rev="1">
+	<livearea-background>
+		<image>bg0.png</image>
+	</livearea-background>
+
+	<system-function-zone>
+		<func>patch</func>
+	</system-function-zone>
+
+	<gate>
+		<startup-image>startup_screen.png</startup-image>
+	</gate>
+
+	<!-- 各Space配置 -->
+	<frame id="frame3" multi="o" autoflip="0" >
+	
+		<liveitem>
+		</liveitem>
+
+	</frame>
+
+</livearea>
+

@@ -1,0 +1,21 @@
+BubblesShadow@default
+{
+ scale_tweak = 1.071428f;
+ transparency = 0.197752f;
+ color = 0.107141f 0.526783f 0.473214f;
+}
+
+BubblesShadow@iboot
+{
+ scale_tweak = 0.814285f;
+ transparency = 0.179582f;
+ color = 0.5625f 0.678571f 0.517857f;
+}
+
+BubblesShadow@night
+{
+ scale_tweak = 0.86f;
+ transparency = 0.25f;
+ color = 0.f 0.f 1.f;
+}
+

@@ -1,0 +1,28 @@
+SpotLight@day
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+SpotLight@default
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+SpotLight@iboot
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+SpotLight@night
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+

@@ -1,0 +1,56 @@
+Emit@day
+{
+ vel_min = 0.001f;
+ vel_mul = 0.19f;
+ vel_var = 0.049999f;
+ cone_angle = 20.f;
+ neg_prob = 0.009999f;
+ vel_zscale = 0.5f;
+ emit_per_frame = 4.f;
+ emit_prob = 0.7f;
+ aging_speed = 0.001f;
+ aging_variance = 0.f;
+}
+
+Emit@default
+{
+ vel_min = 0.000026f;
+ vel_mul = 0.003556f;
+ vel_var = 0.301605f;
+ cone_angle = 20.f;
+ neg_prob = 0.f;
+ vel_zscale = 0.5f;
+ emit_per_frame = 33.174446f;
+ emit_prob = 0.866069f;
+ aging_speed = 0.018263f;
+ aging_variance = 0.223213f;
+}
+
+Emit@iboot
+{
+ vel_min = 0.001f;
+ vel_mul = 0.19f;
+ vel_var = 0.049999f;
+ cone_angle = 20.f;
+ neg_prob = 0.009999f;
+ vel_zscale = 0.5f;
+ emit_per_frame = 4.f;
+ emit_prob = 0.7f;
+ aging_speed = 0.001f;
+ aging_variance = 0.f;
+}
+
+Emit@night
+{
+ vel_min = 0.001f;
+ vel_mul = 0.19f;
+ vel_var = 0.049999f;
+ cone_angle = 20.f;
+ neg_prob = 0.009999f;
+ vel_zscale = 0.5f;
+ emit_per_frame = 4.f;
+ emit_prob = 0.7f;
+ aging_speed = 0.001f;
+ aging_variance = 0.f;
+}
+

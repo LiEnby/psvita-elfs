@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="reset_plugin">
+
+  <!-- リセット -->
+  <setting_list id="reset" title="msg_format_restore">
+
+    <!-- 学習辞書を消去する -->
+    <setting_list id="clear_learning_dictionary"
+            title="msg_clear_learning_dictionary"
+            icon="tex_spanner"
+            rotate="full"
+            navi="ok_cancel">
+      <user_custom id="clear_learning_dictionary_dummy" />
+    </setting_list>
+
+    <!-- SD のフォーマット -->
+    <setting_list id="console_mc_format"
+            title="msg_format_mc"
+            icon="tex_spanner"
+            rotate="full"
+            navi="ok_cancel">
+      <user_custom id="console_mc_format_dummy" />
+    </setting_list>
+
+    <!-- 設定の初期化 -->
+    <setting_list id="init_setting"
+            title="msg_restore_settings"
+            icon="tex_spanner"
+            rotate="full"
+            navi="ok_cancel">
+      <user_custom id="init_setting_dummy" />
+    </setting_list>
+
+    <!-- VITAの初期化 -->
+    <setting_list id="init_console"
+            title="msg_restore_system"
+            icon="tex_spanner"
+            rotate="full"
+            navi="ok_cancel">
+      <user_custom id="init_console_dummy" />
+    </setting_list>
+
+  </setting_list>
+</system_settings>

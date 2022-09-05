@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+設定メニュー定義ファイル
+設定メニューの構成を記述します。
+記述方法については、
+設定フレームワークの仕様書 や システム設定(app/settings)の各設定項目のXML
+などをご参照ください。
+-->
+<application_settings version="1.0">
+  <!-- Acount追加 画面 -->
+  <setting_list id="vd_0201" title="">
+    <!-- Acount追加 画面 -->
+    <button id="v2_select_item_service_000" title="-" />
+    <button id="v2_select_item_service_001" title="-" />
+    <button id="v2_select_item_service_002" title="-" />
+    <button id="v2_select_item_service_003" title="-" />
+    <button id="v2_select_item_service_004" title="-" />
+    <button id="v2_select_item_service_005" title="-" />
+    <button id="v2_select_item_service_006" title="-" />
+    <button id="v2_select_item_service_007" title="-" />
+  </setting_list>
+</application_settings>

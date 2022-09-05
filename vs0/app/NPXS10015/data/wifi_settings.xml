@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="wifi_settings_plugin">
+
+  <!-- Wi-Fi設定 -->
+  <setting_list id="page_wifi_main" title="msg_wifi_settings">
+
+    <!-- Wi-Fi -->
+    <toggle_switch id="id_wifi_mode"
+                   title="msg_wifi"
+                   description=""
+                   key="/CONFIG/NET/wifi_flag"
+                   icon="tex_spanner" />
+
+    <!-- アクセスポイント設定 -->
+    <label id="id_ap"
+           title="msg_ap"
+           hint="msg_ap_info"
+           icon="tex_spanner"/>
+
+    <spacer id="boxspacer1" />
+
+    <!-- 検索中です (登録されたアクセスポイントも見つかったアクセスポイントもない時のみ表示) -->
+    <label id="id_searching"
+           title="msg_searching" />
+
+    <!-- 登録AP -->
+    <link id="link_saved_ap_01" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_02" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_03" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_04" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_05" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_06" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_07" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_08" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_09" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_10" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_11" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_12" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_13" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_14" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_15" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_16" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_17" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_18" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_19" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_20" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_21" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_22" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_23" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_24" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_25" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_26" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_27" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_28" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_29" title="" file="wifi_saved_ap_menu.xml"/>
+    <link id="link_saved_ap_30" title="" file="wifi_saved_ap_menu.xml"/>
+
+    <!-- 周辺のAP -->
+    <button id="btn_scanned_ap_01" title="" />
+    <button id="btn_scanned_ap_02" title="" />
+    <button id="btn_scanned_ap_03" title="" />
+    <button id="btn_scanned_ap_04" title="" />
+    <button id="btn_scanned_ap_05" title="" />
+    <button id="btn_scanned_ap_06" title="" />
+    <button id="btn_scanned_ap_07" title="" />
+    <button id="btn_scanned_ap_08" title="" />
+    <button id="btn_scanned_ap_09" title="" />
+    <button id="btn_scanned_ap_10" title="" />
+    <button id="btn_scanned_ap_11" title="" />
+    <button id="btn_scanned_ap_12" title="" />
+    <button id="btn_scanned_ap_13" title="" />
+    <button id="btn_scanned_ap_14" title="" />
+    <button id="btn_scanned_ap_15" title="" />
+    <button id="btn_scanned_ap_16" title="" />
+
+    <!-- 自動で登録する -->
+    <label id="page_wifi_save_automatically"
+           title="msg_save_automatically"
+           icon="tex_spanner"/>
+
+    <button id="btn_link_wps" title="msg_wps"/>
+    <button id="btn_link_aoss" title="msg_aoss" />
+    <button id="btn_link_rakuraku" title="msg_rakurakuwlanstart"/>
+
+    <!-- 手動で登録する -->
+    <link id="link_start_save" title="msg_save_manually" file="wifi_start_save.xml" icon="tex_spanner"/>
+
+    <!-- 接続状態(登録されたアクセスポイントがある時のみ有効) -->
+	<!-- 接続状態はWi-Fiから１階層上の「ネットワーク」に移動
+    <link id="link_wifi_connect_info" title="msg_internet_connection_status" file="wifi_saved_conn_state.xml" icon="tex_spanner"/>
+	-->
+
+    <!-- 接続テストをする -->
+	<!-- 接続テストはWi-Fiから１階層上の「ネットワーク」に移動
+    <link id="link_wifi_test_connection" title="msg_internet_connection_test" file="wifi_saved_conn_test.xml" icon="tex_spanner"/>
+	-->
+
+    <!-- Wi-Fi設定の案内 -->
+    <toggle_switch id="id_show_ap_settings"
+                   title="msg_show_ap_settings"
+                   hint="msg_show_ap_settings_info"
+                   key="/CONFIG/NET/enable_impose_scanlist"
+                   icon="tex_spanner" />
+
+	<!-- アドホックモードのチャンネル -->
+    <list id="id_adhoc_cannel"
+          title="msg_adhoc_channel"
+          hint="msg_adhoc_channel_info"
+ 		  icon="tex_spanner"
+          key="/CONFIG/NET/adhoc_channel">
+      <list_item id="id_adhoc_cannel_mode_auto"	title="msg_automatic"	value="0" />
+      <list_item id="id_adhoc_cannel_mode_1ch" 	title="1" 	value="1" />
+      <list_item id="id_adhoc_cannel_mode_6ch"	title="6"		value="6" />
+      <list_item id="id_adhoc_cannel_mode_11ch" title="11"	value="11" />
+    </list>
+
+  </setting_list>
+</system_settings>

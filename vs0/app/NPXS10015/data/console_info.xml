@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="console_info_plugin">
+
+  <setting_list id="id_system" title="msg_system">
+
+    <!-- システム情報 -->
+    <setting_list id="id_about_system" title="msg_system_information" icon="tex_spanner" style="edit">
+      <label id="id_system_software" title="msg_system_software" />
+      <label id="id_mac_address" title="msg_mac_address" />
+      <label id="id_mac_address_usb" title="msg_tool_mac_address_usb" />
+      <label id="id_memory_card" title="msg_mc" height="40"/>
+      <label id="id_capacity" title="msg_capacity" height="40"/>
+      <label id="id_free_space" title="msg_free_space" />
+      <label id="id_phone_number" title="msg_phone_number" />
+      <label id="id_imei" title="msg_imei" />
+      <label id="id_iccid" title="msg_iccid" />
+    </setting_list>
+
+    <!-- 自動開始設定 -->
+    <setting_list id="id_auto_start" title="msg_auto_start_settings" icon="tex_spanner" hint="msg_auto_start_settings_info">
+      <user_custom id="id_auto_start_item"/>
+    </setting_list>
+
+    <!-- USB給電 -->
+    <toggle_switch id="id_usb_charge"
+                   title="msg_usb_power_supply"
+                   icon="tex_spanner"
+                   key="/CONFIG/USB/usb_charge_enable"/>
+
+    <!-- 使用状況 -->
+    <setting_list id="id_status" title="使用状況" icon="tex_spanner" style="edit">
+      <label id="id_status_header" title="モバイルネットワークのデータ通信" style="heading"/>
+      <label id="id_status_transmit" title="送信" />
+      <label id="id_status_received" title="受信" />
+      <label id="id_status_accumulated_time" title="累積時間" />
+      <label id="id_status_date" title="日付" />
+      <button id="id_status_reset" title="データをリセットする" confirm="データをリセットします。"/>
+    </setting_list>
+
+    <!-- エラー履歴 -->
+    <setting_list id="id_error_history"
+                  title="msg_error_history"
+                  icon="tex_spanner">
+      <!-- link の枠組みだけ使って、textは独自の template で配置します -->
+      <link id="id_error_history_0" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_1" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_2" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_3" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_4" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_5" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_6" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_7" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_8" title="" file="console_info_error_details.xml"/>
+      <link id="id_error_history_9" title="" file="console_info_error_details.xml"/>
+    </setting_list>
+
+    <!-- 著作権と商標 -->
+    <button id="id_legal_information"
+            title="msg_copyright_trademarks"
+            icon="tex_spanner"/>
+
+  </setting_list>
+</system_settings>

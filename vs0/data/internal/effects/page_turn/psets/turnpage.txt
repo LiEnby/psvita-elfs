@@ -1,0 +1,24 @@
+TurnPage@default
+{
+ top_scale = 0.469531f;
+ top_curl = 0.910714f;
+ bottom_scale = 0.013392f;
+ shadow = 200.892852f;
+ shadow_level = 0.f;
+ back_opacity = 0.0625f;
+ fovy = 50.f;
+ normal_scale_z = 3.303571f;
+}
+
+TurnPage@night
+{
+ top_scale = 0.1f;
+ top_curl = 1.f;
+ bottom_scale = 0.031994f;
+ shadow = 200.f;
+ shadow_level = 0.019999f;
+ back_opacity = 0.2f;
+ fovy = 50.f;
+ normal_scale_z = 1.f;
+}
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="bluetooth_settings_plugin">
+
+  <!-- Bluetooth®設定メニュー -->
+  <setting_list id="id_bluetooth_settings_menu" title="" style="edit" rotate="full">
+
+    <!-- 機器名称 -->
+    <label id="id_bt_device_name" title="msg_bt_device_name" />
+
+    <!-- 機器種別 -->
+    <label id="id_bt_device_type" title="msg_bt_type" />
+
+    <!-- プロファイル -->
+    <label id="id_bt_profile" title="msg_bt_profile" />
+
+  </setting_list>
+</system_settings>

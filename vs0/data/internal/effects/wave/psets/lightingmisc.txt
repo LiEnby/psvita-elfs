@@ -1,0 +1,28 @@
+LightingMisc@day
+{
+ ambient_color = 0.569443f 0.375f 0.777774f;
+ diffuse_color = 0.222221f 0.6875f 0.479165f;
+ fade = 1.f;
+}
+
+LightingMisc@default
+{
+ ambient_color = 0.569443f 0.375f 0.777774f;
+ diffuse_color = 0.222221f 0.6875f 0.479165f;
+ fade = 1.f;
+}
+
+LightingMisc@iboot
+{
+ ambient_color = 0.5625f 0.5625f 0.5625f;
+ diffuse_color = 0.607142f 0.616071f 0.607142f;
+ fade = 1.f;
+}
+
+LightingMisc@night
+{
+ ambient_color = 0.569443f 0.375f 0.777774f;
+ diffuse_color = 0.222221f 0.6875f 0.479165f;
+ fade = 1.f;
+}
+

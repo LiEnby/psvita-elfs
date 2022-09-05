@@ -1,0 +1,52 @@
+Mov@day
+{
+ friction = 0.03055f;
+ spin_time_scale = 2.74f;
+ delta_time = 0.003333f;
+ gravity = -0.000068f;
+ wind_dir = 0.152f 0.f 0.35f;
+ wind_scale = 0.004f;
+ wind_scale_10 = 0.f;
+ brownian_scale = 0.002499f;
+ brownian = 6.f;
+}
+
+Mov@default
+{
+ friction = 0.03055f;
+ spin_time_scale = 2.74f;
+ delta_time = 0.003333f;
+ gravity = -0.000068f;
+ wind_dir = 0.152f 0.f 0.35f;
+ wind_scale = 0.004f;
+ wind_scale_10 = 0.f;
+ brownian_scale = 0.002499f;
+ brownian = 6.f;
+}
+
+Mov@iboot
+{
+ friction = 0.03055f;
+ spin_time_scale = 2.74f;
+ delta_time = 0.029999f;
+ gravity = -0.000068f;
+ wind_dir = 0.152f 0.f 0.35f;
+ wind_scale = 0.004f;
+ wind_scale_10 = 0.f;
+ brownian_scale = 0.002499f;
+ brownian = 6.f;
+}
+
+Mov@night
+{
+ friction = 0.03055f;
+ spin_time_scale = 2.74f;
+ delta_time = 0.029999f;
+ gravity = -0.000068f;
+ wind_dir = 0.152f 0.f 0.35f;
+ wind_scale = 0.004f;
+ wind_scale_10 = 0.f;
+ brownian_scale = 0.002499f;
+ brownian = 6.f;
+}
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: psn_settings_change_subaccount.xml 45945 2011-03-29 13:30:18Z udagawa $ -->
+<system_settings version="1.0" plugin="psn_settings_plugin">
+  <!-- サブアカウント設定 -->
+  <setting_list id="change_subaccount"
+								title=""
+								style="edit"
+								navi_left="cancel"
+								navi_center="policies"
+								navi_right="send">
+		<list id="chat" title="msg_chat">
+			<list_item id="chat_permit" title="msg_allow" value="permit"/>
+			<list_item id="chat_deny" title="msg_do_not_allow" value="deny"/>
+		</list>
+		<user_custom id="chat_notice"/>
+		<toggle_switch id="content_restriction"  title="msg_content_restriction"/>
+		<list id="purchase_limit"
+					hint="msg_spending_limit_monthly_info"
+					title="msg_spending_limit_monthly"/>
+		<!-- <user_custom id="limit_notice"/> -->
+		<spacer id="subaccount_password_spacer"/>
+		<link id="change_subaccount_password" title="msg_change_subaccount_pw"
+					file="psn_settings_change_password.xml"/>
+  </setting_list>
+</system_settings>
+<!--
+		Local Variables:
+		coding:utf-8
+		tab-width:2
+		End:
+  -->

@@ -1,0 +1,64 @@
+WaveInstance@day
+{
+ hide = 0.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.076293f;
+ translation = 0.000371f 0.005029f -2.550752f;
+ rotation = -0.456891f 0.f 0.f 0.889522f;
+ scale = 0.49853f 0.450897f 0.435805f;
+ global_scale = 4.922255f;
+ uv_scale = 1.f;
+ uv_rotate = 280.f;
+ far_h_mul = 0.5f;
+ cross_section = 0.169096f 0.109339f -0.307033f 1.053964f;
+ cross_section2 = 0.308067f 0.057864f -1.217043f 0.469729f;
+}
+
+WaveInstance@default
+{
+ hide = 0.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.120587f;
+ translation = 0.000371f 0.005029f -2.550752f;
+ rotation = -0.456891f 0.f 0.f 0.889522f;
+ scale = 0.49853f 0.450897f 0.435805f;
+ global_scale = 4.588644f;
+ uv_scale = 1.358824f;
+ uv_rotate = 147.857147f;
+ far_h_mul = 0.5f;
+ cross_section = 0.126238f 0.125671f -0.502496f 0.658285f;
+ cross_section2 = 0.308067f 0.057865f -1.217041f 0.469729f;
+}
+
+WaveInstance@iboot
+{
+ hide = 0.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.02606f;
+ translation = 0.000371f -0.87948f -0.890092f;
+ rotation = -0.667844f 0.f 0.f 0.744301f;
+ scale = 0.49853f 0.450897f 0.435805f;
+ global_scale = 5.097526f;
+ uv_scale = 1.f;
+ uv_rotate = 280.f;
+ far_h_mul = 0.5f;
+ cross_section = 0.122771f 0.150512f 0.164801f 0.668527f;
+ cross_section2 = 0.308067f 0.057864f -1.217043f 0.469729f;
+}
+
+WaveInstance@night
+{
+ hide = 0.f;
+ blend_mode = 0.f;
+ distortion_scale = 0.076293f;
+ translation = 0.000371f 0.005029f -2.550752f;
+ rotation = -0.456891f 0.f 0.f 0.889522f;
+ scale = 0.49853f 0.450897f 0.435805f;
+ global_scale = 4.922255f;
+ uv_scale = 1.f;
+ uv_rotate = 280.f;
+ far_h_mul = 0.5f;
+ cross_section = 0.169096f 0.109339f -0.307033f 1.053964f;
+ cross_section2 = 0.308067f 0.057864f -1.217043f 0.469729f;
+}
+

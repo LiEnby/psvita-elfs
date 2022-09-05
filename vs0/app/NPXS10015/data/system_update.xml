@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="system_update_plugin">
+
+  <!-- サウンド＆通知 -->
+  <setting_list id="update_settings" title="msg_system_update">
+
+    <setting_list id="id_main_network" title="msg_system_update" icon="tex_spanner"
+                   hint="msg_update_wifi_info" rotate="full,push_only">
+      <user_custom id="main_network"/>
+    </setting_list>
+    
+    <setting_list id="id_main_ps3" title="msg_system_update" icon="tex_spanner"
+                  hint="msg_update_ps3_info" rotate="full,push_only">
+      <user_custom id="main_ps3"/>
+    </setting_list>
+    
+    <setting_list id="id_main_pc" title="msg_system_update" icon="tex_spanner"
+                  hint="msg_update_pc_info" rotate="full,push_only">
+      <user_custom id="main_pc"/>
+    </setting_list>
+    
+    <setting_list id="id_main_sd" title="msg_system_update" icon="tex_spanner"
+                  rotate="full,push_only">
+      <user_custom id="main_sd"/>
+    </setting_list>
+
+    <setting_list id="id_main_dummy" title="msg_system_update"
+                  rotate="full,push_only">
+      <user_custom id="main_dummy"/>
+    </setting_list>
+
+
+  </setting_list>
+</system_settings>

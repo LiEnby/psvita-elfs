@@ -1,0 +1,27 @@
+Fog@day
+{
+ color = 1.f 1.f 0.89583f;
+ density = 0.115787f 0.115787f 0.055835f 6.050127f;
+ light_color = 1.f 1.f 1.f 1.f;
+ d_scale = 0.595373f;
+ d_offset = -0.053137f;
+}
+
+Fog@default
+{
+ color = 0.493055f 0.381944f 1.f;
+ density = 0.f 0.f 0.f 0.f;
+ light_color = 1.f 1.f 1.f 1.f;
+ d_scale = 1.f;
+ d_offset = 0.f;
+}
+
+Fog@night
+{
+ color = 1.f 1.f 1.f;
+ density = 0.f 0.f 0.f 1.f;
+ light_color = 1.f 1.f 1.f 1.f;
+ d_scale = 1.f;
+ d_offset = 0.f;
+}
+

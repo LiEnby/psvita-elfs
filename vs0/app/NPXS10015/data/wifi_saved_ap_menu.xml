@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="wifi_settings_plugin">
+  <!-- 登録APメニュー -->
+  <setting_list id="page_wifi_saved_ap_menu"
+					title="">
+    <!-- 接続 -->
+    <button id="page_wifi_conn" title="msg_connect_vb" />
+
+    <!-- 接続接続テストをする -->
+    <link id="link_wifi_test_connection" title="msg_internet_connection_test" file="wifi_saved_conn_test.xml"/>
+
+    <!-- 削除 -->
+    <button id="id_delete_ap" title="msg_delete" />
+
+    <!-- 詳細設定 -->
+    <link id="link_saved_ap_edit" title="msg_advanced_settings" file="wifi_saved_ap_edit.xml"/>
+  </setting_list>
+</system_settings>

@@ -1,0 +1,134 @@
+<HTML>
+	<HEAD>
+		<TITLE>MapView</TITLE>
+		<META content="initial-scale=1.0, user-scalable=no" name=viewport>
+		<META http-equiv=content-type content="text/html; charset=UTF-8">
+<style type="text/css">
+	body{ height:100% }
+	div.fullscreen{    display:block;    position:absolute;    top:0;    left:0;        width:100%;    height:100%;  }
+	BODY { background: url("./image/bg/map_background.png") }
+</style>
+
+<style>
+    .coneCorner{
+		height: 40px;
+		width: 40px;
+		background-position: center;
+		background-color: transparent;
+		background-image: url('image/direction/Map_corn_circle.png');
+		background-repeat:no-repeat;
+		position:relative;
+		top:-20px;
+		left:-20px;
+		z-index: 6;
+    }
+</style>
+
+<BODY background-color:transparent>
+
+  <div id="blurb"   style="width: 1100px;">
+		<div id="mapview" style="width: 1100px; height:1100px;z-index:1"></div>
+  </div>
+
+		<div id="htmlview" style="display: none; width: 960px; height: 560px;"></div>
+
+
+		<SCRIPT type="text/javascript">
+
+var myJsonObj;
+var onlyForInit;
+var mserver = 'staticmap';
+
+function helper()
+{
+	googleMapAdapterTable(myJsonObj);
+}
+
+
+  function googleInitializeCB()
+  {
+
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+	  script.onreadystatechange= function () {
+      if (this.readyState == 'complete') helper();
+	   }
+   script.onload= helper;
+
+    script.src = "libjs/google_maps_adapter_lib_version_0_1.js";
+    document.body.appendChild(script);
+
+	}
+
+
+  function loadScript()
+  {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.google.jp/maps/api/js?sensor=false&v=3.1&language=ja&callback=googleInitializeCB";
+    document.body.appendChild(script);
+  }
+
+function createDiv(nativeParam)
+{
+	var initZoom = parseInt(nativeParam.MapZoomLevel.level);
+	var initialLat = parseFloat(nativeParam.MapCenter.lat);
+	var initialLng = parseFloat(nativeParam.MapCenter.lan);
+	var mapTypeId = parseInt(nativeParam.MapType.type);
+
+	var maptype ='roadmap';
+
+	if (mapTypeId == 0)
+		maptype='roadmap';
+	else if (mapTypeId == 1)
+		maptype='satellite';
+	else if (mapTypeId == 2)
+		maptype='hybrid';
+
+    var d = document.getElementById('mapcontainer');
+	d.innerHTML = '<img style=\'position:absolute;z-index:2\' id=\'gmserverimage\' src=\'http://maps.google.com/maps/api/'
+	+ mserver
+	+'?zoom='
+	+initZoom+'&language=ja&center='
+	+initialLat
+	+','
+	+initialLng
+	+'&maptype='
+	+maptype
+	+'&size=640x540&sensor=false\'>';
+}
+
+function jscallnativebinder(objparamme)
+{
+	var replacedString = objparamme;
+	replacedString  = replacedString.replace( /&quot;/g, '"' );
+//	alert(replacedString);
+
+	myJsonObj = eval('(' + replacedString + ')');
+    if (onlyForInit)
+    {
+//		createDiv(myJsonObj);
+		loadScript();
+		onlyForInit = false;
+	}
+	else
+	{
+		try
+		{
+		   googleMapAdapterTable(myJsonObj);
+		}
+		catch(err)
+		  {
+		  	myJsonObj.Error = -9;
+		  	setNativeResult(myJsonObj, true);
+		  }
+	}
+}
+
+	onlyForInit = true;
+
+		</SCRIPT>
+
+
+	</BODY>
+</HTML>

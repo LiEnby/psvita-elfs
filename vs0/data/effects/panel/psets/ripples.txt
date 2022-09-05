@@ -1,0 +1,27 @@
+Ripples@default
+{
+ height_scale = 0.2f;
+ speed = 0.2f;
+ noise_uv_scale = 0.19f;
+ noise_amplitude = 0.059997f;
+ refract_uv_inflate = 0.17f;
+}
+
+Ripples@iboot
+{
+ height_scale = 0.2f;
+ speed = 0.2f;
+ noise_uv_scale = 0.19f;
+ noise_amplitude = 0.059997f;
+ refract_uv_inflate = 0.17f;
+}
+
+Ripples@night
+{
+ height_scale = 0.2f;
+ speed = 0.2f;
+ noise_uv_scale = 0.19f;
+ noise_amplitude = 0.059997f;
+ refract_uv_inflate = 0.17f;
+}
+

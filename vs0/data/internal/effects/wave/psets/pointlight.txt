@@ -1,0 +1,28 @@
+PointLight@day
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+PointLight@default
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+PointLight@iboot
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+
+PointLight@night
+{
+ pos = 0.f 0.f 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+}
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: psn_settings_policies.xml 38381 2011-02-02 12:05:24Z udagawa $ -->
+<system_settings version="1.0" plugin="psn_settings_plugin">
+  <!-- プライバシーポリシー -->
+  <setting_list id="policies" title=" ">
+    <setting_list id="show_tosua" title="msg_tosua_abbreviated">
+			<user_custom id="tosua"/>
+		</setting_list>
+		<setting_list id="show_pp" title="msg_pp">
+			<user_custom id="pp"/>
+		</setting_list>
+		<setting_list id="show_about_us" title="msg_about_us">
+			<user_custom id="about_us"/>
+		</setting_list>
+		<setting_list id="show_health_warnings" title="msg_health_warnings">
+			<user_custom id="health_warnings"/>
+		</setting_list>
+		<setting_list id="show_about_ratings" title="msg_about_ratings_pc">
+			<user_custom id="about_ratings"/>
+		</setting_list>
+		<setting_list id="show_cr_tm_notice" title="msg_copyright_trademark_notice">
+			<user_custom id="cr_tm_notice"/>
+		</setting_list>
+  </setting_list>
+</system_settings>
+<!--
+		Local Variables:
+		coding:utf-8
+		tab-width:2
+		End:
+  -->

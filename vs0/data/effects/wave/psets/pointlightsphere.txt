@@ -1,0 +1,44 @@
+PointLightSphere@day
+{
+ theta_phi = 0.f 0.f;
+ distance = 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+ ambient_color = 0.2f 0.2f 0.2f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+
+PointLightSphere@default
+{
+ theta_phi = 0.f 0.f;
+ distance = 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+ ambient_color = 0.205357f 0.2f 0.2f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+
+PointLightSphere@iboot
+{
+ theta_phi = 2.524493f 1.290295f;
+ distance = 0.853651f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+ ambient_color = 0.321428f 0.357142f 0.428571f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+
+PointLightSphere@night
+{
+ theta_phi = 0.f 0.f;
+ distance = 3.f;
+ attn = 1.f 0.f 0.f;
+ color = 1.f 1.f 1.f 1.f;
+ ambient_color = 0.2f 0.2f 0.2f;
+ diffuse_color = 1.f 1.f 1.f;
+ fade = 1.f;
+}
+
