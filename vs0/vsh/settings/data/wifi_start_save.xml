@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="wifi_settings_plugin">
+  <!-- 登録を始める -->
+  <setting_list id="page_wifi_start_save"
+								  title="msg_save_manually">
+
+    <spacer id="id_save_main_space_01" />
+
+    <!-- 手動で入力する -->
+    <link id="link_save_manually" title="msg_enter_manually" file="wifi_save_manually.xml"/>
+
+    <!-- WPS PIN方式　※いずれlinkとなる -->
+    <button id="link_save_wps_pin_mode" title="msg_use_wps_pin_method" />
+
+    <!-- USBイーサ（開発用） -->
+    <button id="id_btn_usbether" title="msg_tool_usb_ethernet" />
+  </setting_list>
+</system_settings>

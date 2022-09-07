@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Setting Description File                            
+     [SCE CONFIDENTIAL]                                  
+     Copyright (C) 2010 Sony Computer Entertainment Inc. 
+                                    All Rights Reserved. -->
+
+<registry target="psp2" version = "2">
+
+	<!-- Development Environment Settings : 開発環境設定 -->
+	<group eng="Development Environment Settings" jpn="開発環境設定">
+		<desc eng="Adjusts settings for the development environment." jpn="開発環境全般に関する設定です。"/>
+
+		<!-- System Name : 本体名称 -->
+		<entry key="DEVENV/HOST/devkitname" eng="System Name" jpn="本体名称"
+				registrytype="string" registrybytesize="128" >
+			<desc eng="Sets the name for this system (DevKit). You can use the name to distinguish multiple DevKits on a network."
+				  jpn="本機(開発機)の名前を設定します。ネットワーク上で複数の開発機を区別するときなどに使われます。"/>
+			<textual minlen="0" maxlen="31" encoding="utf8"/>
+		</entry>
+
+		<!-- HDMI Video Output Settings : HDMI 映像出力設定 -->
+		<entry key="DEVENV/TOOL/hdmi_video_mode" eng="HDMI Video Output Settings" jpn="HDMI 映像出力設定"
+				registrytype="integer" registrybytesize="4" norebootneeded="true">
+			<desc eng="Sets the resolution and scaling type of the HDMI video output."
+				  jpn="HDMI 映像出力の解像度と拡大/縮小方法を設定します。"/>
+			<selection>
+				<option value="8" eng="Resolution : 480p, Scaling : Full" jpn="解像度 : 480p, 拡大/縮小 : フル"/>
+				<option value="32" eng="Resolution : 720p, Scaling : Full" jpn="解像度 : 720p, 拡大/縮小 : フル"/>
+				<option value="65568" eng="Resolution : 720p, Scaling : Real" jpn="解像度 : 720p, 拡大/縮小 : リアル"/>
+			</selection>
+		</entry>
+
+	</group>
+
+	<!-- Network : ネットワーク -->
+	<group eng="Network" jpn="ネットワーク">
+		<desc eng="" jpn=""/>
+
+		<!-- Wi-Fi Settings : Wi-Fi設定 -->
+		<group eng="Wi-Fi Settings" jpn="Wi-Fi設定">
+			<desc eng="Adjusts settings for the Wi-Fi connection." jpn="Wi-Fi接続に関する設定です。"/>
+
+			<!-- Connection #01-30 : Wi-Fiインターネット接続 #01-30 -->
+			<config keymin="1" keymax="30" keysigfig="2" validkey="CONFIG/NET/#/COMMON/conf_flag"
+					validkeyvalue="1" validkeyregistrytype="integer" eng="Wi-Fi Internet Connection" jpn="Wi-Fiインターネット接続">
+				<desc eng="Adjusts settings for the Wi-Fi Internet connection."
+					  jpn="Wi-Fiインターネット接続に関する設定です。"/>
+
+				<!-- Connection Name : 接続名 -->
+				<entry key="CONFIG/NET/#/COMMON/conf_name" eng="Connection Name" jpn="接続名"
+						registrytype="string" registrybytesize="65" default="">
+					<desc eng="Sets the name of the Internet connection setting."
+						  jpn="インターネット接続の接続名を設定します。"/>
+					<textual minlen="1" maxlen="16" encoding="utf8"/>
+				</entry>
+
+				<!-- MTU -->
+				<entry key="CONFIG/NET/#/COMMON/mtu" eng="MTU"
+						registrytype="integer" registrybytesize="4" default="0">
+					<desc eng="Sets the MTU value to use when transmitting data. Set a number from the ranges 576-1500. Use 0 for automatic setup. "
+						  jpn="データ通信時に使用するMTUの値を設定します。576から1500の値を設定します。自動設定にするには0を入力してください。"/>
+					<intvalue minvalue="576" maxvalue="1500" rangeexception="0"/>
+				</entry>
+
+				<!-- Networking Device : 接続デバイス -->
+				<entry key="CONFIG/NET/#/COMMON/device" eng="Networking Device" jpn="接続デバイス"
+						registrytype="integer" registrybytesize="4" default="0">
+					<desc eng="Sets the device for the Internet connection."
+						  jpn="インターネット接続に使用するデバイスを設定します。"/>
+					<selection>
+						<option value="0" eng="Wireless (currently unsupported)" jpn="無線 (未サポート)"/>
+						<option value="1" eng="Wired Connection" jpn="有線"/>
+					</selection>
+				</entry>
+
+				<!-- IP Address Setting : IPアドレス設定 -->
+				<entry key="CONFIG/NET/#/IP/ip_config" eng="IP Address Setting" jpn="IPアドレス設定"
+						registrytype="integer" registrybytesize="4" dependskey="ipconfig" default="0">
+					<desc eng="Select how to set the IP address."
+						  jpn="IPアドレスの設定方法を選択します。"/>
+					<selection>
+						<option value="0" eng="Automatic" jpn="自動取得"/>
+						<option value="1" eng="Manual" jpn="手動"/>
+						<option value="2" eng="PPPoE" jpn="PPPoE"/>
+					</selection>
+				</entry>
+
+				<!-- In case of "IP Address Setting = Automatic" : 「IPアドレス設定 = 自動取得」の場合 -->
+				<set dependson="ipconfig" conditionmin="0" conditionmax="0">
+
+					<!-- DHCP Host Name : DHCPホスト名 -->
+					<entry key="CONFIG/NET/#/IP/dhcp_hostname" eng="DHCP Host Name" jpn="DHCPホスト名"
+							registrytype="string" registrybytesize="256" default="">
+						<desc eng="Sets the DHCP host name. In most cases this setting does not need to be changed."
+							  jpn="DHCPホスト名を設定します。通常は設定する必要はありません。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- DNS Setting : DNS設定 -->
+					<entry key="CONFIG/NET/#/IP/dns_flag" eng="DNS Setting" jpn="DNS設定"
+							registrytype="integer" registrybytesize="4" dependskey="dnsflag1" default="0">
+						<desc eng="Select how to set the DNS server addresses."
+							  jpn="DNSサーバーのアドレスの設定方法を選択します。"/>
+						<selection>
+							<option value="0" eng="Automatic" jpn="自動取得"/>
+							<option value="1" eng="Manual" jpn="手動"/>
+						</selection>
+					</entry>
+
+					<!-- In case of "DNS Setting = Manual" : 「DNS設定 = 手動」の場合 -->
+					<set dependson="dnsflag1" conditionmin="1" conditionmax="1">
+
+						<!-- Primary DNS : プライマリーDNS -->
+						<entry key="CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=""
+								  jpn=""/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Secondary DNS : セカンダリーDNS -->
+						<entry key="CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=""
+								  jpn=""/>
+							<ipaddress/>
+						</entry>
+
+					</set>
+				</set>
+
+				<!-- In case of "IP Address Setting = Manual" : 「IPアドレス設定 = 手動」の場合 -->
+				<set dependson="ipconfig" conditionmin="1" conditionmax="1">
+
+					<!-- IP Address : IPアドレス -->
+					<entry key="CONFIG/NET/#/IP/ip_address" eng="IP Address" jpn="IPアドレス"
+							registrytype="string" registrybytesize="16" default="">
+						<desc eng=""
+							  jpn=""/>
+						<ipaddress/>
+					</entry>
+
+					<!-- Subnet Mask : サブネットマスク -->
+					<entry key="CONFIG/NET/#/IP/netmask" eng="Subnet Mask" jpn="サブネットマスク"
+							registrytype="string" registrybytesize="16" default="">
+						<desc eng=""
+							  jpn=""/>
+						<ipaddress/>
+					</entry>
+
+					<!-- Default Router : デフォルトルーター -->
+					<entry key="CONFIG/NET/#/IP/default_route" eng="Default Router" jpn="デフォルトルーター"
+							registrytype="string" registrybytesize="16" default="">
+						<desc eng=""
+							  jpn=""/>
+						<ipaddress/>
+					</entry>
+
+					<!-- Primary DNS : プライマリーDNS -->
+					<entry key="CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+							registrytype="string" registrybytesize="16" default="">
+						<desc eng=""
+							  jpn=""/>
+						<ipaddress/>
+					</entry>
+
+					<!-- Secondary DNS : セカンダリーDNS -->
+					<entry key="CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+							registrytype="string" registrybytesize="16" default="">
+						<desc eng=""
+							  jpn=""/>
+						<ipaddress/>
+					</entry>
+
+				</set>
+
+				<!-- In case of "IP Address Setting = PPPoE" : 「IPアドレス設定 = PPPoE」の場合 -->
+				<set dependson="ipconfig" conditionmin="2" conditionmax="2">
+
+					<!-- PPPoE User Name : PPPoEユーザーID -->
+					<entry key="CONFIG/NET/#/IP/auth_name" eng="PPPoE User Name" jpn="PPPoEユーザーID"
+							registrytype="string" registrybytesize="128" default="">
+						<desc eng=""
+							  jpn=""/>
+						<textual minlen="1" maxlen="127" encoding="ascii"/>
+					</entry>
+
+					<!-- PPPoE Password : PPPoEパスワード -->
+					<entry key="CONFIG/NET/#/IP/auth_key" eng="PPPoE Password" jpn="PPPoEパスワード"
+							registrytype="string" registrybytesize="128" default="">
+						<desc eng=""
+							  jpn=""/>
+						<password minlen="0" maxlen="127"/>
+					</entry>
+
+					<!-- DNS Setting : DNS設定 -->
+					<entry key="CONFIG/NET/#/IP/dns_flag" eng="DNS Setting" jpn="DNS設定"
+							registrytype="integer" registrybytesize="4" dependskey="dnsflag2" default="0">
+						<desc eng="Select how to set the DNS server addresses."
+							  jpn="DNSサーバーのアドレスの設定方法を選択します。"/>
+						<selection>
+							<option value="0" eng="Automatic" jpn="自動取得"/>
+							<option value="1" eng="Manual" jpn="手動"/>
+						</selection>
+					</entry>
+
+					<!-- In case of "DNS Setting = Manual" : 「DNS設定 = 手動」の場合 -->
+					<set dependson="dnsflag2" conditionmin="1" conditionmax="1">
+
+						<!-- Primary DNS : プライマリーDNS -->
+						<entry key="CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=""
+								  jpn=""/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Secondary DNS : セカンダリーDNS -->
+						<entry key="CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=""
+								  jpn=""/>
+							<ipaddress/>
+						</entry>
+
+					</set>
+				</set>
+
+				<!-- Proxy Server : プロキシーサーバー -->
+				<entry key="CONFIG/NET/#/APP/http_proxy_flag" eng="Proxy Server" jpn="プロキシーサーバー"
+						registrytype="integer" dependskey="proxyflag" registrybytesize="4" default="0">
+					<desc eng="Sets whether to use a proxy server."
+						  jpn="プロキシーサーバーを使用するかどうかを設定します。"/>
+					<selection>
+						<option value="0" eng="Do Not Use" jpn="使用しない"/>
+						<option value="1" eng="Use" jpn="使用する"/>
+					</selection>
+				</entry>
+
+				<!-- In case of "Proxy Server = Use" : 「プロキシーサーバー = 使用する」の場合 -->
+				<set dependson="proxyflag" conditionmin="1" conditionmax="1">
+
+					<!-- Proxy Server : プロキシーサーバーアドレス -->
+					<entry key="CONFIG/NET/#/APP/http_proxy_server" eng="Proxy Server Address" jpn="プロキシーサーバーアドレス"
+							registrytype="string" registrybytesize="256" default="">
+						<desc eng=""
+							  jpn=""/>
+						<textual minlen="1" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Proxy Server Port Number : プロキシーサーバーポート番号 -->
+					<entry key="CONFIG/NET/#/APP/http_proxy_port" eng="Proxy Server Port Number" jpn="プロキシーサーバーポート番号"
+							registrytype="integer" registrybytesize="4" default="8080">
+						<desc eng=""
+							  jpn=""/>
+						<intvalue minvalue="1" maxvalue="65535"/>
+
+					</entry>
+				</set>
+
+			</config>
+		</group>
+
+	</group>
+
+	<!-- PlayStation(R)Network : PlayStation(R)Network -->
+	<group eng="PlayStation(R)Network" jpn="PlayStation(R)Network">
+		<desc eng="Adjusts settings for PlayStation(R)Network." jpn="PlayStation(R)Networkに関する設定です。"/>
+
+		<!-- Sign-In ID (E-mail Address) : サインインID (Eメールアドレス) -->
+		<entry key="CONFIG/NP/login_id" eng="Sign-In ID (E-mail Address)" jpn="サインインID (Eメールアドレス)"
+				registrytype="string" registrybytesize="65" norebootneeded="true">
+			<desc eng=""
+				  jpn=""/>
+			<textual minlen="0" maxlen="64" encoding="ascii"/>
+		</entry>
+
+		<!-- Sign-In Password : サインインパスワード -->
+		<entry key="CONFIG/NP/password" eng="Sign-In Password" jpn="サインインパスワード"
+				registrytype="string" registrybytesize="31" norebootneeded="true">
+			<desc eng=""
+				  jpn=""/>
+			<password minlen="0" maxlen="30"/>
+		</entry>
+
+	</group>
+
+	<!-- Date & Time : 日付＆時刻 -->
+	<group eng="Date &amp; Time" jpn="日付＆時刻">
+		<desc eng="Adjusts date and time settings." jpn="日付と時刻に関する設定です。"/>
+
+		<!-- Time Zone : タイムゾーン -->
+		<entry key="CONFIG/DATE/time_zone" eng="Time Zone" jpn="タイムゾーン"
+				registrytype="integer" registrybytesize="4" >
+			<desc eng="Sets the time zone to be used as the basis for time settings." 
+				  jpn="時刻の基準となるタイムゾーンを設定します。"/>
+			<selection>
+				<option value="0" eng="GMT-11:00 Samoa Islands" jpn="GMT-11:00 サモア諸島"/>
+				<option value="1" eng="GMT-11:00 Midway Islands" jpn="GMT-11:00 ミッドウェー諸島"/>
+				<option value="2" eng="GMT-10:00 Hawaii" jpn="GMT-10:00 ハワイ"/>
+				<option value="3" eng="GMT-09:00 Alaska" jpn="GMT-09:00 アラスカ"/>
+				<option value="4" eng="GMT-08:00 Pacific Time (US, Canada)" jpn="GMT-08:00 太平洋標準時 (米国およびカナダ)"/>
+				<option value="5" eng="GMT-08:00 Tijuana" jpn="GMT-08:00 ティファナ"/>
+				<option value="6" eng="GMT-07:00 Mountain Time (US, Canada)" jpn="GMT-07:00 山地標準時 (米国およびカナダ)"/>
+				<option value="7" eng="GMT-07:00 Chihuahua" jpn="GMT-07:00 チワワ"/>
+				<option value="8" eng="GMT-06:00 San Jose" jpn="GMT-06:00 サンホセ"/>
+				<option value="9" eng="GMT-06:00 Central Time (US, Canada)" jpn="GMT-06:00 中央標準時 (米国およびカナダ)"/>
+				<option value="10" eng="GMT-06:00 Mexico City" jpn="GMT-06:00 メキシコシティ"/>
+				<option value="11" eng="GMT-05:00 Quito" jpn="GMT-05:00 キト"/>
+				<option value="12" eng="GMT-05:00 Eastern Time (US, Canada)" jpn="GMT-05:00 東部標準時 (米国およびカナダ)"/>
+				<option value="13" eng="GMT-05:00 Panama City" jpn="GMT-05:00 パナマシティ"/>
+				<option value="14" eng="GMT-05:00 Bogota" jpn="GMT-05:00 ボゴタ"/>
+				<option value="15" eng="GMT-05:00 Lima" jpn="GMT-05:00 リマ"/>
+				<option value="16" eng="GMT-04:00 Caracas" jpn="GMT-04:00 カラカス"/>
+				<option value="17" eng="GMT-04:00 Santiago" jpn="GMT-04:00 サンティアゴ"/>
+				<option value="18" eng="GMT-04:00 Atlantic (Canada)" jpn="GMT-04:00 大西洋標準時 (カナダ)"/>
+				<option value="19" eng="GMT-04:00 Puerto Rico" jpn="GMT-04:00 プエルトリコ"/>
+				<option value="20" eng="GMT-04:00 La Paz" jpn="GMT-04:00 ラパス"/>
+				<option value="21" eng="GMT-03:30 Newfoundland" jpn="GMT-03:30 ニューファンドランド標準時 (カナダ)"/>
+				<option value="22" eng="GMT-03:00 Sao Paulo" jpn="GMT-03:00 サンパウロ"/>
+				<option value="23" eng="GMT-03:00 Buenos Aires" jpn="GMT-03:00 ブエノスアイレス"/>
+				<option value="24" eng="GMT-01:00 Azores" jpn="GMT-01:00 アゾレス諸島"/>
+				<option value="25" eng="GMT+00:00 Casablanca" jpn="GMT+00:00 カサブランカ"/>
+				<option value="26" eng="GMT+00:00 Dublin" jpn="GMT+00:00 ダブリン"/>
+				<option value="27" eng="GMT+00:00 Lisbon" jpn="GMT+00:00 リスボン"/>
+				<option value="28" eng="GMT+00:00 Reykjavik" jpn="GMT+00:00 レイキャビク"/>
+				<option value="29" eng="GMT+00:00 London" jpn="GMT+00:00 ロンドン"/>
+				<option value="30" eng="GMT+01:00 Amsterdam" jpn="GMT+01:00 アムステルダム"/>
+				<option value="31" eng="GMT+01:00 Algiers" jpn="GMT+01:00 アルジェ"/>
+				<option value="32" eng="GMT+01:00 Andorra la Vell" jpn="GMT+01:00 アンドララベラ"/>
+				<option value="33" eng="GMT+01:00 Vienna" jpn="GMT+01:00 ウィーン"/>
+				<option value="34" eng="GMT+01:00 Windhoek" jpn="GMT+01:00 ウィントフック"/>
+				<option value="35" eng="GMT+01:00 Oslo" jpn="GMT+01:00 オスロ"/>
+				<option value="36" eng="GMT+01:00 Copenhagen" jpn="GMT+01:00 コペンハーゲン"/>
+				<option value="37" eng="GMT+01:00 Zagreb" jpn="GMT+01:00 ザグレブ"/>
+				<option value="38" eng="GMT+01:00 Sarajevo" jpn="GMT+01:00 サラエボ"/>
+				<option value="39" eng="GMT+01:00 San Marino" jpn="GMT+01:00 サンマリノ"/>
+				<option value="40" eng="GMT+01:00 Skopje" jpn="GMT+01:00 スコピエ"/>
+				<option value="41" eng="GMT+01:00 Stockholm" jpn="GMT+01:00 ストックホルム"/>
+				<option value="42" eng="GMT+01:00 Tunis" jpn="GMT+01:00 チュニス"/>
+				<option value="43" eng="GMT+01:00 Tirana" jpn="GMT+01:00 ティラナ"/>
+				<option value="44" eng="GMT+01:00 Paris" jpn="GMT+01:00 パリ"/>
+				<option value="45" eng="GMT+01:00 Valletta" jpn="GMT+01:00 バレッタ"/>
+				<option value="46" eng="GMT+01:00 Vaduz" jpn="GMT+01:00 ファドゥーツ"/>
+				<option value="47" eng="GMT+01:00 Budapest" jpn="GMT+01:00 ブダペスト"/>
+				<option value="48" eng="GMT+01:00 Bratislava" jpn="GMT+01:00 ブラチスラバ"/>
+				<option value="49" eng="GMT+01:00 Prague" jpn="GMT+01:00 プラハ"/>
+				<option value="50" eng="GMT+01:00 Brussels" jpn="GMT+01:00 ブリュッセル"/>
+				<option value="51" eng="GMT+01:00 Belgrade" jpn="GMT+01:00 ベオグラード"/>
+				<option value="52" eng="GMT+01:00 Berlin" jpn="GMT+01:00 ベルリン"/>
+				<option value="53" eng="GMT+01:00 Bern" jpn="GMT+01:00 ベルン"/>
+				<option value="54" eng="GMT+01:00 Madrid" jpn="GMT+01:00 マドリード"/>
+				<option value="55" eng="GMT+01:00 onaco" jpn="GMT+01:00 モナコ"/>
+				<option value="56" eng="GMT+01:00 Ljubljana" jpn="GMT+01:00 リュブリャナ"/>
+				<option value="57" eng="GMT+01:00 Luxembourg" jpn="GMT+01:00 ルクセンブルグ"/>
+				<option value="58" eng="GMT+01:00 Rome" jpn="GMT+01:00 ローマ"/>
+				<option value="59" eng="GMT+01:00 Warsaw" jpn="GMT+01:00 ワルシャワ"/>
+				<option value="60" eng="GMT+02:00 Athens" jpn="GMT+02:00 アテネ"/>
+				<option value="61" eng="GMT+02:00 Amman" jpn="GMT+02:00 アンマン"/>
+				<option value="62" eng="GMT+02:00 Istanbul" jpn="GMT+02:00 イスタンブール"/>
+				<option value="63" eng="GMT+02:00 Jerusalem" jpn="GMT+02:00 エルサレム"/>
+				<option value="64" eng="GMT+02:00 Cairo" jpn="GMT+02:00 カイロ"/>
+				<option value="65" eng="GMT+02:00 Kiev" jpn="GMT+02:00 キエフ"/>
+				<option value="66" eng="GMT+02:00 Sofia" jpn="GMT+02:00 ソフィア"/>
+				<option value="67" eng="GMT+02:00 Damascus" jpn="GMT+02:00 ダマスカス"/>
+				<option value="68" eng="GMT+02:00 Tallinn" jpn="GMT+02:00 タリン"/>
+				<option value="69" eng="GMT+02:00 Nicosia" jpn="GMT+02:00 ニコシア"/>
+				<option value="70" eng="GMT+02:00 Vilnius" jpn="GMT+02:00 ビリニュス"/>
+				<option value="71" eng="GMT+02:00 Bucharest" jpn="GMT+02:00 ブカレスト"/>
+				<option value="72" eng="GMT+02:00 Beirut" jpn="GMT+02:00 ベイルート"/>
+				<option value="73" eng="GMT+02:00 Helsinki" jpn="GMT+02:00 ヘルシンキ"/>
+				<option value="74" eng="GMT+02:00 Minsk" jpn="GMT+02:00 ミンスク"/>
+				<option value="75" eng="GMT+02:00 Johannesburg" jpn="GMT+02:00 ヨハネスブルグ"/>
+				<option value="76" eng="GMT+02:00 Riga" jpn="GMT+02:00 リガ"/>
+				<option value="77" eng="GMT+03:00 Kuwait City" jpn="GMT+03:00 クウェート"/>
+				<option value="78" eng="GMT+03:00 Baghdad" jpn="GMT+03:00 バグダッド"/>
+				<option value="79" eng="GMT+03:00 Manama" jpn="GMT+03:00 マナーマ"/>
+				<option value="80" eng="GMT+03:00 Moscow" jpn="GMT+03:00 モスクワ"/>
+				<option value="81" eng="GMT+03:00 Riyadh" jpn="GMT+03:00 リヤド"/>
+				<option value="82" eng="GMT+03:30 Tehran" jpn="GMT+03:30 テヘラン"/>
+				<option value="83" eng="GMT+04:00 Abu Dhabi" jpn="GMT+04:00 アブダビ"/>
+				<option value="84" eng="GMT+04:00 Yerevan" jpn="GMT+04:00 エレバン"/>
+				<option value="85" eng="GMT+04:00 Tbilisi" jpn="GMT+04:00 トビリシ"/>
+				<option value="86" eng="GMT+04:00 Baku" jpn="GMT+04:00 バクー"/>
+				<option value="87" eng="GMT+04:00 Muscat" jpn="GMT+04:00 マスカット"/>
+				<option value="88" eng="GMT+04:30 Kabul" jpn="GMT+04:30 カブール"/>
+				<option value="89" eng="GMT+05:00 Karachi" jpn="GMT+05:00 カラチ"/>
+				<option value="90" eng="GMT+05:00 Tashkent" jpn="GMT+05:00 タシケント"/>
+				<option value="91" eng="GMT+05:00 Bishkek" jpn="GMT+05:00 ビシュケク"/>
+				<option value="92" eng="GMT+05:30 Calcutta" jpn="GMT+05:30 カルカッタ"/>
+				<option value="93" eng="GMT+05:45 Kathmandu" jpn="GMT+05:45 カトマンズ"/>
+				<option value="94" eng="GMT+06:00 Astana" jpn="GMT+06:00 アスタナ"/>
+				<option value="95" eng="GMT+06:00 Dhaka" jpn="GMT+06:00 ダッカ"/>
+				<option value="96" eng="GMT+07:00 Bangkok" jpn="GMT+07:00 バンコク"/>
+				<option value="97" eng="GMT+08:00 Kuala Lumpur" jpn="GMT+08:00 クアラルンプール"/>
+				<option value="98" eng="GMT+08:00 Singapore" jpn="GMT+08:00 シンガポール"/>
+				<option value="99" eng="GMT+08:00 Taipei" jpn="GMT+08:00 台北"/>
+				<option value="100" eng="GMT+08:00 Perth" jpn="GMT+08:00 パース"/>
+				<option value="101" eng="GMT+08:00 Beijing" jpn="GMT+08:00 北京"/>
+				<option value="102" eng="GMT+08:00 Hong Kong" jpn="GMT+08:00 香港"/>
+				<option value="103" eng="GMT+09:00 Seoul" jpn="GMT+09:00 ソウル"/>
+				<option value="104" eng="GMT+09:00 Tokyo" jpn="GMT+09:00 東京"/>
+				<option value="105" eng="GMT+09:30 Adelaide" jpn="GMT+09:30 アデレード"/>
+				<option value="106" eng="GMT+10:00 Sydney" jpn="GMT+10:00 シドニー"/>
+				<option value="107" eng="GMT+12:00 Wellington" jpn="GMT+12:00 ウェリントン"/>
+				<option value="108" eng="GMT+12:00 Suva" jpn="GMT+12:00 スバ"/>
+			</selection>
+		</entry>
+
+		<!-- Date Format : 日付表示 -->
+		<entry key="CONFIG/DATE/date_format" eng="Date Format" jpn="日付表示"
+				registrytype="integer" registrybytesize="4" >
+			<desc eng="Sets the order of display for year, month and day." 
+				  jpn="年月日の並び順を設定します。"/>
+			<selection>
+				<option value="0" eng="YYYY/MM/DD" jpn="年/月/日"/>
+				<option value="1" eng="DD/MM/YYYY" jpn="日/月/年"/>
+				<option value="2" eng="MM/DD/YYYY" jpn="月/日/年"/>
+			</selection>
+		</entry>
+
+		<!-- Time Format : 時間表示 -->
+		<entry key="CONFIG/DATE/time_format" eng="Time Format" jpn="時間表示"
+				registrytype="integer" registrybytesize="4" >
+			<desc eng="Sets the time display to either a 12-hour or 24-hour clock." 
+				  jpn="12時間表示または24時間表示を設定します。"/>
+			<selection>
+				<option value="0" eng="12-Hour Clock" jpn="12時間"/>
+				<option value="1" eng="24-Hour Clock" jpn="24時間"/>
+			</selection>
+		</entry>
+
+		<!-- Daylight Saving : サマータイム -->
+		<entry key="CONFIG/DATE/summer_time" eng="Daylight Saving" jpn="サマータイム"
+				registrytype="integer" registrybytesize="4" >
+			<desc eng="Sets for daylight saving time." 
+				  jpn="サマータイムを設定します。"/>
+			<selection>
+				<option value="0" eng="Off" jpn="切"/>
+				<option value="1" eng="On" jpn="入"/>
+			</selection>
+		</entry>
+
+	</group>
+
+	<!-- Language : 言語 -->
+	<group eng="Language" jpn="言語">
+		<desc eng="" jpn=""/>
+
+		<!-- System Language : システム言語 -->
+		<entry key="CONFIG/SYSTEM/language" eng="System Language" jpn="システム言語"
+				registrytype="integer" registrybytesize="4" >
+			<desc eng="Sets the language displayed by the system software on this system (DevKit)."
+				  jpn="本機(開発機)のシステムソフトウェアで表示される言語を設定します。"/>
+			<selection>
+				<option value="0" eng="English" jpn="英語"/>
+				<option value="7" eng="Japanese" jpn="日本語"/>
+			</selection>
+		</entry>
+
+	</group>
+
+	<!-- Format : 初期化 -->
+	<group eng="Format" jpn="初期化">
+		<desc eng=""/>
+
+		<!-- Restore Settings : 設定を初期化する -->
+		<entry key="CONFIG/SYSTEM/init_settings" eng="Restore Settings" jpn="設定を初期化する"
+				registrytype="integer" registrybytesize="4" forcerefresh="true">
+			<desc eng="Restores the system software to its default settings.&#xa;The restoration will be exclusively executed."
+				  jpn="システムソフトウェアの設定を初期値に戻します。&#xa;この初期化は単独で実行されます。"/>
+			<applyimmediate eng="The settings will be returned to default values. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"
+					 jpn="設定が初期値に戻されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？"/>
+			<selection>
+				<option value="0" eng="No" jpn="いいえ"/>
+				<option value="32" eng="Yes" jpn="はい"/>
+			</selection>
+		</entry>
+
+	</group>
+
+	<!-- ★ Debug Settings -->
+	<group eng="★ Debug Settings">
+		<desc eng=""/>
+
+		<!-- System Update -->
+		<group eng="System Update">
+			<desc eng=""/>
+
+			<!-- Show PUP List -->
+			<entry key="CONFIG/SYSTEM/update_pup_list_flag" eng="Show PUP List"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng=""/>
+				<selection>
+					<option value="0" eng="Off"/>
+					<option value="1" eng="On"/>
+				</selection>
+			</entry>
+
+			<!-- Enable Host0 -->
+			<entry key="CONFIG/SYSTEM/update_enable_host0" eng="Enable Host0"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng=""/>
+				<selection>
+					<option value="0" eng="SD"/>
+					<option value="1" eng="Host0"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- PlayStation(R)Network -->
+		<group eng="PlayStation(R)Network">
+			<desc eng=""/>
+
+			<!-- NP Environment -->
+			<entry key="CONFIG/NP/env" eng="NP Environment"
+					registrytype="string" registrybytesize="17">
+				<desc eng=""/>
+				<textual minlen="0" maxlen="16" encoding="ascii"/>
+			</entry>
+
+			<!-- NP Debug -->
+			<entry key="CONFIG/NP/debug" eng="NP Debug"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng=""/>
+				<selection>
+					<option value="0" eng="Off"/>
+					<option value="1" eng="On"/>
+				</selection>
+			</entry>
+
+			<!-- Service ID -->
+			<entry key="CONFIG/NP/title_id" eng="Service ID"
+					registrytype="string" registrybytesize="37" norebootneeded="true">
+				<desc eng=""/>
+				<textual minlen="0" maxlen="36" encoding="ascii"/>
+			</entry>
+
+		</group>
+
+	</group>
+
+</registry>

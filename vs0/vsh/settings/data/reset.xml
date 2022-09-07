@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="reset_plugin">
+
+  <!-- リセット -->
+  <setting_list id="reset" title="msg_format_restore">
+   
+    <!-- SD のフォーマット -->
+    <button id="console_sd_format"
+            title="msg_format_sd"
+            icon="tex_spanner"/>
+       
+    <!-- 設定の初期化 -->
+    <button id="init_setting"
+            title="msg_restore_settings"
+            icon="tex_spanner"/>
+
+    <!-- VITAの初期化 -->
+    <button id="init_console"
+            title="msg_restore_system"
+            icon="tex_spanner"/>
+
+  </setting_list>
+</system_settings>

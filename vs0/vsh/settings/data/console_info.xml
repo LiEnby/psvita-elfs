@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="console_info_plugin">
+
+  <setting_list id="id_system" title="msg_system">
+
+    <!-- VITAについて -->
+    <setting_list id="id_about_system" title="msg_about_system" icon="tex_spanner">
+      <!-- バージョン・その他 -->
+      <user_custom id="id_system_software"/>
+    </setting_list>
+
+    <!-- 法的情報 -->
+    <button id="id_legal_information"
+            title="msg_legal_information"
+            icon="tex_spanner"/>
+
+    <!-- エラー履歴 -->
+    <setting_list id="id_error_history"
+                  title="msg_error_history"
+                  icon="tex_spanner">
+      <link id="id_error_history_0" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_1" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_2" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_3" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_4" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_5" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_6" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_7" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_8" title="msg_value_none" file="error_details.xml"/>
+      <link id="id_error_history_9" title="msg_value_none" file="error_details.xml"/>
+    </setting_list>
+
+  </setting_list>
+</system_settings>

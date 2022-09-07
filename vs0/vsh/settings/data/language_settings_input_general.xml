@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id$ -->
+
+<system_settings version="1.0" plugin="language_settings_plugin">
+
+  <!-- 文字入力設定 -->
+  <setting_list id="language_settings_input_general" title="msg_input_lang_general">
+    <!-- 言語キーボード -->
+    <toggle_switch id="input_keyboard" title=""/>
+
+    <!-- 単語の登録/編集 -->
+    <button id="add_edit_term" title="msg_add_edit_term"/>
+  </setting_list>
+</system_settings>

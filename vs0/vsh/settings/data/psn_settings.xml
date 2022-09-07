@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: psn_settings.xml 24383 2010-10-04 11:24:12Z udagawa $ -->
+<system_settings version="1.0" plugin="psn_settings_plugin">
+  <!-- PlayStation(R)Network設定 -->
+  <setting_list id="psn_settings" title="msg_psn">
+
+    <!--
+				未 Sign Up
+			-->
+
+		<!-- PlayStation(R)Networkへようこそ! -->
+    <label id="wellcome"
+					 title=" "
+           description="msg_no_account_signup"/>
+
+
+    <button id="signup" icon="tex_spanner" title="msg_signup"/>
+
+    <!-- 
+				 Sign Up 済み & Sign In
+			-->
+
+		<!-- 登録されているサインインID(Eメールアドレス) -->
+    <label id="signin_id" icon="tex_spanner" title="msg_account"/>
+
+
+		<!-- サインイン/サインアウト -->
+    <button id="signin"
+						icon="tex_spanner"
+						title="msg_sign_in"/>
+
+    <button id="signout"
+						icon="tex_spanner"
+						title="msg_sign_out"/>
+
+    <!-- アカウント管理 -->
+    <setting_list id="account_management"
+									style="edit"
+									icon="tex_spanner"
+									title="msg_account_information"
+									navi_left="cancel"
+									navi_center="policy"
+									navi_right="send">
+
+			<!-- アバター -->
+			<spacer id="am_spacer_avatar1"/>
+			<label id="avatar" title="msg_avatar"/>
+			<spacer id="am_spacer_avatar2"/>
+
+			<!-- サインインID -->
+			<text_field id="change_signin_id" title="msg_signin_id"
+									max_length="63"
+									min_length="6"
+									keyboard_type="url"/>
+
+			<!-- パスワード -->
+			<text_field id="password1" title="msg_pw"
+									max_length="255"
+									min_length="8"
+									keyboard_type="alphabet"
+									password="on"/>
+			<text_field id="password2" title="msg_password_reenter"
+									max_length="255"
+									min_length="8"
+									keyboard_type="alphabet"
+									password="on"/>
+
+			<spacer id="am_spacer2"/>
+
+			<!-- 名前 -->
+			<text_field id="name_first" title="msg_first_name"
+									max_length="32"
+									min_length="1"
+									keyboard_type="default"/>
+			<text_field id="name_last" title="msg_last_name"
+									max_length="32"
+									min_length="1"
+									keyboard_type="default"/>
+			<label id="gender" title="msg_gender_optional"/>
+
+			<spacer id="am_spacer3"/>
+
+			<!-- 住所 -->
+			<text_field id="addr_postcode" title="msg_postal_code"
+									max_length="10"
+									min_length="1"/>
+			<list id="addr_state_list" title="msg_state"/>
+			<text_field id="addr_state" title="msg_state"
+									max_length="32"
+									min_length="1"/>
+			<list id="addr_city_list" title="msg_city"/>
+			<text_field id="addr_city" title="msg_city"
+									max_length="32"
+									min_length="1"/>
+			<text_field id="address1" title="msg_address1"
+									max_length="32"
+									min_length="1"/>
+			<text_field id="address2" title="msg_address2"
+									max_length="32"
+									min_length="0"/>
+			<text_field id="address3" title="msg_address3"
+									max_length="32"
+									min_length="0"/>
+
+			<spacer id="am_spacer4"/>
+
+			<!-- プロファイル -->
+			<label id="online_id" title="msg_online_id"/>
+			<text_field id="about_me" title="msg_about_me"
+									max_length="21"
+									min_length="0"/>
+			<list id="my_language1" title=" "/>
+			<list id="my_language2" title=" "/>
+			<list id="my_language3" title=" "/>
+
+			<!-- 配信メールの設定 -->
+			<label id="optin_desc" title=" "/>
+
+			<toggle_switch id="optin" title="msg_optin_yes_psn_jp_kr"/>
+
+			<toggle_switch id="optin_partner" title="msg_optin_yes_psnpartner"/>
+
+			<spacer id="am_spacer7"/>
+
+		</setting_list> <!-- account_management -->
+
+		<!-- サブアカウント管理 -->
+		<setting_list id="subaccount_management"
+									icon="tex_spanner"
+									title="msg_sub_account_management">
+			<spacer id="sa_spacer0"/>
+			<!--
+					<spacer id="am_spacer9"/>
+					<button id="subaccount_control" title="msg_parental_control_psn"
+									description="msg_sub_account_management_info_psn"/>
+					<button id="subaccount_password" title="msg_change_password_psn"/>
+					-->
+		</setting_list>
+
+		<!-- 機器認証 -->
+    <setting_list id="activation"
+									icon="tex_spanner"
+									title="msg_system_activation"
+									description="msg_system_activation_deactivation_info_psn">
+			<setting_list id="game_activation" icon="tex_spanner" title="msg_game">
+				<button id="activate_game" icon="tex_spanner" title="msg_activate"/>
+				<button id="deactivate_game" icon="tex_spanner" title="msg_deactivate"/>
+			</setting_list>
+			<setting_list id="video_activation" icon="tex_spanner" title="msg_video_comics_music">
+				<button id="activate_video" icon="tex_spanner" title="msg_activate"/>
+				<button id="deactivate_video" icon="tex_spanner" title="msg_deactivate"/>
+			</setting_list>
+			<label id="activation_desc" title=" "
+						 description="msg_system_activation_info"/>
+		</setting_list>
+
+		<!-- プライバシー設定 -->
+		<setting_list id="privacy_setting"
+									icon="tex_spanner"
+									title="msg_privacy_settings">
+			<setting_list id="friend_setting" title="msg_friend_setting">
+				<list id="friend_list_privacy" title="msg_friend_list_privacy"/>
+			</setting_list>
+		</setting_list>
+
+		<!-- アカウント削除 -->
+    <button id="unbind_account"
+						icon="tex_spanner"
+						title="msg_unlink_account"/>
+
+  </setting_list>
+
+</system_settings>
+<!--
+		Local Variables:
+		coding:utf-8
+		tab-width:2
+		End:
+  -->
