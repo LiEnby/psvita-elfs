@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="sound_settings_plugin">
+
+  <!-- サウンド＆通知 -->
+  <setting_list id="sound_settings" title="msg_sound_display">
+
+    <!-- AVLS -->
+    <toggle_switch id="id_avls" key="/CONFIG/SOUND/avls"
+                   title="msg_avls" hint="msg_avls_info" icon="tex_spanner"/>
+
+    <!-- 明るさ -->
+    <setting_list id="id_display_brightness" title="msg_brightness" icon="tex_spanner">
+      <user_custom id="display_brightness_setting"/>
+    </setting_list>
+   
+  </setting_list>
+</system_settings>

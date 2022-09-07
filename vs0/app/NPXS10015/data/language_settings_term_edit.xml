@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id$ -->
+
+<system_settings version="1.0" plugin="language_settings_plugin">
+
+  <!-- 単語の登録/編集 (編集画面) -->
+  <setting_list id="term_edit_page" title="msg_add_term" rotate="full"
+                navi_right="term_edit_ok" navi_left="term_edit_cancel">
+    <!-- user_customエレメントを配置しておき、その中に編集フォームをレイアウトする -->
+    <user_custom id="term_edit"/>
+  </setting_list>
+
+</system_settings>

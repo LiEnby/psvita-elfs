@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id$ -->
+
+<system_settings version="1.0" plugin="language_settings_plugin">
+
+  <!-- 文字入力設定 -->
+  <setting_list id="language_settings" title="msg_language">
+
+    <!-- システム言語 -->
+    <list id="system_lang"
+          title="msg_system_language"
+          icon="tex_spanner">
+      <!-- valueはlanguage_settings_handler.cppのテーブルに記述した値 (!=レジストリ値) -->
+      <!-- 記載順はVFに従う -->
+      <list_item id="system_lang_dk" title="msg_system_language_dk" value="0"/>
+      <list_item id="system_lang_de" title="msg_system_language_de" value="1"/>
+      <list_item id="system_lang_en" title="msg_system_language_en" value="2"/>
+      <list_item id="system_lang_es" title="msg_system_language_es" value="3"/>
+      <list_item id="system_lang_fr" title="msg_system_language_fr" value="4"/>
+      <list_item id="system_lang_it" title="msg_system_language_it" value="5"/>
+      <list_item id="system_lang_nl" title="msg_system_language_nl" value="6"/>
+      <list_item id="system_lang_no" title="msg_system_language_no" value="7"/>
+      <list_item id="system_lang_pl" title="msg_system_language_pl" value="8"/>
+      <list_item id="system_lang_pt" title="msg_system_language_pt" value="9"/>
+      <list_item id="system_lang_ru" title="msg_system_language_ru" value="10"/>
+      <list_item id="system_lang_fi" title="msg_system_language_fi" value="11"/>
+      <list_item id="system_lang_se" title="msg_system_language_se" value="12"/>
+      <list_item id="system_lang_jp" title="msg_system_language_jp" value="13"/>
+      <list_item id="system_lang_kr" title="msg_system_language_kr" value="14"/>
+      <list_item id="system_lang_cn_s" title="msg_system_language_cn_s" value="15"/>
+      <list_item id="system_lang_cn_t" title="msg_system_language_cn_t" value="16"/>
+    </list>
+
+    <!-- 入力言語 -->
+    <setting_list id="keyboard_settings" title="msg_input_languages"
+                  icon="tex_spanner">
+      <!-- キーボード設定 -->
+      <setting_list id="input_lang" title="msg_keyboards_add_terms"
+                    icon="tex_spanner"
+                    hint="msg_keyboards_add_terms_info">
+        <!-- 記載順はVFに従う -->
+        <link id="input_lang_dk" title="msg_language_dk" file="language_settings_input_general.xml"/>
+        <link id="input_lang_de" title="msg_language_de" file="language_settings_input_general.xml"/>
+        <link id="input_lang_en_us" title="msg_language_en_us" file="language_settings_input_general.xml"/>
+        <link id="input_lang_en_uk" title="msg_language_en_uk" file="language_settings_input_general.xml"/>
+        <link id="input_lang_es" title="msg_language_es" file="language_settings_input_general.xml"/>
+        <link id="input_lang_fr" title="msg_language_fr" file="language_settings_input_general.xml"/>
+        <link id="input_lang_it" title="msg_language_it" file="language_settings_input_general.xml"/>
+        <link id="input_lang_nl" title="msg_language_nl" file="language_settings_input_general.xml"/>
+        <link id="input_lang_no" title="msg_language_no" file="language_settings_input_general.xml"/>
+        <link id="input_lang_pl" title="msg_language_pl" file="language_settings_input_general.xml"/>
+        <link id="input_lang_pt" title="msg_language_pt" file="language_settings_input_general.xml"/>
+        <link id="input_lang_ru" title="msg_language_ru" file="language_settings_input_general.xml"/>
+        <link id="input_lang_fi" title="msg_language_fi" file="language_settings_input_general.xml"/>
+        <link id="input_lang_se" title="msg_language_se" file="language_settings_input_general.xml"/>
+        <link id="input_lang_jp" title="msg_language_jp" file="language_settings_input_general.xml"/>
+        <link id="input_lang_kr" title="msg_language_kr" file="language_settings_input_general.xml"/>
+        <link id="input_lang_cn_s" title="msg_language_cn_s" file="language_settings_input_general.xml"/>
+        <link id="input_lang_cn_tt" title="msg_language_cn_t_taiwan" file="language_settings_input_zh_t.xml"/>
+        <link id="input_lang_cn_th" title="msg_language_cn_t_hongkong" file="language_settings_input_general.xml"/>
+      </setting_list>
+
+      <!-- 自動大文字入力 -->
+      <toggle_switch id="auto_caps" title="msg_auto_caps"
+                     icon="tex_spanner"/>
+    </setting_list>
+
+    <!-- DEBUG -->
+    <!--
+    <button id="debug1" title="debug1"/>
+    <button id="debug2" title="debug2"/>
+    -->
+    
+  </setting_list>
+</system_settings>

@@ -1,0 +1,2538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Setting Description File                            
+     [SCE CONFIDENTIAL]                                  
+     Copyright (C) 2010 Sony Computer Entertainment Inc. 
+                                    All Rights Reserved. -->
+
+<registry target="psp2" version = "3">
+
+	<!-- Boot Parameters : ブートパラメータ -->
+	<group eng="Boot Parameters" jpn="ブートパラメータ">
+		<desc eng="Adjusts boot parameters applied to this system (DevKit) at boot time." jpn="本機(開発機)起動時に適用されるブートパラメータに関する設定です。" />
+
+		<!-- Release Check Mode : リリースチェックモード -->
+		<entry key="bootparam:/development_mode"
+			   eng="Release Check Mode"
+			   jpn="リリースチェックモード"
+				 dependskey="rcm" registrytype="integer" registrybytesize="4" forcerefresh="true">
+			<desc eng="If you set this option to [Release Mode], programs will run on almost the same environment as the actual system (console). In this mode, debugging and accessing to files on the host PC will be impossible.&#xa;This setting will be exclusively executed."
+				  jpn="[リリースモード]にすると、実機と同等な環境でプログラムを実行します。リリースモードでは、デバッグやホスト上のファイルへのアクセスができません。&#xa;この設定は単独で実行されます。" />
+			<applyimmediate eng="This setting will be exclusively executed. Any settings already set will be ignored.&#xa;Are you sure you want to continue?"
+							jpn="この設定は単独で実行されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？"/>
+			<selection>
+				<option value="0" eng="Release Mode" jpn="リリースモード" />
+				<option value="1" eng="Development Mode" jpn="開発モード" />
+			</selection>
+		</entry>
+
+		<!-- Memory Size : メモリサイズ -->
+		<entry key="bootparam:/memory_size_switch" eng="Memory Size" jpn="メモリサイズ"
+		   registrytype="integer" registrybytesize="4" dependson="rcm" conditionmin="1" conditionmax="1">
+			<desc eng="If you set this option to [Console Size], programs will run under the actual system's (console's) memory size."
+				  jpn="[実機サイズ]にすると、実機と同じメモリサイズでプログラムを実行します。" />
+			<selection>
+				<option value="0" eng="Console Size" jpn="実機サイズ" />
+				<option value="1" eng="Development Tool Size" jpn="開発機サイズ" />
+			</selection>
+		</entry>
+	</group>
+
+	<set dependson="rcm" conditionmin="1" conditionmax="1">
+
+		<!-- Development Environment Settings : 開発環境設定 -->
+		<group eng="Development Environment Settings" jpn="開発環境設定">
+			<desc eng="Adjusts settings for the development environment." jpn="開発環境全般に関する設定です。"/>
+
+			<!-- Setting for Internal Developers : 内部開発者向け設定 -->
+			<entry key="registry:/DEVENV/HOST/host_internal" eng="Setting for Internal Developers" jpn="内部開発者向け設定"
+					internal="true" dependskey="internalhost" registrytype="integer" registrybytesize="4"  forcerefresh="true">
+				<desc eng="If you set this option to [On], the settings for internal developers will be displayed.&#xa;This setting will be exclusively executed."
+					  jpn="[入]にすると、内部開発者向け設定を表示します。&#xa;この設定は単独で実行されます。"/>
+				<applyimmediate eng="This setting will be exclusively executed. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"
+						 jpn="この設定は単独で実行されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- System Name : 本体名称 -->
+			<entry key="registry:/DEVENV/HOST/devkitname" eng="System Name" jpn="本体名称"
+					registrytype="string" registrybytesize="128" >
+				<desc eng="Sets the name for this system (DevKit). You can use the name to distinguish multiple DevKits on a network."
+					  jpn="本機(開発機)の名前を設定します。ネットワーク上で複数の開発機を区別するときなどに使われます。"/>
+				<textual minlen="0" maxlen="31" encoding="utf8"/>
+			</entry>
+
+			<!-- HDMI Video Output Settings : HDMI 映像出力設定 -->
+			<entry key="registry:/DEVENV/TOOL/hdmi_video_mode" eng="HDMI Video Output Settings" jpn="HDMI 映像出力設定"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng="Sets the resolution and scaling type of the HDMI video output."
+					  jpn="HDMI 映像出力の解像度と拡大/縮小方法を設定します。"/>
+				<selection>
+					<option value="8" eng="Resolution : 480p, Scaling : Full" jpn="解像度 : 480p, 拡大/縮小 : フル"/>
+					<option value="32" eng="Resolution : 720p, Scaling : Full" jpn="解像度 : 720p, 拡大/縮小 : フル"/>
+					<option value="65568" eng="Resolution : 720p, Scaling : Real" jpn="解像度 : 720p, 拡大/縮小 : リアル"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Network : ネットワーク -->
+		<group eng="Network" jpn="ネットワーク">
+			<desc eng=" " jpn=" "/>
+
+			<!-- Flight Mode : 機内モード -->
+			<entry key="registry:/CONFIG/SYSTEM/flight_mode" eng="Flight Mode" jpn="機内モード"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1">
+				<desc eng="Sets whether to enable the flight mode. If you set this option to [On], All network features of the VITA system are disabled."
+					  jpn="機内モードを有効にするかどうかを設定します。[入]にすると、「VITA」のすべての通信機能が使用できません。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- Wi-Fi Settings : Wi-Fi設定 -->
+			<group eng="Wi-Fi Settings" jpn="Wi-Fi設定">
+				<desc eng="Adjusts settings for the Wi-Fi connection." jpn="Wi-Fi接続に関する設定です。"/>
+
+				<!-- Wi-Fi -->
+				<entry key="registry:/CONFIG/NET/wifi_flag" eng="Wi-Fi"
+						registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1">
+					<desc eng="Sets whether to enable the Wi-Fi feature."
+						  jpn="Wi-Fi機能を有効にするかどうかを設定します。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+				<!-- Automatic WLAN Settings : アクセスポイント別自動設定 -->
+				<entry key="registry:/CONFIG/NET/ap_auto_config" eng="Automatic WLAN Settings" jpn="アクセスポイント別自動設定"
+						registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1">
+					<desc eng="Sets the type of the automatic settings."
+						  jpn="自動設定の種別を設定します。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="AOSS(TM) &amp; Rakuraku WLAN Start(R)" jpn="AOSS(TM)＆らくらく無線スタート(R)"/>
+						<option value="2" eng="AOSS(TM) Only" jpn="AOSS（TM)のみ"/>
+					</selection>
+				</entry>
+
+				<!-- Show Imposed Scan List : スキャンリストインポーズ表示 -->
+				<entry key="registry:/CONFIG/NET/enable_impose_scanlist" eng="Show Imposed Scan List" jpn="スキャンリストインポーズ表示"
+						registrytype="integer" registrybytesize="4">
+					<desc eng="If you set this option to [On], an imposed scan list will be displayed."
+						  jpn="[入]にすると、インポーズでスキャンリストが表示されます。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+				<!-- Wi-Fi Ad Hoc Mode Channel Number : Wi-Fiアドホックモードチャンネル番号 -->
+				<entry key="registry:/CONFIG/NET/adhoc_channel" eng="Wi-Fi Ad Hoc Mode Channel Number" jpn="Wi-Fiアドホックモードチャンネル番号"
+						registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1">
+					<desc eng="Sets the channel for Wi-Fi ad hoc mode. "
+						  jpn="Wi-Fiアドホックモードで使用するチャンネル番号を設定します。"/>
+					<selection>
+						<option value="0" eng="Automatic" jpn="自動"/>
+						<option value="1" eng="1 ch" jpn="1ch"/>
+						<option value="6" eng="6 ch" jpn="6ch"/>
+						<option value="11" eng="11 ch" jpn="11ch"/>
+					</selection>
+				</entry>
+
+				<!-- Wi-Fi Ad Hoc Mode SSID : Wi-FiアドホックモードSSID -->
+				<entry key="registry:/CONFIG/NET/adhoc_ssid" eng="Wi-Fi Ad Hoc Mode SSID" jpn="Wi-FiアドホックモードSSID"
+						registrytype="string" registrybytesize="33" dependson="internalhost" conditionmin="1" conditionmax="1">
+					<desc eng="Sets the SSID for Wi-Fi ad hoc mode."
+						  jpn="Wi-Fiアドホックモードで使用するSSIDを設定します。"/>
+					<textual minlen="0" maxlen="32" encoding="ascii"/>
+				</entry>
+
+				<!-- Wi-Fi Internet Connection 01-30 : Wi-Fiインターネット接続 01-30 -->
+				<config keymin="1" keymax="30" keysigfig="2" validkey="registry:/CONFIG/NET/#/COMMON/conf_flag"
+						validkeyvalue="1" validkeyregistrytype="integer" eng="Wi-Fi Internet Connection" jpn="Wi-Fiインターネット接続">
+					<desc eng="Adjusts settings for the Wi-Fi Internet connection."
+						  jpn="Wi-Fiインターネット接続に関する設定です。"/>
+
+					<!-- Connection Name : 接続名 -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/conf_name" eng="Connection Name" jpn="接続名"
+							registrytype="string" registrybytesize="65" default="">
+						<desc eng="Sets the name of the Internet connection setting."
+							  jpn="インターネット接続の接続名を設定します。"/>
+						<textual minlen="1" maxlen="16" encoding="utf8"/>
+					</entry>
+
+					<!-- Automatic Connect : 自動接続 -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/enable_auto_connect" eng="Auto Connect" jpn="自動接続"
+							registrytype="integer" registrybytesize="4" default="1">
+						<desc eng="If you set this option to [On], automatic connection is made when a connection is found."
+							  jpn="[入]にすると、この接続が見つかったときに自動で接続します。"/>
+						<selection>
+							<option value="0" eng="Off" jpn="切"/>
+							<option value="1" eng="On" jpn="入"/>
+						</selection>
+					</entry>
+
+					<!-- MTU -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/mtu" eng="MTU"
+							registrytype="integer" registrybytesize="4" default="0">
+						<desc eng="Sets the MTU value to use when transmitting data. Set a number from the ranges 576-1500. Use 0 for automatic setup. "
+							  jpn="データ通信時に使用するMTUの値を設定します。576から1500の値を設定します。自動設定にするには0を入力してください。"/>
+						<intvalue minvalue="576" maxvalue="1500" rangeexception="0"/>
+					</entry>
+
+					<!-- Networking Device : 接続デバイス -->
+					<entry key="registry:/CONFIG/NET/#/COMMON/device" eng="Networking Device" jpn="接続デバイス"
+							registrytype="integer" registrybytesize="4" default="0">
+						<desc eng="Sets the device for the Internet connection."
+							  jpn="インターネット接続に使用するデバイスを設定します。"/>
+						<selection>
+							<option value="0" eng="Wireless" jpn="無線"/>
+							<option value="1" eng="Wired Connection" jpn="有線"/>
+						</selection>
+					</entry>
+
+					<!-- In case of "Setting for Internal Developers = On" : 「開発環境設定 = 入」の場合 -->
+					<set dependson="internalhost" conditionmin="1" conditionmax="1">
+
+						<!-- SSID -->
+						<entry key="registry:/CONFIG/NET/#/WIFI/ssid" eng="SSID"
+								registrytype="string" registrybytesize="33" default="">
+							<desc eng="Sets the SSID of the access point."
+								  jpn="アクセスポイントのSSIDを設定します。"/>
+							<textual minlen="1" maxlen="32" encoding="ascii"/>
+						</entry>
+
+						<!-- Wi-Fi Security : Wi-Fiセキュリティ -->
+						<entry key="registry:/CONFIG/NET/#/WIFI/wifi_security" eng="Wi-Fi Security" jpn="Wi-Fiセキュリティ"
+								registrytype="integer" registrybytesize="4" dependskey="wifisecurity"  default="0">
+							<desc eng="Sets the security type of the access point."
+								  jpn="アクセスポイントのセキュリティー種別を設定します。"/>
+							<selection>
+								<option value="0" eng="None" jpn="なし"/>
+								<option value="1" eng="WEP"/>
+								<option value="2" eng="WPA-PSK/WPA2-PSK"/>
+							</selection>
+						</entry>
+
+						<!-- WEP Key : WEPキー -->
+						<entry key="registry:/CONFIG/NET/#/WIFI/wep_key" eng="WEP Key" jpn="WEPキー"
+								dependson="wifisecurity" conditionmin="1" conditionmax="1" registrytype="string" registrybytesize="27" default="">
+							<desc eng="Sets the WEP encryption key. Use 10 or 26 characters for hexadecimal (0x prefix not required), or 5 or 13 characters for ASCII."
+								  jpn="WEP暗号化キーを設定します。16進数(10文字か26文字、先頭に0xは不要)か、ASCII文字(5文字か13文字)で入力してください。"/>
+							<wepkey/>
+						</entry>
+
+						<!-- WPA Key : WPAキー -->
+						<entry key="registry:/CONFIG/NET/#/WIFI/wpa_key" eng="WPA Key"  jpn="WPAキー"
+								dependson="wifisecurity" conditionmin="2" conditionmax="2" registrytype="string" registrybytesize="65" default="">
+							<desc eng="Sets the WPA encryption key. Use 64 characters for hexadecimal (0x prefix not required), or from 8 to 63 characters for ASCII."
+								  jpn="WPA暗号化キーを設定します。16進数(64文字、先頭に0xは不要)か、ASCII文字(8～63文字)で入力してください。"/>
+							<wpakey/>
+						</entry>
+
+					</set>
+
+					<!-- IP Address Setting : IPアドレス設定 -->
+					<entry key="registry:/CONFIG/NET/#/IP/ip_config" eng="IP Address Setting" jpn="IPアドレス設定"
+							registrytype="integer" registrybytesize="4" dependskey="ipconfig" default="0">
+						<desc eng="Select how to set the IP address."
+							  jpn="IPアドレスの設定方法を選択します。"/>
+						<selection>
+							<option value="0" eng="Automatic" jpn="自動取得"/>
+							<option value="1" eng="Manual" jpn="手動"/>
+							<option value="2" eng="PPPoE" jpn="PPPoE"/>
+						</selection>
+					</entry>
+
+					<!-- In case of "IP Address Setting = Automatic" : 「IPアドレス設定 = 自動取得」の場合 -->
+					<set dependson="ipconfig" conditionmin="0" conditionmax="0">
+
+						<!-- DHCP Host Name : DHCPホスト名 -->
+						<entry key="registry:/CONFIG/NET/#/IP/dhcp_hostname" eng="DHCP Host Name" jpn="DHCPホスト名"
+								registrytype="string" registrybytesize="256" default="">
+							<desc eng="Sets the DHCP host name. In most cases this setting does not need to be changed."
+								  jpn="DHCPホスト名を設定します。通常は設定する必要はありません。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- DNS Setting : DNS設定 -->
+						<entry key="registry:/CONFIG/NET/#/IP/dns_flag" eng="DNS Setting" jpn="DNS設定"
+								registrytype="integer" registrybytesize="4" dependskey="dnsflag1" default="0">
+							<desc eng="Select how to set the DNS server addresses."
+								  jpn="DNSサーバーのアドレスの設定方法を選択します。"/>
+							<selection>
+								<option value="0" eng="Automatic" jpn="自動取得"/>
+								<option value="1" eng="Manual" jpn="手動"/>
+							</selection>
+						</entry>
+
+						<!-- In case of "DNS Setting = Manual" : 「DNS設定 = 手動」の場合 -->
+						<set dependson="dnsflag1" conditionmin="1" conditionmax="1">
+
+							<!-- Primary DNS : プライマリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+									registrytype="string" registrybytesize="16" default="">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+							<!-- Secondary DNS : セカンダリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+									registrytype="string" registrybytesize="16" default="">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+						</set>
+					</set>
+
+					<!-- In case of "IP Address Setting = Manual" : 「IPアドレス設定 = 手動」の場合 -->
+					<set dependson="ipconfig" conditionmin="1" conditionmax="1">
+
+						<!-- IP Address : IPアドレス -->
+						<entry key="registry:/CONFIG/NET/#/IP/ip_address" eng="IP Address" jpn="IPアドレス"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Subnet Mask : サブネットマスク -->
+						<entry key="registry:/CONFIG/NET/#/IP/netmask" eng="Subnet Mask" jpn="サブネットマスク"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Default Router : デフォルトルーター -->
+						<entry key="registry:/CONFIG/NET/#/IP/default_route" eng="Default Router" jpn="デフォルトルーター"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Primary DNS : プライマリーDNS -->
+						<entry key="registry:/CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+						<!-- Secondary DNS : セカンダリーDNS -->
+						<entry key="registry:/CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+								registrytype="string" registrybytesize="16" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<ipaddress/>
+						</entry>
+
+					</set>
+
+					<!-- In case of "IP Address Setting = PPPoE" : 「IPアドレス設定 = PPPoE」の場合 -->
+					<set dependson="ipconfig" conditionmin="2" conditionmax="2">
+
+						<!-- PPPoE User Name : PPPoEユーザーID -->
+						<entry key="registry:/CONFIG/NET/#/IP/auth_name" eng="PPPoE User Name" jpn="PPPoEユーザーID"
+								registrytype="string" registrybytesize="128" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<textual minlen="1" maxlen="127" encoding="ascii"/>
+						</entry>
+
+						<!-- PPPoE Password : PPPoEパスワード -->
+						<entry key="registry:/CONFIG/NET/#/IP/auth_key" eng="PPPoE Password" jpn="PPPoEパスワード"
+								registrytype="string" registrybytesize="128" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<password minlen="0" maxlen="127"/>
+						</entry>
+
+						<!-- DNS Setting : DNS設定 -->
+						<entry key="registry:/CONFIG/NET/#/IP/dns_flag" eng="DNS Setting" jpn="DNS設定"
+								registrytype="integer" registrybytesize="4" dependskey="dnsflag2" default="0">
+							<desc eng="Select how to set the DNS server addresses."
+								  jpn="DNSサーバーのアドレスの設定方法を選択します。"/>
+							<selection>
+								<option value="0" eng="Automatic" jpn="自動取得"/>
+								<option value="1" eng="Manual" jpn="手動"/>
+							</selection>
+						</entry>
+
+						<!-- In case of "DNS Setting = Manual" : 「DNS設定 = 手動」の場合 -->
+						<set dependson="dnsflag2" conditionmin="1" conditionmax="1">
+
+							<!-- Primary DNS : プライマリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/primary_dns" eng="Primary DNS" jpn="プライマリーDNS"
+									registrytype="string" registrybytesize="16" default="">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+							<!-- Secondary DNS : セカンダリーDNS -->
+							<entry key="registry:/CONFIG/NET/#/IP/secondary_dns" eng="Secondary DNS" jpn="セカンダリーDNS"
+									registrytype="string" registrybytesize="16" default="">
+								<desc eng=" "
+									  jpn=" "/>
+								<ipaddress/>
+							</entry>
+
+						</set>
+					</set>
+
+					<!-- Proxy Server : プロキシーサーバー -->
+					<entry key="registry:/CONFIG/NET/#/APP/http_proxy_flag" eng="Proxy Server" jpn="プロキシーサーバー"
+							registrytype="integer" dependskey="proxyflag" registrybytesize="4" default="0">
+						<desc eng="Sets whether to use a proxy server."
+							  jpn="プロキシーサーバーを使用するかどうかを設定します。"/>
+						<selection>
+							<option value="0" eng="Do Not Use" jpn="使用しない"/>
+							<option value="1" eng="Use" jpn="使用する"/>
+						</selection>
+					</entry>
+
+					<!-- In case of "Proxy Server = Use" : 「プロキシーサーバー = 使用する」の場合 -->
+					<set dependson="proxyflag" conditionmin="1" conditionmax="1">
+
+						<!-- Proxy Server : プロキシーサーバーアドレス -->
+						<entry key="registry:/CONFIG/NET/#/APP/http_proxy_server" eng="Proxy Server Address" jpn="プロキシーサーバーアドレス"
+								registrytype="string" registrybytesize="256" default="">
+							<desc eng=" "
+								  jpn=" "/>
+							<textual minlen="1" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Proxy Server Port Number : プロキシーサーバーポート番号 -->
+						<entry key="registry:/CONFIG/NET/#/APP/http_proxy_port" eng="Proxy Server Port Number" jpn="プロキシーサーバーポート番号"
+								registrytype="integer" registrybytesize="4" default="8080">
+							<desc eng=" "
+								  jpn=" "/>
+							<intvalue minvalue="1" maxvalue="65535"/>
+
+						</entry>
+					</set>
+
+				</config>
+			</group>
+
+			<set dependson="internalhost" conditionmin="1" conditionmax="1">
+
+				<!-- Bluetooth(R) Settings : Bluetooth(R)設定 -->
+				<group eng="Bluetooth(R) Settings" jpn="Bluetooth(R)設定">
+					<desc eng="Adjusts settings for the Bluetooth(R) devices." jpn="Bluetooth(R)機器に関する設定です。"/>
+
+					<!-- Bluetooth(R) Feature : Bluetooth(R)機能 -->
+					<entry key="registry:/CONFIG/BT/bt_enable" eng="Bluetooth(R) Feature" jpn="Bluetooth(R)機能"
+							registrytype="integer" registrybytesize="4" >
+						<desc eng="If you set this option to [On], you will be able to use the Bluetooth(R) feature of this system (DevKit)."
+							  jpn="[入]にすると、本機(開発機)のBluetooth(R)機能が使えるようになります。"/>
+						<selection>
+							<option value="0" eng="Off" jpn="切"/>
+							<option value="1" eng="On" jpn="入"/>
+						</selection>
+					</entry>
+
+					<!-- Prioritize the microphone of the Bluetooth(R) device : Bluetooth(R)機器のマイクを優先する -->
+					<entry key="registry:/CONFIG/BT/bt_mic" eng="Prioritize the microphone of the Bluetooth(R) device" jpn="Bluetooth(R)機器のマイクを優先する"
+							registrytype="integer" registrybytesize="4" >
+						<desc eng="If you set this option to [On], the system software will prioritize the microphone of the Bluetooth(R) device over that of this system (DevKit)."
+							  jpn="[入]にすると、Bluetooth(R)機器のマイクを本機(開発機)のマイクに優先して使用します。"/>
+						<selection>
+							<option value="0" eng="Off" jpn="切"/>
+							<option value="1" eng="On" jpn="入"/>
+						</selection>
+					</entry>
+
+				</group>
+
+			</set>
+
+		</group>
+
+		<!-- PlayStation(R)Network : PlayStation(R)Network -->
+		<group eng="PlayStation(R)Network" jpn="PlayStation(R)Network">
+			<desc eng="Adjusts settings for PlayStation(R)Network." jpn="PlayStation(R)Networkに関する設定です。"/>
+
+			<!-- NP Feature : NP機能 -->
+			<entry key="registry:/CONFIG/NP/enable_np" eng="NP Feature" jpn="NP機能"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng="Sets whether to enable the NP feature. If you set this option to [On], the system automatically attempts sign-in in situations when you need to sign in."
+					  jpn="NP機能を有効にするかどうかを設定します。[入]にすると、サインインが必要な場面で自動的にサインインします。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+			<!-- NP Account ID -->
+			<entry key="registry:/CONFIG/NP/account_id" eng="NP Account ID"
+					registrytype="binary" registrybytesize="8" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng=" "
+					  jpn=" "/>
+				<binary/>
+			</entry>
+
+			<!-- Sign-In ID (E-mail Address) : サインインID (Eメールアドレス) -->
+			<entry key="registry:/CONFIG/NP/login_id" eng="Sign-In ID (E-mail Address)" jpn="サインインID (Eメールアドレス)"
+					registrytype="string" registrybytesize="65" norebootneeded="true">
+				<desc eng=" "
+					  jpn=" "/>
+				<textual minlen="0" maxlen="64" encoding="ascii"/>
+			</entry>
+
+			<!-- Sign-In Password : サインインパスワード -->
+			<entry key="registry:/CONFIG/NP/password" eng="Sign-In Password" jpn="サインインパスワード"
+					registrytype="string" registrybytesize="31" norebootneeded="true">
+				<desc eng=" "
+					  jpn=" "/>
+				<password minlen="0" maxlen="30"/>
+			</entry>
+
+			<!-- Existence of Sub Account : サブアカウントの存在 -->
+			<entry key="registry:/CONFIG/NP/has_subaccount" eng="Existence of Sub Account" jpn="サブアカウントの存在"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng="Sets whether the account that has been bound has a sub account."
+					  jpn="バインドされているアカウントがサブアカウントを持っているかどうかを設定します。"/>
+				<selection>
+					<option value="0" eng="With No Sub Account" jpn="サブアカウントなし"/>
+					<option value="1" eng="With Sub Account" jpn="サブアカウントあり"/>
+				</selection>
+			</entry>
+
+			<!-- Country/Region of Residence : お住まいの国／地域 -->
+			<entry key="registry:/CONFIG/NP/country" eng="Country/Region of Residence" jpn="お住まいの国／地域"
+					registrytype="string" registrybytesize="3" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng="Sets the contry code for PlayStation(R)Network account. The code must comply with ISO 3166-1."
+					  jpn="PlayStation(R)Networkアカウント用の国コードを設定します。ISO 3166-1に準拠した国コードを入力してください。"/>
+				<textual minlen="2" maxlen="2" encoding="ascii"/>
+			</entry>
+
+			<!-- Language : 表示言語 -->
+			<entry key="registry:/CONFIG/NP/lang" eng="Language" jpn="表示言語"
+					registrytype="string" registrybytesize="3" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng="Sets the language code for PlayStation(R)Network account."
+					  jpn="PlayStation(R)Networkアカウント用の言語コードを設定します。"/>
+				<selection>
+					<option value=""   eng="Not Specified" jpn="未指定" allowzerolength="true"/>
+					<option value="ja" eng="Japanese" jpn="日本語"/>
+					<option value="en" eng="English" jpn="英語"/>
+					<option value="fr" eng="French" jpn="フランス語"/>
+					<option value="es" eng="Spanish" jpn="スペイン語"/>
+					<option value="de" eng="German" jpn="ドイツ語"/>
+					<option value="it" eng="Italian" jpn="イタリア語"/>
+					<option value="nl" eng="Dutch" jpn="オランダ語"/>
+					<option value="pt" eng="Portuguese" jpn="ポルトガル語"/>
+					<option value="ru" eng="Russian" jpn="ロシア語"/>
+					<option value="ko" eng="Korean" jpn="韓国語"/>
+					<option value="ch" eng="Chinese (traditional)" jpn="中国語(繁体字)"/>
+					<option value="zh" eng="Chinese (simplified)" jpn="中国語(簡体字)"/>
+				</selection>
+			</entry>
+
+			<!-- Date of Birth (YYYY) : 生年月日(年) -->
+			<entry key="registry:/CONFIG/NP/yob" eng="Date of Birth (YYYY)" jpn="生年月日(年)"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng=" "
+					  jpn=" "/>
+				<intvalue minvalue="1900" maxvalue="2100" rangeexception="0"/>
+			</entry>
+
+			<!-- Date of Birth (MM) : 生年月日(月) -->
+			<entry key="registry:/CONFIG/NP/mob" eng="Date of Birth (MM)" jpn="生年月日(月)"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng=" "
+					  jpn=" "/>
+				<intvalue minvalue="0" maxvalue="12"/>
+			</entry>
+
+			<!-- Date of Birth (DD) : 生年月日(日) -->
+			<entry key="registry:/CONFIG/NP/dob" eng="Date of Birth (DD)" jpn="生年月日(日)"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+				<desc eng=" "
+					  jpn=" "/>
+				<intvalue minvalue="0" maxvalue="31"/>
+			</entry>
+
+		</group>
+
+		<!-- Location Data : 位置データ -->
+		<group eng="Location Data" jpn="位置データ">
+			<desc eng="Adjusts settings for location data." jpn="位置データに関する設定です。"/>
+
+			<!-- Use Location Data : 位置データを利用する -->
+			<entry key="registry:/CONFIG/LOCATION/enable_service" eng="Use Location Data" jpn="位置データを利用する"
+					registrytype="integer" registrybytesize="4" norebootneeded="true">
+				<desc eng="Sets whether to use location data. If you set this option to [Off], you will not be able to utilize location data in all applications. "
+					  jpn="位置データを利用するかどうかを設定します。[切]にすると、すべてのアプリケーションにおいて位置データが利用できません。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Security : セキュリティー -->
+		<group eng="Security" jpn="セキュリティー">
+			<desc eng="Adjusts settings for parental controls and screen lock." jpn="ペアレンタルコントロールおよび画面ロックに関する設定です。"/>
+
+			<group eng="Parental Controls" jpn="ペアレンタルコントロール">
+				<desc eng="Adjusts settings for parental controls." jpn="ペアレンタルコントロールに関する設定です。"/>
+
+				<!-- Content : コンテンツ -->
+				<entry key="registry:/CONFIG/SECURITY/PARENTAL/content_start_control" eng="Content" jpn="コンテンツ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets the control level for starting an application or content (such as video, etc.) that has parental control restrictions.&#xa;The lower the level, the tighter the control."
+						  jpn="年齢制限があるアプリケーションやコンテンツ(ビデオなど)の開始制限レベルを設定します。&#xa;レベルの数値が小さいほど、制限が厳しくなります。"/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="11" eng="Level 11" jpn="レベル 11"/>
+						<option value="10" eng="Level 10" jpn="レベル 10"/>
+						<option value="9" eng="Level 9" jpn="レベル 9"/>
+						<option value="8" eng="Level 8" jpn="レベル 8"/>
+						<option value="7" eng="Level 7" jpn="レベル 7"/>
+						<option value="6" eng="Level 6" jpn="レベル 6"/>
+						<option value="5" eng="Level 5" jpn="レベル 5"/>
+						<option value="4" eng="Level 4" jpn="レベル 4"/>
+						<option value="3" eng="Level 3" jpn="レベル 3"/>
+						<option value="2" eng="Level 2" jpn="レベル 2"/>
+						<option value="1" eng="Level 1" jpn="レベル 1"/>
+					</selection>
+				</entry>
+
+				<!-- Browser : ブラウザー -->
+				<entry key="registry:/CONFIG/SECURITY/PARENTAL/browser_start_control" eng="Browser" jpn="ブラウザー"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets whether to allow to use the browser feature."
+						  jpn="ブラウザー機能の利用を許可するかどうかを設定します。"/>
+					<selection>
+						<option value="0" eng="Allow" jpn="許可する"/>
+						<option value="1" eng="Do Not Allow" jpn="許可しない"/>
+					</selection>
+				</entry>
+
+				<!-- Location Data : 位置データ -->
+				<entry key="registry:/CONFIG/LOCATION/enable_parental" eng="Location Data" jpn="位置データ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng="Sets whether to allow to use location data."
+						  jpn="位置データの利用を許可するかどうかを設定します。"/>
+					<selection>
+						<option value="1" eng="Allow" jpn="許可する"/>
+						<option value="0" eng="Do Not Allow" jpn="許可しない"/>
+					</selection>
+				</entry>
+
+				<!-- Change Passcode : パスコードを変更する -->
+				<entry key="registry:/CONFIG/SECURITY/PARENTAL/passcode" eng="Change Passcode" jpn="パスコードを変更する"
+						registrytype="string" registrybytesize="5" norebootneeded="true">
+					<desc eng="Change the 4-digit passcode required to change the settings for parental controls. To reset the passcode, leave it blank.&#xa;The passcode will not have valid protection. Do not set the passcode using the information you do not wish to disclose."
+						  jpn="ペアレンタルコントールの設定を変更するための4桁のパスコードを変更します。パスコードを未設定状態にするには、空白にしてください。&#xa;パスコードには十分な保護がされません。知られたくない情報をパスコードに設定しないでください。"/>
+					<password minlen="4" maxlen="4" rangeexception="0"/>
+				</entry>
+
+			</group>
+
+			<group eng="Screen Lock" jpn="画面ロック">
+				<desc eng="Adjusts settings for screen lock." jpn="画面ロックに関する設定です。"/>
+
+				<!-- Change Passcode : パスコードを変更する -->
+				<entry key="registry:/CONFIG/SECURITY/SCREEN_LOCK/passcode" eng="Change Passcode" jpn="パスコードを変更する"
+						registrytype="string" registrybytesize="5" norebootneeded="true">
+					<desc eng="Change the 4-digit passcode required to unlock the screen. To disable the screen lock feature, leave it blank.&#xa;The passcode will not have valid protection. Do not set the passcode using the information you do not wish to disclose."
+						  jpn="画面ロックを解除するための4桁のパスコードを変更します。画面ロック機能を無効にするには、空白にしてください。&#xa;パスコードには十分な保護がされません。知られたくない情報をパスコードに設定しないでください。"/>
+					<password minlen="4" maxlen="4" rangeexception="0"/>
+				</entry>
+
+			</group>
+
+		</group>
+
+		<!-- Date & Time : 日付＆時刻 -->
+		<group eng="Date &amp; Time" jpn="日付＆時刻">
+			<desc eng="Adjusts date and time settings." jpn="日付と時刻に関する設定です。"/>
+
+			<!-- Time Zone : タイムゾーン -->
+			<entry key="registry:/CONFIG/DATE/time_zone" eng="Time Zone" jpn="タイムゾーン"
+					registrytype="integer" registrybytesize="4" >
+				<desc eng="Sets the time zone to be used as the basis for time settings."
+					  jpn="時刻の基準となるタイムゾーンを設定します。"/>
+				<selection>
+					<option value="0" eng="GMT-11:00 Samoa Islands" jpn="GMT-11:00 サモア諸島"/>
+					<option value="1" eng="GMT-11:00 Midway Islands" jpn="GMT-11:00 ミッドウェー諸島"/>
+					<option value="2" eng="GMT-10:00 Hawaii" jpn="GMT-10:00 ハワイ"/>
+					<option value="3" eng="GMT-09:00 Alaska" jpn="GMT-09:00 アラスカ"/>
+					<option value="4" eng="GMT-08:00 Pacific Time (US, Canada)" jpn="GMT-08:00 太平洋標準時 (米国およびカナダ)"/>
+					<option value="5" eng="GMT-08:00 Tijuana" jpn="GMT-08:00 ティファナ"/>
+					<option value="6" eng="GMT-07:00 Mountain Time (US, Canada)" jpn="GMT-07:00 山地標準時 (米国およびカナダ)"/>
+					<option value="7" eng="GMT-07:00 Chihuahua" jpn="GMT-07:00 チワワ"/>
+					<option value="8" eng="GMT-06:00 San Jose" jpn="GMT-06:00 サンホセ"/>
+					<option value="9" eng="GMT-06:00 Central Time (US, Canada)" jpn="GMT-06:00 中央標準時 (米国およびカナダ)"/>
+					<option value="10" eng="GMT-06:00 Mexico City" jpn="GMT-06:00 メキシコシティ"/>
+					<option value="11" eng="GMT-05:00 Quito" jpn="GMT-05:00 キト"/>
+					<option value="12" eng="GMT-05:00 Eastern Time (US, Canada)" jpn="GMT-05:00 東部標準時 (米国およびカナダ)"/>
+					<option value="13" eng="GMT-05:00 Panama City" jpn="GMT-05:00 パナマシティ"/>
+					<option value="14" eng="GMT-05:00 Bogota" jpn="GMT-05:00 ボゴタ"/>
+					<option value="15" eng="GMT-05:00 Lima" jpn="GMT-05:00 リマ"/>
+					<option value="16" eng="GMT-04:00 Caracas" jpn="GMT-04:00 カラカス"/>
+					<option value="17" eng="GMT-04:00 Santiago" jpn="GMT-04:00 サンティアゴ"/>
+					<option value="18" eng="GMT-04:00 Atlantic (Canada)" jpn="GMT-04:00 大西洋標準時 (カナダ)"/>
+					<option value="19" eng="GMT-04:00 Puerto Rico" jpn="GMT-04:00 プエルトリコ"/>
+					<option value="20" eng="GMT-04:00 La Paz" jpn="GMT-04:00 ラパス"/>
+					<option value="21" eng="GMT-03:30 Newfoundland" jpn="GMT-03:30 ニューファンドランド標準時 (カナダ)"/>
+					<option value="22" eng="GMT-03:00 Sao Paulo" jpn="GMT-03:00 サンパウロ"/>
+					<option value="23" eng="GMT-03:00 Buenos Aires" jpn="GMT-03:00 ブエノスアイレス"/>
+					<option value="24" eng="GMT-01:00 Azores" jpn="GMT-01:00 アゾレス諸島"/>
+					<option value="25" eng="GMT+00:00 Casablanca" jpn="GMT+00:00 カサブランカ"/>
+					<option value="26" eng="GMT+00:00 Dublin" jpn="GMT+00:00 ダブリン"/>
+					<option value="27" eng="GMT+00:00 Lisbon" jpn="GMT+00:00 リスボン"/>
+					<option value="28" eng="GMT+00:00 Reykjavik" jpn="GMT+00:00 レイキャビク"/>
+					<option value="29" eng="GMT+00:00 London" jpn="GMT+00:00 ロンドン"/>
+					<option value="30" eng="GMT+01:00 Amsterdam" jpn="GMT+01:00 アムステルダム"/>
+					<option value="31" eng="GMT+01:00 Algiers" jpn="GMT+01:00 アルジェ"/>
+					<option value="32" eng="GMT+01:00 Andorra la Vell" jpn="GMT+01:00 アンドララベラ"/>
+					<option value="33" eng="GMT+01:00 Vienna" jpn="GMT+01:00 ウィーン"/>
+					<option value="34" eng="GMT+01:00 Windhoek" jpn="GMT+01:00 ウィントフック"/>
+					<option value="35" eng="GMT+01:00 Oslo" jpn="GMT+01:00 オスロ"/>
+					<option value="36" eng="GMT+01:00 Copenhagen" jpn="GMT+01:00 コペンハーゲン"/>
+					<option value="37" eng="GMT+01:00 Zagreb" jpn="GMT+01:00 ザグレブ"/>
+					<option value="38" eng="GMT+01:00 Sarajevo" jpn="GMT+01:00 サラエボ"/>
+					<option value="39" eng="GMT+01:00 San Marino" jpn="GMT+01:00 サンマリノ"/>
+					<option value="40" eng="GMT+01:00 Skopje" jpn="GMT+01:00 スコピエ"/>
+					<option value="41" eng="GMT+01:00 Stockholm" jpn="GMT+01:00 ストックホルム"/>
+					<option value="42" eng="GMT+01:00 Tunis" jpn="GMT+01:00 チュニス"/>
+					<option value="43" eng="GMT+01:00 Tirana" jpn="GMT+01:00 ティラナ"/>
+					<option value="44" eng="GMT+01:00 Paris" jpn="GMT+01:00 パリ"/>
+					<option value="45" eng="GMT+01:00 Valletta" jpn="GMT+01:00 バレッタ"/>
+					<option value="46" eng="GMT+01:00 Vaduz" jpn="GMT+01:00 ファドゥーツ"/>
+					<option value="47" eng="GMT+01:00 Budapest" jpn="GMT+01:00 ブダペスト"/>
+					<option value="48" eng="GMT+01:00 Bratislava" jpn="GMT+01:00 ブラチスラバ"/>
+					<option value="49" eng="GMT+01:00 Prague" jpn="GMT+01:00 プラハ"/>
+					<option value="50" eng="GMT+01:00 Brussels" jpn="GMT+01:00 ブリュッセル"/>
+					<option value="51" eng="GMT+01:00 Belgrade" jpn="GMT+01:00 ベオグラード"/>
+					<option value="52" eng="GMT+01:00 Berlin" jpn="GMT+01:00 ベルリン"/>
+					<option value="53" eng="GMT+01:00 Bern" jpn="GMT+01:00 ベルン"/>
+					<option value="54" eng="GMT+01:00 Madrid" jpn="GMT+01:00 マドリード"/>
+					<option value="55" eng="GMT+01:00 onaco" jpn="GMT+01:00 モナコ"/>
+					<option value="56" eng="GMT+01:00 Ljubljana" jpn="GMT+01:00 リュブリャナ"/>
+					<option value="57" eng="GMT+01:00 Luxembourg" jpn="GMT+01:00 ルクセンブルグ"/>
+					<option value="58" eng="GMT+01:00 Rome" jpn="GMT+01:00 ローマ"/>
+					<option value="59" eng="GMT+01:00 Warsaw" jpn="GMT+01:00 ワルシャワ"/>
+					<option value="60" eng="GMT+02:00 Athens" jpn="GMT+02:00 アテネ"/>
+					<option value="61" eng="GMT+02:00 Amman" jpn="GMT+02:00 アンマン"/>
+					<option value="62" eng="GMT+02:00 Istanbul" jpn="GMT+02:00 イスタンブール"/>
+					<option value="63" eng="GMT+02:00 Jerusalem" jpn="GMT+02:00 エルサレム"/>
+					<option value="64" eng="GMT+02:00 Cairo" jpn="GMT+02:00 カイロ"/>
+					<option value="65" eng="GMT+02:00 Kiev" jpn="GMT+02:00 キエフ"/>
+					<option value="66" eng="GMT+02:00 Sofia" jpn="GMT+02:00 ソフィア"/>
+					<option value="67" eng="GMT+02:00 Damascus" jpn="GMT+02:00 ダマスカス"/>
+					<option value="68" eng="GMT+02:00 Tallinn" jpn="GMT+02:00 タリン"/>
+					<option value="69" eng="GMT+02:00 Nicosia" jpn="GMT+02:00 ニコシア"/>
+					<option value="70" eng="GMT+02:00 Vilnius" jpn="GMT+02:00 ビリニュス"/>
+					<option value="71" eng="GMT+02:00 Bucharest" jpn="GMT+02:00 ブカレスト"/>
+					<option value="72" eng="GMT+02:00 Beirut" jpn="GMT+02:00 ベイルート"/>
+					<option value="73" eng="GMT+02:00 Helsinki" jpn="GMT+02:00 ヘルシンキ"/>
+					<option value="74" eng="GMT+02:00 Minsk" jpn="GMT+02:00 ミンスク"/>
+					<option value="75" eng="GMT+02:00 Johannesburg" jpn="GMT+02:00 ヨハネスブルグ"/>
+					<option value="76" eng="GMT+02:00 Riga" jpn="GMT+02:00 リガ"/>
+					<option value="77" eng="GMT+03:00 Kuwait City" jpn="GMT+03:00 クウェート"/>
+					<option value="78" eng="GMT+03:00 Baghdad" jpn="GMT+03:00 バグダッド"/>
+					<option value="79" eng="GMT+03:00 Manama" jpn="GMT+03:00 マナーマ"/>
+					<option value="80" eng="GMT+03:00 Moscow" jpn="GMT+03:00 モスクワ"/>
+					<option value="81" eng="GMT+03:00 Riyadh" jpn="GMT+03:00 リヤド"/>
+					<option value="82" eng="GMT+03:30 Tehran" jpn="GMT+03:30 テヘラン"/>
+					<option value="83" eng="GMT+04:00 Abu Dhabi" jpn="GMT+04:00 アブダビ"/>
+					<option value="84" eng="GMT+04:00 Yerevan" jpn="GMT+04:00 エレバン"/>
+					<option value="85" eng="GMT+04:00 Tbilisi" jpn="GMT+04:00 トビリシ"/>
+					<option value="86" eng="GMT+04:00 Baku" jpn="GMT+04:00 バクー"/>
+					<option value="87" eng="GMT+04:00 Muscat" jpn="GMT+04:00 マスカット"/>
+					<option value="88" eng="GMT+04:30 Kabul" jpn="GMT+04:30 カブール"/>
+					<option value="89" eng="GMT+05:00 Karachi" jpn="GMT+05:00 カラチ"/>
+					<option value="90" eng="GMT+05:00 Tashkent" jpn="GMT+05:00 タシケント"/>
+					<option value="91" eng="GMT+05:00 Bishkek" jpn="GMT+05:00 ビシュケク"/>
+					<option value="92" eng="GMT+05:30 Calcutta" jpn="GMT+05:30 カルカッタ"/>
+					<option value="93" eng="GMT+05:45 Kathmandu" jpn="GMT+05:45 カトマンズ"/>
+					<option value="94" eng="GMT+06:00 Astana" jpn="GMT+06:00 アスタナ"/>
+					<option value="95" eng="GMT+06:00 Dhaka" jpn="GMT+06:00 ダッカ"/>
+					<option value="96" eng="GMT+07:00 Bangkok" jpn="GMT+07:00 バンコク"/>
+					<option value="97" eng="GMT+08:00 Kuala Lumpur" jpn="GMT+08:00 クアラルンプール"/>
+					<option value="98" eng="GMT+08:00 Singapore" jpn="GMT+08:00 シンガポール"/>
+					<option value="99" eng="GMT+08:00 Taipei" jpn="GMT+08:00 台北"/>
+					<option value="100" eng="GMT+08:00 Perth" jpn="GMT+08:00 パース"/>
+					<option value="101" eng="GMT+08:00 Beijing" jpn="GMT+08:00 北京"/>
+					<option value="102" eng="GMT+08:00 Hong Kong" jpn="GMT+08:00 香港"/>
+					<option value="103" eng="GMT+09:00 Seoul" jpn="GMT+09:00 ソウル"/>
+					<option value="104" eng="GMT+09:00 Tokyo" jpn="GMT+09:00 東京"/>
+					<option value="105" eng="GMT+09:30 Adelaide" jpn="GMT+09:30 アデレード"/>
+					<option value="106" eng="GMT+10:00 Sydney" jpn="GMT+10:00 シドニー"/>
+					<option value="107" eng="GMT+12:00 Wellington" jpn="GMT+12:00 ウェリントン"/>
+					<option value="108" eng="GMT+12:00 Suva" jpn="GMT+12:00 スバ"/>
+				</selection>
+			</entry>
+
+			<!-- Date Format : 日付表示 -->
+			<entry key="registry:/CONFIG/DATE/date_format" eng="Date Format" jpn="日付表示"
+					registrytype="integer" registrybytesize="4" >
+				<desc eng="Sets the order of display for year, month and day."
+					  jpn="年月日の並び順を設定します。"/>
+				<selection>
+					<option value="0" eng="YYYY/MM/DD" jpn="年/月/日"/>
+					<option value="1" eng="DD/MM/YYYY" jpn="日/月/年"/>
+					<option value="2" eng="MM/DD/YYYY" jpn="月/日/年"/>
+				</selection>
+			</entry>
+
+			<!-- Time Format : 時間表示 -->
+			<entry key="registry:/CONFIG/DATE/time_format" eng="Time Format" jpn="時間表示"
+					registrytype="integer" registrybytesize="4" >
+				<desc eng="Sets the time display to either a 12-hour or 24-hour clock."
+					  jpn="12時間表示または24時間表示を設定します。"/>
+				<selection>
+					<option value="0" eng="12-Hour Clock" jpn="12時間"/>
+					<option value="1" eng="24-Hour Clock" jpn="24時間"/>
+				</selection>
+			</entry>
+
+			<!-- Daylight Saving : サマータイム -->
+			<entry key="registry:/CONFIG/DATE/summer_time" eng="Daylight Saving" jpn="サマータイム"
+					registrytype="integer" registrybytesize="4" >
+				<desc eng="Sets for daylight saving time."
+					  jpn="サマータイムを設定します。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="1" eng="On" jpn="入"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Language : 言語 -->
+		<group eng="Language" jpn="言語">
+			<desc eng=" " jpn=" "/>
+
+			<!-- System Language : システム言語 -->
+			<entry key="registry:/CONFIG/SYSTEM/language" eng="System Language" jpn="システム言語"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets the language displayed by the system software on this system (DevKit)."
+					  jpn="本機(開発機)のシステムソフトウェアで表示される言語を設定します。"/>
+				<selection>
+					<option value="14" eng="Danish" jpn="デンマーク語"/>
+					<option value="4" eng="German" jpn="ドイツ語"/>
+					<option value="1" eng="English" jpn="英語"/>
+					<option value="3" eng="Spanish" jpn="スペイン語"/>
+					<option value="2" eng="French" jpn="フランス語"/>
+					<option value="5" eng="Italian" jpn="イタリア語"/>
+					<option value="6" eng="Dutch" jpn="オランダ語"/>
+					<option value="15" eng="Norwegian" jpn="ノルウェー語"/>
+					<option value="16" eng="Polish" jpn="ポーランド語"/>
+					<option value="7" eng="Portuguese" jpn="ポルトガル語"/>
+					<option value="8" eng="Russian" jpn="ロシア語"/>
+					<option value="12" eng="Finnish" jpn="フィンランド語"/>
+					<option value="13" eng="Swedish" jpn="スウェーデン語"/>
+					<option value="0" eng="Japanese" jpn="日本語"/>
+					<option value="9" eng="Korean" jpn="韓国語"/>
+					<option value="11" eng="Chinese (simplified)" jpn="中国語(簡体字)"/>
+					<option value="10" eng="Chinese (traditional)" jpn="中国語(繁体字)"/>
+				</selection>
+			</entry>
+
+			<!-- Input Languages : 入力言語 -->
+			<group eng="Input Languages" jpn="入力言語">
+				<desc eng=" " jpn=" "/>
+
+				<!-- Auto Capitalization : 自動大文字化 -->
+				<entry key="registry:/CONFIG/IME/auto_capitalization" eng="Auto Capitalization" jpn="自動大文字化"
+						registrytype="integer" registrybytesize="4" >
+					<desc eng=" "
+						  jpn=" "/>
+					<selection>
+						<option value="0" eng="Off" jpn="切"/>
+						<option value="1" eng="On" jpn="入"/>
+					</selection>
+				</entry>
+
+			</group>
+
+		</group>
+
+		<!-- Format : 初期化 -->
+		<group eng="Format" jpn="初期化">
+			<desc eng=" "/>
+
+			<!-- Restore Settings : 設定を初期化する -->
+			<entry key="registry:/CONFIG/SYSTEM/init_settings" eng="Restore Settings" jpn="設定を初期化する"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="0" conditionmax="0" forcerefresh="true">
+				<desc eng="Restores the system software to its default settings.&#xa;The restoration will be exclusively executed."
+					  jpn="システムソフトウェアの設定を初期値に戻します。&#xa;この初期化は単独で実行されます。"/>
+				<applyimmediate eng="The settings will be returned to default values. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"
+						 jpn="設定が初期値に戻されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？" resetsonapply="true"/>
+				<selection>
+					<option value="0" eng="No" jpn="いいえ"/>
+					<option value="32" eng="Yes" jpn="はい"/>
+				</selection>
+			</entry>
+
+			<!-- Restore Settings : 設定を初期化する -->
+			<entry key="registry:/CONFIG/SYSTEM/init_settings" eng="Restore Settings" jpn="設定を初期化する"
+					registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" forcerefresh="true">
+				<desc eng="Restores the system software to its default settings.&#xa;The restoration will be exclusively executed."
+					  jpn="システムソフトウェアの設定を初期値に戻します。&#xa;この初期化は単独で実行されます。"/>
+				<applyimmediate eng="The settings will be returned to default values. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"
+						 jpn="設定が初期値に戻されます。すでに編集された他の設定値は無視されます。&#xa;本当によろしいですか？" resetsonapply="true"/>
+				<selection>
+					<option value="0" eng="No Initialization" jpn="初期化しない"/>
+					<option value="16" eng="Initialization Level FACTORY" jpn="初期化レベル FACTORY"/>
+					<option value="32" eng="Initialization Level SYSTEM (Normal Initialization)" jpn="初期化レベル SYSTEM (通常の初期化)"/>
+					<option value="48" eng="Initialization Level DEBUG" jpn="初期化レベル DEBUG"/>
+					<option value="64" eng="Initialization Level REGION" jpn="初期化レベル REGION"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<!-- Power Save Settings : 省電力設定 -->
+		<group eng="Power Save Settings" jpn="省電力設定">
+			<desc eng="Adjusts settings for the power save feature."
+				  jpn="省電力に関する設定です。"/>
+
+			<entry key="registry:/CONFIG/POWER_SAVING/suspend_interval" eng="Auto Stand-by" jpn="自動スタンバイ"
+					registrytype="integer" registrybytesize="4">
+				<desc eng="Sets whether to enable the automatic stand-by feature for this system (DevKit).&#xa;If you do not operate the DevKit for a set amount of time, the DevKit will enter the stand-by mode automatically."
+					  jpn="本機(開発機)の自動スタンバイ機能を有効にするかどうかを設定します。&#xa;設定した時間、開発機を操作しないでいると自動的にスタンバイモードに入ります。"/>
+				<selection>
+					<option value="0" eng="Off" jpn="切"/>
+					<option value="60" eng="After 1 Minute" jpn="1分後"/>
+					<option value="180" eng="After 3 Minutes" jpn="3分後"/>
+					<option value="300" eng="After 5 Minutes" jpn="5分後"/>
+				</selection>
+			</entry>
+
+		</group>
+
+		<set dependson="internalhost" conditionmin="1" conditionmax="1">
+
+			<!-- Mail : メール -->
+			<group eng="Mail" jpn="メール">
+				<desc eng="Adjusts settings for the Internet mail. Note that PSN mail is out of the applicable scope."
+					  jpn="インターネットメールに関する設定です。 PSNメールに関する設定はここには含まれません。"/>
+
+				<!-- Account 00 : アカウント 00 -->
+				<group eng="Account 00" jpn="アカウント 00">
+					<desc eng="Adjusts settings for the mail account."
+						  jpn="メールアカウントに関する設定です。"/>
+
+					<!-- Account Name : アカウント名 -->
+					<entry key="registry:/CONFIG/MAIL/00/account_name" eng="Account Name" jpn="アカウント名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the name to identfy the mail account."
+							  jpn="メールアカウントの識別用の名前を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Sender's Mail Address : 送信者のメールアドレス -->
+					<entry key="registry:/CONFIG/MAIL/00/address" eng="Sender's Mail Address" jpn="送信者のメールアドレス"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the mail address shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示されるメールアドレスを設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Display Name of Mail Address : メールアドレスの表示名 -->
+					<entry key="registry:/CONFIG/MAIL/00/display_name" eng="Display Name of Mail Address" jpn="メールアドレスの表示名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the display name shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示される表示名を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Interval of Checking Newly-Arrived Mails : 新着メール検知インターバル -->
+					<entry key="registry:/CONFIG/MAIL/00/fetch_interval" eng="Interval of Checking Newly-Arrived Mails" jpn="新着メール検知インターバル"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the interval by minutes to check whether a mail arrives or not."
+							  jpn="新着メール確認のための時間間隔を分単位で設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Debug Flag : デバッグフラグ -->
+					<entry key="registry:/CONFIG/MAIL/00/debug" eng="Debug Flag" jpn="デバッグフラグ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the flags for a debugging purpose."
+							  jpn="デバッグフラグを設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Incoming Mail Server Settings : 受信サーバー設定 -->
+					<group eng="Incoming Mail Server Settings" jpn="受信サーバー設定">
+						<desc eng="Adjusts settings for the incomming mail server."
+							  jpn="メール受信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the incoming mail server."
+								  jpn="メール受信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the incoming mail server."
+								  jpn="メール受信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Address : 受信メールアドレス -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/mail_address" eng="Incoming Mail Address" jpn="受信メールアドレス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the incoming mail address."
+								  jpn="受信用メールアドレスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Protocol : メール受信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/protocol" eng="Incoming Mail Protocol" jpn="メール受信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to receive messages."
+								  jpn="メールの受信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to receive messages."
+								  jpn="メールの受信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to recevie messages."
+								  jpn="メールの受信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authentication method used to receive messages."
+								  jpn="メールの受信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Incoming Mail Server : 受信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/server_address" eng="Incoming Mail Server" jpn="受信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of incoming mail server."
+								  jpn="メール受信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/00/RECV/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g., Gmail, Hotmail) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- Outgoing Mail Server Settings : 送信サーバー設定 -->
+					<group eng="Outgoing Mail Server Settings" jpn="送信サーバー設定">
+						<desc eng="Adjusts settings for the outgoing mail server."
+							  jpn="メール送信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the outgoing mail server."
+								  jpn="メール送信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the outgoing mail server."
+								  jpn="メール送信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Outgoing Mail Protocol : メール送信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/protocol" eng="Outgoing Mail Protocol" jpn="メール送信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to send messages."
+								  jpn="メールの送信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to send messages."
+								  jpn="メールの送信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to send messages."
+								  jpn="メールの送信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authenticcation method used to send messages."
+								  jpn="メールの送信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Outgoing Mail Server" : 送信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/server_address" eng="Outgoing Mail Server" jpn="送信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of outgoing mail server."
+								  jpn="メール送信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/00/SEND/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g. Gmail, Hotmail etc.) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Draft Folder : IMAP 下書きフォルダ -->
+					<group eng="IMAP Draft Folder" jpn="IMAP 下書きフォルダ">
+						<desc eng="Adjusts settings for the IMAP draft folder."
+							  jpn="IMAPでの下書きフォルダに関する設定です。"/>
+
+						<!-- Location of Draft Folder : 下書きフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/00/DRAFT/location" eng="Location of Draft Folder" jpn="下書きフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP draft folder exists."
+								  jpn="IMAPで使用する下書き用フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Draft Folder : 下書きフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/00/DRAFT/path" eng="Path of Draft Folder" jpn="下書きフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP draft folder."
+								  jpn="IMAPで使用する下書き用フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Sent Folder : IMAP 送信済みフォルダ -->
+					<group eng="IMAP Sent Folder" jpn="IMAP 送信済みフォルダ">
+						<desc eng="Adjusts settings for the IMAP sent folder."
+							  jpn="IMAPでの送信済みフォルダに関する設定です。"/>
+
+						<!-- Location of Sent Folder : 送信済みフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/00/SENT/location" eng="Location of Sent Folder" jpn="送信済みフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP sent folder exists."
+								  jpn="IMAPで使用する送信済みフォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Sent Folder : 送信済みフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/00/SENT/path" eng="Path of Sent Folder" jpn="送信済みフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP sent folder."
+								  jpn="IMAPで使用する送信済みフォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Trash Folder : IMAP ゴミ箱フォルダ -->
+					<group eng="IMAP Trash Folder" jpn="IMAP ゴミ箱フォルダ">
+						<desc eng="Adjusts settings for the IMAP trash folder."
+							  jpn="IMAPでのゴミ箱フォルダに関する設定です"/>
+
+						<!-- Location of Trash Folder : ゴミ箱フォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/00/TRASH/location" eng="Location of Trash Folder" jpn="ゴミ箱フォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP trash folder exists."
+								  jpn="IMAPで使用するゴミ箱フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Trash Folder : ゴミ箱フォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/00/TRASH/path" eng="Path of Trash Folder" jpn="ゴミ箱フォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of  IMAP trash folder."
+								  jpn="IMAPで使用するゴミ箱フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+
+				</group>
+
+
+				<!-- Account 01 : アカウント 01 -->
+				<group eng="Account 01" jpn="アカウント 01">
+					<desc eng="Adjusts settings for the mail account."
+						  jpn="メールアカウントに関する設定です。"/>
+
+					<!-- Account Name : アカウント名 -->
+					<entry key="registry:/CONFIG/MAIL/01/account_name" eng="Account Name" jpn="アカウント名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the name to identfy the mail account."
+							  jpn="メールアカウントの識別用の名前を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Sender's Mail Address : 送信者のメールアドレス -->
+					<entry key="registry:/CONFIG/MAIL/01/address" eng="Sender's Mail Address" jpn="送信者のメールアドレス"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the mail address shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示されるメールアドレスを設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Display Name of Mail Address : メールアドレスの表示名 -->
+					<entry key="registry:/CONFIG/MAIL/01/display_name" eng="Display Name of Mail Address" jpn="メールアドレスの表示名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the display name shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示される表示名を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Interval of Checking Newly-Arrived Mails : 新着メール検知インターバル -->
+					<entry key="registry:/CONFIG/MAIL/01/fetch_interval" eng="Interval of Checking Newly-Arrived Mails" jpn="新着メール検知インターバル"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the interval by minutes to check whether a mail arrives or not."
+							  jpn="新着メール確認のための時間間隔を分単位で設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Debug Flag : デバッグフラグ -->
+					<entry key="registry:/CONFIG/MAIL/01/debug" eng="Debug Flag" jpn="デバッグフラグ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the flags for a debugging purpose."
+							  jpn="デバッグフラグを設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Incoming Mail Server Settings : 受信サーバー設定 -->
+					<group eng="Incoming Mail Server Settings" jpn="受信サーバー設定">
+						<desc eng="Adjusts settings for the incomming mail server."
+							  jpn="メール受信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the incoming mail server."
+								  jpn="メール受信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the incoming mail server."
+								  jpn="メール受信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Address : 受信メールアドレス -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/mail_address" eng="Incoming Mail Address" jpn="受信メールアドレス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the incoming mail address."
+								  jpn="受信用メールアドレスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Protocol : メール受信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/protocol" eng="Incoming Mail Protocol" jpn="メール受信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to receive messages."
+								  jpn="メールの受信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to receive messages."
+								  jpn="メールの受信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to recevie messages."
+								  jpn="メールの受信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authentication method used to receive messages."
+								  jpn="メールの受信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Incoming Mail Server : 受信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/server_address" eng="Incoming Mail Server" jpn="受信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of incoming mail server."
+								  jpn="メール受信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/01/RECV/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g., Gmail, Hotmail) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- Outgoing Mail Server Settings : 送信サーバー設定 -->
+					<group eng="Outgoing Mail Server Settings" jpn="送信サーバー設定">
+						<desc eng="Adjusts settings for the outgoing mail server."
+							  jpn="メール送信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the outgoing mail server."
+								  jpn="メール送信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the outgoing mail server."
+								  jpn="メール送信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Outgoing Mail Protocol : メール送信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/protocol" eng="Outgoing Mail Protocol" jpn="メール送信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to send messages."
+								  jpn="メールの送信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to send messages."
+								  jpn="メールの送信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to send messages."
+								  jpn="メールの送信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authenticcation method used to send messages."
+								  jpn="メールの送信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Outgoing Mail Server" : 送信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/server_address" eng="Outgoing Mail Server" jpn="送信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of outgoing mail server."
+								  jpn="メール送信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/01/SEND/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g. Gmail, Hotmail etc.) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Draft Folder : IMAP 下書きフォルダ -->
+					<group eng="IMAP Draft Folder" jpn="IMAP 下書きフォルダ">
+						<desc eng="Adjusts settings for the IMAP draft folder."
+							  jpn="IMAPでの下書きフォルダに関する設定です。"/>
+
+						<!-- Location of Draft Folder : 下書きフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/01/DRAFT/location" eng="Location of Draft Folder" jpn="下書きフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP draft folder exists."
+								  jpn="IMAPで使用する下書き用フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Draft Folder : 下書きフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/01/DRAFT/path" eng="Path of Draft Folder" jpn="下書きフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP draft folder."
+								  jpn="IMAPで使用する下書き用フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Sent Folder : IMAP 送信済みフォルダ -->
+					<group eng="IMAP Sent Folder" jpn="IMAP 送信済みフォルダ">
+						<desc eng="Adjusts settings for the IMAP sent folder."
+							  jpn="IMAPでの送信済みフォルダに関する設定です。"/>
+
+						<!-- Location of Sent Folder : 送信済みフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/01/SENT/location" eng="Location of Sent Folder" jpn="送信済みフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP sent folder exists."
+								  jpn="IMAPで使用する送信済みフォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Sent Folder : 送信済みフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/01/SENT/path" eng="Path of Sent Folder" jpn="送信済みフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP sent folder."
+								  jpn="IMAPで使用する送信済みフォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Trash Folder : IMAP ゴミ箱フォルダ -->
+					<group eng="IMAP Trash Folder" jpn="IMAP ゴミ箱フォルダ">
+						<desc eng="Adjusts settings for the IMAP trash folder."
+							  jpn="IMAPでのゴミ箱フォルダに関する設定です"/>
+
+						<!-- Location of Trash Folder : ゴミ箱フォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/01/TRASH/location" eng="Location of Trash Folder" jpn="ゴミ箱フォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP trash folder exists."
+								  jpn="IMAPで使用するゴミ箱フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Trash Folder : ゴミ箱フォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/01/TRASH/path" eng="Path of Trash Folder" jpn="ゴミ箱フォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of  IMAP trash folder."
+								  jpn="IMAPで使用するゴミ箱フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+				</group>
+
+				<!-- Account 02 : アカウント 02 -->
+				<group eng="Account 02" jpn="アカウント 02">
+					<desc eng="Adjusts settings for the mail account."
+						  jpn="メールアカウントに関する設定です。"/>
+
+					<!-- Account Name : アカウント名 -->
+					<entry key="registry:/CONFIG/MAIL/02/account_name" eng="Account Name" jpn="アカウント名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the name to identfy the mail account."
+							  jpn="メールアカウントの識別用の名前を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Sender's Mail Address : 送信者のメールアドレス -->
+					<entry key="registry:/CONFIG/MAIL/02/address" eng="Sender's Mail Address" jpn="送信者のメールアドレス"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the mail address shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示されるメールアドレスを設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Display Name of Mail Address : メールアドレスの表示名 -->
+					<entry key="registry:/CONFIG/MAIL/02/display_name" eng="Display Name of Mail Address" jpn="メールアドレスの表示名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the display name shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示される表示名を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Interval of Checking Newly-Arrived Mails : 新着メール検知インターバル -->
+					<entry key="registry:/CONFIG/MAIL/02/fetch_interval" eng="Interval of Checking Newly-Arrived Mails" jpn="新着メール検知インターバル"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the interval by minutes to check whether a mail arrives or not."
+							  jpn="新着メール確認のための時間間隔を分単位で設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Debug Flag : デバッグフラグ -->
+					<entry key="registry:/CONFIG/MAIL/02/debug" eng="Debug Flag" jpn="デバッグフラグ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the flags for a debugging purpose."
+							  jpn="デバッグフラグを設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Incoming Mail Server Settings : 受信サーバー設定 -->
+					<group eng="Incoming Mail Server Settings" jpn="受信サーバー設定">
+						<desc eng="Adjusts settings for the incomming mail server."
+							  jpn="メール受信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the incoming mail server."
+								  jpn="メール受信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the incoming mail server."
+								  jpn="メール受信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Address : 受信メールアドレス -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/mail_address" eng="Incoming Mail Address" jpn="受信メールアドレス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the incoming mail address."
+								  jpn="受信用メールアドレスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Protocol : メール受信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/protocol" eng="Incoming Mail Protocol" jpn="メール受信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to receive messages."
+								  jpn="メールの受信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to receive messages."
+								  jpn="メールの受信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to recevie messages."
+								  jpn="メールの受信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authentication method used to receive messages."
+								  jpn="メールの受信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Incoming Mail Server : 受信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/server_address" eng="Incoming Mail Server" jpn="受信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of incoming mail server."
+								  jpn="メール受信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/02/RECV/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g., Gmail, Hotmail) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- Outgoing Mail Server Settings : 送信サーバー設定 -->
+					<group eng="Outgoing Mail Server Settings" jpn="送信サーバー設定">
+						<desc eng="Adjusts settings for the outgoing mail server."
+							  jpn="メール送信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the outgoing mail server."
+								  jpn="メール送信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the outgoing mail server."
+								  jpn="メール送信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Outgoing Mail Protocol : メール送信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/protocol" eng="Outgoing Mail Protocol" jpn="メール送信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to send messages."
+								  jpn="メールの送信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to send messages."
+								  jpn="メールの送信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to send messages."
+								  jpn="メールの送信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authenticcation method used to send messages."
+								  jpn="メールの送信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Outgoing Mail Server" : 送信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/server_address" eng="Outgoing Mail Server" jpn="送信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of outgoing mail server."
+								  jpn="メール送信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/02/SEND/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g. Gmail, Hotmail etc.) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Draft Folder : IMAP 下書きフォルダ -->
+					<group eng="IMAP Draft Folder" jpn="IMAP 下書きフォルダ">
+						<desc eng="Adjusts settings for the IMAP draft folder."
+							  jpn="IMAPでの下書きフォルダに関する設定です。"/>
+
+						<!-- Location of Draft Folder : 下書きフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/02/DRAFT/location" eng="Location of Draft Folder" jpn="下書きフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP draft folder exists."
+								  jpn="IMAPで使用する下書き用フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Draft Folder : 下書きフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/02/DRAFT/path" eng="Path of Draft Folder" jpn="下書きフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP draft folder."
+								  jpn="IMAPで使用する下書き用フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Sent Folder : IMAP 送信済みフォルダ -->
+					<group eng="IMAP Sent Folder" jpn="IMAP 送信済みフォルダ">
+						<desc eng="Adjusts settings for the IMAP sent folder."
+							  jpn="IMAPでの送信済みフォルダに関する設定です。"/>
+
+						<!-- Location of Sent Folder : 送信済みフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/02/SENT/location" eng="Location of Sent Folder" jpn="送信済みフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP sent folder exists."
+								  jpn="IMAPで使用する送信済みフォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Sent Folder : 送信済みフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/02/SENT/path" eng="Path of Sent Folder" jpn="送信済みフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP sent folder."
+								  jpn="IMAPで使用する送信済みフォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Trash Folder : IMAP ゴミ箱フォルダ -->
+					<group eng="IMAP Trash Folder" jpn="IMAP ゴミ箱フォルダ">
+						<desc eng="Adjusts settings for the IMAP trash folder."
+							  jpn="IMAPでのゴミ箱フォルダに関する設定です"/>
+
+						<!-- Location of Trash Folder : ゴミ箱フォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/02/TRASH/location" eng="Location of Trash Folder" jpn="ゴミ箱フォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP trash folder exists."
+								  jpn="IMAPで使用するゴミ箱フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Trash Folder : ゴミ箱フォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/02/TRASH/path" eng="Path of Trash Folder" jpn="ゴミ箱フォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of  IMAP trash folder."
+								  jpn="IMAPで使用するゴミ箱フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+				</group>
+
+				<!-- Account 03 : アカウント 03 -->
+				<group eng="Account 03" jpn="アカウント 03">
+					<desc eng="Adjusts settings for the mail account."
+						  jpn="メールアカウントに関する設定です。"/>
+
+					<!-- Account Name : アカウント名 -->
+					<entry key="registry:/CONFIG/MAIL/03/account_name" eng="Account Name" jpn="アカウント名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the name to identfy the mail account."
+							  jpn="メールアカウントの識別用の名前を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Sender's Mail Address : 送信者のメールアドレス -->
+					<entry key="registry:/CONFIG/MAIL/03/address" eng="Sender's Mail Address" jpn="送信者のメールアドレス"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the mail address shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示されるメールアドレスを設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Display Name of Mail Address : メールアドレスの表示名 -->
+					<entry key="registry:/CONFIG/MAIL/03/display_name" eng="Display Name of Mail Address" jpn="メールアドレスの表示名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the display name shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示される表示名を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Interval of Checking Newly-Arrived Mails : 新着メール検知インターバル -->
+					<entry key="registry:/CONFIG/MAIL/03/fetch_interval" eng="Interval of Checking Newly-Arrived Mails" jpn="新着メール検知インターバル"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the interval by minutes to check whether a mail arrives or not."
+							  jpn="新着メール確認のための時間間隔を分単位で設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Debug Flag : デバッグフラグ -->
+					<entry key="registry:/CONFIG/MAIL/03/debug" eng="Debug Flag" jpn="デバッグフラグ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the flags for a debugging purpose."
+							  jpn="デバッグフラグを設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Incoming Mail Server Settings : 受信サーバー設定 -->
+					<group eng="Incoming Mail Server Settings" jpn="受信サーバー設定">
+						<desc eng="Adjusts settings for the incomming mail server."
+							  jpn="メール受信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the incoming mail server."
+								  jpn="メール受信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the incoming mail server."
+								  jpn="メール受信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Address : 受信メールアドレス -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/mail_address" eng="Incoming Mail Address" jpn="受信メールアドレス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the incoming mail address."
+								  jpn="受信用メールアドレスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Protocol : メール受信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/protocol" eng="Incoming Mail Protocol" jpn="メール受信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to receive messages."
+								  jpn="メールの受信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to receive messages."
+								  jpn="メールの受信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to recevie messages."
+								  jpn="メールの受信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authentication method used to receive messages."
+								  jpn="メールの受信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Incoming Mail Server : 受信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/server_address" eng="Incoming Mail Server" jpn="受信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of incoming mail server."
+								  jpn="メール受信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/03/RECV/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g., Gmail, Hotmail) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- Outgoing Mail Server Settings : 送信サーバー設定 -->
+					<group eng="Outgoing Mail Server Settings" jpn="送信サーバー設定">
+						<desc eng="Adjusts settings for the outgoing mail server."
+							  jpn="メール送信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the outgoing mail server."
+								  jpn="メール送信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the outgoing mail server."
+								  jpn="メール送信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Outgoing Mail Protocol : メール送信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/protocol" eng="Outgoing Mail Protocol" jpn="メール送信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to send messages."
+								  jpn="メールの送信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to send messages."
+								  jpn="メールの送信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to send messages."
+								  jpn="メールの送信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authenticcation method used to send messages."
+								  jpn="メールの送信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Outgoing Mail Server" : 送信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/server_address" eng="Outgoing Mail Server" jpn="送信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of outgoing mail server."
+								  jpn="メール送信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/03/SEND/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g. Gmail, Hotmail etc.) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Draft Folder : IMAP 下書きフォルダ -->
+					<group eng="IMAP Draft Folder" jpn="IMAP 下書きフォルダ">
+						<desc eng="Adjusts settings for the IMAP draft folder."
+							  jpn="IMAPでの下書きフォルダに関する設定です。"/>
+
+						<!-- Location of Draft Folder : 下書きフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/03/DRAFT/location" eng="Location of Draft Folder" jpn="下書きフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP draft folder exists."
+								  jpn="IMAPで使用する下書き用フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Draft Folder : 下書きフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/03/DRAFT/path" eng="Path of Draft Folder" jpn="下書きフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP draft folder."
+								  jpn="IMAPで使用する下書き用フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Sent Folder : IMAP 送信済みフォルダ -->
+					<group eng="IMAP Sent Folder" jpn="IMAP 送信済みフォルダ">
+						<desc eng="Adjusts settings for the IMAP sent folder."
+							  jpn="IMAPでの送信済みフォルダに関する設定です。"/>
+
+						<!-- Location of Sent Folder : 送信済みフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/03/SENT/location" eng="Location of Sent Folder" jpn="送信済みフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP sent folder exists."
+								  jpn="IMAPで使用する送信済みフォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Sent Folder : 送信済みフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/03/SENT/path" eng="Path of Sent Folder" jpn="送信済みフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP sent folder."
+								  jpn="IMAPで使用する送信済みフォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Trash Folder : IMAP ゴミ箱フォルダ -->
+					<group eng="IMAP Trash Folder" jpn="IMAP ゴミ箱フォルダ">
+						<desc eng="Adjusts settings for the IMAP trash folder."
+							  jpn="IMAPでのゴミ箱フォルダに関する設定です"/>
+
+						<!-- Location of Trash Folder : ゴミ箱フォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/03/TRASH/location" eng="Location of Trash Folder" jpn="ゴミ箱フォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP trash folder exists."
+								  jpn="IMAPで使用するゴミ箱フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Trash Folder : ゴミ箱フォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/03/TRASH/path" eng="Path of Trash Folder" jpn="ゴミ箱フォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of  IMAP trash folder."
+								  jpn="IMAPで使用するゴミ箱フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+				</group>
+
+				<!-- Account 04 : アカウント 04 -->
+				<group eng="Account 04" jpn="アカウント 04">
+					<desc eng="Adjusts settings for the mail account."
+						  jpn="メールアカウントに関する設定です。"/>
+
+					<!-- Account Name : アカウント名 -->
+					<entry key="registry:/CONFIG/MAIL/04/account_name" eng="Account Name" jpn="アカウント名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the name to identfy the mail account."
+							  jpn="メールアカウントの識別用の名前を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Sender's Mail Address : 送信者のメールアドレス -->
+					<entry key="registry:/CONFIG/MAIL/04/address" eng="Sender's Mail Address" jpn="送信者のメールアドレス"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the mail address shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示されるメールアドレスを設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Display Name of Mail Address : メールアドレスの表示名 -->
+					<entry key="registry:/CONFIG/MAIL/04/display_name" eng="Display Name of Mail Address" jpn="メールアドレスの表示名"
+							registrytype="string" registrybytesize="256" norebootneeded="true">
+						<desc eng="Sets the display name shown in From: field."
+							  jpn="メール送信者欄 (From:) に表示される表示名を設定します。"/>
+						<textual minlen="0" maxlen="255" encoding="ascii"/>
+					</entry>
+
+					<!-- Interval of Checking Newly-Arrived Mails : 新着メール検知インターバル -->
+					<entry key="registry:/CONFIG/MAIL/04/fetch_interval" eng="Interval of Checking Newly-Arrived Mails" jpn="新着メール検知インターバル"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the interval by minutes to check whether a mail arrives or not."
+							  jpn="新着メール確認のための時間間隔を分単位で設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Debug Flag : デバッグフラグ -->
+					<entry key="registry:/CONFIG/MAIL/04/debug" eng="Debug Flag" jpn="デバッグフラグ"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the flags for a debugging purpose."
+							  jpn="デバッグフラグを設定します。"/>
+						<intvalue minvalue="0" maxvalue="4294967295"/>
+					</entry>
+
+					<!-- Incoming Mail Server Settings : 受信サーバー設定 -->
+					<group eng="Incoming Mail Server Settings" jpn="受信サーバー設定">
+						<desc eng="Adjusts settings for the incomming mail server."
+							  jpn="メール受信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the incoming mail server."
+								  jpn="メール受信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the incoming mail server."
+								  jpn="メール受信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Address : 受信メールアドレス -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/mail_address" eng="Incoming Mail Address" jpn="受信メールアドレス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the incoming mail address."
+								  jpn="受信用メールアドレスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Incoming Mail Protocol : メール受信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/protocol" eng="Incoming Mail Protocol" jpn="メール受信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to receive messages."
+								  jpn="メールの受信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to receive messages."
+								  jpn="メールの受信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to recevie messages."
+								  jpn="メールの受信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authentication method used to receive messages."
+								  jpn="メールの受信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Incoming Mail Server : 受信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/server_address" eng="Incoming Mail Server" jpn="受信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of incoming mail server."
+								  jpn="メール受信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/04/RECV/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g., Gmail, Hotmail) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- Outgoing Mail Server Settings : 送信サーバー設定 -->
+					<group eng="Outgoing Mail Server Settings" jpn="送信サーバー設定">
+						<desc eng="Adjusts settings for the outgoing mail server."
+							  jpn="メール送信サーバに関する設定です。"/>
+
+						<!-- User Name : ユーザ名 -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/user_name" eng="User Name" jpn="ユーザ名"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the user name for the outgoing mail server."
+								  jpn="メール送信サーバのユーザ名を設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Password : パスワード -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/password" eng="Password" jpn="パスワード"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the password for the outgoing mail server."
+								  jpn="メール送信サーバのパスワードを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Outgoing Mail Protocol : メール送信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/protocol" eng="Outgoing Mail Protocol" jpn="メール送信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the protocol used to send messages."
+								  jpn="メールの送信に使うプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Server Port Number : サーバーポート番号 -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/port" eng="Server Port Number" jpn="サーバーポート番号"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the port number used to send messages."
+								  jpn="メールの送信に使うポート番号を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Secure Communication Protocol : セキュア通信プロトコル -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/connection_type" eng="Secure Communication Protocol" jpn="セキュア通信プロトコル"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the secure communication protocol used to send messages."
+								  jpn="メールの送信時に暗号化された通信を使う際のプロトコルを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Authentication : 認証方式 -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/auth_type" eng="Authentication" jpn="認証方式"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the authenticcation method used to send messages."
+								  jpn="メールの送信時に認証を行う際の方式を設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Outgoing Mail Server" : 送信サーバー -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/server_address" eng="Outgoing Mail Server" jpn="送信サーバー"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the FQDN of outgoing mail server."
+								  jpn="メール送信サーバーのFQDNを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+						<!-- Service Provider ID : サービスプロバイダID -->
+						<entry key="registry:/CONFIG/MAIL/04/SEND/service_type" eng="Service Provider ID" jpn="サービスプロバイダID"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets the mail service provider (e.g. Gmail, Hotmail etc.) ID."
+								  jpn="メールサービスプロバイダ(Gmail、Hotmailなど)を判別するためのIDを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Draft Folder : IMAP 下書きフォルダ -->
+					<group eng="IMAP Draft Folder" jpn="IMAP 下書きフォルダ">
+						<desc eng="Adjusts settings for the IMAP draft folder."
+							  jpn="IMAPでの下書きフォルダに関する設定です。"/>
+
+						<!-- Location of Draft Folder : 下書きフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/04/DRAFT/location" eng="Location of Draft Folder" jpn="下書きフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP draft folder exists."
+								  jpn="IMAPで使用する下書き用フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Draft Folder : 下書きフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/04/DRAFT/path" eng="Path of Draft Folder" jpn="下書きフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP draft folder."
+								  jpn="IMAPで使用する下書き用フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Sent Folder : IMAP 送信済みフォルダ -->
+					<group eng="IMAP Sent Folder" jpn="IMAP 送信済みフォルダ">
+						<desc eng="Adjusts settings for the IMAP sent folder."
+							  jpn="IMAPでの送信済みフォルダに関する設定です。"/>
+
+						<!-- Location of Sent Folder : 送信済みフォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/04/SENT/location" eng="Location of Sent Folder" jpn="送信済みフォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP sent folder exists."
+								  jpn="IMAPで使用する送信済みフォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Sent Folder : 送信済みフォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/04/SENT/path" eng="Path of Sent Folder" jpn="送信済みフォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of IMAP sent folder."
+								  jpn="IMAPで使用する送信済みフォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+					<!-- IMAP Trash Folder : IMAP ゴミ箱フォルダ -->
+					<group eng="IMAP Trash Folder" jpn="IMAP ゴミ箱フォルダ">
+						<desc eng="Adjusts settings for the IMAP trash folder."
+							  jpn="IMAPでのゴミ箱フォルダに関する設定です"/>
+
+						<!-- Location of Trash Folder : ゴミ箱フォルダの位置 -->
+						<entry key="registry:/CONFIG/MAIL/04/TRASH/location" eng="Location of Trash Folder" jpn="ゴミ箱フォルダの位置"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+							<desc eng="Sets where the IMAP trash folder exists."
+								  jpn="IMAPで使用するゴミ箱フォルダがどこにあるかを設定します。"/>
+							<intvalue minvalue="0" maxvalue="4294967295"/>
+						</entry>
+
+						<!-- Path of Trash Folder : ゴミ箱フォルダのパス -->
+						<entry key="registry:/CONFIG/MAIL/04/TRASH/path" eng="Path of Trash Folder" jpn="ゴミ箱フォルダのパス"
+								registrytype="string" registrybytesize="256" norebootneeded="true">
+							<desc eng="Sets the file path of  IMAP trash folder."
+								  jpn="IMAPで使用するゴミ箱フォルダのファイルパスを設定します。"/>
+							<textual minlen="0" maxlen="255" encoding="ascii"/>
+						</entry>
+
+					</group>
+
+				</group>
+
+			</group>
+
+		</set>
+
+		<!-- ★ Debug Settings -->
+		<group eng="★ Debug Settings">
+			<desc eng=" "/>
+
+			<!-- System Update -->
+			<group eng="System Update">
+				<desc eng=" "/>
+
+				<!-- Update Server URL -->
+				<entry key="registry:/CONFIG/SYSTEM/update_server_url" eng="Update Server URL"
+						registrytype="string" registrybytesize="512" norebootneeded="true">
+					<desc eng=" "/>
+					<textual minlen="0" maxlen="511" encoding="ascii"/>
+				</entry>
+
+				<!-- Show PUP List -->
+				<entry key="registry:/CONFIG/SYSTEM/update_pup_list_flag" eng="Show PUP List"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Enable Host0 -->
+				<entry key="registry:/CONFIG/SYSTEM/update_enable_host0" eng="Enable Host0"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="SD"/>
+						<option value="1" eng="Host0"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- PlayStation(R)Network -->
+			<group eng="PlayStation(R)Network">
+				<desc eng=" "/>
+
+				<!-- NP Environment -->
+				<entry key="registry:/CONFIG/NP/env" eng="NP Environment"
+						registrytype="string" registrybytesize="17">
+					<desc eng=" "/>
+					<textual minlen="0" maxlen="16" encoding="ascii"/>
+				</entry>
+
+				<!-- NP Debug -->
+				<entry key="registry:/CONFIG/NP/debug" eng="NP Debug"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Nav-only NP -->
+				<entry key="registry:/CONFIG/NP/nav_only" eng="Nav-only NP"
+						registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Service ID -->
+				<entry key="registry:/CONFIG/NP/title_id" eng="Service ID"
+						registrytype="string" registrybytesize="37" norebootneeded="true">
+					<desc eng=" "/>
+					<textual minlen="0" maxlen="36" encoding="ascii"/>
+				</entry>
+
+				<!-- PlayStation(R)Store Ad Clock -->
+				<entry key="registry:/CONFIG/NP/np_ad_clock_diff" eng="PlayStation(R)Store Ad Clock"
+						registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+					<desc eng=" "/>
+					<intvalue minvalue="-2147483648" maxvalue="2147483647"/>
+				</entry>
+
+				<!-- Geo Filtering for PlayStation(R)Store -->
+				<entry key="registry:/CONFIG/NP/np_geo_filtering" eng="Geo Filtering for PlayStation(R)Store"
+						registrytype="integer" registrybytesize="4" dependson="internalhost" conditionmin="1" conditionmax="1" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Normal"/>
+						<option value="1" eng="Always Succeed"/>
+						<option value="2" eng="Always Fail"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- Location Data -->
+			<group eng="Location Data">
+				<desc eng=" "/>
+
+				<!-- Emulate Permission -->
+				<entry key="registry:/CONFIG/LOCATION/debug_permission" eng="Emulate Permission"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Off"/>
+						<option value="1" eng="On"/>
+					</selection>
+				</entry>
+
+				<!-- Permission Status -->
+				<entry key="registry:/CONFIG/LOCATION/debug_permission_status" eng="Permission Status"
+						registrytype="integer" registrybytesize="4" norebootneeded="true">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Disable"/>
+						<option value="1" eng="Not Yet Accessed"/>
+						<option value="2" eng="Deny"/>
+						<option value="3" eng="Allow"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<!-- System -->
+			<group eng="System">
+				<desc eng=" "/>
+
+				<!-- ○ Button Behavior -->
+				<entry key="registry:/CONFIG/SYSTEM/button_assign" eng="○ Button Behavior"
+						registrytype="integer" registrybytesize="4">
+					<desc eng=" "/>
+					<selection>
+						<option value="0" eng="Enter"/>
+						<option value="1" eng="Back"/>
+					</selection>
+				</entry>
+
+			</group>
+
+			<set dependson="internalhost" conditionmin="1" conditionmax="1">
+
+				<!-- Mobile Network Settings -->
+				<group eng="Mobile Network Settings">
+					<desc eng=" "/>
+
+					<!-- COM Operation Mode -->
+					<entry key="registry:/CONFIG/TEL/is_com_exist" eng="COM Operation Mode"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng="Sets the operation mode of the COM device."/>
+						<intvalue minvalue="-2147483648" maxvalue="2147483647"/>
+					</entry>
+
+					<!-- IMSI Number -->
+					<entry key="registry:/CONFIG/TEL/imsi" eng="IMSI Number"
+							registrytype="string" registrybytesize="16" norebootneeded="true">
+						<desc eng="Sets the 15-digit IMSI number of the SIM card."/>
+						<textual minlen="15" maxlen="15" encoding="ascii"/>
+					</entry>
+
+					<!-- Mobile Country Code (MCC) -->
+					<entry key="registry:/CONFIG/TEL/mcc" eng="Mobile Country Code (MCC)"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<intvalue minvalue="0" maxvalue="999"/>
+					</entry>
+
+					<!-- Mobile Network Code (MNC) -->
+					<entry key="registry:/CONFIG/TEL/mnc" eng="Mobile Network Code (MNC)"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<intvalue minvalue="0" maxvalue="999"/>
+					</entry>
+
+					<!-- Network Selection -->
+					<entry key="registry:/CONFIG/TEL/network_selection" eng="Network Selection"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<selection>
+							<option value="0" eng="Automatic"/>
+							<option value="1" eng="Manual"/>
+						</selection>
+					</entry>
+
+					<!-- Enable Data Roaming -->
+					<entry key="registry:/CONFIG/TEL/enable_data_roaming" eng="Enable Data Roaming"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<selection>
+							<option value="0" eng="Do Not Allow"/>
+							<option value="1" eng="Allow"/>
+						</selection>
+					</entry>
+
+				</group>
+
+				<!-- Miscellaneous -->
+				<group eng="Miscellaneous">
+					<desc eng=" "/>
+
+					<!-- Initial Setup -->
+					<entry key="registry:/CONFIG/SYSTEM/initialize" eng="Initial Setup"
+							registrytype="integer" registrybytesize="4" norebootneeded="true">
+						<desc eng=" "/>
+						<selection>
+							<option value="0" eng="Not Completed"/>
+							<option value="1" eng="Completed"/>
+						</selection>
+					</entry>
+
+					<!-- Region Settings -->
+					<entry key="registry:/DEVENV/TOOL/region_masquerade" eng="Region Settings"
+							registrytype="integer" registrybytesize="4" forcerefresh="true">
+						<desc eng="If you change the region, the settings whose default values are different in each region will be returned to their default values.&#xa;This setting will be exclusively executed."/>
+						<applyimmediate eng="This setting will be exclusively executed. Any already set settings will be ignored.&#xa;Are you sure you want to continue?"/>
+						<selection>
+							<option value="0" eng="Not Set"/>
+							<option value="1" eng="Japan"/>
+							<option value="2" eng="North America"/>
+							<option value="3" eng="Oceania"/>
+							<option value="4" eng="UK"/>
+							<option value="5" eng="Europe"/>
+							<option value="6" eng="Korea"/>
+							<option value="7" eng="Southeast Asia"/>
+							<option value="8" eng="Taiwan"/>
+							<option value="9" eng="Russia"/>
+							<option value="10" eng="Mexico"/>
+							<option value="11" eng="DevKit"/>
+						</selection>
+						<valuedepends condition="0">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="1">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="2">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="3">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="4">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="5">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="6">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="7">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="8">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="9">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="10">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+						<valuedepends condition="11">
+							<valuedependskey key="registry:/CONFIG/SYSTEM/init_settings" value="64"/>
+						</valuedepends>
+					</entry>
+
+				</group>
+
+			</set>
+
+		</group>
+
+	</set>
+	
+</registry>

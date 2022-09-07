@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea_resource style_id="A_1" >
+
+	<!-- システムファンクションエリア 最大7個 -->
+	<gate>
+		<startup_img>default_gate.png</startup_img>
+		<target>game</target>
+		<text>Start</text>
+	</gate>
+
+	<!-- 各Space配置 -->
+	<frame id="frame3" multi="o" autoflip="0" >
+	
+		<liveitem id="1" from="2009-12-31T00:00:00Z" until="9999-12-31T23:59:59Z" lastm="2009-12-30T16:58:17Z" >
+			<target></target>
+			<text>
+				<fm size="10" italic="1">Settings</fm>
+			</text>
+		</liveitem>
+
+	</frame>
+
+</livearea_resource>
+

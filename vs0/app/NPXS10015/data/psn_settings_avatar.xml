@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: psn_settings_avatar.xml 26849 2010-10-26 11:27:03Z udagawa $ -->
+<system_settings version="1.0" plugin="psn_settings_plugin">
+  <!-- アバター選択画面 -->
+  <setting_list id="select_avatar" title="msg_avatar" style="edit">
+		<list id="avatar_category" title=" ">
+			<list_item id="category1" title="Items / Miscellaneous" value="1"/>
+			<list_item id="category2" title="category2" value="2"/>
+		</list>
+		<user_custom id="avatar_list"/>
+  </setting_list>
+</system_settings>
+<!--
+		Local Variables:
+		coding:utf-8
+		tab-width:2
+		End:
+  -->

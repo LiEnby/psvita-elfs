@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: psn_settings.xml 28569 2010-11-11 03:50:32Z udagawa $ -->
+<system_settings version="1.0" plugin="psn_settings_plugin">
+  <!-- PlayStation(R)Network設定 -->
+  <setting_list id="psn_settings" title="msg_psn">
+
+    <!--
+				未 Sign Up
+			-->
+
+		<!-- PlayStation(R)Networkへようこそ! -->
+    <user_custom id="wellcome"/>
+
+    <button id="signup" icon="tex_spanner" title="msg_signup"/>
+
+    <!-- 
+				 Sign Up 済み & Sign In
+			-->
+
+		<!-- 登録されているサインインID(Eメールアドレス) -->
+    <label id="signin_id" icon="tex_spanner" title="msg_account"/>
+
+
+		<!-- サインイン/サインアウト -->
+    <button id="signin"
+						icon="tex_spanner"
+						title="msg_sign_in"/>
+
+    <button id="signout"
+						icon="tex_spanner"
+						title="msg_sign_out"/>
+
+    <!-- アカウント管理 -->
+    <setting_list id="account_management"
+									style="edit"
+									icon="tex_spanner"
+									title="msg_account_information"
+									navi_left="cancel"
+									navi_center="policy"
+									navi_right="send">
+
+			<!-- オンラインID -->
+			<label id="online_id" title="msg_online_id"/>
+
+			<!-- アバター -->
+			<spacer id="am_spacer_avatar1"/>
+			<label id="avatar" title="msg_avatar"/>
+			<spacer id="am_spacer_avatar2"/>
+
+			<!-- 自己紹介 -->
+			<text_field id="about_me" title="msg_about_me"
+									max_length="21"
+									min_length="0"/>
+
+			<spacer id="am_spacer1t"/>
+			<spacer id="am_line1" line="on"/>
+			<spacer id="am_spacer1b"/>
+
+			<!-- サインインID -->
+			<text_field id="change_signin_id" title="msg_signin_id"
+									max_length="63"
+									min_length="6"
+									keyboard_type="url"/>
+
+			<!-- パスワード -->
+			<text_field id="password1" title="msg_pw"
+									max_length="255"
+									min_length="8"
+									keyboard_type="alphabet"
+									password="on"/>
+			<text_field id="password2" title="msg_password_reenter"
+									max_length="255"
+									min_length="8"
+									keyboard_type="alphabet"
+									password="on"/>
+
+			<spacer id="am_spacer2t"/>
+			<spacer id="am_line2" line="on"/>
+			<spacer id="am_spacer2b"/>
+
+			<!-- 名前 -->
+			<text_field id="name_first" title="msg_first_name"
+									max_length="32"
+									min_length="1"
+									keyboard_type="default"/>
+			<text_field id="name_last" title="msg_last_name"
+									max_length="32"
+									min_length="1"
+									keyboard_type="default"/>
+			<label id="gender" title="msg_gender_optional"/>
+
+			<spacer id="am_spacer3t"/>
+			<spacer id="am_line3" line="on"/>
+			<spacer id="am_spacer3b"/>
+
+			<!-- 住所 -->
+			<label id="country" title="msg_country_residence"/>
+			<text_field id="addr_postcode" title="msg_postal_code"
+									max_length="10"
+									min_length="1"/>
+			<list id="addr_state_list" title="msg_state"/>
+			<text_field id="addr_state" title="msg_state"
+									max_length="32"
+									min_length="1"/>
+			<list id="addr_city_list" title="msg_city"/>
+			<text_field id="addr_city" title="msg_city"
+									max_length="32"
+									min_length="1"/>
+			<text_field id="address1" title="msg_address1"
+									max_length="32"
+									min_length="1"/>
+			<text_field id="address2" title="msg_address2"
+									max_length="32"
+									min_length="0"/>
+			<text_field id="address3" title="msg_address3"
+									max_length="32"
+									min_length="0"/>
+
+			<spacer id="am_spacer4"/>
+
+			<spacer id="am_spacer4t"/>
+			<spacer id="am_line4" line="on"/>
+			<spacer id="am_spacer4b"/>
+
+			<!-- よく使う言語 -->
+			<list id="my_language1" title=" "/>
+			<list id="my_language2" title=" "/>
+			<list id="my_language3" title=" "/>
+
+			<spacer id="am_spacer5t"/>
+			<spacer id="am_line5" line="on"/>
+			<spacer id="am_spacer5b"/>
+
+			<!-- 配信メールの設定 -->
+			<user_custom id="optin_desc"/>
+
+			<toggle_switch id="optin" title="msg_optin_yes_psn_jp_kr"/>
+
+			<toggle_switch id="optin_partner" title="msg_optin_yes_psnpartner"/>
+
+			<spacer id="am_spacer7"/>
+
+		</setting_list> <!-- account_management -->
+
+		<!-- サブアカウント管理 -->
+		<setting_list id="subaccount_management"
+									icon="tex_spanner"
+									title="msg_sub_account_management">
+			<user_custom id="subaccount_dummy"/>
+		</setting_list>
+
+		<!-- 機器認証 -->
+    <setting_list id="activation"
+									icon="tex_spanner" title="msg_system_activation">
+
+			<setting_list id="game_activation"
+										icon="tex_spanner" title="msg_game">
+				<setting_list id="activate_game"
+											navi_right="OK"
+											icon="tex_spanner" title="msg_activate">
+					<user_custom id="activate_game_text"/>
+				</setting_list>
+				<setting_list id="deactivate_game"
+											navi_right="OK"
+											icon="tex_spanner" title="msg_deactivate">
+					<user_custom id="deactivate_game_text"/>
+				</setting_list>
+			</setting_list>
+
+			<setting_list id="video_activation"
+										icon="tex_spanner" title="msg_video_comics_music">
+				<setting_list id="activate_video"
+											navi_right="OK"
+											icon="tex_spanner" title="msg_activate">
+					<user_custom id="activate_video_text"/>
+				</setting_list>
+				<setting_list id="deactivate_video"
+											navi_right="OK"
+											icon="tex_spanner" title="msg_deactivate">
+					<user_custom id="deactivate_video_text"/>
+				</setting_list>
+			</setting_list>
+
+			<user_custom id="activation_desc"/>
+
+		</setting_list>
+
+		<!-- プライバシー設定 -->
+		<setting_list id="privacy_setting"
+									icon="tex_spanner"
+									title="msg_privacy_settings">
+			<list id="friend_list_privacy" title="msg_friend_list_privacy"/>
+			<list id="activity_privacy" title="msg_activity_privacy"/>
+		</setting_list>
+
+		<!-- アカウント削除 -->
+    <button id="unbind_account"
+						icon="tex_spanner"
+						title="msg_unlink_account"/>
+
+  </setting_list>
+
+</system_settings>
+<!--
+		Local Variables:
+		coding:utf-8
+		tab-width:2
+		End:
+  -->

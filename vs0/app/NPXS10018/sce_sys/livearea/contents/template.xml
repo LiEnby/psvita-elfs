@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<livearea_resource style_id="A_1" >
+
+	<gate>
+		<target>game</target>
+		<text>Start</text>
+	</gate>
+
+</livearea_resource>
+

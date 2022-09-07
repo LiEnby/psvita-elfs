@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id$ -->
+
+<system_settings version="1.0" plugin="powersave_settings_plugin">
+
+  <!-- 省電力設定 -->
+  <setting_list id="powersave_settings" title="msg_power_saving_settings">
+    <!-- 自動スタンバイ -->
+    <!-- Bug 11342 および メール「[IRIS]Displayの劣化/焼きつきと対策について」より
+    TOOL向け設定
+     - 設定値：　切、1分後、3分後、5分後
+     - 初期値：　切
+    CEX向け設定
+     - 設定値：　1分後、3分後、5分後
+     - 初期値：　1分後
+    ※ 減光（Dim)は[上記設定時間-15秒]で発動、OLED OFFは[上記設定時間]で発動する。
+    -->
+    <list id="auto_standby" title="msg_auto_standby" icon="tex_spanner"
+          key="/CONFIG/POWER_SAVING/suspend_interval">
+      <list_item id="auto_standby_0" title="msg_off" value="0"/>
+      <list_item id="auto_standby_1" title="" value="60"/>
+      <list_item id="auto_standby_2" title="" value="180"/>
+      <list_item id="auto_standby_3" title="" value="300"/>
+    </list>
+
+  </setting_list>
+  
+</system_settings>

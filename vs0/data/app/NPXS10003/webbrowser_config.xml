@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application_settings version="1.0">
+  <setting_list id="config_main_page" title="msg_config_title">
+    <toggle_switch id="cookie_list" title="msg_cookie" icon="config_texture_spna" key="/webbrowser/cookie" default_value="1" />
+    <toggle_switch id="javascript_list" title="msg_javascript" icon="config_texture_spna" key="/webbrowser/javascript" default_value="1" />
+    <toggle_switch id="flash_list" title="msg_flash" icon="config_texture_spna" key="/webbrowser/flash" default_value="1" />
+    <list id="search_list" title="msg_search_engine" icon="config_texture_spna" key="/webbrowser/seachengne" default_value="0">
+      <list_item id="search_list_01" title="msg_config_google" value="0" />
+      <list_item id="search_list_02" title="msg_config_yahooo" value="1" />
+      <list_item id="search_list_03" title="msg_config_yahooo" value="2" />
+      <list_item id="search_list_04" title="msg_config_yahooo" value="3" />
+      <list_item id="search_list_05" title="msg_config_yahooo" value="4" />
+      <list_item id="search_list_06" title="msg_config_yahooo" value="5" />
+    </list>
+    <list id="autoinput_list" title="msg_auto_input" icon="config_texture_spna" key="/webbrowser/autoinput" default_value="1">
+      <list_item id="autoinput_list_01" title="msg_switch_on" value="1" />
+      <list_item id="autoinput_list_02" title="msg_switch_off" value="0" />
+    </list>
+
+    <button id="cookie_del_btn" title="msg_cookie_del" icon="config_texture_spna" confirm="msg_config_cookie_del_confirmation"/>
+    <!--button id="plugin_del_btn" title="msg_config_plugin_del" icon="config_texture_spna" confirm="msg_config_plugin_del_confirmation"/-->
+    <button id="cache_del_btn" title="msg_config_cache_del" icon="config_texture_spna" confirm="msg_config_cache_del_confirmation"/>
+    <button id="auth_del_btn" title="msg_config_auth_del" icon="config_texture_spna" confirm="msg_config_auth_del_confirmation"/>
+  </setting_list>
+</application_settings>
+

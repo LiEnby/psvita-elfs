@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="security_settings_plugin">
+
+  <!-- セキュリティ設定 -->
+  <setting_list id="setting_list_security_settings" title="msg_pc_security">
+
+    <!-- ペアレンタルコントロール -->
+    <setting_list id="setting_list_parental_control"
+                  title="msg_parental_controls"
+                  hint="msg_parental_controls_info"
+                  icon="tex_spanner"
+                  authentication="parental_control">
+
+      <!-- コンテンツ -->
+      <list id="list_start_control_content"
+            title="msg_content"
+            hint="msg_start_control_content_info"
+            key="/CONFIG/SECURITY/PARENTAL/content_start_control"
+            icon="tex_spanner"
+            authentication="parental_control">
+        <list_item id="list_item_start_control_content_off" title="msg_off" value="0"/>
+        <list_item id="list_item_start_control_content_11" title="msg_level_variable" value="11"/>
+        <list_item id="list_item_start_control_content_10" title="msg_level_variable" value="10"/>
+        <list_item id="list_item_start_control_content_9" title="msg_level_variable" value="9"/>
+        <list_item id="list_item_start_control_content_8" title="msg_level_variable" value="8"/>
+        <list_item id="list_item_start_control_content_7" title="msg_level_variable" value="7"/>
+        <list_item id="list_item_start_control_content_6" title="msg_level_variable" value="6"/>
+        <list_item id="list_item_start_control_content_5" title="msg_level_variable" value="5"/>
+        <list_item id="list_item_start_control_content_4" title="msg_level_variable" value="4"/>
+        <list_item id="list_item_start_control_content_3" title="msg_level_variable" value="3"/>
+        <list_item id="list_item_start_control_content_2" title="msg_level_variable" value="2"/>
+        <list_item id="list_item_start_control_content_1" title="msg_level_variable" value="1"/>
+      </list>
+
+      <!-- ブラウザー -->
+      <list id="list_start_control_browser"
+            title="msg_browser"
+            icon="tex_spanner"
+            authentication="parental_control"
+            key="/CONFIG/SECURITY/PARENTAL/browser_start_control">
+        <list_item id="list_item_start_control_browser_on" title="msg_allow" value="0"/>
+        <list_item id="list_item_start_control_browser_off" title="msg_do_not_allow" value="1"/>
+      </list>
+
+      <!-- 位置データ -->
+      <list id="list_start_control_location_service"
+            title="msg_location_data"
+            icon="tex_spanner"
+            authentication="parental_control">
+        <list_item id="list_item_start_control_location_service_on" title="msg_allow" value="0"/>
+        <list_item id="list_item_start_control_location_service_off" title="msg_do_not_allow" value="1"/>
+      </list>
+
+      <!-- パスコードを変更する -->
+      <button id="button_pw_change_parental_control"
+              title="msg_change_passcode"
+              icon="tex_spanner"/>
+ 
+    </setting_list>
+
+    <!-- 画面ロック -->
+    <setting_list id="setting_list_screen_lock"
+                  title="msg_screen_lock_passcode"
+                  icon="tex_spanner"
+                  authentication="screen_lock">
+
+      <!-- ロック解除時にパスコードを確認する -->
+      <toggle_switch id="toggle_switch_unlock_control_screen_lock"
+                     title="msg_require_passcode_unlock"
+                     icon="tex_spanner"/>
+
+      <!-- パスコードを変更する -->
+      <button id="button_pw_change_screen_lock"
+              title="msg_change_passcode"
+              icon="tex_spanner"/>
+      
+    </setting_list>
+
+  </setting_list>
+
+</system_settings>

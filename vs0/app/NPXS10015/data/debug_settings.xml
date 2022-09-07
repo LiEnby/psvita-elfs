@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system_settings version="1.0" plugin="debug_settings_plugin">
+
+  <!-- Debug Settings -->
+  <setting_list id="id_debug_settings" title="msg_tool_debug_settings">
+    
+    <!-- System Update -->
+    <setting_list id="id_system_update" title="msg_tool_system_update" icon="tex_spanner" style="edit">
+      
+      <!-- Update Server URL -->
+      <text_field id="id_system_update_server_url" key="/CONFIG/SYSTEM/update_server_url"
+            title="msg_tool_update_server_url"
+            keyboard_type="alphabet" max_length="511" icon="tex_spanner"/>
+
+      <!-- Show PUP List -->
+      <list id="id_system_update_pup_list_flag" key="/CONFIG/SYSTEM/update_pup_list_flag" 
+            title="msg_tool_system_update_pup_list_flag" icon="tex_spanner">
+        <list_item id="id_system_update_pup_list_flag_off" title="msg_off" value="0"/>
+        <list_item id="id_system_update_pup_list_flag_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Enable Host0 -->
+      <list id="id_system_update_enable_host0" key="/CONFIG/SYSTEM/update_enable_host0"
+            title="msg_tool_system_update_enable_host0" icon="tex_spanner">
+        <list_item id="id_system_update_enable_host0_sd" title="msg_tool_sd" value="0"/>
+        <list_item id="id_system_update_enable_host0_host0" title="msg_tool_host0" value="1"/>
+      </list>
+      
+    </setting_list>
+
+    
+    <!-- PlayStation®Network -->
+    <setting_list id="id_np" title="msg_tool_psn_settings" icon="tex_spanner" style="edit">
+
+      <!-- NP Environment -->
+      <text_field id="id_np_env" key="/CONFIG/NP/env"
+                  title="msg_tool_np_environment"
+                  keyboard_type="alphabet" max_length="8"
+                  success_dialog_message="msg_tool_restart_reflect_setting" icon="tex_spanner"/>
+
+      <!-- NP Debug -->
+      <list id="id_np_debug" key="/CONFIG/NP/debug" 
+            title="msg_tool_np_debug" icon="tex_spanner">
+        <list_item id="id_np_debug_off" title="msg_off" value="0"/>
+        <list_item id="id_np_debug_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Nav-only NP -->
+      <list id="id_np_nav_only" key="/CONFIG/NP/nav_only" 
+            title="msg_tool_np_debug_nav" icon="tex_spanner">
+        <list_item id="id_np_nav_only_off" title="msg_off" value="0"/>
+        <list_item id="id_np_nav_only_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Service ID -->
+      <text_field id="id_np_service_id" key="/CONFIG/NP/title_id"
+                  title="msg_tool_np_title_id"
+                  keyboard_type="alphabet" max_length="19" icon="tex_spanner"/>
+
+      <!-- PlayStation®Store Ad Clock -->
+      <list id="id_np_ad_clock_diff"
+            title="msg_tool_psstore_ad_clock"
+            error_dialog_message= "msg_tool_error_no_datetime_setting"
+            accept_not_changed ="on" icon="tex_spanner">
+        <list_item id="id_np_ad_clock_diff_off" title="msg_off" value="0"/>
+        <list_item id="id_np_ad_clock_diff_on" title="msg_on" value="1" />
+      </list>
+
+      <!-- Geo Filtering for PlayStation®Store -->
+      <list id="id_np_geo_filtering" key="/CONFIG/NP/np_geo_filtering"
+            title="msg_tool_geo_filtering_for_psstore" icon="tex_spanner">
+        <list_item id="id_np_geo_filtering_normal" title="msg_tool_normal" value="0" />
+        <list_item id="id_np_geo_filtering_always_succeed" title="msg_tool_always_succeed" value="1" />
+        <list_item id="id_np_geo_filtering_always_fail" title="msg_tool_always_fail" value="2" />
+      </list>
+
+    </setting_list>
+
+    
+    <!-- Mobile Network-->
+    <setting_list id="id_mobile_network" title="msg_tool_mobile_network" icon="tex_spanner" style="edit">
+      
+      <!-- USB Setting -->
+      <list id="id_mobile_network_usb_setting"
+            title="msg_tool_usb_setting"
+            error_dialog_message= "msg_tool_only_for_3g_model"
+            icon="tex_spanner">
+        <list_item id="id_mobile_network_usb_setting_off" title="msg_off" value="0"/>
+        <list_item id="id_mobile_network_usb_setting_on" title="msg_on" value="1"/>
+      </list>
+    
+    </setting_list>
+
+    
+    <!-- Location Data -->
+    <setting_list id="id_location_data" title="msg_tool_location_data" icon="tex_spanner" style="edit">
+
+      <!-- Emulate Permission -->
+      <list id="id_location_data_debug_permission" key="/CONFIG/LOCATION/debug_permission"
+            title="msg_tool_emulate_permission" icon="tex_spanner">
+        <list_item id="id_debug_permission_off" title="msg_off" value="0"/>
+        <list_item id="id_debug_permission_on" title="msg_on" value="1"/>
+      </list>
+
+      <!-- Permission Status -->
+      <list id="id_location_data_debug_permission_status" key="/CONFIG/LOCATION/debug_permission_status"
+            title="msg_tool_permission_status" icon="tex_spanner">
+        <list_item id="debug_permission_status_disable" title="msg_tool_disable" value="0"/>
+        <list_item id="debug_permission_status_not_yet_accessed" title="msg_tool_not_yet_accessed" value="1"/>
+        <list_item id="debug_permission_status_deny" title="msg_tool_deny" value="2"/>
+        <list_item id="debug_permission_status_allow" title="msg_tool_allow" value="3"/>
+      </list>
+
+    </setting_list>
+
+    
+    <!-- System -->
+    <setting_list id="id_system" title="msg_tool_system" icon="tex_spanner" style="edit">
+
+      <!-- ○ Button Behavior -->
+      <list id="id_system_button_behavior" key="/CONFIG/SYSTEM/button_assign"
+            title="msg_tool_button_behavior" icon="tex_spanner">
+        <list_item id="id_tool_button_behavior_enter" title="msg_tool_enter" value="0"/>
+        <list_item id="id_tool_button_behavior_back" title="msg_tool_back" value="1"/>
+      </list>
+
+    </setting_list>
+
+  </setting_list>
+</system_settings>
